@@ -2,4 +2,4 @@
 
 ## Created By Aditya Shakya
 
-rofi -modi run,drun -show drun -location 1 -xoffset 10 -yoffset 32 -line-padding 4 -columns 1 -width 20 -lines 10 -padding 25 -hide-scrollbar -show-icons -drun-icon-theme "Papirus" -font "Misc Termsyn 12"
+rofi -modi run,drun -show drun -line-padding 4 -columns 2 -width 40 -padding 30 -hide-scrollbar -show-icons -drun-icon-theme "Papirus"

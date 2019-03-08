@@ -1,11 +1,14 @@
 #!/bin/bash
 
-## Created By Aditya Shakya
+# Created By Aditya Shakya
+# Modified by Kied Llaentenn for use with i3
 
-MENU="$(rofi -sep "|" -dmenu -i -p 'System' -location 3 -yoffset 32 -xoffset -10 -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 4 -font "Misc Termsyn 12" <<< " Lock| Logout| Reboot| Shutdown")"
+MENU="$(rofi -sep "|" -dmenu -i -p 'System' -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 4 <<< " Lock| Logout| Reboot| Shutdown")"
             case "$MENU" in
-                *Lock) i3lock-fancy ;;
-                *Logout) openbox --exit;;
+                *Lock) i3lock-fancy -dnf Fira-Code-Retina ;;
+                *Logout) i3-msg exit ;;
                 *Reboot) systemctl reboot ;;
                 *Shutdown) systemctl -i poweroff
             esac
+
+# EOF
