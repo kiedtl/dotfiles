@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/home/kiedtl/.gem/ruby/2.6.0/bin:$PATH
+export PATH=$HOME/bin:/home/kiedtl/.gem/ruby/2.6.0/bin:/home/kiedtl/go/bin:$PATH
+export BH_FILTER="(feh)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/kiedtl/.oh-my-zsh"
@@ -103,3 +104,13 @@ if [ -f ~/.bashhub/bashhub.zsh ]; then
     source ~/.bashhub/bashhub.zsh
 fi
 
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh

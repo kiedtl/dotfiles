@@ -203,7 +203,7 @@ for_window [class="(?i)gsimplecal"] floating enable, move position, move down $h
 # Scripts to be executed on startup
 exec --no-startup-id sh /home/kiedtl/.config/polybar/prelaunch.sh &
 exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc -l -15 -t -15 -r 10 -o 0.5 -f -D 5
-exec --no-startup-id feh --bg-fill /home/kiedtl/Pictures/wallpaper.jpg
+exec --no-startup-id wal -i ~/Pictures/wallpapers/favourites/
 
 exec --no-startup-id redshift
 exec --no-startup-id $term &
