@@ -27,11 +27,3 @@ refind.conf
 .thunderbird/
 .vim/
 .vscode/
-
-.config/
-
-!.config/polybar/
-!.config/alacritty/
-!.config/i3/
-
-!~/Pictures/wallpaper.png
