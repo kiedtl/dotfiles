@@ -4,9 +4,9 @@ source ~/.cache/wal/colors-tty.sh
 
 # start a session of tmux
 # needed for scrollback in mistty
-if [ $TERM != 'screen' ] && [ -z "$TMUX"]; then
-    exec tmux
-fi
+#if [ $TERM != 'screen' ] && [ -z "$TMUX"]; then
+ #   exec tmux
+# fi
 
 export PATH=$HOME/bin:/home/kiedtl/.gem/ruby/2.6.0/bin:/home/kiedtl/go/bin:$PATH
 export BH_FILTER="(feh)"
