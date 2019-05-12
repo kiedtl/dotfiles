@@ -9,6 +9,7 @@ source ~/.cache/wal/colors-tty.sh
 # fi
 
 export PATH=$HOME/bin:/home/kiedtl/.gem/ruby/2.6.0/bin:/home/kiedtl/go/bin:$PATH
+export PATH=/home/kiedtl/.cargo/bin:/root/.local/bin:$PATH
 export BH_FILTER="(feh)"
 
 # Path to your oh-my-zsh installation.
@@ -18,13 +19,13 @@ export ZSH="/home/kiedtl/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="random"
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "terminalparty" "terminalpartied" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "terminalparty" "terminalpartied" )
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
@@ -89,7 +90,45 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-### Bashhub.com Installation
+#
+# # ex - archive extractor
+# # usage: ex <file>
+extract ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# Polyglot prompt
+. ~/bin/polyglot
+
+# only load it for interactive shells
+if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
+    . $(shellhistory-location)
+    shellhistory enable
+fi
+
+# Bashhub.com Installation
 if [ -f ~/.bashhub/bashhub.zsh ]; then
     source ~/.bashhub/bashhub.zsh
 fi
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/kiedtl/repos/gb-studio/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/kiedtl/repos/gb-studio/node_modules/tabtab/.completions/electron-forge.zsh

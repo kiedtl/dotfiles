@@ -157,7 +157,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit' -f Fira-Code-Retina"
-bindsym $mod+Shift+x exec "i3lock-fancy -dnf Fira-Code-Retina"
+bindsym $mod+Shift+x exec betterlockscreen -l dim #"i3lock-fancy -dnf Fira-Code-Retina"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -205,8 +205,10 @@ for_window [class="(?i)gsimplecal"] floating enable, move position, move down $h
 
 # Scripts to be executed on startup
 exec --no-startup-id sh /home/kiedtl/.config/polybar/prelaunch.sh &
-exec --no-startup-id compton &
-exec --no-startup-id wal -i ~/Pictures/wallpapers/favourites/
-
-exec --no-startup-id redshift
+exec --no-startup-id redshift &
 exec --no-startup-id $term &
+exec --no-startup-id compton &
+
+
+# set wallpaper
+exec --no-startup-id /home/kiedtl/bin/wally &

@@ -114,7 +114,7 @@ font:
     family: Hack
 
   # Point size
-  size: 11
+  size: 9
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -253,7 +253,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.68
+background_opacity: 0.7
 
 # Mouse bindings
 #
