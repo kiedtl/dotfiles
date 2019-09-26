@@ -204,9 +204,8 @@ for_window [class="^.*"] border pixel 1
 for_window [class="(?i)gsimplecal"] floating enable, move position, move down $height px
 
 # Scripts to be executed on startup
-exec --no-startup-id sh /home/kiedtl/.config/polybar/prelaunch.sh &
-exec --no-startup-id redshift &
-exec --no-startup-id $term &
+# exec --no-startup-id sh /home/kiedtl/.config/polybar/prelaunch.sh & # polybar doesn't work on ARM :P
+# let's use lemonbar instead, maybe.
 exec --no-startup-id compton &
 
 
