@@ -4,6 +4,7 @@
 #
 
 export PATH=/home/kiedtl/bin:$PATH
+export LANG=en_US.UTF-8
 
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
@@ -29,3 +30,7 @@ shopt -s expand_aliases
 # dylanaraps's mnml prompt.
 # https://github.com/dylanaraps/promptless
 . '/home/kiedtl/promptless.sh'
+
+
+# retrieve pywal colorscheme
+cat /home/kiedtl/.cache/wal/sequences
