@@ -34,29 +34,7 @@ URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 URxvt*internalBorder:    54
-URxvt*externalBorder:    18
-URxvt*colorIT:      	 #87af5f
-URxvt*colorBD:      	 #c5c8c6
-URxvt*colorUL:      	 #87afd7
-
-
-! colors
-URxvt*color0: #3f3f3f
-URxvt*color1: #ac3c3c
-URxvt*color2: #60b48a
-URxvt*color3: #dfaf8f
-URxvt*color4: #506070
-URxvt*color5: #dc8cc3
-URxvt*color6: #8cd0d3
-URxvt*color7: #dcdccc
-URxvt*color8: #79A9FF
-URxvt*color9: #da6e6e
-URxvt*color10: #c3bf9f
-URxvt*color11: #f0dfaf
-URxvt*color12: #94bff3
-URxvt*color13: #ec93d3
-URxvt*color14: #93e0e3
-URxvt*color15: #ffffff
+URxvt*externalBorder:    0
 
 ! fonts
 URxvt*letterSpace: 	 			1
@@ -133,8 +111,6 @@ UXTerm*font:               Inconsolata for Powerline
 !Monospace
 UXTerm*faceSize:	   12
 UXTerm*dynamicColors:      true
-UXTerm*utf8:               2
-UXTerm*eightBitInput:      true
 UXTerm*saveLines:          10000
 UXTerm*scrollKey:          true
 UXTerm*scrollTtyOutput:    false
@@ -144,25 +120,3 @@ UXTerm*jumpScroll:         true
 UXTerm*multiScroll:        true
 UXTerm*toolBar:            false
 
-! fix colors
-UXTerm*background: rgb:63/63/63
-UXTerm*foreground: rgb:00/00/00
-UXTerm*color0: rgb:00/00/00
-UXTerm*color1: rgb:a8/00/00
-UXTerm*color2: rgb:00/a8/00
-UXTerm*color3: rgb:a8/54/00
-UXTerm*color4: rgb:00/00/a8
-UXTerm*color5: rgb:a8/00/a8
-UXTerm*color6: rgb:00/a8/a8
-UXTerm*color7: rgb:a8/a8/a8
-UXTerm*color8: rgb:54/54/54
-UXTerm*color9: rgb:fc/54/54
-UXTerm*color10: rgb:54/fc/54
-UXTerm*color11: rgb:fc/fc/54
-UXTerm*color12: rgb:54/54/fc
-UXTerm*color13: rgb:fc/54/fc
-UXTerm*color14: rgb:54/fc/fc
-UXTerm*color15: rgb:fc/fc/fc
-UXTerm*boldMode: false
-UXTerm*colorBDMode: true
-UXTerm*colorBD: rgb:3f/3f/3f
