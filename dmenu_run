@@ -3,5 +3,5 @@
 
 dmenu_path | \
     dmenu "$@" -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" \
-    -p '➜' -fn 'xos4 Terminus:size=11' \
+    -p ' > ' -fn 'xos4 Terminus:size=11' \
     | ${SHELL:-"/bin/sh"} &
