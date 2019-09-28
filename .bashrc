@@ -6,6 +6,7 @@
 export PATH=/home/kiedtl/bin:$PATH
 export LANG=en_US.UTF-8
 
+alias git='hub'                           # hub: git + hub = github 8-)
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
