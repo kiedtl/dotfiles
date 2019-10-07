@@ -3,7 +3,7 @@
 # https://github.com/kiedtl/dotfiles
 #
 
-export PATH=/home/kiedtl/bin:$PATH
+export PATH=/home/kiedtl/usr/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 
 alias git='hub'                           # hub: git + hub = github 8-)

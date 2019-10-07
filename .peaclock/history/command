@@ -26,3 +26,9 @@ style inactive-bg magenta
 style inactive-bg cyan
 style inactive-bg green
 style inactive-bg green
+mode digital
+set mode digital
+view digital
+padding 0 0
+style inactive-bg black
+set blocksize 4 2
