@@ -7,5 +7,8 @@ xrdb -merge ~/.Xresources
 # can't or won't start it itself
 feh --bg-fill ~/wallpapers/landscape-006.jpg 2>&1
 
+# start polybar/lemonbar, too
+~/bin/bar 2>&1
+
 # start dwm
 exec dwm

@@ -27,11 +27,8 @@ complete -cf sudo
 shopt -s checkwinsize
 shopt -s expand_aliases
 
-
-# dylanaraps's mnml prompt.
-# https://github.com/dylanaraps/promptless
-. '/home/kiedtl/promptless.sh'
-
+# my mnmlst prmpt: the glorious $
+export PS1="$ "
 
 # retrieve pywal colorscheme
 cat /home/kiedtl/.cache/wal/sequences
