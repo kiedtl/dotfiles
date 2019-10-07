@@ -1,7 +1,11 @@
 #!/bin/bash
 . "${HOME}/.cache/wal/colors.sh"
 
-dmenu_path | \
-    dmenu "$@" -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" \
-    -p ' > ' -fn 'xos4 Terminus:size=11' \
-    | ${SHELL:-"/bin/sh"} &
+set -- $(dimensions) "$@"
+w=$(echo "$1 / 1.75" | bc)
+x=$(( $1 / 2 - $w / 2 ))
+y=$(( $2 / 5 ))
+h=$(( $2 / 50 ))
+shift 2
+
+/sbin/dmenu_path | /sbin/dmenu "$@" -nb "$color0" -nf "$color7" -sb "$color1" -sf "$color7" -p ' > ' -fn 'xos4 Terminus:size=11' -l "$h" -x "$x" -y "$y" -wi "$w" | ${SHELL:-"/bin/sh"} &

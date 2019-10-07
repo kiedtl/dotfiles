@@ -3,7 +3,8 @@
 # autostart.sh - 
 
 main() {
-    feh --bg-fill ~/wallpaper/landscape-006.jpg
+    feh --bg-fill ~/wallpapers/landscape-006.jpg
+    (/home/kiedtl/bin/bar) &
     # (conky | while read info; do xsetroot -name "${info}"; done) &
 }
 
