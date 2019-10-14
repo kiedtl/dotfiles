@@ -32,3 +32,13 @@ view digital
 padding 0 0
 style inactive-bg black
 set blocksize 4 2
+style active-bg green
+style active-bg yellow
+style active-bg red
+style active-bg magenta
+style inactive-bg black
+style inactive-bg blue
+style active-bg blue
+style inactive-bg red
+style inactive-bg grey
+style inactive-bg gray

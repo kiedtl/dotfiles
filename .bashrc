@@ -28,7 +28,13 @@ shopt -s checkwinsize
 shopt -s expand_aliases
 
 # my mnmlst prmpt: the glorious $
-export PS1="$ "
+# export PS1="$ "
 
 # retrieve pywal colorscheme
 cat /home/kiedtl/.cache/wal/sequences
+
+# promptless prompt, by dylanaraps
+. '/home/kiedtl/promptless.sh'
+
+# set vi editing mode
+set -o vi
