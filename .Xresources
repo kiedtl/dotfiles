@@ -1,9 +1,6 @@
-
 ! ------------------------------------------------------------------------------
 ! URxvt standard arcolinux theme - Reload with xrdb -merge ~/.Xresources
 ! ------------------------------------------------------------------------------
-
-
 
 ! general settings
 URxvt*saveline:         15000
@@ -14,20 +11,8 @@ URxvt*iso14755:         false
 URxvt*iso14755_52:      false
 URxvt*meta8:            false
 URxvt*metaSendsEscape:  true
-URxvt*iconFile:  	/usr/share/icons/Sardi-Mono/scalable/apps/terminal.svg
 
 ! appearance
-!URxvt*depth:             32
-!URxvt*transparent:       true 
-!URxvt*shading:           30
-!URxvt*background:        rgba:0000/0000/0000/AAAA
-!URxvt*background:        [80]#404552
-!URxvt*background:        [70]#3F424A
-URxvt*background:        #282A36
-URxvt*foreground:        #F8F8FF
-URxvt*underlineColor:    #4682B4
-URxvt*highlightColor:    #4682B4
-URxvt*throughColor:      Blue
 URxvt*cursorColor:       #c5c8c6
 URxvt*scrollBar:         false
 URxvt*scrollTtyOutput:   false
@@ -38,16 +23,13 @@ URxvt*externalBorder:    0
 
 ! fonts
 URxvt*letterSpace: 	 			1
-URxvt*font:                 	xft:Iosevka Light:Regular:size=11
-URxvt*imFont:               	xft:Iosevka:Regular:size=11
-URxvt*boldFont:             	xft:Iosevka:Regular:size=11
-URxvt*italicFont:           	xft:Iosevka:Regular:size=11
-URxvt*boldItalicFont:    		xft:Iosevka:Regular:size=11
-! run :.!fc-list | grep <font-name>
+URxvt*font:                 	xft:Hack:size=11
+URxvt*imFont:               	xft:Hack:size=11
+URxvt*boldFont:             	xft:Hack:size=11
+URxvt*italicFont:           	xft:Hack:size=11
+URxvt*boldItalicFont:    	xft:Hack:size=11
 
 ! perl extensions
-!URxvt*perl-ext-common:  default,clipboard,url-select,keyboard-select
-!URxvt*perl-ext-common:  default,clipboard,url-select,keyboard-select,tabbed,resize-font
 URxvt*perl-ext-common:  default,matcher,clipboard,url-select,keyboard-select,-tabbed,resize-font
 
 ! macros for clipboard and selection
@@ -61,19 +43,14 @@ URxvt*keysym.M-s:       	perl:keyboard-select:search
 URxvt*keysym.M-u:       	perl:url-select:select_next
 
 !! Change font size on Control-Plus/Minus
-!URxvt.keysym.C-plus:     perl:resize-font:bigger
-!URxvt.keysym.C-minus:    perl:resize-font:smaller
 URxvt.keysym.Control-0x2f:    perl:resize-font:reset
 URxvt.keysym.Control-0x3f:    perl:resize-font:show
 
 URxvt.keysym.Control-0x2b: 	perl:resize-font:bigger
 URxvt.keysym.Control-0x5f: 	perl:resize-font:smaller
 
-!URxvt*resize-font.smaller:	C-Down
-!URxvt*resize-font.bigger:	C-Up
-URxvt*urlLauncher:      	/usr/bin/firefox
+URxvt*urlLauncher:      	/home/kiedtl/bin/srf
 URxvt*underlineURLs:    	true
-!URxvt*urlButton:        	1
 URxvt.matcher.button:        1
 URxvt*geometry: 		64x18
 
@@ -85,38 +62,3 @@ URxvt*tabbed.tab-bg:    	4
 URxvt*buffered:         	false
 URxvt*keysym.Control-Shift-C: 	perl:clipboard:copy
 URxvt*keysym.Control-Shift-V: 	perl:clipboard:paste
-
-!! Yeah, I am one of those, who use these keys in Vim :-(
-!!"\e[7~":beginning-of-line
-!!"\e[8~":end-of-line
-URxvt.keysym.Home:          \033[1~
-URxvt.keysym.End:           \033[4~
-URxvt.keysym.Control-Up:    \033[1;5A
-URxvt.keysym.Control-Down:  \033[1;5B
-URxvt.keysym.Control-Left:  \033[1;5D
-URxvt.keysym.Control-Right: \033[1;5C
-! ------------------------------------------------------------------------------
-! UXTerm standard arcolinux theme
-! ------------------------------------------------------------------------------
-
-
-
-! termtype
-UXTerm*termName: 	   xterm-256color
-
-
-UXTerm*cursorColor:        white
-UXTerm*VT100.geometry:     88x23
-UXTerm*font:               Inconsolata for Powerline
-!Monospace
-UXTerm*faceSize:	   12
-UXTerm*dynamicColors:      true
-UXTerm*saveLines:          10000
-UXTerm*scrollKey:          true
-UXTerm*scrollTtyOutput:    false
-UXTerm*scrollBar:          false
-UXTerm*rightScrollBar:     false
-UXTerm*jumpScroll:         true
-UXTerm*multiScroll:        true
-UXTerm*toolBar:            false
-
