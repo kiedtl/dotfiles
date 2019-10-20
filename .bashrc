@@ -5,6 +5,7 @@
 
 export PATH=/home/kiedtl/usr/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
+export EDITOR=vim
 
 alias git='hub'                           # hub: git + hub = github 8-)
 alias ls='ls --color=auto'
@@ -37,4 +38,4 @@ cat /home/kiedtl/.cache/wal/sequences
 . '/home/kiedtl/promptless.sh'
 
 # set vi editing mode
-set -o vi
+# set -o vi
