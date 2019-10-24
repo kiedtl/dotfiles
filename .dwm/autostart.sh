@@ -9,7 +9,7 @@ main() {
 	xmodmap -e "keycode 66 = Escape NoSymbol Escape"
    	
 	# add wallpaper and start bar script
-	feh --bg-fill ~/wallpapers/landscape-013.jpg
+	feh --bg-fill ~/wallpapers/sky-003.jpg
 	(/home/kiedtl/bin/bar) &
 	# (conky | while read info; do xsetroot -name "${info}"; done) &
 }

@@ -1,0 +1,64 @@
+! ------------------------------------------------------------------------------
+! URxvt standard arcolinux theme - Reload with xrdb -merge ~/.Xresources
+! ------------------------------------------------------------------------------
+
+! general settings
+URxvt*saveline:         15000
+URxvt*termName:         xterm-256color
+URxvt*urgentOnBell:     false
+URxvt*visualBell:       false
+URxvt*iso14755:         false
+URxvt*iso14755_52:      false
+URxvt*meta8:            false
+URxvt*metaSendsEscape:  true
+
+! appearance
+URxvt*cursorColor:       #c5c8c6
+URxvt*scrollBar:         false
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  true
+URxvt*scrollTtyKeypress: true
+URxvt*internalBorder:    54
+URxvt*externalBorder:    0
+
+! fonts
+URxvt*letterSpace: 	 			1
+URxvt*font:                 	xft:Hack:size=11
+URxvt*imFont:               	xft:Hack:size=11
+URxvt*boldFont:             	xft:Hack:size=11
+URxvt*italicFont:           	xft:Hack:size=11
+URxvt*boldItalicFont:    	xft:Hack:size=11
+
+! perl extensions
+URxvt*perl-ext-common:  default,matcher,clipboard,url-select,keyboard-select,-tabbed,resize-font
+
+! macros for clipboard and selection
+URxvt*copyCommand:	      	xclip -i -selection clipboard
+URxvt*pasteCommand:	     	xclip -o -selection clipboard
+URxvt*keysym.M-c:       	perl:clipboard:copy
+URxvt*keysym.M-v:       	perl:clipboard:paste
+URxvt*keysym.M-C-v:     	perl:clipboard:paste_escaped
+URxvt*keysym.M-Escape:  	perl:keyboard-select:activate
+URxvt*keysym.M-s:       	perl:keyboard-select:search
+URxvt*keysym.M-u:       	perl:url-select:select_next
+
+!! Change font size on Control-Plus/Minus
+URxvt.keysym.Control-0x2f:    perl:resize-font:reset
+URxvt.keysym.Control-0x3f:    perl:resize-font:show
+
+URxvt.keysym.Control-0x2b: 	perl:resize-font:bigger
+URxvt.keysym.Control-0x5f: 	perl:resize-font:smaller
+
+URxvt*urlLauncher:      	/home/kiedtl/bin/srf
+URxvt*underlineURLs:    	true
+URxvt.matcher.button:        1
+URxvt*geometry: 		64x18
+
+! tabbed
+URxvt*tabbed.tabbar-fg: 	4
+URxvt*tabbed.tabbar-bg: 	16
+URxvt*tabbed.tab-fg:    	15
+URxvt*tabbed.tab-bg:    	4
+URxvt*buffered:         	false
+URxvt*keysym.Control-Shift-C: 	perl:clipboard:copy
+URxvt*keysym.Control-Shift-V: 	perl:clipboard:paste

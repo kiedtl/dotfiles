@@ -1,5 +1,1 @@
-#
-# ~/.bash_profile
-#
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+/home/kiedtl/.config/bash/.bash_profile

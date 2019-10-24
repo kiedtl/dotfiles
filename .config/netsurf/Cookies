@@ -1,0 +1,29 @@
+# NetSurf cookies file.
+#
+# Lines starting with a '#' are comments, blank lines are ignored.
+#
+# All lines prior to "Version:	102" are discarded.
+#
+# Version	Domain	Domain from Set-Cookie	Path	Path from Set-Cookie	Secure	HTTP-Only	Expires	Last used	No destroy	Name	Value	Value was quoted	Scheme	URL	Comment
+Version:	102
+0	sinister.ly	0	/	1	0	0	1603394493	1571858501	0	mybb[lastvisit]	1571858493	0	https	https://sinister.ly/Thread-XerXes-Most-Powerful-DDos-Tool-Source-code	
+0	sinister.ly	0	/	1	0	0	1603394498	1571858501	0	mybb[lastactive]	1571858498	0	https	https://sinister.ly/Thread-XerXes-Most-Powerful-DDos-Tool-Source-code	
+0	sinister.ly	0	/	1	0	0	1603394498	1571858501	0	mapovifog	5	0	https	https://sinister.ly/Thread-XerXes-Most-Powerful-DDos-Tool-Source-code	
+0	.reddit.com	1	/	1	1	0	1635017402	1571943686	0	loid	00000000004v0qtu3d.2.1571859002517.Z0FBQUFBQmRzS282d3RsbXQwTHhZQmdiOE5MSFpHc1JDZFJpRmNQc2ZsR2tXWUlxUjRUbGlWaHhrWUZOSmsydEJsbXBjb0JheG1CdlhRRnlVOWpWeWVJYjVSRGx5WlR5M0o4bi1OaDFyWkRsd3pqa3d6RVFSMHFvYWs0Sm0yUmVySmNMQ1FLa3lfX0o	0	unused	unused	
+0	.reddit.com	1	/	1	1	0	1635102078	1571943686	0	d2_token	3.4e8abbb63aff647b1f61a856c781809fdd2fe283ecafbad8780e85c3d939bded.eyJhY2Nlc3NUb2tlbiI6IjI2MzUzNzgxMTk1MC1PYlhTRXhOQ2JDR05lZDU3QWItZ0pwQUV6RFUiLCJleHBpcmVzIjoiMjAxOS0xMC0yNFQyMDowMToxOC4wMDBaIiwibG9nZ2VkT3V0IjpmYWxzZSwic2NvcGVzIjpbIioiLCJlbWFpbCJdfQ==	0	unused	unused	
+0	www.reddit.com	0	/	1	1	0	1634931002	1571943678	0	edgebucket	t8LF0OjwSWSh6tbTKq	0	https	https://www.reddit.com/	
+0	www.reddit.com	0	/	1	1	1	2145887999	1571943678	0	reddit_session	263537811950%2C2019-10-23T19%3A35%3A30%2Cce1a88fba51f279794ee5208768f8b4c1c96b61d	0	https	https://www.reddit.com/	
+0	www.reddit.com	0	/	1	1	0	1634931339	1571943678	0	loid	00000000003d2flx4e.2.1551965340539.Z0FBQUFBQmRzS3VMclpuZ0E1VjEyT0dGR1lMZzFHUS1kLWI3eHlfWXFJTEdWWUFvRmhsR3BtZlRsOGFHZjRKZEtyRXdmMGtCdWZVMTJVZl84ajh1cWt2T3RJNy0ybUxVQUFjM3NvQWpDRVlsZjNzR0VhbmRBdlE4aDU2RjlzcDRjblpjNDU0NjRfaHY	0	https	https://www.reddit.com/	
+0	old.reddit.com	0	/	1	1	0	1571950885	0	0	session_tracker	1KJ8jTjf9dcSrnzsp0.0.1571943685559.Z0FBQUFBQmRzZlVGSzBmRTlMT0lJWGtselQweDhZdzU3QV90NVRWX1ZNOXBmNVJBZ2tlWXY5emFxWFFTeXlEYXFFSVNOcFZSQjBNSG10V0ZnbmRmTmdCX3pGdkdSazFWMXpxLVVEQlAwOGV3VzBrQjFnZ04zS2Fkc3BaVXJpbk5pNElYSjRsLWRnTVY	0	https	https://old.reddit.com/	
+0	old.reddit.com	0	/	1	1	0	1634931157	1571943685	0	edgebucket	vznrassccY4MWaLv5Z	0	https	https://old.reddit.com/	
+0	.google.com	1	/	1	0	0	1574450823	0	0	1P_JAR	2019-10-23-19	0	unused	unused	
+0	.google.com	1	/	1	0	1	1587669127	1571858823	0	NID	189=Pn0dqWzCHuOJaMmzPH1czdwWFgU6Wsn9_g0Z9jwpYfkkNfNCh52WxgP5pHosA8hUnT4-5WoxTO3PHRktKo-grFBUPQwQ_iq23XYYvZL11jXwW8LpF_yQtKo8z-MUrSkCYO44inS5rpvaWlObsK2GbljX_lq50J-_UzotHkNzmSU	0	unused	unused	
+0	.google.com	1	/search	1	0	1	1587409927	1571858823	0	CGIC	IgMqLyo	0	unused	unused	
+0	.github.com	1	/	1	0	0	1634940838	1571858447	0	_octo	GH1.1.1115359331.1571782438	0	unused	unused	
+0	.github.com	1	/	1	1	1	2147483647	1571858447	0	logged_in	yes	0	unused	unused	
+0	.github.com	1	/	1	1	1	2147483647	1571858447	0	dotcom_user	kiedtl	0	unused	unused	
+0	github.com	0	/	1	1	1	2147483647	1571858054	0	_device_id	1f58387979be055691cbe3e42e8ec4ae	0	https	https://github.com/	
+0	github.com	0	/	1	1	1	1573067655	0	0	user_session	AWT82dNQWPEuN_S9EdIqDZiBREfVr_ZArh-Ua4r9xyf2xBKi	0	https	https://github.com/	
+0	github.com	0	/	1	1	1	1573067655	0	0	__Host-user_session_same_site	AWT82dNQWPEuN_S9EdIqDZiBREfVr_ZArh-Ua4r9xyf2xBKi	0	https	https://github.com/	
+0	gist.github.com	0	/	1	1	1	1573068047	0	0	gist_user_session	Rmj9bc1cS9jaRfafJH8lcQ3MZwtfSlenT9zae1_f7XwraYNi	0	https	https://gist.github.com/Xe/6043848	
+0	gist.github.com	0	/	1	1	1	1573068047	0	0	__Host-gist_user_session_same_site	Rmj9bc1cS9jaRfafJH8lcQ3MZwtfSlenT9zae1_f7XwraYNi	0	https	https://gist.github.com/Xe/6043848	
