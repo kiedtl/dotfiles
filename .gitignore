@@ -30,3 +30,4 @@ refind.conf
 
 .config/bash/.bash_history
 .config/netsurf/*
+.config/hub

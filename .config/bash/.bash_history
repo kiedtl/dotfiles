@@ -1,24 +1,3 @@
-mkdir -p /etc/X11/xorg.conf.d/
-sudo mkdir -p /etc/X11/xorg.conf.d/
-sudo vim /etc/X11/xorg.conf.d/depth.conf
-ls
-startx
-xinit
-jjflsjflsjflsjflsjflsjflsjfslsjflsjfljflsjflsjflsjflsjflsjflsjflsjflsjflsjflsjflsjflsjflsjflsjfjslfjslfjsfjslfjslfjs
-sudo rm /etc/X11/xorg.conf.d/depth.conf
-startx
-killall lemonbar
-killall polybar
-cd .config/polybar
-ls
-./launch-i3.sh
-killall polybar;
-./launch-i3.sh; sleep 10; killall polybar
-ls
-vim bars.ini
-vim config-top.ini
-./launch-i3.sh; sleep 10; killall polybar
-vim config-bottom.ini 
 vim config-top.ini 
 ./launch-i3.sh; sleep 10; killall polybar
 ls
@@ -498,3 +477,24 @@ cd ../..
 ls
 sudo echo ll
 ./build.sh dwm
+cd .config/polybar
+ls
+vim launch-dwm.sh
+killall polybar
+vim config-dwm.ini
+killall polybar
+vim config-dwm.ini
+cd
+cd .dwm
+vim autostart.sh
+ls
+pwd
+cd ..
+git status
+git commit -am "new theme"
+git push
+vim .gitignore
+rm -rf .config/netsurf
+git status
+git commit -am "don't track netsurf!"
+git push
