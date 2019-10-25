@@ -9,8 +9,8 @@ main() {
 	xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 	# configure Xresources
+	xrdb -merge ~/.cache/wal/colors.Xresources
 	xrdb -merge ~/.Xresources
-	xrdb -merge ~/.cache/wal/colors.Xresources	
 	# add wallpaper and start bar script
 	~/.fehbg
 	exec ~/.config/polybar/launch-dwm.sh

@@ -1,59 +1,3 @@
-ls -al
-tar xf ./build.tar
-ls
-ls ./build
-rm -rf ./build.tar
-tar czvf ./build.tar.gz ./build
-ls
-rm -rf ./build
-git add .
-ls -al
-git commit -am "add archive"
-git push
-wal -R
-cd .config/polybar
-ls
-cd
-cd .config/polybar
-ls
-vim colors.ini
-ls
-cd
-ls
-cd repos
-ls
-git clone dylanaraps/wal
-cd wal
-ls
-cat README.md
-ls
-ls
-sudo install -m 755 ./wal /usr/bin/wall
-sudo install -m 755 ./wal /usr/bin/wal
-sudo install -m 755 ./wal /usr/bin/wall
-wall
-wall -i ~/wallpapers/landscape-013.jpg
-wal -r
-wal -tr
-wall -tr
-wall -r
-wall -i ~/wallpapers/sky-003.jpg
-16
-which dmenu_run
-ls
-cd
-ls
-sudo rm /bin/dmenu_run
-sudo install -m 755 dmenu_run /usr/bin/dmenu_run
-cd
-killall polybar
-cd ls
-cd
-ls
-cd repos
-ls
-cd suckless
-ls
 cd dwm
 ls
 cd config
@@ -498,3 +442,59 @@ tef
 cla
 kfetch
 clear; kfetch; 16
+ls
+ls -al
+vim .Xresources
+vim .cache/wal/colors.Xresources
+vim .Xresources
+git commit -am "override funny borders from wal"
+vim .dwm/autostart
+vim .dwm/autostart.sh 
+xrdb -merge .Xresources
+vim .Xresources
+xrdb -merge .Xresources
+xrdb -merge .Xresources
+cd .cache
+ls
+cd wal
+ls
+grep colors.Xresources #
+grep colors.Xresources '#'
+grep '#'  colors.Xresources 
+grep 'URxvt'  colors.Xresources
+ls
+grep 'URxvt'  colors.xresources
+pipes.sh
+bash -c nnn
+cd .config
+ls
+cla
+ls
+cd polybar
+ls
+vim user_modules.ini
+sudo xbps-install rofi
+dmenu_run
+urx
+urxvt -help
+urxvt -help | grep shell
+urxvt --help | grep shell
+urxvt -e nnn
+st -e sh -e nnn
+st -e 'sh -e nnn'
+st -e '/bin/bash -e nnn'
+st --help
+st -t Files -e '/bin/bash -e nnn'
+bash --help
+st -t Files -e '/bin/bash -c nnn'
+st -t Files -e '/bin/bash'
+st -t Files -e '/bin/bash -c \'exec nnn\''
+st -t Files -e "/bin/bash -c 'exec nnn'"
+cd
+ls
+cd bin
+mks fil 'files'
+vim fil
+file
+./fil
+exit

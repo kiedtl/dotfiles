@@ -1,9 +1,8 @@
-!
 !------------------------------------------------------------------------------
 ! URxvt standard arcolinux theme - Reload with xrdb -merge ~/.Xresources
 ! ------------------------------------------------------------------------------
 
-URxvt*borderColor:  [100]#cacbca
+URxvt*borderColor:      #cacbca
 
 ! general settings
 URxvt*saveline:         15000
