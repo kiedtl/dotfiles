@@ -27,3 +27,5 @@ refind.conf
 .thunderbird/
 .vim/
 .vscode/
+
+.config/bash/.bash_history

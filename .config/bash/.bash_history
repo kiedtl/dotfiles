@@ -1,113 +1,3 @@
-rge 
-ls
-13 'this is a test'
-vim 13
-cat LICENSE
-vim LICENSE
-git add .
-git commit -am "update license"
-git push
-ls
-cal
-curl https://raw.githubusercontent.com/dylanaraps/bin/master/bud
-curl https://raw.githubusercontent.com/dylanaraps/bin/master/bud > bud
-./bud
-chmod +x bud
-bud
-bud --help
-vim bud
-cd
-cd repos
-git clone dylanaraps/pal
-cd pal
-ls
-sudo make install
-man pal
-bud ~/wallpapers/lanscape-013.jpg
-?
-cd
-cd bin
-vim bud
-bud ~/wallpapers/lanscape-013.jpg
-bud ~/wallpapers/lanscape-013.jpg ..
-bud ~/wallpapers/lanscape-013.jpg .
-bud ~/wallpapers/lanscape-013.jpg
-sudo bud ~/wallpapers/lanscape-013.jpg
-bud this is a test
-vim bud
-bud ~/wallpapers/
-bud ~/wallpapers/
-vim bud
-bud ~/wallpapers/
-vim bud
-bud ~/wallpapers/
-killall lemonbar
-killall leemonbar
-k
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbarcls
-ls
-cls
-ls
-cla
-cls
-cat ~/wallpapers/landscape-0015
-cat ~/wallpapers/landscape-015.
-cat ~/wallpapers/landscape-015.jpg 
-rm ~/wallpapers/landscape-015.jpg 
-ls
-bud ~/wallpapers/
-cla
-neofetch
-pfe
-kfetch
 fet
 16
 cd bin
@@ -498,3 +388,113 @@ ls
 vim config/config.h
 cd ..
 ./build.sh dwm
+killall lemonbar
+.config/polybar/launch-i3.sh 
+killall polybar
+wall
+wall -h
+wall -r
+killall polybar
+.config/polybar/launch-i3.sh 
+killall polybar
+wal -i ~/wallpapers/sky-003.jpg
+ls .cache
+ls .cache/wal
+ls .cache/wal/schemes
+wal -h
+wall -h
+wall -f ~/.cache/wal/schemes/_home_kiedtl_wallpapers_sky-003_jpg_dark_None_None_1.1.0.json 
+wal -i ~/wallpapers/sky-003.jpg
+wall -f ~/.cache/wal/schemes/_home_kiedtl_wallpapers_sky-003_jpg_dark_None_None_1.1.0.json 
+wal -i ~/wallpapers/sky-003.jpg
+ls .cache/wal/
+.config/polybar/launch-i3.sh 
+cdkillall 
+killall polybar
+cd .config
+cd polybar
+vim config-bottom.ini 
+vim config-top.ini
+ls
+rm -rf ./log
+cd wallpapers
+ls
+feh .
+cp ./bg-secondary.jpg ~/wallpapers/city-002.jpg
+cd
+.config/polybar/launch-i3.sh 
+killall polybar
+cd
+ls
+ls -al
+rm -rf ./dillo
+rm -rf ./.dillo
+ls ./urxvt
+ls ./.urxvt
+rm -rf ./.urxvt
+ls
+ls -al
+cat .fehbg
+cat .zshrc
+ls
+ls -al
+rm ./.zshrc
+mkdir -p .config/Xorg
+mv ./.Xauthority .config/Xorg/
+mv ./.Xresources .config/Xorg/
+mv ./.xinitrc .config/Xorg/
+ls .config/Xorg
+ls .config/Xorg -al
+git add .config/Xorg/
+#git commit -am "move"
+ln -s /home/kiedtl/.config/Xorg/.xinitrc .xinitrc
+ln -s /home/kiedtl/.config/Xorg/.Xresources .Xresources
+ln -s /home/kiedtl/.config/Xorg/.Xauthority .Xauthority
+ls
+ls -al
+ls -al
+mkdir .config/bash
+move() { mv $1 $2/$1; ln -s $(readlink -f $2/$1) $1} 
+mv ./.bash_history .config/bash/
+mv ./.bash_logout .config/bash/
+mv ./.bash_profile .config/bash/
+mv ./.bashrc .config/bash/
+ls -al
+ln -s /home/kiedtl/.config/bash/.bash_history .bash_history
+ls
+ls -al
+ln -s /home/kiedtl/.config/bash/.bash_profile .bash_profile
+ln -s /home/kiedtl/.config/bash/.bashrc .bashrc
+ln -s /home/kiedtl/.config/bash/.bash_logout .bash_logout
+ls
+ls -al
+rm .profile
+mv ./promptless.sh ./.config/bash/
+ls
+ls -al
+vim .bashrc
+cd .config
+git add .
+git commit -am "add"
+cd ..
+ls
+git status
+cat .viminfo
+rm -rf ./.viminfo
+git status
+git add .Xauthority 
+git add .fehbg
+rm -rf ./.fltk
+rm ./.inputrc 
+git staut
+git status
+git commit -am "add"
+git push
+grt
+git push
+cla'
+cla
+xrdb -merge ~/.cache/wal/colors.Xresources
+cd .dwm
+ls
+vim autostart.sh 
