@@ -1,151 +1,3 @@
-vim config-top.ini 
-./launch-i3.sh; sleep 10; killall polybar
-ls
-cat launch-i3.sh 
-polybar top -c /home/kiedtl/.config/polybar/config-bottom.ini &
-killall polybar
-polybar top -c /home/kiedtl/.config/polybar/config-top.ini
-polybar top -c /home/kiedtl/.config/polybar/config-top.ini -l trace
-polybar top -c /home/kiedtl/.config/polybar/config-top.ini -l trace > log
-polybar top -c /home/kiedtl/.config/polybar/config-top.ini -l trace > log 2>&1
-cat log
-0x0 ./log
-curl -F'file=@log' 0x0.st
-polybar top -c /home/kiedtl/.config/polybar/config-top.ini -l trace > log 2>&1
-feh ~/Picture/screenshots/current.jpg
-feh ~/Pictures/screenshots/current.jpg
-cd ~
-cd Pictures/screenshots/current.jpg
-sl
-cd Pictures
-ls
-cd screenshots/
-ls
-curl -F'file=@current.jpg' 0x0.st
-polybar -vvv
-polybar -vvv > log
-curl -F'file=@log' 0x0.st
-peaclock
-peaclock --help
-peaclock --help | less
-peaclock --version
-ls
-cd
-cd .peaclock
-sl
-ls
-cat config | grep history
-cat config | grep locale
-vim config
-peaclock
-locale
-cat /etc/locale
-sudo xbps-query -Rs locale
-cat /etc/locale.conf
-l
-ls
-vim config
-peaclock
-locale -a
-export LC_ALL=C
-unset LANGUAGE
-peaclock
-cd
-cd bin
-ls
-mks clo 'shortcut for peaclock'
-vim peaclock
-vim clo
-clo
-cd
-ls
-cd .peaclock
-sl
-ls
-vim config
-sudo halt
-peaclock
-clo
-xbps-src
-ls /usr/bin/ | grep xbps-src
-ls /usr/bin/ | grep xbps
-xbps-query -Rs xbps-src
-clo
-sudo cfdisk /dev/mmcblk0
-clo
-sync; clo
-sudo sv restart ntpd
-sync
-sudo sync
-clo
-df
-rge
-rge
-rge 888
-rge 88855
-rge 8885544
-rge 888554422
-rge 888554422
-rge 888554422
-rge 888554422
-rge 888554422
-rge 888554422
-rge 888554422
-rge 8
-rge 8
-rge 8
-rge 8
-rge 8
-rge 8
-rge 8
-rge 8
-rge 8
-rge 8
-rge 8clo
-clo
-clo
-fet
-pfe
-kfetch
-clo
-man tar
-vim .bashrc
-cd repos
-ls
-cd suckless
-ls
-vim build.sh
-./build.sh dmenu dwm slock st tabbed
-pwd
-vim ./build.sh
-./build.sh dmenu dwm slock st tabbed
-ls
-cd dwm
-ls
-ls ./dwm
-cd .
-cd ..
-name=dmenu
-cp "./$name/$name/$name.tar" .
-ls
-rm ./dmenu.tar
-mkdir build
-cp "./$name/$name/$name.tar" ./build/
-ls ./build
-name=dwm cp "./$name/$name/$name.tar" ./build/
-name=dwm; cp "./$name/$name/$name.tar" ./build/
-name=slock; cp "./$name/$name/$name.tar" ./build/
-name=st; cp "./$name/$name/$name.tar" ./build/
-name=tabbed; cp "./$name/$name/$name.tar" ./build/
-ls
-ls ./build
-git add .
-ls
-tar cvf ./build.tar ./build
-ls
-rm -rf ./build
-gz ./build.tar
-gunzip ./build.tar
 ls -al
 tar xf ./build.tar
 ls
@@ -498,3 +350,151 @@ rm -rf .config/netsurf
 git status
 git commit -am "don't track netsurf!"
 git push
+killall polybar
+.config/polybar/launch-dwm.sh
+killall polybar
+.config/polybar/launch-dwm.sh
+cd .config/
+ls
+rm -rf alacritt
+rm -rf alacritty
+rm -rf neofetch
+rm -rf ranger
+rm -rf rofi
+ls
+cat hub
+cd ..
+ls
+vim .gitignore
+ls
+ls -al
+rm -rf .dillo
+ls .vmodules
+rm -rf .vmodules
+ls -all
+rm .spacemacs
+ls .vim
+git status
+git add .gitignore
+#git commit -am "ignore hub file"
+rm .config/hub
+git add .config/hub
+git commit -am "ignore hub file"
+ls
+cd .config
+ls
+cd ..
+ls
+ls -al
+rm .conkyrc
+rm .viminfo
+ls
+git commit -am "remove unnecessary files"
+git push
+git rev-parse
+git rev-parse HEAD
+git rev-parse HEAD --all
+git rev-parse HEAD --all --count
+onefetch
+lynx
+git rev-list
+git rev-list HEAD
+git rev-list HEAD --alll
+git rev-list HEAD --all
+git rev-list HEAD --all --count
+git rev-list HEAD --all --count
+ls
+ls -al
+mkdir .config/vim/
+mv .vimrc ~/.config/vim/
+ls .config/vim
+ls .config/vim -al
+mv ./.vim/ .config/vim/
+ls
+ls -al
+cd .config/
+ls
+ls ./vim
+ls ./vim -al
+cd vim/
+ls
+ls -al
+cd .vim
+ls
+mv ./* ../
+ls
+ls -al
+cd ..
+ls -al
+rm -rf ./.vim
+cd
+ls
+ln -s /home/kiedtl/.config/vim/.vimrc .vimrc
+ls
+ls -al
+ln -s /home/kiedtl/.config/vim/ .vim/
+ln -s /home/kiedtl/.config/vim/ .vim
+ls
+ls -al
+vim 
+git status
+git add .config/*
+git status
+git restore --stages .
+git restore --staged .
+vim .gitignore
+git add .gitignore
+git commit -m "fix gitignore"
+git status
+git commit -am "typechange .vimrc"
+cd .config
+ls
+git add vim
+git status
+git commit -am "vimrc"
+cd ..
+ls
+cd .config/
+ls
+cd polybar
+ls
+vim bars.ini
+ls
+vim modules.ini
+vim config-dwm
+vim config-dwm.ini 
+cla
+ls
+diff config-bottom.ini config-top.ini
+vim config-dwm.ini 
+git status
+git add .
+git commit -m "fix dwm bar"
+cd
+vim .gitignore
+cd suckless
+ls
+cd repos
+cd suckless
+ls
+cd dwm
+ls
+cd config
+ls
+vim config.h
+cd ..
+ls
+cd ..
+ls
+git status
+git commit -am "config"
+./build.sh
+./build.sh dwm
+vim dwm/config/config.h
+./build.sh dwm
+git commit -am "fix config"
+fet
+tef
+cla
+kfetch
+clear; kfetch; 16
