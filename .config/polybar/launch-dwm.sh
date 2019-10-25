@@ -8,4 +8,4 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Start the polybar party
 # polybar top -c /home/kiedtl/.config/polybar/config-top.ini &
-polybar dwm_bar -s -c /home/kiedtl/.config/polybar/config-dwm.ini &
+polybar dwm_bar -c /home/kiedtl/.config/polybar/config-dwm.ini &

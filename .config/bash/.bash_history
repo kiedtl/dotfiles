@@ -1,135 +1,3 @@
-fet
-16
-cd bin
-ls
-cat bud
-l
-sls
-ls
-clrs
-cd /
-find -name clrs
-cd 
-find -name clrs
-ls
-cat bug
-cat bud
-ls
-cd bin
-man mapfile
-mapfile
-mapfile --help
-vim bud
-rm -rf ~/.cache/wal
-bud ~/wallpapers/
-16
-wal -i ~/wallpapers/0bBr7rU.png 
-'
-
-ls
-bud ~/wallpapers/
-16
-killall polybar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-killall lemonbar
-pkill lemonbar
-  
-which wal
-cat /bin/wal
-ls /bin/ | grep wal
-cat /bin/wall
-wall
-man wall
-cla
-cle
-cla
-ls
-ls
-vim bud
-bud ~/wallpapers/
-16
-bud ~/wallpapers/
-vim bud
-bud ~/wallpapers/
-16
-cat .dwm/autoload.sh
-pw
-pwd
-cat ~/.dwm/autoload
-cat ~/.dwm/autoload.sh
-ls .dwm
-cat .dwm/autostart.sh
-wal -i ~/wallpapers/sky-003.jpg
-ls
-cat bin/0x0
-0x0 ~/Pictures/screenshots/current.jpg
-curl -F'file=@current.jpg' 0x0.st
-cd Pictures/screenshots/q
-cd Pictures/screenshots/
-curl -F'file=@current.jpg' 0x0.st
-ls
-cd
-cd
-ls
-cd repos
-l
-ls
-cl
-a
-cla
-ls
-cd suckless
-ls
-cd sent
-ls
-cd ..
-./build.sh sent
-cd sent/sent
-ls
-sent ./example
-ls
-cd ..
-cd ..
-ls
-cd ..
-cd suckless
-git clone git://git.suckless.org/farbfeld
-cd farbfeld
-ls
-make
-sudo xbps-install libjpeg
-sudo xbps-install libjpeg libjpeg-devel
-sudo xbps-query -Rs jpeglib
-sudo xbps-query -Rs jpeg
-sudo xbps-install libopenjpeg libopenjpeg-devel
-make
-sudo xbps-remove libopenjpeg libopenjpeg-devel
-sudo xbps-install libjpeg-turbo-devel
-make
-sudo make install
-cd ..
-sl
-ls
-cd sent/sent
-ls
-sent ./\example
-sent ./example
-date
-date
-ping google.com
-date
-startx
-startx
-startx
-Xorg -configure
-sudo Xorg -configure
-sudo vim /etc/X11/xorg.conf.d/depth.conf
-ls
-sudo vim /etc/X11/xorg.conf.d/depth.conf
 mkdir -p /etc/X11/xorg.conf.d/
 sudo mkdir -p /etc/X11/xorg.conf.d/
 sudo vim /etc/X11/xorg.conf.d/depth.conf
@@ -498,3 +366,135 @@ xrdb -merge ~/.cache/wal/colors.Xresources
 cd .dwm
 ls
 vim autostart.sh 
+vim .dwm/autostart.sh
+cd
+ls
+vim .xinitrc
+vim .dwm/autostart.sh
+ls
+git status
+vim .gitignore
+git status
+git commit -am "fix gitignore; edit autostart for dwm | $(date)"
+git push
+sudo wfi
+sudo killall wpa_supplicant
+sudo killall dhcpcd
+git push
+sudo wfi
+ls ~/bin
+sudo killall dhcpcd
+sudo killall dhcpcd
+sudo killall dhcpcd
+sudo killall wpa_supplicant
+sudo killall wpa_supplicant
+sudo killall wpa_supplicant
+sudo wfi
+dn
+dns
+sudo chmac
+sudo chmac
+sudo killall wpa_supplicant
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo sv stop wpa_supplicant
+sudo sv stop dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo killall wpa_supplicant; sudo killall dhcpcd
+sudo wfi
+ping google.com
+ping google.com
+ping google.com
+ping google.com
+bc <<< '1.3 + 3.2
+'
+cd repos
+ls
+rm -rf pal
+git clone pipeseroni/pipes.c
+git clone pipeseroni/pipes.sh
+git clone pipeseroni/pipes.shl
+git clone https://github.com/pipseroni/pipes.sh
+git clone https://github.com/pipseroni/pipes.c
+git clone https://github.com/pipseroni/pipes.c
+git clone https://github.com/pipeseroni/pipes.c
+ls
+cd pipes.c
+ls
+make
+cat README.md
+ls
+./configure
+autoreconf -i
+sudo xbps-install autoconf
+autoreconf -i
+sudo xbps-query -Rs aclocal
+sudo xbps-install ac
+sudo xbps-install automake
+autoreconf -i
+./configure
+./make
+make
+ls
+cd ..
+rm -rf ./pipes.c
+ls
+git clone https://github.com/pipeseroni/pipes.sh
+cd pipes.sh
+ls
+sudo make install
+ls
+cat README.rst 
+cd ..
+rm -rf pipes.sh
+ls
+pipes.sh
+wal -i ~/wallpapers/
+wall -i ~/wallpapers/
+wall -i ~/wallpapers/
+wall -i ~/wallpapers/
+wall -i ~/wallpapers/
+wal -i ~/wallpapers/
+wal -i ~/wallpapers/
+wal -i ~/wallpapers/
+wal -i ~/wallpapers/
+cat .cache/wal/colors.Xresources
+wal -i ~/wallpapers/
+wal -i ~/wallpapers/
+wal -i ~/wallpapers/
+wal -i ~/wallpapers/
+wal -i ~/wallpapers/
+cd repos
+ls
+cd suckless/dwm/config
+vim config.h
+cd ..
+ls
+cd ..
+ls
+git status
+git commit -am "remove borders"
+git push
+./build.sh dwm
+sudo echo ysy
+./build.sh dwm
+cd repos
+ls
+cd suckless
+ls
+cd dwm
+cd config
+vim config.h
+cd ../..
+ls
+sudo echo ll
+./build.sh dwm
