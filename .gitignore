@@ -29,3 +29,4 @@ refind.conf
 .vscode/
 
 .config/bash/.bash_history
+.config/netsurf/*
