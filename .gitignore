@@ -25,9 +25,10 @@ refind.conf
 .termrec/
 .themes/
 .thunderbird/
-.vim/
 .vscode/
 
+.config/vim/autoload
+.config/vim/plugged
 .config/bash/.bash_history
 .config/netsurf/*
 .config/hub
