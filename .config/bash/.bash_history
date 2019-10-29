@@ -1,79 +1,3 @@
-cat .cache/wal/colors.Xresources
-wal -i ~/wallpapers/
-wal -i ~/wallpapers/
-wal -i ~/wallpapers/
-wal -i ~/wallpapers/
-wal -i ~/wallpapers/
-cd repos
-ls
-cd suckless/dwm/config
-vim config.h
-cd ..
-ls
-cd ..
-ls
-git status
-git commit -am "remove borders"
-git push
-./build.sh dwm
-sudo echo ysy
-./build.sh dwm
-cd repos
-ls
-cd suckless
-ls
-cd dwm
-cd config
-vim config.h
-cd ../..
-ls
-sudo echo ll
-./build.sh dwm
-cd .config/polybar
-ls
-vim launch-dwm.sh
-killall polybar
-vim config-dwm.ini
-killall polybar
-vim config-dwm.ini
-cd
-cd .dwm
-vim autostart.sh
-ls
-pwd
-cd ..
-git status
-git commit -am "new theme"
-git push
-vim .gitignore
-rm -rf .config/netsurf
-git status
-git commit -am "don't track netsurf!"
-git push
-killall polybar
-.config/polybar/launch-dwm.sh
-killall polybar
-.config/polybar/launch-dwm.sh
-cd .config/
-ls
-rm -rf alacritt
-rm -rf alacritty
-rm -rf neofetch
-rm -rf ranger
-rm -rf rofi
-ls
-cat hub
-cd ..
-ls
-vim .gitignore
-ls
-ls -al
-rm -rf .dillo
-ls .vmodules
-rm -rf .vmodules
-ls -all
-rm .spacemacs
-ls .vim
 git status
 git add .gitignore
 #git commit -am "ignore hub file"
@@ -498,3 +422,79 @@ sudo halt
 sudo halt
 exit
 lkjlk
+man Xterm
+man xterm
+vim .vimrc
+xterm -help
+xterm -help | grep -i border
+xrdb -merge ~/.Xresources
+makewhatis /usr/share/man
+sudo makewhatis /usr/share/man
+xterm -help | grep -i title
+xterm -title scratchpad -geometry 84x24
+sudo xbps-install xterm
+clear
+peaclock
+clo
+sudo ntpd -d
+sudo ntpd
+sudo sv restart ntpd
+clo
+feh ~/wallpapers/
+feh ~/wallpapers/
+clear
+xterm --help
+xterm -help
+xterm -help | grep padding
+xterm -help | grep pad
+xterm -help | grep border
+cat .Xresources | grep border
+cat .Xresources | grep pad
+cat .Xresources | grep -i pad
+cat .Xresources | grep -i padding
+cat .Xresources | grep -i border
+xterm -b 54
+vim ~/.Xresources
+vim ~/.Xresources
+vim ~/.Xresources
+vim ~/.Xresources
+git status
+git add .config/vim/.vimrc
+git commit -am "add multiple cursors"
+cd repos/suckless
+sl
+ls
+cd dwm
+ls
+cd config
+ls
+vim config.h
+ls
+cd ..
+ls
+cd ..
+ls
+git status
+git commit -am "lockcmd; term change"
+./build.sh
+echo $TERM
+clear
+sudo fsck /dev/mmcblk0p1
+sudo fsck /dev/mmcblk0p2
+exit
+sudo clean
+clear
+ping google.com
+sudo wfi
+sudo killall dhcpcd
+sudo killall dhcpcd
+sudo killall dhcpcd
+sudo killall dhcpcd
+sudo killall dhcpcd
+sudo sv restart wpa_supplicant
+sudo sv restart dhcpcd
+ping google.com
+ping google.com
+ping google.com
+sudo sv restart ntpd
+clo
