@@ -9,7 +9,6 @@ export EDITOR=vim
 
 # nnn config
 export NNN_USE_EDITOR=1
-export 
 
 alias git='hub'                           # hub: git + hub = github 8-)
 alias ls='ls --color=auto'
