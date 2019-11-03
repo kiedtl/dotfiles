@@ -35,8 +35,8 @@ shopt -s expand_aliases
 # export PS1="$ "
 
 # retrieve wal colorscheme
-# cat /home/kiedtl/.cache/wal/sequences
-wall -r
+cat /home/kiedtl/.cache/wal/sequences
+# wall -r
 
 # promptless prompt, by dylanaraps
 . '/home/kiedtl/.config/bash/promptless.sh'
