@@ -10,6 +10,7 @@ Videos/
 d2p
 refind.conf
 
+.ssh/
 .bashhub/
 .cache/
 .fonts/
@@ -27,6 +28,7 @@ refind.conf
 .thunderbird/
 .vscode/
 
+.viminfo
 .config/vim/autoload
 .config/vim/plugged
 .config/bash/.bash_history
