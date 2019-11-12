@@ -1,4 +1,5 @@
 Documents/
+Books/
 Desktop/
 Downloads/
 Pictures/
@@ -7,26 +8,14 @@ repos/
 snap/
 Templates/
 Videos/
-d2p
-refind.conf
+bin/
 
 .ssh/
-.bashhub/
 .cache/
 .fonts/
-.gem/
 .jak/
-.kde4/
 .local/
-.mozilla/
-.oh-my-zsh/
-.pki/
-.SpaceVim/
-.SpaceVim.d/
-.termrec/
 .themes/
-.thunderbird/
-.vscode/
 
 .viminfo
 .config/vim/autoload
@@ -34,3 +23,15 @@ refind.conf
 .config/bash/.bash_history
 .config/netsurf/*
 .config/hub
+
+.bash_history
+
+.cargo/
+.config/gtk-2.0/
+.config/midori/
+.dillo/
+.emacs.d/
+.fltk/
+.vim/
+.wget-hsts
+wallpapers/
