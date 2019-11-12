@@ -11,7 +11,8 @@ export EDITOR=vim
 export NNN_USE_EDITOR=1
 
 alias git='hub'                           # hub: git + hub = github 8-)
-alias ls='ls --color=auto'
+alias ls='exa'
+alias lsd='exa -l'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
