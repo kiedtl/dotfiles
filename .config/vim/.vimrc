@@ -15,16 +15,19 @@ Plug 'dylanaraps/wal.vim'
 Plug 'ollykel/v-vim'
 
 " multiple cursors
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 
 " vim-airline: powerline alternative written in pure vimscript.
 " No bloated Python interpreter needed!
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
 " vim-airline themes
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
+
+" enable line numbers
+set number
 
 " set colorscheme
 colorscheme wal
