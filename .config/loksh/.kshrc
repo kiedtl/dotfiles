@@ -32,5 +32,8 @@ xhost +local:root > /dev/null 2>&1
 cat /home/kiedtl/.cache/wal/sequences
 # wall -r
 
+# source c script from bin
+. "${HOME}/bin/c"
+
 # promptless prompt, by dylanaraps
 . '/home/kiedtl/.config/bash/promptless.sh'
