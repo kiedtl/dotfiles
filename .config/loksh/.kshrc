@@ -13,7 +13,7 @@ export ENV=/home/kiedtl/.kshrc
 export NNN_USE_EDITOR=1
 
 alias git='hub'                           # hub: git + hub = github 8-)
-alias ls='exa'
+alias l='exa'
 alias lsd='exa -l'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
