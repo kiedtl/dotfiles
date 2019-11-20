@@ -28,9 +28,10 @@ xhost +local:root > /dev/null 2>&1
 # my mnmlst prmpt: the glorious $
 # export PS1="$ "
 
-# retrieve wal colorscheme
-cat /home/kiedtl/.cache/wal/sequences
+# retrieve paleta colorscheme
+# cat /home/kiedtl/.cache/wal/sequences
 # wall -r
+paleta -r
 
 # source c script from bin
 . "${HOME}/bin/c"
