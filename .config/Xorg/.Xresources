@@ -1,5 +1,5 @@
 ! XTerm customizations
-xterm*faceName: Hack
+xterm*faceName: Fixed 
 xterm*faceSize: 11
 
 ! double-click to select whole URLs :D
