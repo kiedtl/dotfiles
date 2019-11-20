@@ -30,7 +30,7 @@ call plug#end()
 set number
 
 " set colorscheme
-colorscheme wal
+" colorscheme wal
 
 " remove trailing whitespace from file
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>

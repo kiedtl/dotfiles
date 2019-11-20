@@ -1,0 +1,98 @@
+;;
+;; kiedtl's plan9 bar
+;; github.com/kiedtl/dotfiles
+;; check the LICENSE for for info.
+;;
+
+
+;; -------------------
+;; ----- MODULES -----
+;; -------------------
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-padding = 2
+
+label = %title%
+label-maxlen = 30
+
+[module/workspaces]
+type = internal/xworkspaces
+enable-click = true
+enable-scroll = true
+
+format = <label-state>
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+interval = 10 
+fixed-values = true
+
+format-mounted = <label-mounted>
+format-mounted-prefix = 
+format-unmounted = <label-unmounted>
+format-unmounted-prefix = 
+
+label-mounted = " %free%"
+label-unmounted = %mountpoint%: not mounted!
+
+[module/date]
+type = internal/date
+interval = 1.0
+
+time =  %I:%M %p
+time-alt =  %Y-%m-%d%
+
+format = <label>
+format-padding = 2
+
+label = %time%
+
+[module/network]
+type = internal/network
+interface = wlan0
+
+interval  = 5
+accumulate-stats = true
+unknown-as-up = false
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = "%ifname%  " 
+;; %downspeed:8% %upspeed:8%"
+label-disconnected = "nah!"
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+
+;; -------------------
+;; ------- BAR -------
+;; -------------------
+
+[bar/bar]
+monitor = 
+override-redirect = true
+bottom = false
+
+fixed-center = true
+
+width = 100%
+height = 24
+
+background = #fff
+foreground = #000
+
+font-0 = "Fixed:size=12;1"
+font-1 = "Terminus:size=12;1"
+
+modules-left = title
+modules-center = workspaces 
+modules-right = network filesystem date
