@@ -13,7 +13,8 @@ main() {
 	xrdb -merge ~/.Xresources
 	# add wallpaper and start bar script
 	~/.fehbg
-	exec ~/.config/polybar/launch-dwm.sh
+	polybar bar
+	# exec ~/.config/polybar/launch-dwm.sh
 	# (conky | while read info; do xsetroot -name "${info}"; done) &
 }
 
