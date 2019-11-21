@@ -15,6 +15,9 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 export ENV=/home/kiedtl/.kshrc
 
+# bat config
+export BAT_THEME="OneHalfLight"
+
 # nnn config
 export NNN_USE_EDITOR=1
 
