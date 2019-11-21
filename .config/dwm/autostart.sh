@@ -14,8 +14,12 @@ main() {
 	# add wallpaper and start bar script
 	~/.fehbg
 	polybar bar
+	
 	# exec ~/.config/polybar/launch-dwm.sh
 	# (conky | while read info; do xsetroot -name "${info}"; done) &
+
+	# X autolock
+	xautolock -time 10 -locker slock
 }
 
 main "$@"
