@@ -24,6 +24,12 @@ enable-scroll = true
 
 format = <label-state>
 
+label-active-background = #000
+label-active-foreground = #fff
+label-active-padding-right = 1 
+
+label-inactive-padding-right = 2
+
 [module/filesystem]
 type = internal/fs
 
@@ -78,7 +84,7 @@ ramp-signal-4 = 
 ;; -------------------
 
 [bar/bar]
-monitor = 
+monitor = default 
 override-redirect = true
 bottom = false
 
@@ -96,3 +102,5 @@ font-1 = "Terminus:size=12;1"
 modules-left = title
 modules-center = workspaces 
 modules-right = network filesystem date
+
+border-bottom-size = 2
