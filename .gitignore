@@ -35,3 +35,4 @@ bin/
 .vim/
 .wget-hsts
 wallpapers/
+.lesshst
