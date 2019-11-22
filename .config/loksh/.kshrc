@@ -41,9 +41,6 @@ alias more=less
 
 xhost +local:root > /dev/null 2>&1
 
-# my mnmlst prmpt: the glorious $
-# export PS1="$ "
-
 # retrieve paleta colorscheme
 # cat /home/kiedtl/.cache/wal/sequences
 # wall -r
@@ -54,4 +51,4 @@ paleta ffffff 000000 2> /dev/null
 . "${HOME}/bin/]"
 
 # promptless prompt, by dylanaraps
-. '/home/kiedtl/.config/bash/promptless.sh'
+. '/home/kiedtl/.config/loksh/prompt.sh'
