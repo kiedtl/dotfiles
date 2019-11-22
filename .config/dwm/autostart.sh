@@ -8,18 +8,18 @@ main() {
 	xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 	xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
-	# configure Xresources
-	xrdb -merge ~/.cache/wal/colors.Xresources
-	xrdb -merge ~/.Xresources
+	# configure Xresources async
+	(xrdb -merge ~/.cache/wal/colors.Xresources
+	 xrdb -merge ~/.Xresources) &
 	# add wallpaper and start bar script
-	~/.fehbg
-	polybar bar
-	
+	~/.fehbg &
+	polybar bar &
+
 	# exec ~/.config/polybar/launch-dwm.sh
 	# (conky | while read info; do xsetroot -name "${info}"; done) &
 
 	# X autolock
-	exec xautolock -time 5 -locker slock
+	exec xautolock -time 10 -locker slock
 }
 
 main "$@"

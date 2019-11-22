@@ -5,7 +5,8 @@
 #
 
 # auto-start tmux session
-if [ -z "$TMUX" ]; then
+# don't start tmux if no X server
+if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ]; then
 	  exec tmux
 fi
 
