@@ -22,6 +22,12 @@ export BAT_THEME="OneHalfLight"
 # nnn config
 export NNN_USE_EDITOR=1
 
+# aliases
+clo() {
+	unset LANGUAGE;
+	LANG=C peaclock
+}
+
 alias git='hub'                           # hub: git + hub = github 8-)
 alias l='exa'
 alias lsd='exa -l'
@@ -43,8 +49,9 @@ xhost +local:root > /dev/null 2>&1
 # wall -r
 paleta ffffff 000000 2> /dev/null
 
-# source c script from bin
+# source functions from bin
 . "${HOME}/bin/c"
+. "${HOME}/bin/]"
 
 # promptless prompt, by dylanaraps
 . '/home/kiedtl/.config/bash/promptless.sh'
