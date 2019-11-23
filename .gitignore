@@ -23,6 +23,7 @@ etc/netsurf/*
 etc/hub
 etc/gtk-2.0/
 etc/midori/
+etc/fdm/
 
 .emacs.d/
 .vim/
@@ -31,3 +32,4 @@ etc/midori/
 .bash_history
 .netrc
 etc/netrc
+.fdm.conf
