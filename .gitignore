@@ -12,9 +12,7 @@ opt/
 
 .ssh/
 .fonts/
-.jak/
 .local/
-.themes/
 
 .viminfo
 etc/vim/autoload
