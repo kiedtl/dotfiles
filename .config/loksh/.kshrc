@@ -6,9 +6,9 @@
 
 # auto-start tmux session
 # don't start tmux if no X server
-if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ]; then
-	  exec tmux
-fi
+#if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ]; then
+	  #exec tmux
+#fi
 
 
 export PATH=/home/kiedtl/usr/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH

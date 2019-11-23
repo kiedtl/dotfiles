@@ -68,3 +68,4 @@ fwdretain subject date from to
 # For Linux and BSD, this should be set.
 set bsdcompat
 
+set sendmail="/usr/bin/msmtp"
