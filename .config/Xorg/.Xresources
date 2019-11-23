@@ -5,7 +5,7 @@ xterm*faceSize: 11
 ! double-click to select whole URLs :D
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
-xterm*internalBorder: 54
+xterm*internalBorder: 16
 
 ! -------------------------------
 !     OLD SETTINGS FOR URXVT
