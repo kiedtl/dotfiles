@@ -14,7 +14,11 @@ fi
 export PATH=/home/kiedtl/usr/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 export EDITOR=vim
+export VISUAL=vim
 export ENV=/home/kiedtl/.kshrc
+
+# mailx/fdm config
+export MAIL="${HOME}/var/mail/INBOX"
 
 # bat config
 export BAT_THEME="OneHalfLight"
