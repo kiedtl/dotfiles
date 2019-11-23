@@ -1,1 +1,0 @@
-/home/kiedtl/.config/bash/.bash_profile

@@ -1,1 +1,1 @@
-/home/kiedtl/.config/loksh/.kshrc
+etc/loksh/.kshrc

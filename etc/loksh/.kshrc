@@ -16,6 +16,7 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 export VISUAL=vim
 export ENV=/home/kiedtl/.kshrc
+export XDG_CONFIG_HOME="${HOME}/etc"
 
 # mailx/fdm config
 export MAIL="${HOME}/var/mail/INBOX"

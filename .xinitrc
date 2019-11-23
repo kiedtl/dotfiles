@@ -1,1 +1,1 @@
-/home/kiedtl/.config/Xorg/.xinitrc
+etc/Xorg/.xinitrc
