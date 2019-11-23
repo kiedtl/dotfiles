@@ -15,6 +15,7 @@ opt/
 .local/
 
 .viminfo
+etc/msmtp/
 etc/vim/autoload
 etc/vim/plugged
 etc/bash/.bash_history
@@ -28,3 +29,5 @@ etc/midori/
 .wget-hsts
 .lesshst
 .bash_history
+.netrc
+etc/netrc
