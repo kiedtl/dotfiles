@@ -29,6 +29,9 @@ call plug#end()
 " enable line numbers
 set number
 
+" enable mouse
+set mouse=a
+
 " set colorscheme
 " colorscheme wal
 

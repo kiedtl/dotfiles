@@ -56,4 +56,4 @@ paleta ffffff 000000 2> /dev/null
 . "${HOME}/bin/]"
 
 # promptless prompt, by dylanaraps
-. '/home/kiedtl/.config/loksh/prompt.sh'
+. "${XDG_CONFIG_HOME}/loksh/prompt.sh"
