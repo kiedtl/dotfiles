@@ -1,1 +1,0 @@
-/home/kiedtl/.config/dwm/autostart.sh
