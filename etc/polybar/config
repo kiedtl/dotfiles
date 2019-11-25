@@ -9,6 +9,18 @@
 ;; ----- MODULES -----
 ;; -------------------
 
+[module/launcher]
+type = custom/text
+content ="%{T2}  +%{T-}"
+
+click-left = "~/bin/ndmen"
+
+[module/powermenu]
+type = custom/text
+content ="%{T2}%  %{T-}"
+
+click-left = "~/bin/ndmen ~/etc/polybar/powermenu"
+
 [module/title]
 type = internal/xwindow
 format = <label>
@@ -38,18 +50,16 @@ interval = 10
 fixed-values = true
 
 format-mounted = <label-mounted>
-format-mounted-prefix = 
 format-unmounted = <label-unmounted>
-format-unmounted-prefix = 
 
-label-mounted = " %free%"
+label-mounted = "%free%"
 label-unmounted = %mountpoint%: not mounted!
 
 [module/date]
 type = internal/date
 interval = 1.0
 
-time =  %I:%M %p
+time =   %I:%M %p
 time-alt =  %Y-%m-%d%
 
 format = <label>
@@ -72,12 +82,11 @@ label-connected = "%ifname%  "
 ;; %downspeed:8% %upspeed:8%"
 label-disconnected = "nah!"
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-
+ramp-signal-0 =
+ramp-signal-1 =
+ramp-signal-2 =
+ramp-signal-3 =
+ramp-signal-4 =
 
 ;; -------------------
 ;; ------- BAR -------
@@ -97,10 +106,10 @@ background = #fff
 foreground = #000
 
 font-0 = "Fixed:size=12;1"
-font-1 = "Terminus:size=12;1"
+font-1 = "Terminus:size=14:bold=true;1"
 
-modules-left = title
+modules-left = launcher title
 modules-center = workspaces 
-modules-right = network filesystem date
+modules-right = network filesystem date powermenu
 
 border-bottom-size = 2
