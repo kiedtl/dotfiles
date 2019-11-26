@@ -19,7 +19,7 @@ main() {
 	# (conky | while read info; do xsetroot -name "${info}"; done) &
 
 	# X autolock
-	exec xautolock -time 10 -locker slock
+	exec xautolock -time 30 -locker slock
 }
 
 main "$@"
