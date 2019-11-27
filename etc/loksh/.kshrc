@@ -33,9 +33,11 @@ clo() {
 	LANG=C peaclock
 }
 
-alias git='hub'                           # hub: git + hub = github 8-)
+alias git='hub'  			  # hub: git + hub = github 8-)
+alias tree='exa --tree --git-ignore'
 alias l='exa'
-alias lsd='exa -l'
+alias ls='exa -l'
+alias lsd='exa -al'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
