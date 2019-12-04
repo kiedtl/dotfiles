@@ -10,6 +10,9 @@ Plug 'dylanaraps/wal.vim'
 " v mode for vim
 Plug 'ollykel/v-vim'
 
+" multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
 call plug#end()
 
 

@@ -1,247 +1,3 @@
-cd dwm
-ls
-cd config
-vim config.h
-ls
-cd ..
-c d..
-cd ..
-ls
-cd dwm
-ls
-cd patch
-cd patches
-ls
-cat dwm-00-center-6.1.diff 
-ls
-mv adwm-09-autosize.digg dwm-09-autosize.diff
-ls
-vim dwm-09-autosize.diff 
-cd ..
-cd ..
-./build.sh dwm
-ls
-git status
-rm -rf ./farbfeld
-git add .
-git commit -am "fix dwm patch"
-git push
-cd dwm
-ls
-vim config/config.h
-cd ..
-./build.sh dwm
-killall lemonbar
-.config/polybar/launch-i3.sh 
-killall polybar
-wall
-wall -h
-wall -r
-killall polybar
-.config/polybar/launch-i3.sh 
-killall polybar
-wal -i ~/wallpapers/sky-003.jpg
-ls .cache
-ls .cache/wal
-ls .cache/wal/schemes
-wal -h
-wall -h
-wall -f ~/.cache/wal/schemes/_home_kiedtl_wallpapers_sky-003_jpg_dark_None_None_1.1.0.json 
-wal -i ~/wallpapers/sky-003.jpg
-wall -f ~/.cache/wal/schemes/_home_kiedtl_wallpapers_sky-003_jpg_dark_None_None_1.1.0.json 
-wal -i ~/wallpapers/sky-003.jpg
-ls .cache/wal/
-.config/polybar/launch-i3.sh 
-cdkillall 
-killall polybar
-cd .config
-cd polybar
-vim config-bottom.ini 
-vim config-top.ini
-ls
-rm -rf ./log
-cd wallpapers
-ls
-feh .
-cp ./bg-secondary.jpg ~/wallpapers/city-002.jpg
-cd
-.config/polybar/launch-i3.sh 
-killall polybar
-cd
-ls
-ls -al
-rm -rf ./dillo
-rm -rf ./.dillo
-ls ./urxvt
-ls ./.urxvt
-rm -rf ./.urxvt
-ls
-ls -al
-cat .fehbg
-cat .zshrc
-ls
-ls -al
-rm ./.zshrc
-mkdir -p .config/Xorg
-mv ./.Xauthority .config/Xorg/
-mv ./.Xresources .config/Xorg/
-mv ./.xinitrc .config/Xorg/
-ls .config/Xorg
-ls .config/Xorg -al
-git add .config/Xorg/
-#git commit -am "move"
-ln -s /home/kiedtl/.config/Xorg/.xinitrc .xinitrc
-ln -s /home/kiedtl/.config/Xorg/.Xresources .Xresources
-ln -s /home/kiedtl/.config/Xorg/.Xauthority .Xauthority
-ls
-ls -al
-ls -al
-mkdir .config/bash
-move() { mv $1 $2/$1; ln -s $(readlink -f $2/$1) $1} 
-mv ./.bash_history .config/bash/
-mv ./.bash_logout .config/bash/
-mv ./.bash_profile .config/bash/
-mv ./.bashrc .config/bash/
-ls -al
-ln -s /home/kiedtl/.config/bash/.bash_history .bash_history
-ls
-ls -al
-ln -s /home/kiedtl/.config/bash/.bash_profile .bash_profile
-ln -s /home/kiedtl/.config/bash/.bashrc .bashrc
-ln -s /home/kiedtl/.config/bash/.bash_logout .bash_logout
-ls
-ls -al
-rm .profile
-mv ./promptless.sh ./.config/bash/
-ls
-ls -al
-vim .bashrc
-cd .config
-git add .
-git commit -am "add"
-cd ..
-ls
-git status
-cat .viminfo
-rm -rf ./.viminfo
-git status
-git add .Xauthority 
-git add .fehbg
-rm -rf ./.fltk
-rm ./.inputrc 
-git staut
-git status
-git commit -am "add"
-git push
-grt
-git push
-cla'
-cla
-xrdb -merge ~/.cache/wal/colors.Xresources
-cd .dwm
-ls
-vim autostart.sh 
-vim .dwm/autostart.sh
-cd
-ls
-vim .xinitrc
-vim .dwm/autostart.sh
-ls
-git status
-vim .gitignore
-git status
-git commit -am "fix gitignore; edit autostart for dwm | $(date)"
-git push
-sudo wfi
-sudo killall wpa_supplicant
-sudo killall dhcpcd
-git push
-sudo wfi
-ls ~/bin
-sudo killall dhcpcd
-sudo killall dhcpcd
-sudo killall dhcpcd
-sudo killall wpa_supplicant
-sudo killall wpa_supplicant
-sudo killall wpa_supplicant
-sudo wfi
-dn
-dns
-sudo chmac
-sudo chmac
-sudo killall wpa_supplicant
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo sv stop wpa_supplicant
-sudo sv stop dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
-sudo wfi
-ping google.com
-ping google.com
-ping google.com
-ping google.com
-bc <<< '1.3 + 3.2
-'
-cd repos
-ls
-rm -rf pal
-git clone pipeseroni/pipes.c
-git clone pipeseroni/pipes.sh
-git clone pipeseroni/pipes.shl
-git clone https://github.com/pipseroni/pipes.sh
-git clone https://github.com/pipseroni/pipes.c
-git clone https://github.com/pipseroni/pipes.c
-git clone https://github.com/pipeseroni/pipes.c
-ls
-cd pipes.c
-ls
-make
-cat README.md
-ls
-./configure
-autoreconf -i
-sudo xbps-install autoconf
-autoreconf -i
-sudo xbps-query -Rs aclocal
-sudo xbps-install ac
-sudo xbps-install automake
-autoreconf -i
-./configure
-./make
-make
-ls
-cd ..
-rm -rf ./pipes.c
-ls
-git clone https://github.com/pipeseroni/pipes.sh
-cd pipes.sh
-ls
-sudo make install
-ls
-cat README.rst 
-cd ..
-rm -rf pipes.sh
-ls
-pipes.sh
-wal -i ~/wallpapers/
-wall -i ~/wallpapers/
-wall -i ~/wallpapers/
-wall -i ~/wallpapers/
-wall -i ~/wallpapers/
-wal -i ~/wallpapers/
-wal -i ~/wallpapers/
-wal -i ~/wallpapers/
-wal -i ~/wallpapers/
 cat .cache/wal/colors.Xresources
 wal -i ~/wallpapers/
 wal -i ~/wallpapers/
@@ -498,3 +254,247 @@ vim fil
 file
 ./fil
 exit
+st -t Files -e fil
+killall polybar
+.config/polybar/launch-dwm.sh 
+killall polbar
+killall polybar
+.config/polybar/launch-dwm.sh 
+cd .config
+ls
+cd polybar
+vim user_modules.ini
+git commit -am "fix menu finally"
+git push
+ls
+cd 
+cd wallpapers
+ls
+rm 0bBr7rU.png 
+ls
+rm 5d0cc5a3d1dfd.image.jpg 
+ls
+rm landscape-005_png_dark_None_None_1.1.0.json 
+rm space-002_png_dark_None_None_1.1.0.json 
+rm space-026_jpg_dark_None_None_1.1.0.json 
+ls
+cla
+ls
+feh city-002.jpg 
+mv city-002.jpg montreal.jpg
+feh --bg-fill montreal.jpg 
+ls
+feh landscape-004.jpg 
+mv landscape-004.jpg mountainlake_reflection.jpg
+feh landscape-006.jpg 
+mv landscape-006.jpg forestpath.jpg
+ls
+feh landscape-009.jpg 
+mv landscape-009.jpg lushforest.jpg
+feh landscape-010.jpg 
+mv landscape-010.jpg raven.jpg
+ls
+ls
+feh landscape-012.jpg
+mv landscape-012.jpg dock.jpg
+feh landscape-013.jpg 
+mv landscape-013.jpg ruinedmansion.jpg
+rm landscape-015.source.txt 
+ls
+feh landscape-014.jpg 
+feh landscape-014.jpg 
+cat landscape-014.jpg 
+rm landscape-014.jpg 
+ls
+feh sky-003.jpg 
+mv sky-003.jpg purplenightsky.jpg
+git add .
+git commit -am "reorganize"
+git push
+cd repos
+sudo xbps-install -Su
+startx
+startx
+cd
+startx
+startx
+startx
+startx
+startx
+clear
+kfetch
+top
+clear
+sudo killall sshd
+kfetch
+sudo killall sshd
+kfetch
+clear
+startx
+startx
+startx
+slock
+ls
+cd 
+ls
+cd repos
+ls
+cd suckless
+./build.sh tabbed surf
+sudo xbps-install gtk3 gio
+sudo xbps-query -Rs gtk
+sudo xbps-install gtk+3-devel
+./build.sh surf
+cls
+ls
+ls
+cd
+ls
+ls -al
+ls
+cat .Xresources
+urxvt --help
+sudo xbps-query -Rs termite
+ls
+cd repos
+ls
+mkdir ideas
+cd ideas
+ls
+git init
+git create ideas
+vim README
+git add .
+git commit -am "add"
+git push
+git push --set-upstream origin master
+ls 
+cd ..
+ls
+mkdir talert
+cd taler
+ls
+cd taler
+cd talert
+ls
+git init
+cla
+ls
+pwd
+vim Makefile
+mkdir src
+vim src/main.c
+make
+vim src/main.c
+make
+vim src/main.c
+cd ..
+rm -rf taler
+rm -rf talert
+ls
+cls
+cla
+cd
+ls
+cd .config
+ls
+cd bim
+ls
+cd vim; ls
+ls
+ls -al
+vim .vimrc
+vim .vimrc
+cd
+dlcall
+dlopen
+uname -a
+unam
+uname
+uname --help
+ls
+xbps-query -Rs powerline
+xbps-query -Rs font
+xbps-query -Rs font | grep powerline
+ls
+cd repos
+git clone github.com/powerline/fonts
+git clone https://github.com/powerline/fonts
+sudo halt
+cd repos
+ls
+cd fonts
+ls
+cat install-sh
+cat install.sh
+diskus
+cd ..
+sl
+ls
+cd fonts
+./install.sh
+sudo fc-cache -f -v
+fc-cache -f -v
+ls .local/share
+ls ~/.local/share
+ls ~/.local/share/fonts
+sudo mv ~/.local/share/fonts/* /usr/share/fonts/
+cls /usr/share/fonts/
+fc-cache -f -v
+sudo fc-cache -f -v
+ls
+cat README.rst
+fc-match 'fira'
+fc-match 'FiraMono'
+cat ./FiraMono/
+cls ./FiraMono/
+fc-match 'FuraMono'
+fc-match 'fura'
+fc-match 'Fura-Mono-Regular-Powerline'
+fc-match 'FuraMono-Regular'
+fc-match 'FuraMono-Regular-Powerline'
+fc-list
+fc-list | grep fura
+fc-list | grep fira
+fc-list | grep Powerline
+fc-match 'FuraMono-Regular Powerline'
+fc-match 'FuraMono-Regular'
+fc-match 'source code pro'
+fc-match powerlinje
+fc-match powerline
+fc-match 'Fira Mono for Powerline:style=Regular'
+cd
+ls
+cd repos
+rm -rf ./fonts
+cd ..
+ls
+vim .Xresources
+xrdb -merge ~/.Xresouces
+xrdb -merge ~/.Xresources
+exit
+git status
+fc-match Hack
+fc-list | grep -i Hack
+pwd
+git restore ~/.config/Xorg/.Xresources
+vim .Xresources 
+xrdb -merge ~/.Xresources
+10;rgb:e0e0/e0e0/e0e011;rgb:0b0b/1e1e/1e1e
+wal -i ~/wallpapers/
+10;rgb:e0e0/e0e0/e0e011;rgb:0b0b/1e1e/1e1e
+exit
+10;rgb:e0e0/e0e0/e0e011;rgb:0b0b/1e1e/1e1e
+ls
+git add .
+git commit -am "implement main functionality"
+exit
+clear
+sudo fsck /dev/mmcblk0p1
+sudo fsck /dev/mmcblk0p2
+reboot
+sudo reboot
+sudo halt
+sudo halt
+exit
+lkjlk
