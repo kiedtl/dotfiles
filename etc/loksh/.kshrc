@@ -27,6 +27,9 @@ export BAT_THEME="OneHalfLight"
 # nnn config
 export NNN_USE_EDITOR=1
 
+# for Rust debugging
+export RUST_BACKTRACE=1
+
 # aliases
 clo() {
 	unset LANGUAGE;
@@ -51,7 +54,7 @@ xhost +local:root > /dev/null 2>&1
 # retrieve paleta colorscheme
 # cat /home/kiedtl/.cache/wal/sequences
 # wall -r
-paleta ffffff 000000 2> /dev/null
+paleta ~/etc/colors/paleta > /dev/null
 
 # source functions from bin
 . "${HOME}/bin/c"
