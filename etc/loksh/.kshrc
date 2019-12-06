@@ -18,6 +18,9 @@ export VISUAL=vim
 export ENV=/home/kiedtl/.kshrc
 export XDG_CONFIG_HOME="${HOME}/etc"
 
+# pastel config
+export PASTEL_COLOR_MODE=24bit
+
 # mailx/fdm config
 export MAIL="${HOME}/var/mail/INBOX"
 

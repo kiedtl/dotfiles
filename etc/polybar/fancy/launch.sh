@@ -7,5 +7,5 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Start the polybar party
-polybar top -c /home/kiedtl/.config/polybar/config-top.ini &
-polybar bottom -c /home/kiedtl/.config/polybar/config-bottom.ini &
+polybar top -r -c /home/kiedtl/.config/polybar/fancy/config-top.ini &
+polybar bottom -r -c /home/kiedtl/.config/polybar/fancy/config-bottom.ini &

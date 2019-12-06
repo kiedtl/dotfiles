@@ -1,0 +1,125 @@
+;;
+;; kiedtl's plan9 bar
+;; github.com/kiedtl/dotfiles
+;; check the LICENSE for for info.
+;;
+
+
+;; -------------------
+;; ----- MODULES -----
+;; -------------------
+
+[module/launcher]
+type = custom/text
+content ="%{T2}  +%{T-}"
+
+click-left = "~/bin/ndmen"
+
+[module/powermenu]
+type = custom/text
+content ="%{T2}%  %{T-}"
+
+click-left = "~/bin/ndmen ~/etc/polybar/powermenu"
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-padding = 2
+
+label = %title%
+label-maxlen = 30
+
+[module/workspaces]
+type = internal/xworkspaces
+enable-click = true
+enable-scroll = true
+
+
+format = <label-state>
+pin-workspaces = true
+
+label-active = %name%
+label-occupied =
+label-urgent =
+label-empty =
+
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+interval = 10 
+fixed-values = true
+
+format-mounted = <label-mounted>
+format-unmounted = <label-unmounted>
+
+label-mounted = "%free%"
+label-unmounted = %mountpoint%: not mounted!
+
+[module/date]
+type = internal/date
+interval = 1.0
+
+time =   %I:%M %p
+time-alt =  %Y-%m-%d%
+
+format = <label>
+format-padding = 2
+
+label = %time%
+
+[module/network]
+type = internal/network
+interface = wlan0
+
+interval  = 5
+accumulate-stats = true
+unknown-as-up = false
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = "%ifname%  " 
+;; %downspeed:8% %upspeed:8%"
+label-disconnected = "nah!"
+
+ramp-signal-0 =
+ramp-signal-1 =
+ramp-signal-2 =
+ramp-signal-3 =
+ramp-signal-4 =
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = <label>
+format-prefix = 
+
+label = "%mb_used%  "
+
+;; -------------------
+;; ------- BAR -------
+;; -------------------
+
+[bar/bar]
+monitor = default 
+override-redirect = true
+bottom = false
+
+fixed-center = true
+
+width = 100%
+height = 22
+
+background = #fff
+foreground = #000
+
+font-0 = "Fixed:size=12;1"
+
+modules-left = launcher title
+modules-center = workspaces 
+modules-right = network memory filesystem date powermenu
+
+border-bottom-size = 2
