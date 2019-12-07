@@ -1,3 +1,1 @@
-#exec dwm
-~/etc/dwm/autostart.sh &
-exec spectrwm
+exec dwm

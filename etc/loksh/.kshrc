@@ -36,21 +36,20 @@ export RUST_BACKTRACE=1
 # aliases
 clo() {
 	unset LANGUAGE;
-	LANG=C peaclock
+	LANG=C peaclock ${@}
 }
 
+alias p='pwd'
+alias t='touch'
+alias l='exa'
 alias git='hub'  			  # hub: git + hub = github 8-)
 alias tree='exa --tree --git-ignore'
-alias l='exa'
 alias ls='exa -l'
 alias lsd='exa -al'
 alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
-alias more=less
 
 xhost +local:root > /dev/null 2>&1
 

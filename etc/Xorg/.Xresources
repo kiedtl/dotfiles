@@ -1,5 +1,5 @@
 ! XTerm customizations
-xterm*faceName: Fixed 
+xterm*faceName: ttyp0
 xterm*faceSize: 11
 
 ! double-click to select whole URLs :D
@@ -37,9 +37,6 @@ xterm*internalBorder: 16
 ! URxvt*italicFont:           	xft:Hack:size=11:style=Italic
 ! URxvt*boldItalicFont:    	xft:Hack:size=11:style=Italic
 ! 
-! ! perl extensions
-! URxvt*perl-ext-common:  default,matcher,clipboard,url-select,keyboard-select,-tabbed,resize-font
-! 
 ! ! macros for clipboard and selection
 ! URxvt*copyCommand:	      	xclip -i -selection clipboard
 ! URxvt*pasteCommand:	     	xclip -o -selection clipboard
@@ -50,23 +47,5 @@ xterm*internalBorder: 16
 ! URxvt*keysym.M-s:       	perl:keyboard-select:search
 ! URxvt*keysym.M-u:       	perl:url-select:select_next
 ! 
-! !! Change font size on Control-Plus/Minus
-! URxvt.keysym.Control-0x2f:    perl:resize-font:reset
-! URxvt.keysym.Control-0x3f:    perl:resize-font:show
-! 
-! URxvt.keysym.Control-0x2b: 	perl:resize-font:bigger
-! URxvt.keysym.Control-0x5f: 	perl:resize-font:smaller
-! 
-! URxvt*urlLauncher:      	/home/kiedtl/bin/srf
-! URxvt*underlineURLs:    	true
-! URxvt.matcher.button:        1
-! URxvt*geometry: 		64x18
-! 
-! ! tabbed
-! URxvt*tabbed.tabbar-fg: 	4
-! URxvt*tabbed.tabbar-bg: 	16
-! URxvt*tabbed.tab-fg:    	15
-! URxvt*tabbed.tab-bg:    	4
-! URxvt*buffered:         	false
 ! URxvt*keysym.Control-Shift-C: 	perl:clipboard:copy
 ! URxvt*keysym.Control-Shift-V: 	perl:clipboard:paste

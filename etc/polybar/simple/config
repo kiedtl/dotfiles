@@ -116,7 +116,7 @@ height = 22
 background = #fff
 foreground = #000
 
-font-0 = "Fixed:size=12;1"
+font-0 = "ttyp0:size=14;1"
 
 modules-left = launcher title
 modules-center = workspaces 
