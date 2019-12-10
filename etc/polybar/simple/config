@@ -19,7 +19,7 @@ click-left = "~/bin/ndmen"
 type = custom/text
 content ="%{T2}%  %{T-}"
 
-click-left = "~/bin/ndmen ~/etc/polybar/powermenu"
+click-left = "~/bin/ndmen ~/etc/polybar/simple/powermenu"
 
 [module/title]
 type = internal/xwindow
