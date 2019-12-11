@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/kiedtl/img/wallpapers/bird-water.jpg' 
+feh --no-fehbg --bg-center '/home/kiedtl/img/wallpapers/bird-water.jpg' 
