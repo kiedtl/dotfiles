@@ -36,7 +36,7 @@ enable-scroll = true
 
 
 format = <label-state>
-pin-workspaces = true
+;; pin-workspaces = true
 
 label-active = %name%
 label-occupied =
