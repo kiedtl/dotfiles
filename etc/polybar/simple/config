@@ -1,9 +1,24 @@
 ;;
-;; kiedtl's plan9 bar
+;; kiedtl's polybar configuration
 ;; github.com/kiedtl/dotfiles
 ;; check the LICENSE for for info.
 ;;
 
+;; -------------------
+;; ----- COLORS ------
+;; -------------------
+
+[colors]
+fg = c3d3d2
+bg = 080808
+ac = 9a4f31
+
+;; -------------------
+;; ------ FONTS ------
+;; -------------------
+
+[fonts]
+font0 = "ttyp0:size=13;1"
 
 ;; -------------------
 ;; ----- MODULES -----
@@ -27,7 +42,7 @@ format = <label>
 format-padding = 2
 
 label = %title%
-label-maxlen = 30
+label-maxlen = 35
 
 [module/workspaces]
 type = internal/xworkspaces
@@ -111,15 +126,16 @@ bottom = false
 fixed-center = true
 
 width = 100%
-height = 22
+height = 18
 
-background = #fff
-foreground = #000
+background = ${colors.bg}
+foreground = ${colors.fg}
 
-font-0 = "ttyp0:size=14;1"
+font-0 = ${fonts.font0}
 
 modules-left = launcher title
 modules-center = workspaces 
 modules-right = network memory filesystem date powermenu
 
 border-bottom-size = 2
+border-bottom-color = ${colors.ac}

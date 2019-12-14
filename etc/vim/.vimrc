@@ -29,11 +29,18 @@ call plug#end()
 " enable line numbers
 set number
 
+" tabs
+set tabstop=2
+set smarttab
+
+" UTF8
+set encoding=utf-8
+
 " enable mouse
 set mouse=a
 
 " set colorscheme
-" colorscheme wal
+colorscheme wal
 
 " remove trailing whitespace from file
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
