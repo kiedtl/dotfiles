@@ -30,7 +30,7 @@ call plug#end()
 set number
 
 " tabs
-set tabstop=2
+set tabstop=8
 set smarttab
 
 " UTF8

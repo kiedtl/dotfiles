@@ -9,7 +9,7 @@ main() {
 	xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 	# configure Xresources async
-	xrdb -merge ~/.cache/wal/colors.Xresources
+	xrdb -merge ~/etc/Xorg/.Xresources
 	
 	# add wallpaper and start bar script
 	~/.fehbg &
