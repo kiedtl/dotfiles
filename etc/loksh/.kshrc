@@ -56,7 +56,7 @@ xhost +local:root > /dev/null 2>&1
 # retrieve paleta colorscheme
 # cat /home/kiedtl/.cache/wal/sequences
 # wall -r
-paleta ~/etc/colors/smashed > /dev/null
+paleta ~/etc/colors/wheel > /dev/null
 
 # source functions from bin
 . "${HOME}/bin/c"
