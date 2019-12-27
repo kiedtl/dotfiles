@@ -11,7 +11,10 @@ call plug#begin('~/.vim/plugged')
 " pywal colorscheme, from dylanaraps
 Plug 'dylanaraps/wal.vim'
 
-" v mode for vim
+" Rust mode for vim
+Plug 'rust-lang/rust.vim'
+
+" V mode for vim
 Plug 'ollykel/v-vim'
 
 " multiple cursors

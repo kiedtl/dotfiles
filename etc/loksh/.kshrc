@@ -1,6 +1,6 @@
 #
 # kiedtl's ~/.${SHELL}rc
-# works with both bash and loksh.
+# works (mostly) with both bash, loksh, and mksh.
 # https://github.com/kiedtl/dotfiles
 #
 
@@ -30,7 +30,8 @@ export BAT_THEME="OneHalfLight"
 # nnn config
 export NNN_USE_EDITOR=1
 
-# for Rust debugging
+# for Rust development
+export RUSTFLAGS="-C link-args=-fuse-ld=lld"
 export RUST_BACKTRACE=1
 
 # aliases
@@ -51,16 +52,20 @@ alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
+# long live vi-style command-line editing! :P
+set -o vi
+
+# I have no idea what this does ;)
 xhost +local:root > /dev/null 2>&1
 
-# retrieve paleta colorscheme
-# cat /home/kiedtl/.cache/wal/sequences
-# wall -r
+# retrieve colorscheme
 paleta ~/etc/colors/wheel > /dev/null
 
 # source functions from bin
 . "${HOME}/bin/c"
-. "${HOME}/bin/]"
+. "${HOME}/bin/h"
+. "${HOME}/bin/z"
 
-# promptless prompt, by dylanaraps
-. "${XDG_CONFIG_HOME}/loksh/prompt.sh"
+# my mnmlist prompt
+#export PS1="➜ "
+export PS1="] "
