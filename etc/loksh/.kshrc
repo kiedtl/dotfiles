@@ -1,15 +1,8 @@
 #
 # kiedtl's ~/.${SHELL}rc
-# works (mostly) with both bash, loksh, and mksh.
+# works (sort of) with both loksh and mksh.
 # https://github.com/kiedtl/dotfiles
 #
-
-# auto-start tmux session
-# don't start tmux if no X server
-#if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ]; then
-	  #exec tmux
-#fi
-
 
 export PATH=/home/kiedtl/usr/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
@@ -54,6 +47,9 @@ alias free='free -m'                      # show sizes in MB
 
 # long live vi-style command-line editing! :P
 set -o vi
+
+# the csh !bang feature
+set -o csh-history
 
 # I have no idea what this does ;)
 xhost +local:root > /dev/null 2>&1
