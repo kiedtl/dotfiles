@@ -9,9 +9,9 @@
 ;; -------------------
 
 [colors]
-fg = c3d3d2
-bg = 0c0f15
-ac = cfd3d9
+fg = dfdacb
+bg = 0f0d12
+ac = dfdacb
 
 ;; -------------------
 ;; ------ FONTS ------

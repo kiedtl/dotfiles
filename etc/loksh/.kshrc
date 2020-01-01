@@ -33,9 +33,15 @@ clo() {
 	LANG=C peaclock ${@}
 }
 
+# source stuff from bin scripts
+. "${HOME}/bin/c"
+. "${HOME}/bin/h"
+. "${HOME}/bin/z"
+
 alias p='pwd'
 alias t='touch'
 alias l='exa'
+alias cd='c'
 alias git='hub'  			  # hub: git + hub = github 8-)
 alias tree='exa --tree --git-ignore'
 alias ls='exa -l'
@@ -55,13 +61,8 @@ set -o csh-history
 xhost +local:root > /dev/null 2>&1
 
 # retrieve colorscheme
-paleta ~/etc/colors/wheel > /dev/null
-
-# source functions from bin
-. "${HOME}/bin/c"
-. "${HOME}/bin/h"
-. "${HOME}/bin/z"
+paleta ~/etc/colors/village > /dev/null
 
 # my mnmlist prompt
 #export PS1="➜ "
-export PS1="] "
+export PS1="λ "

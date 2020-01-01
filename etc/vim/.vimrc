@@ -8,42 +8,46 @@ endif
 " initialize junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
-" pywal colorscheme, from dylanaraps
-Plug 'dylanaraps/wal.vim'
+" colorschemes
+Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
 
-" Rust mode for vim
+" various language modes for vim
 Plug 'rust-lang/rust.vim'
-
-" V mode for vim
 Plug 'ollykel/v-vim'
 
+" plugins
+Plug 'Yggdroot/indentLine'
+Plug 'godlygeek/tabular'
+
 " multiple cursors
-" Plug 'terryma/vim-multiple-cursors'
-
-" vim-airline: powerline alternative written in pure vimscript.
-" No bloated Python interpreter needed!
-" Plug 'vim-airline/vim-airline'
-
-" vim-airline themes
-Plug 'vim-airline/vim-airline-themes'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
-" enable line numbers
-set number
-
-" tabs
-set tabstop=8
+set list
+set number                             " enable line numbers
+set listchars=tab:»\ ,nbsp:␣,trail:·
+set tabstop=8                          " tabs
 set smarttab
+set encoding=utf-8                     " set UTF-8 encoding
+set mouse=a                            " enable mouse support
+colorscheme plain                      " colorscheme
 
-" UTF8
-set encoding=utf-8
-
-" enable mouse
-set mouse=a
-
-" set colorscheme
-colorscheme wal
+" ;P
+:command! WQ wq
+:command! Wq wq
+:command! W  w
+:command! Q  q
 
 " remove trailing whitespace from file
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+
+" configure tabs when editing Rust code
+augroup rustdev
+	autocmd!
+		autocmd FileType rs setlocal ts=4 sts=4 sw=4 expandtab
+augroup END
+
+let g:indentLine_setColors = 1
+let g:indentLine_char      = '»'
+let g:ft_man_open_mode     = 'tab'
