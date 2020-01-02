@@ -18,6 +18,7 @@ Plug 'ollykel/v-vim'
 " plugins
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
+Plug 'tpope/vim-commentary'
 
 " multiple cursors
 Plug 'terryma/vim-multiple-cursors'
