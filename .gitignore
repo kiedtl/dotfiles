@@ -19,8 +19,12 @@ opt/
 
 .viminfo
 etc/msmtp/
-etc/vim/autoload
-etc/vim/plugged
+etc/htop/
+etc/vim/autoload/
+etc/vim/plugged/
+etc/nvim/plugged/
+etc/nvim/autoload/
+etc/nvim/view/
 etc/bash/.bash_history
 etc/netsurf/*
 etc/hub
