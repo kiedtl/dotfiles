@@ -2,8 +2,9 @@ Documents/
 Downloads/
 Pictures/
 
-.local/
-.irssi/
+.gnupg/
+
+.weechat
 
 img/
 doc/
@@ -13,11 +14,15 @@ var/
 tmp/
 opt/
 
+.z
 .ssh/
 .fonts/
-.local/
 
 .viminfo
+.mbsyncrc
+
+etc/weechat/
+etc/mutt/
 etc/msmtp/
 etc/htop/
 etc/vim/autoload/
@@ -37,6 +42,6 @@ etc/fdm/
 .wget-hsts
 .lesshst
 .bash_history
-.netrc
+**/*.netrc
 etc/netrc
 .fdm.conf
