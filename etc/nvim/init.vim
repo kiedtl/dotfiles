@@ -1,12 +1,12 @@
 " install vim-plug if it isn't installed yet
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  silent !curl -fLo ~/etc/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " initialize junegunn/vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/etc/nvim/plugged')
 
 " colorschemes
 Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
@@ -18,6 +18,7 @@ Plug 'ollykel/v-vim'
 " plugins
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
+Plug 'tpope/vim-commentary'
 
 " multiple cursors
 Plug 'terryma/vim-multiple-cursors'
@@ -32,6 +33,9 @@ set smarttab
 set encoding=utf-8                     " set UTF-8 encoding
 set mouse=a                            " enable mouse support
 colorscheme plain                      " colorscheme
+set backspace=indent,eol,start         " backspace through anythign
+set scrolloff=1                        " show one line above/below cursor
+set incsearch=0                        " don't autosearch
 
 " ;P
 :command! WQ wq
