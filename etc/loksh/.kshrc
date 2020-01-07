@@ -64,4 +64,5 @@ paleta ~/etc/colors/orchid > /dev/null
 
 # my mnmlist prompt
 #export PS1="➜ "
-export PS1="λ "
+#export PS1="λ "
+export PS1="> "
