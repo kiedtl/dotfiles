@@ -4,13 +4,15 @@
 ;; check the LICENSE for for info.
 ;;
 
+;; and btw, darn the ini format :P
+
 ;; -------------------
 ;; ----- COLORS ------
 ;; -------------------
 
 [colors]
-fg = dfdacb
-bg = 0f0d12
+fg = e1e2e2
+bg = 0e120d
 ac = dfdacb
 
 ;; -------------------
@@ -18,7 +20,7 @@ ac = dfdacb
 ;; -------------------
 
 [fonts]
-font0 = "ttyp0:size=13;1"
+font0 = "ttyp0:size=15;2"
 
 ;; -------------------
 ;; ----- MODULES -----
@@ -36,6 +38,11 @@ content ="%{T2}%  %{T-}"
 
 click-left = "~/bin/ndmen ~/etc/polybar/simple/powermenu"
 
+[module/wm_layout]
+type = custom/script
+exec = "/home/kiedtl/bin/bar layout"
+interval = 1
+
 [module/title]
 type = internal/xwindow
 format = <label>
@@ -51,13 +58,13 @@ enable-scroll = true
 
 
 format = <label-state>
+format-padding = 2
 ;; pin-workspaces = true
 
-label-active = %name%
-label-occupied =
-label-urgent =
-label-empty =
-
+label-active = "<%name%> "
+label-occupied = " %name%  "
+label-urgent = " %name%  "
+label-empty = " %name%  "
 
 [module/filesystem]
 type = internal/fs
@@ -119,23 +126,25 @@ label = "%mb_used%  "
 ;; -------------------
 
 [bar/bar]
-monitor = default 
+monitor =
 override-redirect = true
 bottom = false
+pseudo-transparency = true
 
-fixed-center = true
+radius = 6.0
+fixed-center = false
 
 width = 100%
-height = 18
+height = 24
 
 background = ${colors.bg}
 foreground = ${colors.fg}
 
 font-0 = ${fonts.font0}
 
-modules-left = launcher title
-modules-center = workspaces 
-modules-right = network memory filesystem date powermenu
+modules-left = workspaces wm_layout title
+modules-center =
+modules-right = memory filesystem date
 
-border-bottom-size = 2
+border-bottom-size = 0
 border-bottom-color = ${colors.ac}

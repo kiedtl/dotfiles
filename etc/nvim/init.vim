@@ -35,7 +35,7 @@ set mouse=a                            " enable mouse support
 colorscheme plain                      " colorscheme
 set backspace=indent,eol,start         " backspace through anythign
 set scrolloff=1                        " show one line above/below cursor
-set incsearch=0                        " don't autosearch
+set noincsearch                        " don't autosearch
 
 " ;P
 :command! WQ wq

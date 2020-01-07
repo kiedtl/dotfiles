@@ -11,9 +11,9 @@ main() {
 	# configure Xresources async
 	xrdb -merge ~/etc/Xorg/.Xresources
 	
-	# add wallpaper and start bar script
+	# add wallpaper
 	~/.fehbg &
-	polybar bar &
+	polybar -r bar
 
 	# exec ~/.config/polybar/launch-dwm.sh
 	# (conky | while read info; do xsetroot -name "${info}"; done) &

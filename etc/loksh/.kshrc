@@ -41,7 +41,6 @@ clo() {
 alias p='pwd'
 alias t='touch'
 alias l='exa'
-alias cd='c'
 alias git='hub'  			  # hub: git + hub = github 8-)
 alias tree='exa --tree --git-ignore'
 alias ls='exa -l'
@@ -61,7 +60,7 @@ set -o csh-history
 xhost +local:root > /dev/null 2>&1
 
 # retrieve colorscheme
-paleta ~/etc/colors/village > /dev/null
+paleta ~/etc/colors/orchid > /dev/null
 
 # my mnmlist prompt
 #export PS1="➜ "

@@ -1,1 +1,3 @@
-exec echo dwm
+while :; do
+	ssh-agent dwm
+done
