@@ -12,10 +12,8 @@ main() {
 	# set cursor
 	xsetroot -cursor_name left_ptr
 
-	# edit background
-	# did I mention that bars are bloat?
-	#polybar -r bar &
-	hsetroot -solid "#c3d3d2"
+	# background
+	~/.fehbg
 
 	# X autolock
 	exec xautolock -time 30 -locker slock

@@ -6,8 +6,8 @@
 
 export PATH=/home/kiedtl/usr/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export ENV=/home/kiedtl/.kshrc
 export XDG_CONFIG_HOME="${HOME}/etc"
 
@@ -60,7 +60,7 @@ set -o csh-history
 xhost +local:root > /dev/null 2>&1
 
 # retrieve colorscheme
-paleta ~/etc/colors/orchid > /dev/null
+paleta ~/etc/colors/deadport > /dev/null
 
 # my mnmlist prompt
 #export PS1="➜ "

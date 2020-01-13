@@ -1,3 +1,1 @@
-while :; do
-	ssh-agent dwm
-done
+exec ssh-agent dwm
