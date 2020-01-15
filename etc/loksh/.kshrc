@@ -63,6 +63,8 @@ xhost +local:root > /dev/null 2>&1
 paleta ~/etc/colors/coffee > /dev/null
 
 # my mnmlist prompt
-#export PS1="➜ "
-#export PS1="λ "
-export PS1="> "
+if [ "${USER}" = "root" ]; then
+	export PS1="# "
+else
+	export PS1="$ "
+fi
