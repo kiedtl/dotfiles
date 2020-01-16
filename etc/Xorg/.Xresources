@@ -11,47 +11,4 @@ xterm*VT100.Translations: #override \
 		Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
 		Ctrl Shift <Key>C:	copy-selection(CLIPBOARD)
 
-xterm*cursorColor: #e1e2e2
-
-! -------------------------------
-!     OLD SETTINGS FOR URXVT
-! -------------------------------
-! general settings
-! URxvt*saveline:         15000
-! URxvt*termName:         xterm-256color
-! URxvt*urgentOnBell:     false
-! URxvt*visualBell:       false
-! URxvt*iso14755:         false
-! URxvt*iso14755_52:      false
-! URxvt*meta8:            false
-! URxvt*metaSendsEscape:  true
-! 
-! ! appearanceappearance
-! URxvt*cursorColor:       #c5c8c6
-! URxvt*scrollBar:         false
-! URxvt*scrollTtyOutput:   false
-! URxvt*scrollWithBuffer:  true
-! URxvt*scrollTtyKeypress: true
-! URxvt*internalBorder:    54
-! URxvt*externalBorder:    0
-! 
-! ! fonts
-! URxvt*letterSpace: 	 			1
-! URxvt*font:                 	xft:Hack:size=11
-! URxvt*imFont:               	xft:Hack:size=11
-! URxvt*boldFont:             	xft:Hack:size=11:style=Bold
-! URxvt*italicFont:           	xft:Hack:size=11:style=Italic
-! URxvt*boldItalicFont:    	xft:Hack:size=11:style=Italic
-! 
-! ! macros for clipboard and selection
-! URxvt*copyCommand:	      	xclip -i -selection clipboard
-! URxvt*pasteCommand:	     	xclip -o -selection clipboard
-! URxvt*keysym.M-c:       	perl:clipboard:copy
-! URxvt*keysym.M-v:       	perl:clipboard:paste
-! URxvt*keysym.M-C-v:     	perl:clipboard:paste_escaped
-! URxvt*keysym.M-Escape:  	perl:keyboard-select:activate
-! URxvt*keysym.M-s:       	perl:keyboard-select:search
-! URxvt*keysym.M-u:       	perl:url-select:select_next
-! 
-! URxvt*keysym.Control-Shift-C: 	perl:clipboard:copy
-! URxvt*keysym.Control-Shift-V: 	perl:clipboard:paste
+xterm*cursorColor: #c1c0ca
