@@ -1,1 +1,1 @@
-exec ssh-agent bunny
+exec ssh-agent openbox
