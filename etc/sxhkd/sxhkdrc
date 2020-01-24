@@ -1,0 +1,69 @@
+super + Return
+	xterm
+
+super + shift + e
+	killall Xorg
+
+super + p
+	ndmen
+
+super + shift + s
+	slock
+
+super + shift + q
+	bspc node -k
+
+#alt + c
+#	bspc node -p cancel
+
+super + r
+	bspc node -n last.!automatic -t tiled
+
+super + {t,m}
+	bspc desktop -l {tiled,monocle}
+
+super + f
+	bspc node -t "~floating"
+
+super + shift + {1,2,3,4,5,6,7}
+	bspc node -d {1,2,3,4,5,6,7}; \
+
+super + {1,2,3,4,5,6,7}
+	bspc desktop -f {1,2,3,4,5,6,7}; \
+
+super + j
+	bspc node -f next;
+
+super + k
+	bspc node -f prev;
+
+super + alt + 0
+	gaps r
+
+super + alt + equal
+	gaps up
+
+super + alt + minus
+	gaps down
+
+
+{XF86AudioPrev, super + comma}
+	vol prev
+
+{XF86AudioNext, super + period}
+	vol next
+
+{XF86AudioPlay, super + p, ctrl + alt + a}
+	vol p
+
+{XF86AudioRaiseVolume, super + u}
+	vol up
+
+{XF86AudioLowerVolume, super + j}
+	vol down
+
+XF86AudioStop
+	vol stop
+
+XF86AudioMute
+	vol m
