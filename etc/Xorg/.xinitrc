@@ -1,3 +1,2 @@
-~/etc/bunny/autostart &
 sxhkd &
-exec ssh-agent bunny
+exec ssh-agent bspwm
