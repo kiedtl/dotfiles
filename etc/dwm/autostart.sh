@@ -16,13 +16,6 @@ main() {
 	# add wallpaper
 	(~/.fehbg) &
 
-	(
-		while :; do
-			xsetroot -name "$(date '+%H:%M %p')"
-			sleep 1;
-		done
-	) &
-
 	# X autolock
 	exec xautolock -time 30 -locker slock
 }
