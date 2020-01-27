@@ -12,7 +12,7 @@
 
 [colors]
 fg = e1e2e2
-bg = 0e120d
+bg = 192222
 ac = dfdacb
 
 ;; -------------------
@@ -56,15 +56,14 @@ type = internal/xworkspaces
 enable-click = true
 enable-scroll = true
 
-
 format = <label-state>
 format-padding = 2
 ;; pin-workspaces = true
 
-label-active = "<%name%> "
-label-occupied = " %name%  "
-label-urgent = " %name%  "
-label-empty = " %name%  "
+label-active = "%name%"
+label-occupied =
+label-urgent =
+label-empty =
 
 [module/filesystem]
 type = internal/fs
@@ -76,7 +75,7 @@ fixed-values = true
 format-mounted = <label-mounted>
 format-unmounted = <label-unmounted>
 
-label-mounted = "%free%"
+label-mounted = "%free%  "
 label-unmounted = %mountpoint%: not mounted!
 
 [module/date]
@@ -117,7 +116,7 @@ type = internal/memory
 interval = 2
 
 format = <label>
-format-prefix = 
+format-prefix =
 
 label = "%mb_used%  "
 
@@ -125,26 +124,47 @@ label = "%mb_used%  "
 ;; ------- BAR -------
 ;; -------------------
 
-[bar/bar]
+[bar/right]
 monitor =
 override-redirect = true
-bottom = false
-pseudo-transparency = true
 
-radius = 6.0
-fixed-center = false
-
-width = 100%
-height = 24
+width = 8%
+height = 32
+offset-x = 1750
+offset-y = 16
 
 background = ${colors.bg}
 foreground = ${colors.fg}
 
 font-0 = ${fonts.font0}
+modules-right = memory filesystem
 
-modules-left = workspaces wm_layout title
-modules-center =
-modules-right = memory filesystem date
+[bar/left]
+monitor =
+override-redirect = true
 
-border-bottom-size = 0
-border-bottom-color = ${colors.ac}
+width = 16%
+height = 32
+offset-x = 16
+offset-y = 16
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+
+font-0 = ${fonts.font0}
+modules-left = title
+
+[bar/center]
+monitor =
+override-redirect = true
+
+width = 5%
+height = 32
+offset-x = 900
+offset-y = 16
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+
+font-0 = ${fonts.font0}
+modules-left = date

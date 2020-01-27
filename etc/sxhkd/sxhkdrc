@@ -19,8 +19,8 @@ super + {t,m}
 super + f
 	bspc node -t "~floating"
 
-super + {_,shift + }{1,2,3,4,5,6,7,8,9,0}
-	bspc {desktop -f,node -d} '^{I,II,III,IV,V,VI,VII,VIII,IX,X}'
+super + {_,shift + }{0,1,2,3,4,5,6,7,8,9}
+	bspc {desktop -f,node -d} {0,1,2,3,4,5,6,7,8,9}
 
 super + {j,k}
 	bspc node -f {next,prev}
