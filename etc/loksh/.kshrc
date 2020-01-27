@@ -60,7 +60,7 @@ set -o csh-history
 xhost +local:root > /dev/null 2>&1
 
 # retrieve colorscheme
-paleta ~/etc/colors/waters > /dev/null
+(cat ~/.cache/wal/sequences &)
 
 # my mnmlist prompt
 if [ "${USER}" = "root" ]; then

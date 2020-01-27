@@ -1,3 +1,6 @@
+button3
+	rcmen
+
 super + Return
 	xterm
 

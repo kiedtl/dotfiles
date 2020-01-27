@@ -11,9 +11,8 @@
 ;; -------------------
 
 [colors]
-fg = e1e2e2
-bg = 192222
-ac = dfdacb
+fg = ${xrdb:color7:#e1e2e2}
+bg = ${xrdb:color0:#192222}
 
 ;; -------------------
 ;; ------ FONTS ------
