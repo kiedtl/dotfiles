@@ -1,1 +1,0 @@
-/home/kiedtl/etc/vim/.vim
