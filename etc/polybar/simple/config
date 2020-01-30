@@ -6,24 +6,20 @@
 
 ;; and btw, darn the ini format :P
 
-;; -------------------
-;; ----- COLORS ------
-;; -------------------
+;;     ----
+;;  appearence
+;;     ----
 
 [colors]
 fg = ${xrdb:color7:#e1e2e2}
 bg = ${xrdb:color0:#192222}
 
-;; -------------------
-;; ------ FONTS ------
-;; -------------------
-
 [fonts]
 font0 = "ttyp0:size=15;2"
 
-;; -------------------
-;; ----- MODULES -----
-;; -------------------
+;;    ---
+;;  modules
+;;    ---
 
 [module/launcher]
 type = custom/text
@@ -119,51 +115,24 @@ format-prefix =
 
 label = "%mb_used%  "
 
-;; -------------------
-;; ------- BAR -------
-;; -------------------
+;;       ---
+;;  the actual bar
+;;       ---
 
-[bar/right]
+[bar/bar]
 monitor =
 override-redirect = true
 
-width = 8%
-height = 32
-offset-x = 1750
-offset-y = 16
+width = 100%
+height = 16
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-
 font-0 = ${fonts.font0}
+
+modules-left = title
+modules-center = date
 modules-right = memory filesystem
 
-[bar/left]
-monitor =
-override-redirect = true
-
-width = 16%
-height = 32
-offset-x = 16
-offset-y = 16
-
-background = ${colors.bg}
-foreground = ${colors.fg}
-
-font-0 = ${fonts.font0}
-modules-left = title
-
-[bar/center]
-monitor =
-override-redirect = true
-
-width = 5%
-height = 32
-offset-x = 900
-offset-y = 16
-
-background = ${colors.bg}
-foreground = ${colors.fg}
-
-font-0 = ${fonts.font0}
-modules-left = date
+border-bottom-size = 2
+border-bottom-color = ${colors.fg}

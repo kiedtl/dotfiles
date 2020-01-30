@@ -24,7 +24,7 @@ export BAT_THEME="OneHalfLight"
 export NNN_USE_EDITOR=1
 
 # for Rust development
-export RUSTFLAGS="-C link-args=-fuse-ld=lld"
+export RUSTFLAGS="-C link-args=-fuse-ld=gold"
 export RUST_BACKTRACE=1
 
 # aliases
