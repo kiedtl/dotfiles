@@ -27,16 +27,9 @@ export NNN_USE_EDITOR=1
 export RUSTFLAGS="-C link-args=-fuse-ld=gold"
 export RUST_BACKTRACE=1
 
-# aliases
-clo() {
-	unset LANGUAGE;
-	LANG=C peaclock ${@}
-}
-
 # source stuff from bin scripts
 . "${HOME}/bin/c"
 . "${HOME}/bin/h"
-. "${HOME}/bin/z"
 
 alias p='pwd'
 alias t='touch'
@@ -63,8 +56,4 @@ xhost +local:root > /dev/null 2>&1
 (cat ~/.cache/wal/sequences &)
 
 # my mnmlist prompt
-if [ "${USER}" = "root" ]; then
-	export PS1="# "
-else
-	export PS1="$ "
-fi
+export PS1="] "
