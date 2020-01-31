@@ -42,11 +42,13 @@ alias rm='rm -i'                          # confirm before deleting a file
 alias df='df -h'                          # show human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
-# long live vi-style command-line editing! :P
-set -o vi
-
-# extended globbing
-setopt extendedglob
+bindkey -v                                # long live vi command-line editing! ;P
+setopt extendedglob                       # enable extended globbing
+setopt autocd                             # automagically cd into directories
+setopt correct                            # automagically correct commands
+setopt histignoredups                     # don't push duplicates into history
+setopt noclobber                          # ugh
+setopt interactivecomments                # enable interactive comments
 
 # I have no idea what this does ;)
 # it's been in here for ages anyway,
@@ -57,8 +59,4 @@ xhost +local:root > /dev/null 2>&1
 (cat ~/.cache/wal/sequences &)
 
 # my mnmlist prompt
-if [ "${USER}" = "root" ]; then
-        export PS1="# "
-else
-        export PS1="% "
-fi
+export PS1="%2~ > "
