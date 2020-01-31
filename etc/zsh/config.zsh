@@ -59,4 +59,9 @@ xhost +local:root > /dev/null 2>&1
 (cat ~/.cache/wal/sequences &)
 
 # my mnmlist prompt
+precmd() {
+	pwd=$(echo $PWD | sed "s/\/home\/${USER}/~/")
+	echo -ne "\033]0;${USER}@${HOST}:${pwd}\007"
+}
+
 export PS1="%2~ > "
