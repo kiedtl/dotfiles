@@ -29,6 +29,7 @@ export RUST_BACKTRACE=1
 . "${HOME}/bin/c"                         # clear/cd/cat stuffed into one command
 . "${HOME}/bin/h"                         # "cd /home/kiedtl"
 
+alias bc="bc -ql"                         # basic calculator
 alias p='pwd'                             # where does laziness become insanity?
 alias t='touch'                           # ...
 alias l='exa'                             # ...
@@ -45,7 +46,6 @@ alias free='free -m'                      # show sizes in MB
 bindkey -v                                # long live vi command-line editing! ;P
 setopt extendedglob                       # enable extended globbing
 setopt autocd                             # automagically cd into directories
-setopt correct                            # automagically correct commands
 setopt histignoredups                     # don't push duplicates into history
 setopt noclobber                          # ugh
 setopt interactivecomments                # enable interactive comments
