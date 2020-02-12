@@ -46,10 +46,10 @@ set noincsearch                        " don't autosearch
 " remove trailing whitespace from file
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 
-" configure tabs when editing Rust code
-augroup rustdev
+" configure tabs when editing Rust/Scheme/POSIX-sh code
+augroup indents
 	autocmd!
-		autocmd FileType rs setlocal ts=4 sts=4 sw=4 expandtab
+		autocmd FileType rs,sh,scm setlocal ts=4 sts=4 sw=4 expandtab
 augroup END
 
 let g:indentLine_setColors = 1
