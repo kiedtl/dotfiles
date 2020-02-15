@@ -22,18 +22,20 @@ export BAT_THEME="OneHalfLight"
 export NNN_USE_EDITOR=1
 
 # for Rust development
-export RUSTFLAGS="-C link-args=-fuse-ld=gold"
 export RUST_BACKTRACE=1
+
+# source kiss path if it exists
+[ -f /etc/profile.d/kiss_path.sh ] && . /etc/profile.d/kiss_path.sh
 
 # source stuff from bin scripts
 . "${HOME}/bin/c"                         # clear/cd/cat stuffed into one command
 . "${HOME}/bin/h"                         # "cd /home/kiedtl"
 
+alias kiss="sudo KISS_PATH='${KISS_PATH}' kiss"
 alias bc="bc -ql"                         # basic calculator
 alias p='pwd'                             # where does laziness become insanity?
 alias t='touch'                           # ...
 alias l='exa'                             # ...
-alias git='hub'                           # hub: git + hub = github 8-)
 alias tree='exa --tree --git-ignore'      # use exa's tree instead
 alias ls='exa -l'                         # long live exa!
 alias lsd='exa -al'
