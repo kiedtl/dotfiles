@@ -1,5 +1,5 @@
 ! XTerm customizations
-xterm*faceName: ttyp0
+xterm*faceName: cozette
 xterm*faceSize: 11
 
 ! double-click to select whole URLs :D
