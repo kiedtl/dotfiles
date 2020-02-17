@@ -33,7 +33,6 @@ alias bc="bc -ql"                         # basic calculator
 alias p='pwd'                             # where does laziness become insanity?
 alias t='touch'                           # ...
 alias l='exa'                             # ...
-alias git='hub'                           # hub: git + hub = github 8-)
 alias tree='exa --tree --git-ignore'      # use exa's tree instead
 alias ls='exa -l'                         # long live exa!
 alias lsd='exa -al'
