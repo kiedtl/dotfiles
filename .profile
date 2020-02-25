@@ -1,1 +1,1 @@
-etc/loksh/.kshrc
+etc/mksh/profile.sh

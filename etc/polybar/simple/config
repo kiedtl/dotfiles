@@ -4,11 +4,32 @@
 ;; check the LICENSE for for info.
 ;;
 
-;; and btw, darn the ini format :P
 
-;;     ----
-;;  appearence
-;;     ----
+;;       ---
+;;  the actual bar
+;;       ---
+
+[bar/bar]
+monitor =
+override-redirect = true
+bottom = true
+width = 100%
+height = 16
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+font-0 = ${fonts.font0}
+
+modules-left = title
+modules-center = date
+modules-right = memory filesystem
+
+border-top-size = 2
+border-top-color = ${colors.fg}
+
+;;        ----
+;;  colors and fonts
+;;        ----
 
 [colors]
 fg = ${xrdb:color7:#e1e2e2}
@@ -114,25 +135,3 @@ format = <label>
 format-prefix =
 
 label = "%mb_used%  "
-
-;;       ---
-;;  the actual bar
-;;       ---
-
-[bar/bar]
-monitor =
-override-redirect = true
-bottom = true
-width = 100%
-height = 16
-
-background = ${colors.bg}
-foreground = ${colors.fg}
-font-0 = ${fonts.font0}
-
-modules-left = title
-modules-center = date
-modules-right = memory filesystem
-
-border-top-size = 2
-border-top-color = ${colors.fg}
