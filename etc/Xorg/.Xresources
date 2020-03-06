@@ -1,4 +1,7 @@
-! XTerm customizations
+!    ---
+!   xterm
+!    ---
+
 xterm*faceName: cozette
 xterm*faceSize: 11
 
@@ -12,3 +15,4 @@ xterm*VT100.Translations: #override \
 		Ctrl Shift <Key>C:	copy-selection(CLIPBOARD)
 
 xterm*cursorColor: #c1c0ca
+
