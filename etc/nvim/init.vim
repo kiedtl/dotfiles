@@ -62,3 +62,5 @@ let g:ft_man_open_mode     = 'tab'
 " vim tends to react poorly to light themes
 colorscheme default
 colorscheme plain
+
+highlight LineNr ctermfg=White
