@@ -14,6 +14,7 @@ Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
 " various language modes for vim
 Plug 'rust-lang/rust.vim'
 Plug 'ollykel/v-vim'
+Plug 'braindead-cc/bf-vim'
 
 " plugins
 Plug 'Yggdroot/indentLine'
@@ -34,7 +35,6 @@ set tabstop=8                          " tabs
 set smarttab
 set encoding=utf-8                     " set UTF-8 encoding
 set mouse=a                            " enable mouse support
-colorscheme plain                      " colorscheme
 set backspace=indent,eol,start         " backspace through anythign
 set scrolloff=1                        " show one line above/below cursor
 set noincsearch                        " don't autosearch
@@ -57,3 +57,8 @@ augroup END
 let g:indentLine_setColors = 1
 let g:indentLine_char      = '»'
 let g:ft_man_open_mode     = 'tab'
+
+" workaround
+" vim tends to react poorly to light themes
+colorscheme default
+colorscheme plain

@@ -2,7 +2,7 @@
 !   xterm
 !    ---
 
-xterm*faceName: cozette
+xterm*faceName: ttyp0
 xterm*faceSize: 11
 
 ! double-click to select whole URLs :D
@@ -14,5 +14,4 @@ xterm*VT100.Translations: #override \
 		Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
 		Ctrl Shift <Key>C:	copy-selection(CLIPBOARD)
 
-xterm*cursorColor: #c1c0ca
-
+xterm*cursorColor: #b9bab9

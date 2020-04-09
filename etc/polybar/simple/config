@@ -36,7 +36,7 @@ fg = ${xrdb:color7:#e1e2e2}
 bg = ${xrdb:color0:#192222}
 
 [fonts]
-font0 = "cozette:size=15;2"
+font0 = "ttyp0:size=15;2"
 
 ;;    ---
 ;;  modules
