@@ -58,18 +58,11 @@ xhost +local:root >/dev/null 2>&1
 paleta ~/etc/colors/paper 2>/dev/null >&2
 
 prompt() {
-    width="$(stty size)"
-    width="${width#*\ }"
-    width="$(($width + 32))"  # add (width of esc sequences)
+    p="$PWD"
+    [ "$p" = "$HOME" ] && p="~"
+    p="$(basename "$p")"
 
-    left="$(printf "\033[48;5;8m %s \033[48;5;14m\033[38;5;0m %s \033[0m" \
-        "$(basename $(pwd))" \
-        "$(hostname)")"
-
-    printf "%${width}s" "$left"
-    printf "\r\033[48;5;8m %s \033[48;5;9m\033[38;5;0m %s \033[0m " \
-        "\$" \
-        "$USER"
+    printf "\033[48;5;8m \$ \033[48;5;9m\033[38;5;0m $p \033[0m "
 }
 
 export PS1="\$(prompt)"
