@@ -55,6 +55,21 @@ set -o vi
 xhost +local:root >/dev/null 2>&1
 
 # retrieve colorscheme
-paleta $(colors) 2>/dev/null >&2
+paleta ~/etc/colors/paper 2>/dev/null >&2
 
-export PS1="] "
+prompt() {
+    width="$(stty size)"
+    width="${width#*\ }"
+    width="$(($width + 32))"  # add (width of esc sequences)
+
+    left="$(printf "\033[48;5;8m %s \033[48;5;14m\033[38;5;0m %s \033[0m" \
+        "$(basename $(pwd))" \
+        "$(hostname)")"
+
+    printf "%${width}s" "$left"
+    printf "\r\033[48;5;8m %s \033[48;5;9m\033[38;5;0m %s \033[0m " \
+        "\$" \
+        "$USER"
+}
+
+export PS1="\$(prompt)"
