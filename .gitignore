@@ -6,3 +6,28 @@ opt
 src
 tmp
 var
+
+# stupid dotfiles
+.dbus
+.fehbg
+.gnupg
+.hunspell*
+.lesshst
+.sc_history
+.sfeed
+.ssh
+.w3m
+.wget-hsts
+
+# random programs that don't belong in etc/
+etc/glib*
+etc/hub
+etc/keybase/
+etc/msmtp/
+etc/mutt/
+etc/netsurf/
+etc/nvim/autoload/
+etc/nvim/plugged/
+etc/nvim/view/
+etc/pulse/
+etc/weechat/
