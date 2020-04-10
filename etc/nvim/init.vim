@@ -28,9 +28,12 @@ Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
-set list
+set cursorline                         " highlight current line
+set showmode                           " show mode
+set ruler                              " show line no and col no.
 set number                             " enable line numbers
-set listchars=tab:»\ ,nbsp:␣,trail:·
+set list
+set listchars=tab:\│\ ,nbsp:␣,trail:·  " nice unicode listchars :D
 set tabstop=8                          " tabs
 set smarttab
 set encoding=utf-8                     " set UTF-8 encoding
@@ -45,6 +48,10 @@ set noincsearch                        " don't autosearch
 :command! W  w
 :command! Q  q
 
+" bindings
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>
+
 " remove trailing whitespace from file
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 
@@ -55,7 +62,7 @@ augroup indents
 augroup END
 
 let g:indentLine_setColors = 1
-let g:indentLine_char      = '»'
+let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
 " workaround
@@ -63,4 +70,12 @@ let g:ft_man_open_mode     = 'tab'
 colorscheme default
 colorscheme plain
 
-highlight LineNr ctermfg=White
+highlight linenr ctermfg=8
+highlight cursorlinenr ctermfg=NONE ctermbg=NONE
+highlight cursorline ctermfg=16 ctermbg=8
+highlight comment ctermfg=16
+highlight pmenu ctermbg=0 ctermfg=NONE
+highlight pmenusel ctermbg=4 ctermfg=0
+highlight pmenusbar ctermbg=0
+highlight pmenuthumb ctermbg=7
+highlight matchparen ctermbg=0 ctermfg=NONE
