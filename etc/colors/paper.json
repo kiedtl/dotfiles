@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/paper.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#fefefe",
+        "foreground": "#141c21",
+        "cursor": "#141c21"
+    },
+    "colors": {
+        "color0": "#fefefe",
+        "color1": "#d12f2c",
+        "color2": "#819400",
+        "color3": "#b08500",
+        "color4": "#2587cc",
+        "color5": "#696ebf",
+        "color6": "#289c93",
+        "color7": "#141c21",
+        "color8": "#efeddf",
+        "color9": "#d12f2c",
+        "color10": "#819400",
+        "color11": "#b08500",
+        "color12": "#2587cc",
+        "color13": "#696ebf",
+        "color14": "#289c93",
+        "color15": "#141c21"
+    }
+}
