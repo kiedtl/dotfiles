@@ -57,14 +57,11 @@ xhost +local:root >/dev/null 2>&1
 # retrieve colorscheme
 paleta ~/etc/colors/paper 2>/dev/null >&2
 
-prompt() {
-    e="$(printf "\033")"
-
+e="$(printf "\033")"
+mypwd() {
     p="$PWD"
     [ "$p" = "$HOME" ] && p="~"
-    p="$(basename "$p")"
-
-    printf "$e[48;5;9m$e[38;5;0m \$ $e[48;5;8m$e[38;5;15m $p $e[0m "
+    printf "$(basename "$p")"
 }
 
-export PS1="\$(prompt)"
+export PS1=$'\1\r\1$e[48;5;9m$e[30m\1 \$ \1$e[48;5;8m$e[39m\1 \$(mypwd) \1$e[m\1 '
