@@ -18,6 +18,7 @@ var
 .ssh
 .w3m
 .wget-hsts
+.bash_history
 
 # random programs that don't belong in etc/
 etc/glib*
