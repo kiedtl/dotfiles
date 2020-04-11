@@ -5,13 +5,26 @@
 xterm*faceName: ttyp0
 xterm*faceSize: 11
 
-! double-click to select whole URLs :D
-xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-
+xterm*cursorColor: #000000
 xterm*internalBorder: 24
 
+! double-click to select whole URLs :D
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 xterm*VT100.Translations: #override \
 		Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
 		Ctrl Shift <Key>C:	copy-selection(CLIPBOARD)
 
-xterm*cursorColor: #000000
+!        ----
+!    rxvt-unicode
+!        ----
+
+URxvt*termName:       xterm-256color
+URxvt*scrollBar:      false
+URxvt*saveline:       1500
+URxvt*transparent:    false
+URxvt*depth:          16
+URxvt*internalBorder: 24
+URxvt*externalBorder: 0
+URxvt*font:           xft:ttyp0:Regular:size=11
+URxvt*boldFont:       xft:ttyp0:Bold:size=11
+URxvt*italicFont:     xft:ttyp0:Italic:size=11
