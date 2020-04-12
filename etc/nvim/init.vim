@@ -1,5 +1,5 @@
 " install vim-plug if it isn't installed yet
-if empty(glob('~/etc/nvim/autoload/plug.vim'))
+if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/etc/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -28,6 +28,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
+set laststatus=2                       " enable statusbar
 set cursorline                         " highlight current line
 set showmode                           " show mode
 set ruler                              " show line no and col no.
@@ -65,13 +66,11 @@ let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
-" workaround
-" vim tends to react poorly to light themes
-colorscheme default
-colorscheme plain
+" :( syntax makes vim laggy on rpi
+syntax off
 
-highlight linenr ctermfg=8
-highlight cursorlinenr ctermfg=NONE ctermbg=NONE
+highlight linenr ctermfg=NONE
+highlight cursorlinenr term=bold ctermfg=1 ctermbg=NONE
 highlight cursorline ctermfg=16 ctermbg=8
 highlight comment ctermfg=16
 highlight pmenu ctermbg=0 ctermfg=NONE

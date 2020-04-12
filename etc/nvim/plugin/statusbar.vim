@@ -88,7 +88,7 @@ function! Modified() abort
 endfunction
 
 highlight user1 ctermbg=1 ctermfg=0
-highlight user2 ctermbg=4 ctermfg=0
+highlight user2 ctermbg=1 ctermfg=0
 highlight user3 ctermbg=8 ctermfg=NONE
 highlight user4 ctermbg=NONE ctermfg=NONE
 highlight group1 ctermbg=NONE ctermfg=0
