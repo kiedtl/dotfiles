@@ -30,17 +30,14 @@ call plug#end()
 
 set laststatus=2                       " enable statusbar
 set cursorline                         " highlight current line
-set showmode                           " show mode
-set ruler                              " show line no and col no.
 set number                             " enable line numbers
 set list
 set listchars=tab:\│\ ,nbsp:␣,trail:·  " nice unicode listchars :D
 set tabstop=8                          " tabs
 set smarttab
 set encoding=utf-8                     " set UTF-8 encoding
-set mouse=a                            " enable mouse support
+"set mouse=a                            " enable mouse support
 set backspace=indent,eol,start         " backspace through anythign
-set scrolloff=1                        " show one line above/below cursor
 set noincsearch                        " don't autosearch
 
 " ;P
