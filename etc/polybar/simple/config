@@ -20,11 +20,11 @@ background = ${colors.bg}
 foreground = ${colors.fg}
 font-0 = ${fonts.font0}
 
-modules-left = title
-modules-center = date
-modules-right = memory filesystem
+modules-left = workspaces
+modules-center = memory filesystem
+modules-right = date
 
-border-bottom-size = 2
+border-bottom-size = 0
 border-bottom-color = ${colors.fg}
 
 ;;        ----
@@ -34,9 +34,10 @@ border-bottom-color = ${colors.fg}
 [colors]
 fg = ${xrdb:color7:#e1e2e2}
 bg = ${xrdb:color0:#192222}
+ac = ${xrdb:color1:#884444}
 
 [fonts]
-font0 = "ttyp0:size=15;2"
+font0 = "ttyp0:size=13;2"
 
 ;;    ---
 ;;  modules
@@ -73,10 +74,10 @@ enable-click = true
 enable-scroll = true
 
 format = <label-state>
-format-padding = 2
+format-padding = 0
 ;; pin-workspaces = true
 
-label-active = "%name%"
+label-active = ${env:WKSPC_LABEL}
 label-occupied =
 label-urgent =
 label-empty =
@@ -91,7 +92,7 @@ fixed-values = true
 format-mounted = <label-mounted>
 format-unmounted = <label-unmounted>
 
-label-mounted = "%free%  "
+label-mounted = ${env:DISK_LABEL}
 label-unmounted = %mountpoint%: not mounted!
 
 [module/date]
@@ -102,9 +103,9 @@ time =   %I:%M %p
 time-alt =  %Y-%m-%d%
 
 format = <label>
-format-padding = 2
+format-padding = 0
 
-label = %time%
+label = ${env:TIME_LABEL}
 
 [module/network]
 type = internal/network
@@ -134,4 +135,4 @@ interval = 2
 format = <label>
 format-prefix =
 
-label = "%mb_used%  "
+label = ${env:MEM_LABEL}
