@@ -2,12 +2,12 @@
     "wallpaper": "/home/kiedtl/img/wallpapers/paper.jpg",
     "alpha": "100",
     "special": {
-        "background": "#fefefe",
+        "background": "#eeeeee",
         "foreground": "#141c21",
         "cursor": "#141c21"
     },
     "colors": {
-        "color0": "#fefefe",
+        "color0": "#eeeeee",
         "color1": "#d12f2c",
         "color2": "#819400",
         "color3": "#b08500",
