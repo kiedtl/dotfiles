@@ -15,6 +15,7 @@ Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
 Plug 'rust-lang/rust.vim'
 Plug 'ollykel/v-vim'
 Plug 'braindead-cc/bf-vim'
+Plug 'ziglang/zig.vim'
 
 " plugins
 Plug 'Yggdroot/indentLine'
