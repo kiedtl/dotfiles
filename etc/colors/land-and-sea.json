@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/land-and-sea.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#f9f9f9",
+        "foreground": "#030400",
+        "cursor": "#030400"
+    },
+    "colors": {
+        "color0": "#f9f9f9",
+        "color1": "#798c1a",
+        "color2": "#acb739",
+        "color3": "#8fa057",
+        "color4": "#32506c",
+        "color5": "#1a2e45",
+        "color6": "#506987",
+        "color7": "#030400",
+        "color8": "#d7dadf",
+        "color9": "#798c1a",
+        "color10": "#acb739",
+        "color11": "#8fa057",
+        "color12": "#32506c",
+        "color13": "#1a2e45",
+        "color14": "#506987",
+        "color15": "#030400"
+    }
+}
