@@ -1,7 +1,9 @@
 ;;
 ;; kiedtl's polybar configuration
-;; github.com/kiedtl/dotfiles
-;; check the LICENSE for for info.
+;; https://github.com/kiedtl/dotfiles
+;;
+;; (c) Kiëd Llaentenn
+;; check the LICENSE for more info.
 ;;
 
 
@@ -24,8 +26,8 @@ modules-left = workspaces
 modules-center = memory filesystem
 modules-right = date
 
-border-bottom-size = 0
-border-bottom-color = ${colors.fg}
+border-bottom-size = 2
+border-bottom-color = ${colors.ac}
 
 ;;        ----
 ;;  colors and fonts
