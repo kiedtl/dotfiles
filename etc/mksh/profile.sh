@@ -56,7 +56,7 @@ set -o vi
 xhost +local:root >/dev/null 2>&1
 
 # retrieve colorscheme
-paleta ~/etc/colors/paper 2>/dev/null >&2
+paleta ~/etc/colors/land-and-sea 2>/dev/null >&2
 
 e="$(printf "\033")"
 mypwd() {
