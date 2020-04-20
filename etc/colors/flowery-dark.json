@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/flowery.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0c0d0c",
+        "foreground": "#dfd6d7",
+        "cursor": "#dfd6d7"
+    },
+    "colors": {
+        "color0": "#0c0d0c",
+        "color1": "#C87374",
+        "color2": "#B97F80",
+        "color3": "#B59594",
+        "color4": "#CC9190",
+        "color5": "#CFAFB0",
+        "color6": "#E2AAA9",
+        "color7": "#dfd6d7",
+        "color8": "#9c9596",
+        "color9": "#C87374",
+        "color10": "#B97F80",
+        "color11": "#B59594",
+        "color12": "#CC9190",
+        "color13": "#CFAFB0",
+        "color14": "#E2AAA9",
+        "color15": "#dfd6d7"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "CHANGEME",
+    "alpha": "100",
+    "special": {
+        "background": "#f9f6f7",
+        "foreground": "#151715",
+        "cursor": "#151715"
+    },
+    "colors": {
+        "color0": "#f9f6f7",
+        "color1": "#C87374",
+        "color2": "#B97F80",
+        "color3": "#B59594",
+        "color4": "#CC9190",
+        "color5": "#CFAFB0",
+        "color6": "#E2AAA9",
+        "color7": "#151715",
+        "color8": "#e5e5e5",
+        "color9": "#C87374",
+        "color10": "#B97F80",
+        "color11": "#B59594",
+        "color12": "#CC9190",
+        "color13": "#CFAFB0",
+        "color14": "#E2AAA9",
+        "color15": "#151715"
+    }
+}
+
