@@ -1,20 +1,18 @@
-### MIT License
+The Dotfiles License
+====================
 
-> Copyright 2019-2020 Kiëd Llaentenn
+- Copyright © 2019-2020 Kiëd Llaentenn
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this
-software and associated documentation files (the "Software"), to deal in the Software
-without restriction, including without limitation the rights to (mis)use, copy, modify,
-merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to the following
-conditions:
+Permission is granted, free of any charge or fee, to any individual downloading
+or cloning a copy of these useless scripts and configuration files, to (mis)use,
+copy, modify, merge, publish, distribute, sublicense, sell, burn, blow up,
+ingest, wear, and/or use for medicinal purposes, without any restriction,
+limitation, or condition whatsoever, including the condition of attributation.
 
-- The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-**the software is provided "as is", without warranty of any kind, express or implied, 
-including but not limited to the warranties of merchantability, fitness for a 
-particular purpose and noninfringement. in no event shall the authors or copyright
-holders be liable for any claim, damages or other liability, whether in an action of
-contract, tort or otherwise, arising from, out of or in connection with the software
-or the use or other dealings in the software.**
+THIS CONTENT IS PROVIDED BY THE AUTHOR(S) "AS IS", AND ANY WARRANTY, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT ARE DISCLAIMED. IN
+ABSOLUTELY NO CIRCUMSTANCES SHALL THE AUTHOR(S), CONTRIBUTORS, OR USERS OF
+THIS CONTENT BE LIABLE FOR ANY KIND CLAIM OR DAMAGES (INCLUDING BUT NOT
+LIMITED TO, LOSS OF DATA OR PRODUCTIVITY) ARISING FROM OR CAUSED BY THE USE
+OR EXISTENCE OF THIS CONTENT.
