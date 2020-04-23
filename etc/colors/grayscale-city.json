@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/grayscale-city.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#eeeeee",
+        "foreground": "#000000",
+        "cursor": "#000000"
+    },
+    "colors": {
+        "color0": "#eeeeee",
+        "color1": "#884444",
+        "color2": "#448844",
+        "color3": "#888844",
+        "color4": "#444488",
+        "color5": "#884488",
+        "color6": "#448888",
+        "color7": "#666666",
+        "color8": "#cacbca",
+        "color9": "#884444",
+        "color10": "#448844",
+        "color11": "#888844",
+        "color12": "#444488",
+        "color13": "#884488",
+        "color14": "#448888",
+        "color15": "#000000"
+    }
+}
+

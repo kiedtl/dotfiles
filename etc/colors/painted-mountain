@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/painted-mountain.png",
+    "alpha": "100",
+    "special": {
+        "background": "#FCFCFC",
+        "foreground": "#000000",
+        "cursor": "#000000"
+    },
+    "colors": {
+        "color0": "#FCFCFC",
+        "color1": "#485065",
+        "color2": "#264E58",
+        "color3": "#888844",
+        "color4": "#0F263B",
+        "color5": "#545864",
+        "color6": "#0F3B48",
+        "color7": "#000000",
+        "color8": "#dadada",
+        "color9": "#485065",
+        "color10": "#264E58",
+        "color11": "#888844",
+        "color12": "#0F263B",
+        "color13": "#545864",
+        "color14": "#0F3B48",
+        "color15": "#000000"
+    }
+}
+
