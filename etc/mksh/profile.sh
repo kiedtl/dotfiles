@@ -58,11 +58,11 @@ xhost +local:root >/dev/null 2>&1
 # retrieve colorscheme
 paleta $(colors) 2>/dev/null >&2
 
+a="$(printf "\a")"
 e="$(printf "\033")"
 mypwd() {
-    p="$PWD"
-    [ "$p" = "$HOME" ] && p="~"
-    printf "$(basename "$p")"
+    printf "$PWD" | \
+        sed "s|$HOME|~|g"
 }
 
-export PS1=$'\1\r\1$e[48;5;9m$e[30m\1 \$ \1$e[48;5;8m$e[39m\1 \$(mypwd) \1$e[m\1 '
+export PS1="$e]0;\$(mypwd)$a# "

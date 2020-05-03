@@ -30,7 +30,7 @@ Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 set laststatus=2                       " enable statusbar
-set cursorline                         " highlight current line
+"set cursorline                         " highlight current line
 set number                             " enable line numbers
 set list
 set listchars=tab:\│\ ,nbsp:␣,trail:·  " nice unicode listchars :D
@@ -65,6 +65,8 @@ let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
 " :( syntax makes vim laggy on rpi
+" colorscheme default
+" colorscheme plain
 syntax off
 
 highlight linenr ctermfg=NONE

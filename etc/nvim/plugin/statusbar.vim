@@ -1,5 +1,7 @@
 "
-" kiedtl's vim status bar
+" kiedtl's vim status bar, for the most part
+" stolen from NerdyPepper and addy-fe :^)
+"
 " https://github.com/kiedtl/dotfiles
 "
 scriptencoding utf-8
@@ -93,4 +95,6 @@ highlight user3 ctermbg=8 ctermfg=NONE
 highlight user4 ctermbg=NONE ctermfg=NONE
 highlight group1 ctermbg=NONE ctermfg=0
 
-set statusline=%!StatusLine()
+" disabling for now, this status bar is incredibly laggy
+" on the Raspberry Pi :'(
+" set statusline=%!StatusLine()

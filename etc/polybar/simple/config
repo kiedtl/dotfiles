@@ -22,7 +22,7 @@ background = ${colors.bg}
 foreground = ${colors.fg}
 font-0 = ${fonts.font0}
 
-modules-left = workspaces
+modules-left = title
 modules-center = memory filesystem
 modules-right = date
 
@@ -105,9 +105,9 @@ time =   %I:%M %p
 time-alt =  %Y-%m-%d%
 
 format = <label>
-format-padding = 0
+format-padding = 2
 
-label = ${env:TIME_LABEL}
+label = %time%
 
 [module/network]
 type = internal/network
