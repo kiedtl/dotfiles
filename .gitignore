@@ -19,6 +19,7 @@ var
 .w3m
 .wget-hsts
 .bash_history
+.weechat
 
 # random programs that don't belong in etc/
 etc/glib*
@@ -31,4 +32,3 @@ etc/nvim/autoload/
 etc/nvim/plugged/
 etc/nvim/view/
 etc/pulse/
-etc/weechat/
