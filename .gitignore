@@ -32,3 +32,4 @@ etc/nvim/autoload/
 etc/nvim/plugged/
 etc/nvim/view/
 etc/pulse/
+etc/aerc
