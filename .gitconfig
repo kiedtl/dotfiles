@@ -1,3 +1,9 @@
 [user]
-	email = kiedtl@protonmail.com
+	email = kiedtl@tilde.team
 	name = Kiëd Llaentenn
+
+[sendemail]
+	smtpServer = smtp.tilde.team
+	smtpEncryption = tls
+	smtpUser = kiedtl
+	smtpServerport = 587
