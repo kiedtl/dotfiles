@@ -12,6 +12,7 @@ call plug#begin('~/etc/nvim/plugged')
 Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
 
 " various language modes for vim
+Plug 'vim-scripts/paredit.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'ollykel/v-vim'
 Plug 'braindead-cc/bf-vim'
@@ -57,7 +58,12 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 " configure tabs when editing Rust/Scheme/POSIX-sh code
 augroup indents
 	autocmd!
-		autocmd FileType rs,sh,scm setlocal ts=4 sts=4 sw=4 expandtab
+		autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
+augroup END
+
+augroup indents_lisp
+	autocmd!
+		autocmd FileType scm,lisp setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 let g:indentLine_setColors = 1
