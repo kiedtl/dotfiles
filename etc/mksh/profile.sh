@@ -10,6 +10,9 @@ export VISUAL="$EDITOR"
 export TERM=xterm-256color # enable the darned 256 color support vim, ok?
 export XDG_CONFIG_HOME="${HOME}/etc"
 export ENV="/home/kiedtl/etc/mksh/profile.sh"
+export LUA_PATH='/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;/usr/lib/lua/5.3/?.lua;/usr/lib/lua/5.3/?/init.lua;./?.lua;./?/init.lua;/home/kiedtl/.luarocks/share/lua/5.3/?.lua;/home/kiedtl/.luarocks/share/lua/5.3/?/init.lua;/home/kiedtl/.luarocks/share/lua/5.3/?/init.lua'
+export LUA_CPATH='/usr/lib/lua/5.3/?.so;/usr/lib/lua/5.3/loadall.so;./?.so;/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/lib/lua/5.3/?.so'
+export PATH='/home/kiedtl/.luarocks/bin:/home/kiedtl/.luarocks/bin:/home/kiedtl/local/bin:/home/kiedtl/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin'
 
 # pastel config
 export PASTEL_COLOR_MODE=24bit
@@ -51,8 +54,10 @@ alias free='free -m'                      # show sizes in MB
 set -o vi
 
 # I have no idea what this does ;)
-# it's been in here for ages anyway,
-# why bother taking it out...
+#
+# I mean, it's been in here for ages anyway,
+# since my first distro (Manjaro) in
+# fact, so why bother taking it out...
 xhost +local:root >/dev/null 2>&1
 
 # retrieve colorscheme
