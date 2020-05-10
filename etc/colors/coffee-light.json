@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/coffee.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#f4f4f3",
+        "foreground": "#24211F",
+        "cursor": "#24211F"
+    },
+    "colors": {
+        "color0": "#f4f4f3",
+        "color1": "#946B44",
+        "color2": "#4C8A75",
+        "color3": "#B4916B",
+        "color4": "#5E635C",
+        "color5": "#787D82",
+        "color6": "#5DA893",
+        "color7": "#24211F",
+        "color8": "#6f706a",
+        "color9": "#946B44",
+        "color10": "#4C8A75",
+        "color11": "#B4916B",
+        "color12": "#5E635C",
+        "color13": "#787D82",
+        "color14": "#5DA893",
+        "color15": "#24211F"
+    }
+}
+
