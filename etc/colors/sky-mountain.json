@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/sky-mountain.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#f8fbfb",
+        "foreground": "#0B1312",
+        "cursor": "#0B1312"
+    },
+    "colors": {
+        "color0": "#f8fbfb",
+        "color1": "#6d8990",
+        "color2": "#96a299",
+        "color3": "#7698a3",
+        "color4": "#7ba0ac",
+        "color5": "#90a9b0",
+        "color6": "#a4b7b9",
+        "color7": "#0B1312",
+        "color8": "#a0abac",
+        "color9": "#6d8990",
+        "color10": "#96a299",
+        "color11": "#7698a3",
+        "color12": "#7ba0ac",
+        "color13": "#90a9b0",
+        "color14": "#a4b7b9",
+        "color15": "#0b1312"
+    }
+}
+
