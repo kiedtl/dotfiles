@@ -32,13 +32,11 @@ export RUST_BACKTRACE=1
 # source kiss path if it exists
 [ -f /etc/profile.d/kiss_path.sh ] && . /etc/profile.d/kiss_path.sh
 
-# source stuff from bin scripts
-. "${HOME}/bin/c"                         # clear/cd/cat stuffed into one command
-. "${HOME}/bin/h"                         # "cd /home/kiedtl"
-
 alias peaclock='LC_ALL=C peaclock'        # fix peaclock on musl
 alias bc="bc -ql"                         # basic calculator
 alias p='pwd'                             # where does laziness become insanity?
+alias h='cd'                              # ...
+alias c='clear'                           # ...
 alias t='touch'                           # ...
 alias l='exa'                             # ...
 alias tree='exa --tree --git-ignore'      # use exa's tree instead
@@ -70,4 +68,4 @@ mypwd() {
         sed "s|$HOME|~|g"
 }
 
-export PS1="$e]0;\$(mypwd)$a# "
+export PS1="$e]0;\$(mypwd)$a── "
