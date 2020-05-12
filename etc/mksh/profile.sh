@@ -69,4 +69,4 @@ mypwd() {
         sed "s|$HOME|~|g"
 }
 
-export PS1="$e]0;\$(mypwd)$a── "
+export PS1="$e]0;\$(mypwd)$a→ "
