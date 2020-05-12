@@ -34,6 +34,7 @@ export RUST_BACKTRACE=1
 
 alias peaclock='LC_ALL=C peaclock'        # fix peaclock on musl
 alias bc="bc -ql"                         # basic calculator
+alias %='map'
 alias p='pwd'                             # where does laziness become insanity?
 alias h='cd'                              # ...
 alias c='clear'                           # ...
