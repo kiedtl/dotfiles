@@ -14,5 +14,17 @@
  ;; If there is more than one, they won't work right.
  )
 
+; evil mode :D
 (require 'evil)
 (evil-mode 1)
+
+; line numbers
+(global-display-line-numbers-mode)
+
+; font
+(add-to-list 'default-frame-alist '(font . "ttyp0:pixelsize=15"))
+
+; who needs bars
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
