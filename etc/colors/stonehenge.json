@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/stonehenge.json",
+    "alpha": "100",
+    "special": {
+        "background": "#FEFEFE",
+        "foreground": "#050503",
+        "cursor": "#050503"
+    },
+    "colors": {
+        "color0": "#FEFEFE",
+        "color1": "#a5492b",
+        "color2": "#324C1C",
+        "color3": "#baa45b",
+        "color4": "#6385AA",
+        "color5": "#7492B6",
+        "color6": "#9DB1C9",
+        "color7": "#050503",
+        "color8": "#F1E2DB",
+        "color9": "#a5492b",
+        "color10": "#324C1C",
+        "color11": "#baa45b",
+        "color12": "#6385AA",
+        "color13": "#7492B6",
+        "color14": "#9DB1C9",
+        "color15": "#050503"
+    }
+}
+
