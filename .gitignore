@@ -19,7 +19,7 @@ var
 .w3m
 .wget-hsts
 .bash_history
-.weechat
+.Xauthority
 
 # random programs that don't belong in etc/
 etc/glib*
