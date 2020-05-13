@@ -3,16 +3,18 @@
 # https://github.com/kiedtl/dotfiles
 #
 
-export PATH=/home/kiedtl/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH
-export LANG=en_US.UTF-8
-export EDITOR=nvim
+export PATH="/home/kiedtl/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH"
+export LANG="en_US.UTF-8"
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
-export TERM=xterm-256color # enable the darned 256 color support vim, ok?
+export TERM="xterm-256color" # enable the darned 256 color support vim, ok?
 export XDG_CONFIG_HOME="${HOME}/etc"
 export ENV="/home/kiedtl/etc/mksh/profile.sh"
-export LUA_PATH='/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;/usr/lib/lua/5.3/?.lua;/usr/lib/lua/5.3/?/init.lua;./?.lua;./?/init.lua;/home/kiedtl/.luarocks/share/lua/5.3/?.lua;/home/kiedtl/.luarocks/share/lua/5.3/?/init.lua;/home/kiedtl/.luarocks/share/lua/5.3/?/init.lua'
-export LUA_CPATH='/usr/lib/lua/5.3/?.so;/usr/lib/lua/5.3/loadall.so;./?.so;/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/lib/lua/5.3/?.so'
-export PATH='/home/kiedtl/.luarocks/bin:/home/kiedtl/.luarocks/bin:/home/kiedtl/local/bin:/home/kiedtl/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin'
+export HISTFILE="/home/kiedtl/opt/.cache/mksh/history-$(date +%Y%m%d).txt"
+export HISTSIZE="65535"
+
+# weechat
+export WEECHAT_HOME="/home/kiedtl/etc/weechat/"
 
 # pastel config
 export PASTEL_COLOR_MODE=24bit
