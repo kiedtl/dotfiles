@@ -97,4 +97,4 @@ highlight group1 ctermbg=NONE ctermfg=0
 
 " disabling for now, this status bar is incredibly laggy
 " on the Raspberry Pi :'(
-" set statusline=%!StatusLine()
+set statusline=%!StatusLine()

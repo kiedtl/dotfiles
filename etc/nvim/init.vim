@@ -12,12 +12,12 @@ call plug#begin('~/etc/nvim/plugged')
 Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
 
 " various language modes for vim
-Plug 'vim-scripts/paredit.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'ollykel/v-vim'
-Plug 'braindead-cc/bf-vim'
-Plug 'ziglang/zig.vim'
-Plug 'jceb/vim-orgmode'
+Plug 'vim-scripts/paredit.vim', {'for' : 'lisp'}
+Plug 'rust-lang/rust.vim',      {'for' : 'rust'}
+Plug 'ollykel/v-vim',           {'for' : 'v'}
+Plug 'braindead-cc/bf-vim',     {'for' : 'brainfuck'}
+Plug 'ziglang/zig.vim',         {'for' : 'zig'}
+Plug 'jceb/vim-orgmode',        {'for' : 'org'}
 
 " plugins
 Plug 'Yggdroot/indentLine'
@@ -25,14 +25,12 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-conficted'
 Plug 'junegunn/goyo.vim'
-
-" multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
-set laststatus=2                       " enable statusbar
-"set cursorline                         " highlight current line
+set laststatus=0                       " disable statusbar
+set cursorline                         " highlight current line
 set number                             " enable line numbers
 set list
 set listchars=tab:\│\ ,nbsp:␣,trail:·  " nice unicode listchars :D
@@ -60,20 +58,27 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 augroup indents
 	autocmd!
 		autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
-augroup END
-
-augroup indents_lisp
-	autocmd!
 		autocmd FileType scm,lisp setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
+
+" for markdown
+augroup plaintext
+	autocmd!
+		autocmd FileType text,markdown setlocal textwidth=75
+augroup END
+
+augroup highlight_follows_vim
+	autocmd!
+		autocmd WinEnter * set cursorline
+		autocmd WinLeave * set nocursorline
 
 let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
 " :( syntax makes vim laggy on rpi
-" colorscheme default
-" colorscheme plain
+"colorscheme default
+"colorscheme plain
 syntax off
 
 highlight linenr ctermfg=NONE
