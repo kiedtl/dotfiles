@@ -71,6 +71,7 @@ augroup highlight_follows_vim
 	autocmd!
 		autocmd WinEnter * set cursorline
 		autocmd WinLeave * set nocursorline
+augroup END
 
 let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
