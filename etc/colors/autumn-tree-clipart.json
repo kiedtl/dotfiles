@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/autumn-tree-clipart.jpeg",
+    "alpha": "100",
+    "special": {
+        "background": "#fbfbfb",
+        "foreground": "#21110A",
+        "cursor": "#21110A"
+    },
+    "colors": {
+        "color0": "#fbfbfb",
+        "color1": "#F4A150",
+        "color2": "#D27884",
+        "color3": "#978F8B",
+        "color4": "#BCBCBC",
+        "color5": "#E3B5A3",
+        "color6": "#CBCBCB",
+        "color7": "#21110A",
+        "color8": "#dfdfdf",
+        "color9": "#e39040",
+        "color10": "#c16773",
+        "color11": "#867e7a",
+        "color12": "#ababab",
+        "color13": "#d2a492",
+        "color14": "#bab3ba",
+        "color15": "#21110A"
+    }
+}
+
