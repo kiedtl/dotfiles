@@ -29,16 +29,16 @@ Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
-set laststatus=0                       " disable statusbar
+set laststatus=2                       " enable statusbar
 set cursorline                         " highlight current line
 set number                             " enable line numbers
-set list
+set relativenumber                     " enable relative line numbers
+set list                               " enable listchars
 set listchars=tab:\│\ ,nbsp:␣,trail:·  " nice unicode listchars :D
 set tabstop=8                          " tabs
 set smarttab
 set encoding=utf-8                     " set UTF-8 encoding
-"set mouse=a                            " enable mouse support
-set backspace=indent,eol,start         " backspace through anythign
+set backspace=indent,eol,start         " backspace through anything
 set noincsearch                        " don't autosearch
 
 " ;P
@@ -77,13 +77,13 @@ let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
-" :( syntax makes vim laggy on rpi
-"colorscheme default
-"colorscheme plain
+" syntax makes vim laggy on RPi 0 :'(
+" and anyway, syntax highlighting is bloat
 syntax off
 
-highlight linenr ctermfg=NONE
-highlight cursorlinenr term=bold ctermfg=1 ctermbg=NONE
+highlight linenr ctermfg=3
+highlight clear cursorline
+highlight cursorlinenr ctermfg=7 ctermbg=NONE
 highlight cursorline ctermfg=16 ctermbg=8
 highlight comment ctermfg=16
 highlight pmenu ctermbg=0 ctermfg=NONE

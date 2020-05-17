@@ -37,14 +37,16 @@ function! StatusLine() abort
 	endif
 
 	let l:line.='%1* %{g:curmode[mode()]}% '
-	let l:line.='%3* %{GitBranch()}%  %4*'
-	let l:line.=' %f %{ReadOnly()}% %{Modified()}% '
+	let l:line.='%3* %P %4*'
+	let l:line.=' %f %{ReadOnly()}% %{Modified()}% %4*'
 	let l:line.='%= '
 	let l:line.='%3* Ln %l, Col %c %2* %{FileType()}%  '
 
 	return l:line
 endfunction
 
+" disabled, this is causes the statusline to be
+" incredibly laggy on the RPi 0
 function! GitBranch()
 	let l:command=''
 	let l:command.="sh -c 'cd "
@@ -89,12 +91,10 @@ function! Modified() abort
 	endif
 endfunction
 
-highlight user1 ctermbg=1 ctermfg=0
-highlight user2 ctermbg=1 ctermfg=0
+highlight user1 ctermbg=7 ctermfg=0
+highlight user2 ctermbg=7 ctermfg=0
 highlight user3 ctermbg=8 ctermfg=NONE
-highlight user4 ctermbg=NONE ctermfg=NONE
+highlight user4 ctermbg=NONE ctermfg=3
 highlight group1 ctermbg=NONE ctermfg=0
 
-" disabling for now, this status bar is incredibly laggy
-" on the Raspberry Pi :'(
 set statusline=%!StatusLine()
