@@ -52,7 +52,10 @@ alias rm='rm -i'                          # confirm before deleting a file
 alias df='df -h'                          # show human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
+set -o trackall
 set -o vi
+set -o vi-tabcomplete
+set -o bgnice
 
 # I have no idea what this does ;)
 #
