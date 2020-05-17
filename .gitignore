@@ -20,16 +20,3 @@ var
 .wget-hsts
 .bash_history
 .Xauthority
-
-# random programs that don't belong in etc/
-etc/glib*
-etc/hub
-etc/keybase/
-etc/msmtp/
-etc/mutt/
-etc/netsurf/
-etc/nvim/autoload/
-etc/nvim/plugged/
-etc/nvim/view/
-etc/pulse/
-etc/aerc

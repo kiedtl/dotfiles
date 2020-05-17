@@ -1,0 +1,14 @@
+# random programs that don't belong in etc/
+glib*
+hub
+keybase/
+msmtp/
+mutt/
+netsurf/
+nvim/autoload/
+nvim/plugged/
+nvim/view/
+pulse/
+aerc/
+htop/
+neofetch/
