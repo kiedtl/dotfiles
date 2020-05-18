@@ -10,7 +10,7 @@ export VISUAL="$EDITOR"
 export TERM="xterm-256color" # enable the darned 256 color support vim, ok?
 export XDG_CONFIG_HOME="${HOME}/etc"
 export ENV="/home/kiedtl/etc/mksh/profile.sh"
-export HISTFILE="/home/kiedtl/opt/.cache/mksh/history-$(date +%Y%m%d).txt"
+export HISTFILE="/home/kiedtl/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 
 # weechat
@@ -33,6 +33,9 @@ export RUST_BACKTRACE=1
 
 # source kiss path if it exists
 [ -f /etc/profile.d/kiss_path.sh ] && . /etc/profile.d/kiss_path.sh
+
+# source stuff from ~/bin
+. ~/bin/shtat
 
 alias peaclock='LC_ALL=C peaclock'        # fix peaclock on musl
 alias bc="bc -ql"                         # basic calculator
