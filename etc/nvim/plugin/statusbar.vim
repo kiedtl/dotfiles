@@ -36,13 +36,34 @@ function! StatusLine() abort
 		return l:line
 	endif
 
-	let l:line.='%1* %{g:curmode[mode()]}% '
-	let l:line.='%3* %P %4*'
-	let l:line.=' %f %{ReadOnly()}% %{Modified()}% %4*'
-	let l:line.='%= '
-	let l:line.='%3* Ln %l, Col %c %2* %{FileType()}%  '
+	let l:line.='%1* %{g:curmode[mode()]}% %3* '
+	let l:line.='Ln %l Col %v '
+	let l:line.='%{ReadOnly()}% %{Modified()}% %4* '
+	let l:line.=' %= %3* '
+	let l:line.=LinePercentage()
+	let l:line.='%1* %{FileType()}%  '
 
 	return l:line
+endfunction
+
+function! LinePercentage()
+	let l:percentage=line('.') * 100 / line('$')
+
+	let l:percentline=''
+	let l:percentline.='%5*'
+	let l:percentline.=l:percentage
+	let l:percentline.='%% '
+
+	for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+		if (l:percentage/10) > i
+			let l:percentline.='%3*▒'
+		else
+			let l:percentline.='%4*▒'
+		endif
+	endfor
+
+	let l:percentline.=' '
+	return l:percentline
 endfunction
 
 " disabled, this is causes the statusline to be
@@ -91,10 +112,9 @@ function! Modified() abort
 	endif
 endfunction
 
-highlight user1 ctermbg=7 ctermfg=0
-highlight user2 ctermbg=7 ctermfg=0
-highlight user3 ctermbg=8 ctermfg=NONE
+highlight user1 ctermbg=7    ctermfg=0
+highlight user3 ctermbg=NONE ctermfg=NONE
 highlight user4 ctermbg=NONE ctermfg=3
-highlight group1 ctermbg=NONE ctermfg=0
+highlight user5 ctermbg=NONE ctermfg=7
 
 set statusline=%!StatusLine()
