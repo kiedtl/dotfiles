@@ -81,13 +81,13 @@ let g:ft_man_open_mode     = 'tab'
 " and anyway, syntax highlighting is bloat
 syntax off
 
-highlight linenr ctermfg=3
-highlight clear cursorline
-highlight cursorlinenr ctermfg=7 ctermbg=8
-highlight cursorline ctermfg=16 ctermbg=8
-highlight comment ctermfg=16
-highlight pmenu ctermbg=0 ctermfg=NONE
-highlight pmenusel ctermbg=4 ctermfg=0
-highlight pmenusbar ctermbg=0
-highlight pmenuthumb ctermbg=7
-highlight matchparen ctermbg=0 ctermfg=NONE
+highlight linenr       ctermfg=3
+highlight clear        cursorline
+highlight cursorlinenr ctermfg=7  ctermbg=8
+highlight cursorline   ctermfg=16 ctermbg=8
+highlight comment      ctermfg=16
+highlight pmenu        ctermbg=0  ctermfg=NONE
+highlight pmenusel     ctermbg=4  ctermfg=0
+highlight pmenusbar    ctermbg=0
+highlight pmenuthumb   ctermbg=7
+highlight matchparen   ctermbg=0  ctermfg=NONE
