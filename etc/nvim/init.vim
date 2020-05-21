@@ -83,7 +83,7 @@ syntax off
 
 highlight linenr ctermfg=3
 highlight clear cursorline
-highlight cursorlinenr ctermfg=7 ctermbg=NONE
+highlight cursorlinenr ctermfg=7 ctermbg=8
 highlight cursorline ctermfg=16 ctermbg=8
 highlight comment ctermfg=16
 highlight pmenu ctermbg=0 ctermfg=NONE
