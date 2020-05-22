@@ -13,6 +13,9 @@ export ENV="/home/kiedtl/etc/mksh/profile.sh"
 export HISTFILE="/home/kiedtl/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 
+# zet (https://sr.ht/~gpanders/zet)
+export ZETTEL_DIR="/home/kiedtl/doc/zet/"
+
 # weechat
 export WEECHAT_HOME="/home/kiedtl/etc/weechat/"
 
