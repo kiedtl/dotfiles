@@ -1,5 +1,5 @@
 {
-    "wallpaper": "/home/kiedtl/img/wallpapers/india-edited.jpg",
+    "wallpaper": "/home/kiedtl/img/wallpapers/india-edited.json",
     "alpha": "100",
     "special": {
         "background": "#fbfbfa",
@@ -8,20 +8,20 @@
     },
     "colors": {
         "color0": "#fbfbfa",
-        "color1": "#9C8E70",
-        "color2": "#9AA09E",
-        "color3": "#B1B3B1",
+        "color1": "#905a47",
+        "color2": "#90984b",
+        "color3": "#adb753",
         "color4": "#C3BBB2",
-        "color5": "#C7C2BC",
-        "color6": "#BCC1C0",
+        "color5": "#9c8e70",
+        "color6": "#a2b0b1",
         "color7": "#142A36",
         "color8": "#cfcdcb",
-        "color9": "#9C8E70",
-        "color10": "#9AA09E",
-        "color11": "#B1B3B1",
+        "color9": "#905a47",
+        "color10": "#90984b",
+        "color11": "#adb753",
         "color12": "#C3BBB2",
-        "color13": "#C7C2BC",
-        "color14": "#BCC1C0",
+        "color13": "#9c8e70",
+        "color14": "#a2b0b1",
         "color15": "#142A36"
     }
 }
