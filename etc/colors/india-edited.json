@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/india-edited.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#fbfbfa",
+        "foreground": "#142A36",
+        "cursor": "#142A36"
+    },
+    "colors": {
+        "color0": "#fbfbfa",
+        "color1": "#9C8E70",
+        "color2": "#9AA09E",
+        "color3": "#B1B3B1",
+        "color4": "#C3BBB2",
+        "color5": "#C7C2BC",
+        "color6": "#BCC1C0",
+        "color7": "#142A36",
+        "color8": "#cfcdcb",
+        "color9": "#9C8E70",
+        "color10": "#9AA09E",
+        "color11": "#B1B3B1",
+        "color12": "#C3BBB2",
+        "color13": "#C7C2BC",
+        "color14": "#BCC1C0",
+        "color15": "#142A36"
+    }
+}
+
