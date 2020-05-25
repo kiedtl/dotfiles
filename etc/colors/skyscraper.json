@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/skyscraper.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#feffff",
+        "foreground": "#2e3032",
+        "cursor": "#2e3032"
+    },
+    "colors": {
+        "color0": "#feffff",
+        "color1": "#7e8690",
+        "color2": "#9ea7b0",
+        "color3": "#a0b0c0",
+        "color4": "#8f97a1",
+        "color5": "#9ea7b0",
+        "color6": "#909090",
+        "color7": "#bababa",
+        "color8": "#d5d6d8",
+        "color9": "#7e8690",
+        "color10": "#9ea7b0",
+        "color11": "#a0b0c0",
+        "color12": "#8f97a1",
+        "color13": "#9ea7b0",
+        "color14": "#909090",
+        "color15": "#2e3032"
+    }
+}
+
