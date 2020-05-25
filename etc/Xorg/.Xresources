@@ -2,7 +2,7 @@
 !   xterm
 !    ---
 
-xterm*faceName: cozette
+xterm*faceName: ttyp0
 xterm*faceSize: 11
 
 xterm*cursorColor: #000000

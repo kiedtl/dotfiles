@@ -56,9 +56,9 @@ function! LinePercentage()
 
 	for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 		if (l:percentage/10) > i
-			let l:percentline.='%3*▒'
+			let l:percentline.='%3*|'
 		else
-			let l:percentline.='%4*▒'
+			let l:percentline.='%4*|'
 		endif
 	endfor
 

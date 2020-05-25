@@ -22,11 +22,15 @@ offset-x = 24
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-font-0 = ${fonts.font0}
+font-0 = ${fonts.ttyp0}
+font-1 = ${fonts.ttyp0-bold}
 
-modules-left = workspaces
-modules-center = date
+modules-left = date
+modules-center =
 modules-right = memory filesystem
+
+border-size = 2
+border-color = ${colors.ac}
 
 ;;        ----
 ;;  colors and fonts
@@ -38,7 +42,8 @@ bg = ${xrdb:color0:#192222}
 ac = ${xrdb:color1:#884444}
 
 [fonts]
-font0 = "ttyp0:size=13;2"
+ttyp0      = "ttyp0:size=13;2"
+ttyp0-bold = "ttyp0:size=13:style=Bold;2"
 
 ;;    ---
 ;;  modules
@@ -75,10 +80,10 @@ enable-click = true
 enable-scroll = true
 
 format = <label-state>
-format-padding = 0
+format-padding = 2
 ;; pin-workspaces = true
 
-label-active = "%{R}  %name%  %{R}"
+label-active = "%name%"
 label-occupied =
 label-urgent =
 label-empty =
@@ -90,23 +95,33 @@ mount-0 = /
 interval = 10 
 fixed-values = true
 
-format-mounted = <label-mounted>
+format-mounted = "<label-mounted> <bar-used>  "
 format-unmounted = <label-unmounted>
 
-label-mounted = "%free%  "
+label-mounted = "%free%"
 label-unmounted = %mountpoint%: not mounted!
+
+bar-used-indicator =
+bar-used-width = 10
+bar-used-fill = |
+bar-used-empty = |
+bar-used-foreground-0 = ${colors.fg}
+bar-used-foreground-1 = ${colors.fg}
+bar-used-foreground-2 = ${colors.fg}
+bar-used-foreground-3 = ${colors.fg}
+bar-used-empty-foreground = ${colors.ac}
 
 [module/date]
 type = internal/date
 interval = 1.0
 
-time =   %H:%M
-time-alt =  %Y-%m-%d%
+time = "%H%M"
+date = "%m/%d"
 
-format = <label>
-format-padding = 0
+format = "<label>"
+format-padding = 2
 
-label = %time%
+label = "%{T2}%time%%{T-} hrs  %{T2}%date%%{T-} 2020"
 
 [module/network]
 type = internal/network
@@ -133,8 +148,18 @@ ramp-signal-4 =
 type = internal/memory
 interval = 2
 
-format = <label>
+format = "<label> <bar-used>"
 format-prefix =
 format-padding = 2
 
-label = %mb_used%
+label = "%mb_used%"
+
+bar-used-indicator =
+bar-used-width = 10
+bar-used-fill = |
+bar-used-empty = |
+bar-used-foreground-0 = ${colors.fg}
+bar-used-foreground-1 = ${colors.fg}
+bar-used-foreground-2 = ${colors.fg}
+bar-used-foreground-3 = ${colors.fg}
+bar-used-empty-foreground = ${colors.ac}
