@@ -77,4 +77,4 @@ mypwd() {
         sed "s|$HOME|~|g"
 }
 
-export PS1="$e]0;\$(mypwd)$a→ "
+export PS1=$'\1\r\1\e]0;$(mypwd)\a\1\$ \1\e[31m\1$(mypwd)\1\e[0m\1 '
