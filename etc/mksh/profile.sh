@@ -40,23 +40,23 @@ export RUST_BACKTRACE=1
 # source stuff from ~/bin
 . ~/bin/shtat
 
-alias peaclock='LC_ALL=C peaclock'        # fix peaclock on musl
-alias bc="bc -ql"                         # basic calculator
-alias %='map'
-alias p='pwd'                             # where does laziness become insanity?
-alias h='cd'                              # ...
-alias c='clear'                           # ...
-alias t='touch'                           # ...
-alias l='exa'                             # ...
-alias tree='exa --tree --git-ignore'      # use exa's tree instead
-alias ls='exa -l'                         # long live exa!
-alias lsd='exa -al'
-alias grep='grep --colour=auto'           # color by default
-alias mv="mv -i"                          # prevent $(mv x.h x.c) ugh
-alias cp="cp -i"                          # confirm before overwriting files
-alias rm='rm -i'                          # confirm before deleting a file
-alias df='df -h'                          # show human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias peaclock='LC_ALL=C peaclock'   # fix peaclock on musl
+alias bc="bc -ql"                    # basic calculator
+alias p='pwd'                        # where does laziness become insanity?
+alias d='doas'                       # ...
+alias h='cd ~'                       # ...
+alias c='clear'                      # ...
+alias t='touch'                      # ...
+alias l='exa'                        # ...
+alias tree='exa --tree --git-ignore' # use exa's tree instead
+alias ls='exa -l'                    # long live exa!
+alias lsd='exa -al'                  # ^^
+alias grep='grep --colour=auto'      # color by default
+alias mv="mv -i"                     # prevent $(mv x.h x.c) ugh
+alias cp="cp -i"                     # confirm before overwriting files
+alias rm='rm -i'                     # confirm before deleting a file
+alias df='df -h'                     # show human-readable sizes
+alias free='free -m'                 # show sizes in MB
 
 set -o trackall
 set -o vi
@@ -80,4 +80,4 @@ mypwd() {
         sed "s|$HOME|~|g"
 }
 
-export PS1="$e]0;\$(mypwd)$a→ "
+export PS1=$'\1\r\1\e]0;$(mypwd)\a\1\$ \1\e[31m\1$(mypwd)\1\e[0m\1 '

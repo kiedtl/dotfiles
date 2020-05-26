@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/village.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#fbfbfa",
+        "foreground": "#19161F",
+        "cursor": "#19161F"
+    },
+    "colors": {
+        "color0": "#fbfbfa",
+        "color1": "#A55C3D",
+        "color2": "#8F7058",
+        "color3": "#788462",
+        "color4": "#9A8D6E",
+        "color5": "#CE955C",
+        "color6": "#A9A490",
+        "color7": "#19161F",
+        "color8": "#cecfc9",
+        "color9": "#A55C3D",
+        "color10": "#8F7058",
+        "color11": "#788462",
+        "color12": "#9A8D6E",
+        "color13": "#CE955C",
+        "color14": "#A9A490",
+        "color15": "#19161F"
+    }
+}
+

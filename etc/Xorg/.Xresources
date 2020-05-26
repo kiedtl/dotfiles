@@ -22,9 +22,9 @@ URxvt*termName:       xterm-256color
 URxvt*scrollBar:      false
 URxvt*saveline:       1500
 URxvt*transparent:    false
-URxvt*depth:          16
+URxvt*depth:          32
 URxvt*internalBorder: 24
 URxvt*externalBorder: 0
-URxvt*font:           xft:Iosevka Thin:Regular:antialias=true:size=11
-URxvt*boldFont:       xft:Iosevka Thin:Bold:antialias=true:size=11
-URxvt*italicFont:     xft:Iosevka Thin:Italic:antialias=true:size=11
+URxvt*font:           xft:Inconsolata:size=12:antialias=true
+URxvt*boldFont:       xft:Inconsolata:Bold:antialias=true:size=12
+URxvt*italicFont:     xft:Iosevka:Italic:antialias=true:size=12
