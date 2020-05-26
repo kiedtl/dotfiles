@@ -36,12 +36,12 @@ function! StatusLine() abort
 		return l:line
 	endif
 
-	let l:line.='%1* %{g:curmode[mode()]}% %3* '
+	let l:line.='%1*%{g:curmode[mode()]}% %3*'
 	let l:line.='Ln %l Col %v '
 	let l:line.='%{ReadOnly()}% %{Modified()}% %4* '
 	let l:line.=' %= %3* '
 	let l:line.=LinePercentage()
-	let l:line.='%1* %{FileType()}%  '
+	let l:line.='%1* %{FileType()}% '
 
 	return l:line
 endfunction
@@ -112,7 +112,7 @@ function! Modified() abort
 	endif
 endfunction
 
-highlight user1 ctermbg=7    ctermfg=0
+highlight user1 ctermbg=NONE ctermfg=7    cterm=bold
 highlight user3 ctermbg=NONE ctermfg=NONE
 highlight user4 ctermbg=NONE ctermfg=3
 highlight user5 ctermbg=NONE ctermfg=7
