@@ -17,7 +17,6 @@ Plug 'rust-lang/rust.vim',      {'for' : 'rust'}
 Plug 'ollykel/v-vim',           {'for' : 'v'}
 Plug 'braindead-cc/bf-vim',     {'for' : 'brainfuck'}
 Plug 'ziglang/zig.vim',         {'for' : 'zig'}
-Plug 'jceb/vim-orgmode',        {'for' : 'org'}
 
 " plugins
 Plug 'Yggdroot/indentLine'

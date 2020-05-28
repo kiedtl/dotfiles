@@ -12,22 +12,22 @@
 ;;       ---
 
 [bar/bar]
-monitor =
 override-redirect = true
-bottom = true
-width = 36%
-height = 36
+monitor  =
+bottom   = true
+width    = 700
+height   = 36
 offset-y = 24
-offset-x = 24
+offset-x = 610
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-font-0 = ${fonts.ttyp0}
-font-1 = ${fonts.ttyp0-bold}
+font-0     = ${fonts.ttyp0}
+font-1     = ${fonts.ttyp0-bold}
 
-modules-left = date
+modules-left   = date
 modules-center =
-modules-right = memory filesystem
+modules-right  = memory filesystem
 
 border-size = 2
 border-color = ${colors.ac}
