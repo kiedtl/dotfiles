@@ -21,8 +21,6 @@ Plug 'ziglang/zig.vim',         {'for' : 'zig'}
 " plugins
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
-Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-conficted'
 Plug 'junegunn/goyo.vim'
 Plug 'terryma/vim-multiple-cursors'
 
@@ -49,6 +47,7 @@ set noincsearch                        " don't autosearch
 " bindings
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
+nmap gb `[v`]           " reselect previously yanked text
 
 " remove trailing whitespace from file
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>

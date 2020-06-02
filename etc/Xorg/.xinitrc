@@ -7,9 +7,8 @@ xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 # merge Xresources
 xrdb -merge ~/etc/Xorg/.Xresources
-
-# merge pywal's Xresources
 xrdb -merge ~/.cache/wal/colors.Xresources
+xrdb -merge ~/.cache/wal/2bwm.Xresources
 
 # set wallpaper
 [ -f ~/.fehbg ] && ~/.fehbg &
