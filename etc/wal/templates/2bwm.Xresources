@@ -1,0 +1,10 @@
+twobwm.border_width: 10
+twobwm.outer_border: 8
+twobwm.focus_color: {color1}
+twobwm.unfocus_color: {color1}
+twobwm.fixed_color: {color8}
+twobwm.unkill_color: {color2}
+twobwm.outer_border_color: {background}
+twobwm.fixed_unkill_color: {color3}
+twobwm.inverted_colors: false
+twobwm.enable_compton: true
