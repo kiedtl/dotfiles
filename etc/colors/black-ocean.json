@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/black-ocean.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#e0e0e0",
+        "foreground": "#0b0b0b",
+        "cursor": "#0b0b0b"
+    },
+    "colors": {
+        "color0": "#e0e0e0",
+        "color1": "#884444",
+        "color2": "#448844",
+        "color3": "#888844",
+        "color4": "#444488",
+        "color5": "#884488",
+        "color6": "#448888",
+        "color7": "#666666",
+        "color8": "#cfcfcf",
+        "color9": "#884444",
+        "color10": "#448844",
+        "color11": "#888844",
+        "color12": "#444488",
+        "color13": "#884488",
+        "color14": "#448888",
+        "color15": "#0b0b0b"
+    }
+}
+

@@ -112,9 +112,9 @@ function! Modified() abort
 	endif
 endfunction
 
-highlight user1 ctermbg=1    ctermfg=0    cterm=NONE
+highlight user1 ctermbg=15   ctermfg=0    cterm=NONE
 highlight user3 ctermbg=NONE ctermfg=NONE cterm=NONE
-highlight user4 ctermbg=NONE ctermfg=1    cterm=NONE
+highlight user4 ctermbg=NONE ctermfg=7    cterm=NONE
 highlight user5 ctermbg=NONE ctermfg=7    cterm=NONE
 
 set statusline=%!StatusLine()
