@@ -40,6 +40,10 @@ export RUST_BACKTRACE=1
 # source stuff from ~/bin
 . ~/bin/shtat
 
+s() {
+    systemctl --user "${1:-status}" "${2:-bot}"
+}
+
 alias peaclock='LC_ALL=C peaclock'   # fix peaclock on musl
 alias bc="bc -ql"                    # basic calculator
 alias p='pwd'                        # where does laziness become insanity?
