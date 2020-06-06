@@ -13,9 +13,6 @@ export ENV="/home/kiedtl/etc/mksh/profile.sh"
 export HISTFILE="/home/kiedtl/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 
-# zet (https://sr.ht/~gpanders/zet)
-export ZETTEL_DIR="/home/kiedtl/doc/zet/"
-
 # weechat
 export WEECHAT_HOME="/home/kiedtl/etc/weechat/"
 
@@ -80,4 +77,4 @@ mypwd() {
         sed "s|$HOME|~|g"
 }
 
-export PS1=$'\1\r\1\e]0;$(mypwd)\a\1\$ \1\e[31m\1$(mypwd)\1\e[0m\1 '
+export PS1=$'\1\r\1\e]0;$(mypwd)\a\1\$ \1\e[37m\1$(mypwd)\1\e[0m\1 '

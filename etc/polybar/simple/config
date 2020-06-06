@@ -30,16 +30,16 @@ modules-center =
 modules-right  = memory filesystem
 
 border-size = 2
-border-color = ${colors.ac}
+border-color = ${colors.fg}
 
 ;;        ----
 ;;  colors and fonts
 ;;        ----
 
 [colors]
-fg = ${xrdb:color7:#e1e2e2}
+fg = ${xrdb:color15:#e1e2e2}
 bg = ${xrdb:color0:#192222}
-ac = ${xrdb:color1:#884444}
+ac = ${xrdb:color7:#884444}
 
 [fonts]
 ttyp0      = "ttyp0:size=13;2"
