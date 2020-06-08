@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/painted-blue-mountains.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#f9fafa",
+        "foreground": "#281e26",
+        "cursor": "#281e26"
+    },
+    "colors": {
+        "color0": "#f9fafa",
+        "color1": "#5CA1AF",
+        "color2": "#73B8C5",
+        "color3": "#5d2c1b",
+        "color4": "#9FB3B4",
+        "color5": "#91BBC6",
+        "color6": "#8FCAD2",
+        "color7": "#281e26",
+        "color8": "#dedede",
+        "color9": "#5CA1AF",
+        "color10": "#73B8C5",
+        "color11": "#5d2c1b",
+        "color12": "#9FB3B4",
+        "color13": "#91BBC6",
+        "color14": "#8FCAD2",
+        "color15": "#281e26"
+    }
+}
+
