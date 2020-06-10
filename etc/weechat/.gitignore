@@ -1,3 +1,5 @@
 *
 !weechat.conf
+!irc.conf
+!fset.conf
 !.gitignore

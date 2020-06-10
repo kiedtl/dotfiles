@@ -3,7 +3,7 @@
 !    ---
 
 xterm*faceName: ttyp0
-xterm*faceSize: 11
+xterm*faceSize: 13
 
 xterm*cursorColor: #000000
 xterm*internalBorder: 24
