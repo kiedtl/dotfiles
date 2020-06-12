@@ -3,6 +3,10 @@
 # https://github.com/kiedtl/dotfiles
 #
 
+have() {
+    return command -v "$1" 2>/dev/null >&2
+}
+
 export PATH="/home/kiedtl/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH"
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
@@ -41,17 +45,35 @@ s() {
     systemctl --user "${1:-status}" "${2:-bot}"
 }
 
-alias peaclock='LC_ALL=C peaclock'   # fix peaclock on musl
-alias bc="bc -ql"                    # basic calculator
+if have doas; then
+    alias d='doas'
+else
+    alias d='sudo'
+fi
+
+if have exa; then
+    alias l='exa -F'
+    alias tree='exa --tree --git-ignore' # use exa's tree instead
+    alias ls='exa -lF'                   # long live exa!
+    alias lsd='exa -alF'                 # ^^
+else
+    alias lsd='ls -alF'                  # boo hoo hoo exa isn't there
+    alias l='ls -F'                      # oh woe is me, what would I
+    alias ls='ls -lF'                    # do without colors :'(
+fi
+
+if have peaclock; then
+    alias peaclock='LC_ALL=C peaclock'   # fix peaclock on musl
+fi
+
+if have bc; then
+    alias bc="bc -ql"                    # basic calculator
+fi
+
 alias p='pwd'                        # where does laziness become insanity?
-alias d='doas'                       # ...
 alias h='cd ~'                       # ...
 alias c='clear'                      # ...
 alias t='touch'                      # ...
-alias l='exa -F'                     # ...
-alias tree='exa --tree --git-ignore' # use exa's tree instead
-alias ls='exa -lF'                   # long live exa!
-alias lsd='exa -alF'                 # ^^
 alias grep='grep --colour=auto'      # color by default
 alias mv="mv -i"                     # prevent $(mv x.h x.c) ugh
 alias cp="cp -i"                     # confirm before overwriting files
@@ -59,21 +81,28 @@ alias rm='rm -i'                     # confirm before deleting a file
 alias df='df -h'                     # show human-readable sizes
 alias free='free -m'                 # show sizes in MB
 
-set -o trackall
 set -o vi
-set -o vi-tabcomplete
-set -o bgnice
+
+case $SHELL in
+    *mksh*)
+        set -o trackall
+        set -o bgnice
+        set -o vi-tabcomplete
+    ;;
+esac
 
 # I have no idea what this does ;)
 #
 # I mean, it's been in here for ages anyway,
-# since my first distro (Manjaro) in
-# fact, so why bother taking it out...
+# since my first distro (Manjaro) in fact,
+# so why bother taking it out...
 xhost +local:root >/dev/null 2>&1
 
-# retrieve colorscheme
-paleta $(colors) 2>/dev/null >&2
+if have paleta && have colors; then
+    paleta $(colors) 2>/dev/null >&2      # retrieve colorscheme
+fi
 
+# set my awesome prompt
 a="$(printf "\a")"
 e="$(printf "\033")"
 mypwd() {
