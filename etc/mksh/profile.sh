@@ -4,7 +4,12 @@
 #
 
 have() {
-    return command -v "$1" 2>/dev/null >&2
+    if command -v "$1" 2>/dev/null >&2
+    then
+        return 0
+    else
+        return 1
+    fi
 }
 
 export PATH="/home/kiedtl/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH"
@@ -36,7 +41,8 @@ export NNN_USE_EDITOR=1
 export RUST_BACKTRACE=1
 
 # source kiss path if it exists
-[ -f /etc/profile.d/kiss_path.sh ] && . /etc/profile.d/kiss_path.sh
+[ -f /etc/profile.d/kiss_path.sh ] && \
+    . /etc/profile.d/kiss_path.sh
 
 # source stuff from ~/bin
 . ~/bin/shtat
@@ -102,12 +108,42 @@ if have paleta && have colors; then
     paleta $(colors) 2>/dev/null >&2      # retrieve colorscheme
 fi
 
-# set my awesome prompt
-a="$(printf "\a")"
-e="$(printf "\033")"
-mypwd() {
-    printf "$PWD" | \
-        sed "s|$HOME|~|g"
+prompt() {
+    mypwd=$(printf "$PWD" | \
+        sed "s|$HOME|~|g")
+
+    # wrap nonprintables for mksh
+    printf '\1\r\1'
+
+    # print '%' just in case last command didn't print a newline
+    # then, print a bunch of spaces if a newline was output, then
+    # the spaces will stay on a line and we can output a carriage
+    # return to get back to the start of the line. otherwise,
+    # the spaces will wrap to the next line, where we can safely
+    # carriage return to the start of the line and print out prompt.
+    # this hack prevents out prompt from being messed up by some
+    # idiotic programs that don't print their newlines.
+    sz=$((COLUMNS-2))
+    printf "\1\e[7m%%\e[0m%-${sz}s\1" \
+        " "
+
+    # print a carriage return and change window title
+    printf '\r\1\e]0;%s\a\1' "$mypwd"
+
+    # print path
+    printf '\1\e[31m\1%s\1\e[0m\1' \
+        "$mypwd"
+
+    # print prompt char
+    if [ "$(whoami)" = "root" ]
+    then
+        printf '%s' "#"
+    else
+        printf '%s' "\$"
+    fi
+
+    # print a space
+    printf '%s' " "
 }
 
-export PS1=$'\1\r\1\e]0;$(mypwd)\a\1| \1\e[37m\1$(mypwd)\1\e[0m\1 '
+export PS1=$'\$(prompt)'
