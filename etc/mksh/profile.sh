@@ -124,14 +124,14 @@ prompt() {
     # this hack prevents out prompt from being messed up by some
     # idiotic programs that don't print their newlines.
     sz=$((COLUMNS-2))
-    printf "\1\e[7m%%\e[0m%-${sz}s\1" \
+    printf "\1\033[7m%%\033[0m%-${sz}s\1" \
         " "
 
     # print a carriage return and change window title
-    printf '\r\1\e]0;%s\a\1' "$mypwd"
+    printf '\r\1\033]0;%s\a\1' "$mypwd"
 
     # print path
-    printf '\1\e[31m\1%s\1\e[0m\1' \
+    printf '\1\033[31m\1%s\1\033[0m\1' \
         "$mypwd"
 
     # print prompt char
