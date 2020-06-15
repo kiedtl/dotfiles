@@ -3,11 +3,6 @@
 # https://github.com/kiedtl/dotfiles
 #
 
-# go home
-# fixes FreeBSD quirk where user logs into
-# /usr/home instead of /home
-cd ~
-
 have() {
     if command -v "$1" 2>/dev/null >&2
     then
