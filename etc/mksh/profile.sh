@@ -110,7 +110,7 @@ fi
 
 prompt() {
     mypwd=$(printf "$PWD" | \
-        sed "s|$HOME|~|g")
+        sed "s|$HOME|_|g")
 
     # wrap nonprintables for mksh
     printf '\1\r\1'
@@ -130,17 +130,22 @@ prompt() {
     # print a carriage return and change window title
     printf '\r\1\033]0;%s\a\1' "$mypwd"
 
+    # print partial prompt
+    printf 'c['
+
     # print path
     printf '\1\033[31m\1%s\1\033[0m\1' \
-        "$mypwd"
+        "$(basename $mypwd)"
 
-    # print prompt char
-    if [ "$(whoami)" = "root" ]
-    then
-        printf '%s' "#"
-    else
-        printf '%s' "\$"
-    fi
+    # continue printing prompt
+    printf ']'
+
+    #if [ "$(whoami)" = "root" ]
+    #then
+    #    printf '%s' "#"
+    #else
+    #    printf '%s' "\$"
+    #fi
 
     # print a space
     printf '%s' " "
