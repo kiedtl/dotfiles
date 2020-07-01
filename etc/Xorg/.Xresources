@@ -25,6 +25,6 @@ URxvt*transparent:    false
 URxvt*depth:          32
 URxvt*internalBorder: 24
 URxvt*externalBorder: 0
-URxvt*font:           xft:fixed:size=13:antialias=true
-URxvt*boldFont:       xft:fixed:Bold:antialias=true:size=13
-URxvt*italicFont:     xft:fixed:Italic:antialias=true:size=13
+URxvt*font:           xft:ttyp0:antialias=true:size=13
+URxvt*boldFont:       xft:ttyp0:Bold:antialias=true:size=13
+URxvt*italicFont:     xft:ttyp0:Italic:antialias=true:size=13
