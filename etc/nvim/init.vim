@@ -76,15 +76,14 @@ let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
-" syntax makes vim laggy on RPi 0 :'(
-" and anyway, syntax highlighting is bloat
-syntax off
+colorscheme default
+colorscheme plain
 
 highlight linenr       ctermfg=NONE
 highlight clear        cursorline
 highlight cursorlinenr ctermfg=1     ctermbg=NONE
 highlight cursorline   ctermfg=16    ctermbg=8
-highlight comment      ctermfg=16
+highlight comment      ctermfg=8
 highlight pmenu        ctermbg=0     ctermfg=NONE
 highlight pmenusel     ctermbg=4     ctermfg=0
 highlight pmenusbar    ctermbg=0
