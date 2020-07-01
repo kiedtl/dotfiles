@@ -1,5 +1,8 @@
 *
+!alias.conf
 !weechat.conf
 !irc.conf
 !fset.conf
+!buflist.conf
+!exec.conf
 !.gitignore

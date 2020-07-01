@@ -23,6 +23,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'danilamihailov/vim-tips-wiki'
 
 call plug#end()
 
