@@ -6,3 +6,6 @@
 !buflist.conf
 !exec.conf
 !.gitignore
+!charset.conf
+!fifo.conf
+!script.conf
