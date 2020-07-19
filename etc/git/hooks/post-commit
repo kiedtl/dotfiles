@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. ~/.profile
+
+command -v dijo 2>/dev/null >&2 && \
+	dijo -c "track-up commits"
