@@ -20,4 +20,4 @@ xcompmgr &
 polybar -r bar &
 
 xautolock -time 30 -locker slock &
-exec ssh-agent sowm
+exec ssh-agent 2bwm
