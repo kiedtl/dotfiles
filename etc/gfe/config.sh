@@ -66,7 +66,6 @@ GFE_LANG_MAX="${GFE_LANG_MAX:-2}"
 gfe_info() {
     printf '
 '
-    show_ascii
     showheader "$(get_user)" "$(get_gitver)" " ~ "
     showinfo "$(get_project_name)" 'PROJECT'
     showinfo "$(get_head_long)"    'HEAD'
@@ -82,4 +81,3 @@ gfe_info() {
     printf '
 '
 }
-

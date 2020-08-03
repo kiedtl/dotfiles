@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/kiedtl/img/wallpapers/green-tea.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#f6f7f7",
+        "foreground": "#031310",
+        "cursor": "#031310"
+    },
+    "colors": {
+        "color0": "#f6f7f7",
+        "color1": "#016316",
+        "color2": "#6c523a",
+        "color3": "#B09662",
+        "color4": "#062f32",
+        "color5": "#504b54",
+        "color6": "#3a5964",
+        "color7": "#031310",
+        "color8": "#aaacaf",
+        "color9": "#016316",
+        "color10": "#6c523a",
+        "color11": "#B09662",
+        "color12": "#062f32",
+        "color13": "#504b54",
+        "color14": "#3a5964",
+        "color15": "#031310"
+    }
+}
+
