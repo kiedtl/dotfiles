@@ -57,7 +57,7 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 augroup indents
 	autocmd!
 		autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
-		autocmd FileType scm,lisp setlocal ts=2 sts=2 sw=2 expandtab
+		autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 " for markdown
