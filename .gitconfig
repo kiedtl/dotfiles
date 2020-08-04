@@ -2,6 +2,9 @@
 	email = kiedtl@tilde.team
 	name = Kiëd Llaentenn
 
+[core]
+	hooksPath = "/home/kiedtl/etc/git/hooks"
+
 [sendemail]
 	smtpServer = smtp.tilde.team
 	smtpEncryption = tls

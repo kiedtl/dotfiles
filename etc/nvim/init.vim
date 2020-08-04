@@ -57,7 +57,7 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 augroup indents
 	autocmd!
 		autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
-		autocmd FileType scm,lisp setlocal ts=2 sts=2 sw=2 expandtab
+		autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 " for markdown
@@ -83,7 +83,7 @@ highlight linenr       ctermfg=NONE
 highlight clear        cursorline
 highlight cursorlinenr ctermfg=1     ctermbg=NONE
 highlight cursorline   ctermfg=16    ctermbg=8
-highlight comment      ctermfg=8
+highlight comment      ctermfg=7
 highlight pmenu        ctermbg=0     ctermfg=NONE
 highlight pmenusel     ctermbg=4     ctermfg=0
 highlight pmenusbar    ctermbg=0

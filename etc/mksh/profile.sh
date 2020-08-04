@@ -12,7 +12,8 @@ have() {
     fi
 }
 
-export PATH="/home/kiedtl/local/bin:/home/kiedtl/bin:/usr/local/bin:$PATH"
+export PATH="/home/kiedtl/local/bin:/home/kiedtl/bin:$PATH"
+export PATH="/home/kiedtl/.local/bin:/usr/local/bin:$PATH"
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
