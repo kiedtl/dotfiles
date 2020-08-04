@@ -13,38 +13,43 @@
 
 [bar/bar]
 override-redirect = true
+fixed-center      = true
+
 monitor  =
-bottom   = true
-width    = 700
+bottom   = false
+width    = 90%
 height   = 36
 offset-y = 24
-offset-x = 610
+offset-x = 100
 
 background = ${colors.bg}
 foreground = ${colors.fg}
 font-0     = ${fonts.ttyp0}
 font-1     = ${fonts.ttyp0-bold}
 font-2     = ${fonts.hack}
+separator  =
 
-modules-left   = date
-modules-center =
-modules-right  = memory filesystem
+modules-left   = date-label date network-label network
+modules-center = title
+modules-right  = memory-label memory filesystem-label filesystem
 
-border-size = 0
-border-color = ${colors.fg}
+border-size   = 0
+border-color  = ${colors.fg}
+padding-left  = 0
+padding-right = 0
 
 ;;        ----
 ;;  colors and fonts
 ;;        ----
 
 [colors]
-fg = ${xrdb:color15:#e1e2e2}
+fg = ${xrdb:color7:#e1e2e2}
 bg = ${xrdb:color0:#192222}
 ac = ${xrdb:color1:#884444}
 
 [fonts]
-ttyp0      = "ttyp0:size=13;2"
-ttyp0-bold = "ttyp0:size=13:style=Bold;2"
+ttyp0      = "fixed:size=13;2"
+ttyp0-bold = "fixed:size=13:style=Bold;2"
 
 hack       = "hack:size=11;2"
 hack-bold  = "hack:size=11:style=Bold;2"
@@ -52,23 +57,6 @@ hack-bold  = "hack:size=11:style=Bold;2"
 ;;    ---
 ;;  modules
 ;;    ---
-
-[module/launcher]
-type = custom/text
-content ="%{T2}  +%{T-}"
-
-click-left = "~/bin/ndmen"
-
-[module/powermenu]
-type = custom/text
-content ="%{T2}%  %{T-}"
-
-click-left = "~/bin/ndmen ~/etc/polybar/simple/powermenu"
-
-[module/wm_layout]
-type = custom/script
-exec = "/home/kiedtl/bin/bar layout"
-interval = 1
 
 [module/title]
 type = internal/xwindow
@@ -92,6 +80,10 @@ label-occupied =
 label-urgent =
 label-empty =
 
+[module/filesystem-label]
+type = custom/text
+content = "  disk  "
+
 [module/filesystem]
 type = internal/fs
 
@@ -99,10 +91,12 @@ mount-0 = /
 interval = 10 
 fixed-values = true
 
-format-mounted = "<label-mounted> c[<ramp-capacity>]  "
+format-mounted = "<label-mounted>"
 format-unmounted = <label-unmounted>
+format-mounted-foreground = ${colors.bg}
+format-mounted-background = ${colors.fg}
 
-label-mounted = "%free%"
+label-mounted = "  %free%  "
 label-unmounted = %mountpoint%: not mounted!
 
 bar-used-indicator =
@@ -123,6 +117,10 @@ ramp-capacity-4 = ▅
 
 ramp-capacity-foreground = ${colors.ac}
 
+[module/date-label]
+type = custom/text
+content = "  date  "
+
 [module/date]
 type = internal/date
 interval = 1.0
@@ -132,8 +130,14 @@ date = "%m/%d"
 
 format = "<label>"
 format-padding = 2
+format-foreground = ${colors.bg}
+format-background = ${colors.fg}
 
-label = "c[%{T2}%time%%{T-}] c[%{T2}%date%%{T-}]"
+label = "%time% %date%"
+
+[module/network-label]
+type = custom/text
+content = "  network  "
 
 [module/network]
 type = internal/network
@@ -143,10 +147,14 @@ interval  = 5
 accumulate-stats = true
 unknown-as-up = false
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${colors.bg}
+format-disconnected-background = ${colors.fg}
+format-connected-foreground = ${colors.bg}
+format-connected-background = ${colors.fg}
 
-label-connected = "%ifname%  " 
+label-connected = "  %ifname%  " 
 ;; %downspeed:8% %upspeed:8%"
 label-disconnected = "nah!"
 
@@ -156,13 +164,19 @@ ramp-signal-2 =
 ramp-signal-3 =
 ramp-signal-4 =
 
+[module/memory-label]
+type = custom/text
+content = "  memory  "
+
 [module/memory]
 type = internal/memory
 interval = 2
 
-format = "<label> c[<ramp-used>]"
+format = "<label>"
 format-prefix =
 format-padding = 2
+format-background = ${colors.fg}
+format-foreground = ${colors.bg}
 
 label = "%mb_used%"
 
