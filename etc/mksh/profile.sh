@@ -31,15 +31,10 @@ export PASTEL_COLOR_MODE=24bit
 # mailx/fdm config
 export MAIL="${HOME}/var/mail/INBOX"
 
-# bat config
-export BAT_THEME="OneHalfLight"
-
-# nnn config
-export NNN_USE_EDITOR=1
-
 # for Rust development
 export RUST_BACKTRACE=1
 
+# for KISS Linux
 # source kiss path if it exists
 [ -f /etc/profile.d/kiss_path.sh ] && \
     . /etc/profile.d/kiss_path.sh
@@ -64,7 +59,7 @@ if have exa; then
     alias lsd='exa -alF'                 # ^^
 else
     alias lsd='ls -alF'                  # boo hoo hoo exa isn't there
-    alias l='ls -F'                      # oh woe is me, what would I
+    alias l='/bin/ls -F'                 # oh woe is me, what would I
     alias ls='ls -lF'                    # do without colors :'(
 fi
 
@@ -110,7 +105,7 @@ fi
 
 prompt() {
     mypwd=$(printf "$PWD" | \
-        sed "s|$HOME|_|g")
+        sed "s|$HOME|~|g")
 
     # wrap nonprintables for mksh
     printf '\1\r\1'
@@ -128,27 +123,21 @@ prompt() {
         " "
 
     # print a carriage return and change window title
-    printf '\r\1\033]0;%s\a\1' "$mypwd"
-
-    # print partial prompt
-    printf 'c['
+    printf '\r\1\033]0;%s\a\1' "$USER@$(hostname):$mypwd"
 
     # print path
     printf '\1\033[31m\1%s\1\033[0m\1' \
         "$(basename $mypwd)"
 
-    # continue printing prompt
-    printf ']'
-
-    #if [ "$(whoami)" = "root" ]
-    #then
-    #    printf '%s' "#"
-    #else
-    #    printf '%s' "\$"
-    #fi
+    if [ "$(whoami)" = "root" ]
+    then
+        printf '%s' "#"
+    else
+        printf '%s' "\$"
+    fi
 
     # print a space
-    printf '%s' " "
+    printf ' '
 }
 
-export PS1=$'\$(prompt)'
+export PS1="\$(prompt)"
