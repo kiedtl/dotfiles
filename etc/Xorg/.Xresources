@@ -2,7 +2,7 @@
 !   xterm
 !    ---
 
-xterm*faceName: Terminus
+xterm*faceName: fixed
 xterm*faceSize: 13
 
 xterm*cursorColor: #000000

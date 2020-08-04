@@ -1,4 +1,11 @@
+#
 # kiedtl's xinitrc
+# https://github.com/kiedtl/dotfiles
+#
+# (c) Kiëd Llaentenn
+# check the LICENSE for more info.
+#
+
 
 # swap escape and caps lock
 xmodmap -e "clear lock"
@@ -10,13 +17,9 @@ xrdb -merge ~/etc/Xorg/.Xresources
 xrdb -merge ~/.cache/wal/colors.Xresources
 xrdb -merge ~/.cache/wal/2bwm.Xresources
 
-# set wallpaper
+# set wallpaper/theme, bars
 [ -f ~/.fehbg ] && ~/.fehbg &
-
-# start xcompmgr
-xcompmgr &
-
-# start bars
+the &
 polybar -r bar &
 
 xautolock -time 30 -locker slock &
