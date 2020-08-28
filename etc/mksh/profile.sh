@@ -35,6 +35,9 @@ export MAIL="${HOME}/var/mail/INBOX"
 # for Rust development
 export RUST_BACKTRACE=1
 
+# Common Lisp stuff
+export SBCL_HOME=/home/kiedtl/local/lib/sbcl/
+
 # for KISS Linux
 # source kiss path if it exists
 [ -f /etc/profile.d/kiss_path.sh ] && \
@@ -107,6 +110,9 @@ fi
 prompt() {
     mypwd=$(printf "$PWD" | \
         sed "s|$HOME|~|g")
+    if [ $mypwd != "~" ]; then
+        mypwd="$(basename ${mypwd%/*})/$(basename ${mypwd})"
+    fi
 
     # wrap nonprintables for mksh
     printf '\1\r\1'
@@ -127,8 +133,7 @@ prompt() {
     printf '\r\1\033]0;%s\a\1' "$USER@$(hostname):$mypwd"
 
     # print path
-    printf '\1\033[31m\1%s\1\033[0m\1' \
-        "$(basename $mypwd)"
+    printf '\1\033[31m\1%s\1\033[0m\1' "$mypwd"
 
     if [ "$(whoami)" = "root" ]
     then
