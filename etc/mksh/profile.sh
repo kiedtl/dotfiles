@@ -137,9 +137,9 @@ prompt() {
 
     if [ "$(whoami)" = "root" ]
     then
-        printf '%s' "#"
+        printf ' %s' "#"
     else
-        printf '%s' "\$"
+        printf ' %s' "|"
     fi
 
     # print a space
