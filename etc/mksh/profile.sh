@@ -23,6 +23,10 @@ export ENV="/home/kiedtl/etc/mksh/profile.sh"
 export HISTFILE="/home/kiedtl/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 
+# stop cluttering up my $HOME
+export LESSHISTFILE=~/var/cache/less/history
+alias wget="wget --no-hsts"
+
 # weechat/irssi
 export IRSSI_HOME="/home/kiedtl/etc/irssi/"
 export WEECHAT_HOME="/home/kiedtl/etc/weechat/"
