@@ -17,6 +17,7 @@ Plug 'rust-lang/rust.vim',      {'for' : 'rust'}
 Plug 'ollykel/v-vim',           {'for' : 'v'}
 Plug 'braindead-cc/bf-vim',     {'for' : 'brainfuck'}
 Plug 'ziglang/zig.vim',         {'for' : 'zig'}
+Plug 'ron-rs/ron.vim'
 
 " plugins
 Plug 'Yggdroot/indentLine'
@@ -24,6 +25,9 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'danilamihailov/vim-tips-wiki'
+
+" LISP LISP LISP
+Plug 'kovisoft/slimv'
 
 call plug#end()
 
@@ -82,10 +86,12 @@ colorscheme plain
 highlight linenr       ctermfg=NONE
 highlight clear        cursorline
 highlight cursorlinenr ctermfg=1     ctermbg=NONE
-highlight cursorline   ctermfg=16    ctermbg=8
+highlight cursorline   ctermfg=NONE  ctermbg=8
 highlight comment      ctermfg=7
 highlight pmenu        ctermbg=0     ctermfg=NONE
 highlight pmenusel     ctermbg=4     ctermfg=0
 highlight pmenusbar    ctermbg=0
 highlight pmenuthumb   ctermbg=7
 highlight matchparen   ctermbg=0     ctermfg=NONE
+
+let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-SBCL "sbcl --load ~/etc/nvim/plugged/slimv/slime/start-swank.lisp"'

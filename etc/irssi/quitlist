@@ -1,0 +1,7 @@
+<Esc>:wq<Ret>
+^D
+/quit
+exit
+C-c C-x
+:q!
+hmmmst
