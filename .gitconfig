@@ -3,7 +3,7 @@
 	name = Kiëd Llaentenn
 
 [core]
-	hooksPath = "/home/kiedtl/etc/git/hooks"
+	hooksPath = "~/etc/git/hooks"
 
 [sendemail]
 	smtpServer = smtp.tilde.team
