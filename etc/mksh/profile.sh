@@ -26,6 +26,7 @@ export HISTSIZE="65535"
 # stop cluttering up my $HOME
 export LESSHISTFILE=~/var/cache/less/history
 alias wget="wget --no-hsts"
+alias tmux="tmux -f $HOME/etc/tmux/conf"
 
 # weechat/irssi
 export IRSSI_HOME="/home/kiedtl/etc/irssi/"
