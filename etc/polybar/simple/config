@@ -17,15 +17,15 @@ fixed-center      = true
 
 monitor  =
 bottom   = false
-width    = 90%
-height   = 36
-offset-y = 24
-offset-x = 100
+width    = 100%
+height   = 24
+offset-y = 0
+offset-x = 0
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-font-0     = ${fonts.ttyp0}
-font-1     = ${fonts.ttyp0-bold}
+font-0     = ${fonts.bitocra}
+font-1     = ${fonts.bitocra-bold}
 font-2     = ${fonts.hack}
 separator  =
 
@@ -33,7 +33,7 @@ modules-left   = date-label date network-label network
 modules-center = title
 modules-right  = memory-label memory filesystem-label filesystem
 
-border-size   = 0
+border-bottom-size = 2
 border-color  = ${colors.fg}
 padding-left  = 0
 padding-right = 0
@@ -48,11 +48,12 @@ bg = ${xrdb:color0:#192222}
 ac = ${xrdb:color1:#884444}
 
 [fonts]
-ttyp0      = "fixed:size=13;2"
-ttyp0-bold = "fixed:size=13:style=Bold;2"
-
-hack       = "hack:size=11;2"
-hack-bold  = "hack:size=11:style=Bold;2"
+ttyp0        = "fixed:size=13;2"
+ttyp0-bold   = "fixed:size=13:style=Bold;2"
+bitocra      = "bitocra13;2"
+bitocra-bold = "bitocra13:style=Bold;2"
+hack         = "hack:size=11;2"
+hack-bold    = "hack:size=11:style=Bold;2"
 
 ;;    ---
 ;;  modules
