@@ -23,8 +23,10 @@ export ENV="/home/kiedtl/etc/mksh/profile.sh"
 export HISTFILE="/home/kiedtl/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 
-# weechat
+# weechat/irssi
+export IRSSI_HOME="/home/kiedtl/etc/irssi/"
 export WEECHAT_HOME="/home/kiedtl/etc/weechat/"
+alias irssi="irssi --home $IRSSI_HOME"
 
 # pastel config
 export PASTEL_COLOR_MODE=24bit
