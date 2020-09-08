@@ -27,11 +27,18 @@ servers = (
     tls_verify = "yes";
   },
   {
-    address = "localhost";
+    address = "team.tilde.chat";
     chatnet = "tilde.chat";
-    port = "6667";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+  },
+  {
+    address = "localhost";
+    chatnet = "tilde.town";
+    port = "7766";
     use_tls = "no";
-    tls_verify = "no";
+    tls_verify = "no;
   }
 );
 
@@ -60,6 +67,8 @@ chatnets = {
 
 channels = (
   { name = "#kisslinux"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#pandorabox"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lobsters"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "##crustaceans"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bots"; chatnet = "tilde.chat"; autojoin = "Yes"; },
@@ -69,12 +78,16 @@ channels = (
   { name = "#coffee"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#lounge"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#spacehare"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { 
+  {
     name = "#lickthecheese";
     chatnet = "tilde.chat";
     autojoin = "Yes";
   },
   { name = "#xfnw"; chatnet = "tilde.chat"; autojoin = "Yes"; }
+  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; }
+  { name = "#meta"; chatnet = "tilde.chat"; autojoin = "Yes"; }
+  { name = "#tildeteam"; chatnet = "tilde.town"; autojoin = "Yes"; }
+  { name = "#asciifarm"; chatnet = "tilde.town"; autojoin = "Yes"; }
 );
 
 aliases = {
