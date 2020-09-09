@@ -113,12 +113,12 @@ abstracts = {
   pubnick = "%N$*%n";
 
   # public message in channel meant for me, $0 = nick mode, $1 = nick
-  pubmsgmenick = "%_{msgnick $0 $1-%Y}%n";
+  pubmsgmenick = "{msgnick %_$0%N $1-%Y}%n";
   menick = "%Y$*%n";
 
   # public highlighted message in channel
   # $0 = highlight color, $1 = nick mode, $2 = nick
-  pubmsghinick = "{msgnick $1 $0$2-%n}";
+  pubmsghinick = "%_{msgnick $1 $0$2-%n}";
 
   # channel name is printed with message
   msgchannel = "%K:%c$*%n";
@@ -238,7 +238,7 @@ abstracts = {
   # used for anything.
   sbend = " ";
 
-  topicsbstart = "{sbstart $*}";
+  topicsbstart = " {sbstart $*}";
   topicsbend = "{sbend $*}";
 
   prompt = "$* | ";
@@ -266,11 +266,11 @@ abstracts = {
 
 formats = {
   "fe-common/core" = {
-    own_msg = "{ownmsgnick $2 {ownnick $0}}$1";
+    own_msg = "{ownmsgnick $2 {ownnick $[0]0}}$1";
     own_msg_channel = "{ownmsgnick $3 {ownnick $0}{msgchannel $1}}$2";
     pubmsg_me = "{pubmsgmenick $2 {menick $0}}$1";
     pubmsg_hilight_channel = "{pubmsghinick $0 $4 $1{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick $2 {pubnick $0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00307$[0]0}}$1";
     pubmsg_channel = "{pubmsgnick $3 {pubnick $0}{msgchannel $1}}$2";
     #line_start = "{line_start}";
     #line_start_irssi = "{line_start}{hilight     Irssi} %W|%n ";

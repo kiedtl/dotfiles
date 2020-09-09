@@ -73,6 +73,7 @@ channels = (
   { name = "#lobsters"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "##crustaceans"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bots"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#casino"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#team"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#chaos"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#tea"; chatnet = "tilde.chat"; autojoin = "Yes"; },
@@ -92,6 +93,8 @@ channels = (
 );
 
 aliases = {
+  SHR = "EXEC -out shr";
+  AFK = "AWAY Away";
   ATAG = "WINDOW SERVER";
   ADDALLCHANS = "SCRIPT EXEC foreach my \\$channel (Irssi::channels()) { Irssi::command(\"CHANNEL ADD -auto \\$channel->{name} \\$channel->{server}->{tag} \\$channel->{key}\")\\;}";
   B = "BAN";
@@ -346,7 +349,10 @@ settings = {
   core = { real_name = "kiedtl"; user_name = "kiedtl"; nick = "kiedtl"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "default"; };
-  "perl/core/scripts" = { awl_shared_sbar = "OFF"; };
+  "perl/core/scripts" = {
+    awl_shared_sbar = "OFF";
+    autorejoin_delay = "180";
+  };
 };
 keyboard = ( 
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; }
