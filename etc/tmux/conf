@@ -9,7 +9,7 @@ set -ga terminal-overrides ",xterm-256color:Tc"
 set -g mouse on
 
 # integrate X clipboard
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -p && xsel -o -p | xsel -i -b"
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -b"
 bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
 
 # fix terminal titles
@@ -19,15 +19,6 @@ set -g set-titles-string "#T"
 # scrollback
 set -g mode-keys vi
 set -g history-limit 10000
-
-# y and p as in vim
-bind Escape copy-mode
-unbind p
-bind p paste-buffer
-bind-key -T copy-mode-vi 'v' send -X begin-selection
-bind-key -T copy-mode-vi 'y' send -X copy-selection
-bind-key -T copy-mode-vi 'Space' send -X halfpage-down
-bind-key -T copy-mode-vi 'Bspace' send -X halfpage-up
 
 # easy-to-remember split pane commands
 bind | split-window -h
