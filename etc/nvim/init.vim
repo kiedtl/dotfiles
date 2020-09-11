@@ -19,29 +19,41 @@ Plug 'braindead-cc/bf-vim',     {'for' : 'brainfuck'}
 Plug 'ziglang/zig.vim',         {'for' : 'zig'}
 Plug 'ron-rs/ron.vim'
 
-" plugins
-Plug 'Yggdroot/indentLine'
-Plug 'godlygeek/tabular'
-Plug 'junegunn/goyo.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'danilamihailov/vim-tips-wiki'
-
-" LISP LISP LISP
-Plug 'kovisoft/slimv'
+" misc plugins
+Plug 'Yggdroot/indentLine'            " show indentlines for spaces
+Plug 'godlygeek/tabular'              " tabular
+Plug 'junegunn/goyo.vim'              " distraction-free writing
+Plug 'terryma/vim-multiple-cursors'   " multiple cursors
+Plug 'tpope/vim-commentary'           " gcc to toggle comments
+Plug 'reedes/vim-wordy'               " fix weasel words/passive voice
 
 call plug#end()
 
-set laststatus=2                       " enable statusbar
-set nocursorline                       " don't highlight current line
-set number                             " enable line numbers
-set relativenumber                     " enable relative line numbers
-set list                               " enable listchars
-set listchars=tab:\│\ ,nbsp:␣,trail:·  " nice unicode listchars :D
-set tabstop=8                          " tabs
+set history=1000                 " the default of 20 is ridiculous
+set ignorecase                   " ignore case while searching
+set autoindent                   " indent at level of prev line
+set laststatus=2                 " enable the statusbar
+set nocursorline                 " don't highlight current line
+set number                       " enable line numbers
+set relativenumber               " enable relative line numbers
+set list                         " enable listchars
+set tabstop=8                    " tabs
 set smarttab
-set encoding=utf-8                     " set UTF-8 encoding
-set backspace=indent,eol,start         " backspace through anything
-set noincsearch                        " don't autosearch
+set encoding=utf-8               " set UTF-8 encoding
+set backspace=indent,eol,start   " backspace through anything
+set noincsearch                  " don't autosearch
+set nowrap                       " don't wrap long lines, please!
+set mouse=                       " disable the pesky mouse
+set mousehide                    " hide mouse while typing
+set scrolloff=3                  " lines to keep above/below cursor
+set showmatch                    " show matching brackets/parens
+set foldmethod=indent            " fold lines of same indent
+set cursorline                   " highlight current line
+
+" show tab as │, non-breaking space as ␣, trailing space as ·
+" if wrap is off and the text extends beyond the screen, show a »
+"     (the opposite with precedes)
+set listchars=tab:\│\ ,nbsp:␣,trail:·,extends:»,precedes:«
 
 " ;P
 :command! WQ wq
@@ -70,12 +82,6 @@ augroup plaintext
 		autocmd FileType text,markdown setlocal textwidth=75
 augroup END
 
-augroup highlight_follows_vim
-	autocmd!
-		autocmd WinEnter * set cursorline
-		autocmd WinLeave * set nocursorline
-augroup END
-
 let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
@@ -85,13 +91,11 @@ colorscheme plain
 
 highlight linenr       ctermfg=NONE
 highlight clear        cursorline
-highlight cursorlinenr ctermfg=1     ctermbg=NONE
-highlight cursorline   ctermfg=NONE  ctermbg=8
-highlight comment      ctermfg=7
+highlight cursorlinenr ctermfg=3     ctermbg=235
+highlight cursorline   ctermfg=15    ctermbg=235
+highlight comment      ctermfg=15
 highlight pmenu        ctermbg=0     ctermfg=NONE
 highlight pmenusel     ctermbg=4     ctermfg=0
 highlight pmenusbar    ctermbg=0
-highlight pmenuthumb   ctermbg=7
+highlight pmenuthumb   ctermbg=15
 highlight matchparen   ctermbg=0     ctermfg=NONE
-
-let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-SBCL "sbcl --load ~/etc/nvim/plugged/slimv/slime/start-swank.lisp"'

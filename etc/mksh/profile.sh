@@ -12,15 +12,15 @@ have() {
     fi
 }
 
-export PATH="/home/kiedtl/local/bin:/home/kiedtl/bin:$PATH"
-export PATH="/home/kiedtl/.local/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/local/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export TERM="xterm-256color" # enable the darned 256 color support vim, ok?
 export XDG_CONFIG_HOME="${HOME}/etc"
-export ENV="/home/kiedtl/etc/mksh/profile.sh"
-export HISTFILE="/home/kiedtl/opt/.cache/mksh/history.txt"
+export ENV="$HOME/etc/mksh/profile.sh"
+export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 
 # stop cluttering up my $HOME
@@ -29,8 +29,8 @@ alias wget="wget --no-hsts"
 alias tmux="tmux -f $HOME/etc/tmux/conf"
 
 # weechat/irssi
-export IRSSI_HOME="/home/kiedtl/etc/irssi/"
-export WEECHAT_HOME="/home/kiedtl/etc/weechat/"
+export IRSSI_HOME="$HOME/etc/irssi/"
+export WEECHAT_HOME="$HOME/etc/weechat/"
 alias irssi="irssi --home $IRSSI_HOME"
 
 # pastel config
@@ -43,7 +43,7 @@ export MAIL="${HOME}/var/mail/INBOX"
 export RUST_BACKTRACE=1
 
 # Common Lisp stuff
-export SBCL_HOME=/home/kiedtl/local/lib/sbcl/
+export SBCL_HOME=$HOME/local/lib/sbcl/
 
 # for KISS Linux
 # source kiss path if it exists

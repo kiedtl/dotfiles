@@ -27,8 +27,15 @@ servers = (
     tls_verify = "yes";
   },
   {
-    address = "localhost";
+    address = "team.tilde.chat";
     chatnet = "tilde.chat";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+  },
+  {
+    address = "localhost";
+    chatnet = "tilde.town";
     port = "6667";
     use_tls = "no";
     tls_verify = "no";
@@ -56,13 +63,17 @@ chatnets = {
     max_whois = "1";
   };
   "tilde.chat" = { type = "IRC"; };
+  "tilde.town" = { type = "IRC"; };
 };
 
 channels = (
   { name = "#kisslinux"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#pandorabox"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lobsters"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "##crustaceans"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bots"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#casino"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#team"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#chaos"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#tea"; chatnet = "tilde.chat"; autojoin = "Yes"; },
@@ -74,10 +85,16 @@ channels = (
     chatnet = "tilde.chat";
     autojoin = "Yes";
   },
-  { name = "#xfnw"; chatnet = "tilde.chat"; autojoin = "Yes"; }
+  { name = "#xfnw"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#meta"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#tildetown"; chatnet = "tilde.town"; autojoin = "Yes"; },
+  { name = "#asciifarm"; chatnet = "tilde.town"; autojoin = "Yes"; }
 );
 
 aliases = {
+  SHR = "EXEC -out shr";
+  AFK = "AWAY Away";
   ATAG = "WINDOW SERVER";
   ADDALLCHANS = "SCRIPT EXEC foreach my \\$channel (Irssi::channels()) { Irssi::command(\"CHANNEL ADD -auto \\$channel->{name} \\$channel->{server}->{tag} \\$channel->{key}\")\\;}";
   B = "BAN";
@@ -332,7 +349,10 @@ settings = {
   core = { real_name = "kiedtl"; user_name = "kiedtl"; nick = "kiedtl"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "default"; };
-  "perl/core/scripts" = { awl_shared_sbar = "OFF"; };
+  "perl/core/scripts" = {
+    awl_shared_sbar = "OFF";
+    autorejoin_delay = "180";
+  };
 };
 keyboard = ( 
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; }

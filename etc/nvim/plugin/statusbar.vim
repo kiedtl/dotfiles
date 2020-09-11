@@ -36,12 +36,12 @@ function! StatusLine() abort
 		return l:line
 	endif
 
-	let l:line.='%1* %{g:curmode[mode()]}% %3*'
+	let l:line.='%1* %{g:curmode[mode()]}% %5* %6* %7* %8* %9* %2*'
+	let l:line.=GitBranch()
+	let l:line.=' %{ReadOnly()}% %{Modified()}% %3* '
+	let l:line.=' %= %2*'
 	let l:line.=' Ln %l Col %v '
-	let l:line.='%{ReadOnly()}% %{Modified()}% %4* '
-	let l:line.=' %= %3* '
-	let l:line.=LinePercentage()
-	let l:line.='%1* %{FileType()}%  '
+	let l:line.='%9* %8* %7* %6* %5* %1* %{FileType()}%  '
 
 	return l:line
 endfunction
@@ -50,15 +50,14 @@ function! LinePercentage()
 	let l:percentage=line('.') * 100 / line('$')
 
 	let l:percentline=''
-	let l:percentline.='%5*'
 	let l:percentline.=l:percentage
 	let l:percentline.='%% '
 
 	for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 		if (l:percentage/10) > i
-			let l:percentline.='%3*|'
+			let l:percentline.='%2*|'
 		else
-			let l:percentline.='%4*|'
+			let l:percentline.='%2*|'
 		endif
 	endfor
 
@@ -66,13 +65,11 @@ function! LinePercentage()
 	return l:percentline
 endfunction
 
-" disabled, this is causes the statusline to be
-" incredibly laggy on the RPi 0
 function! GitBranch()
 	let l:command=''
 	let l:command.="sh -c 'cd "
 	let l:command.=SessionDir()
-	let l:command.=" && bra -n'"
+	let l:command.=" && branch -n'"
 	return system(l:command)
 endfunction
 
@@ -112,9 +109,15 @@ function! Modified() abort
 	endif
 endfunction
 
-highlight user1 ctermbg=1    ctermfg=0    cterm=NONE
-highlight user3 ctermbg=NONE ctermfg=NONE cterm=NONE
-highlight user4 ctermbg=NONE ctermfg=7    cterm=NONE
-highlight user5 ctermbg=NONE ctermfg=7    cterm=NONE
+highlight user1  ctermbg=7    ctermfg=0    cterm=NONE " for mode line
+highlight user2  ctermbg=235  ctermfg=NONE cterm=NONE
+highlight user3  ctermbg=NONE ctermfg=7    cterm=NONE
+highlight user4  ctermbg=7    ctermfg=NONE cterm=NONE
+
+highlight user5  ctermbg=250  ctermfg=NONE cterm=NONE
+highlight user6  ctermbg=246  ctermfg=NONE cterm=NONE
+highlight user7  ctermbg=242  ctermfg=NONE cterm=NONE
+highlight user8  ctermbg=238  ctermfg=NONE cterm=NONE
+highlight user9  ctermbg=236  ctermfg=NONE cterm=NONE
 
 set statusline=%!StatusLine()

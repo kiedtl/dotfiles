@@ -1,37 +1,3 @@
-# When testing changes, the easiest way to reload the theme is with /RELOAD.
-# This reloads the configuration file too, so if you did any changes remember
-# to /SAVE it first. Remember also that /SAVE overwrites the theme file with
-# old data so keep backups :)
-
-# TEMPLATES:
-
-# The real text formats that irssi uses are the ones you can find with
-# /FORMAT command. Back in the old days all the colors and texts were mixed
-# up in those formats, and it was really hard to change the colors since you
-# might have had to change them in tens of different places. So, then came
-# this templating system.
-
-# Now the /FORMATs don't have any colors in them, and they also have very
-# little other styling. Most of the stuff you need to change is in this
-# theme file. If you can't change something here, you can always go back
-# to change the /FORMATs directly, they're also saved in these .theme files.
-
-# So .. the templates. They're those {blahblah} parts you see all over the
-# /FORMATs and here. Their usage is simply {name parameter1 parameter2}.
-# When irssi sees this kind of text, it goes to find "name" from abstracts
-# block below and sets "parameter1" into $0 and "parameter2" into $1 (you
-# can have more parameters of course). Templates can have subtemplates.
-# Here's a small example:
-#   /FORMAT format hello {colorify {underline world}}
-#   abstracts = { colorify = "%G$0-%n"; underline = "%U$0-%U"; }
-# When irssi expands the templates in "format", the final string would be:
-#   hello %G%Uworld%U%n
-# ie. underlined bright green "world" text.
-# and why "$0-", why not "$0"? $0 would only mean the first parameter,
-# $0- means all the parameters. With {underline hello world} you'd really
-# want to underline both of the words, not just the hello (and world would
-# actually be removed entirely).
-
 # COLORS:
 
 # You can find definitions for the color format codes in docs/formats.txt.
@@ -119,8 +85,7 @@ abstracts = {
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
   #msgnick = "%K<%n$0$1-%K>%n %|";
-  msgnick = "%K%n$0$1-%K%n %|";
-  #msgnick = "%R$0%n$1:%n %|";
+  msgnick = "%K<%n%Y$0%n$1-%K>%n %|";
 
 
   # message from you is printed. "ownnick" specifies the styling of the
@@ -148,12 +113,12 @@ abstracts = {
   pubnick = "%N$*%n";
 
   # public message in channel meant for me, $0 = nick mode, $1 = nick
-  pubmsgmenick = "%Y{msgnick $0 $1-%Y}%n";
+  pubmsgmenick = "{msgnick %_$0%N $1-%Y}%n";
   menick = "%Y$*%n";
 
   # public highlighted message in channel
   # $0 = highlight color, $1 = nick mode, $2 = nick
-  pubmsghinick = "{msgnick $1 $0$2-%n}";
+  pubmsghinick = "%_{msgnick $1 $0$2-%n}";
 
   # channel name is printed with message
   msgchannel = "%K:%c$*%n";
@@ -273,7 +238,7 @@ abstracts = {
   # used for anything.
   sbend = " ";
 
-  topicsbstart = "{sbstart $*}";
+  topicsbstart = " {sbstart $*}";
   topicsbend = "{sbend $*}";
 
   prompt = "$* | ";
@@ -288,9 +253,9 @@ abstracts = {
   # activity in statusbar
 
   # ',' separator
-  sb_act_sep = ")(";
+  sb_act_sep = "%n$*%n";
   # normal text
-  sb_act_text = "%_$*";
+  sb_act_text = "%b$*";
   # public message
   sb_act_msg = "%W$*";
   # hilight
@@ -301,12 +266,12 @@ abstracts = {
 
 formats = {
   "fe-common/core" = {
-    own_msg = "{ownmsgnick $2 {ownnick $[12]0}}$1";
-    own_msg_channel = "{ownmsgnick $3 {ownnick $[12]0}{msgchannel $1}}$2";
-    pubmsg_me = "{pubmsgmenick $2 {menick $[12]0}}$1";
-    pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[12]1{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick $2 {pubnick $[12]0}}$1";
-    pubmsg_channel = "{pubmsgnick $3 {pubnick $[12]0}{msgchannel $1}}$2";
+    own_msg = "{ownmsgnick $2 {ownnick $[0]0}}$1";
+    own_msg_channel = "{ownmsgnick $3 {ownnick $0}{msgchannel $1}}$2";
+    pubmsg_me = "{pubmsgmenick $2 {menick $0}}$1";
+    pubmsg_hilight_channel = "{pubmsghinick $0 $4 $1{msgchannel $2}}$3";
+    pubmsg = "{pubmsgnick $2 {pubnick \00307$[0]0}}$1";
+    pubmsg_channel = "{pubmsgnick $3 {pubnick $0}{msgchannel $1}}$2";
     #line_start = "{line_start}";
     #line_start_irssi = "{line_start}{hilight     Irssi} %W|%n ";
   };
