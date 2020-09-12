@@ -22,8 +22,7 @@ $VERSION = "1.00";
 );
 
 
-my $irssidir = Irssi::get_irssi_dir();
-my $filename = "$irssidir/activity_file";
+my $filename = $ENV{HOME} . '/.irssi/activity_file';
 my ($scriptname) = __PACKAGE__ =~ /Irssi::Script::(.+)/;
 my $last_values = {};
 
@@ -93,3 +92,4 @@ sub store_status {
 store_status();
 
 Irssi::signal_add_last('window item activity', 'item_status_changed');
+
