@@ -1,0 +1,43 @@
+# remove status bar
+set -g status off
+
+# colors (256, 24-bit)
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
+
+# enable mouse
+set -g mouse on
+
+# integrate X clipboard
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -b"
+bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
+
+# fix terminal titles
+set -g set-titles on
+set -g set-titles-string "#T"
+
+# scrollback
+set -g mode-keys vi
+set -g history-limit 10000
+
+# easy-to-remember split pane commands
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# moving between panes with vim movement keys
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# moving between windows with vim movement keys
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# resize panes with vim movement keys
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5

@@ -23,6 +23,11 @@ export ENV="$HOME/etc/mksh/profile.sh"
 export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 
+# stop cluttering up my $HOME
+export LESSHISTFILE=~/var/cache/less/history
+alias wget="wget --no-hsts"
+alias tmux="tmux -f $HOME/etc/tmux/conf"
+
 # weechat/irssi
 export IRSSI_HOME="$HOME/etc/irssi/"
 export WEECHAT_HOME="$HOME/etc/weechat/"
