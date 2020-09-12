@@ -1,5 +1,4 @@
-# COLORS:
-
+# COLORS: 
 # You can find definitions for the color format codes in docs/formats.txt.
 
 # There's one difference here though. %n format. Normally it means the
@@ -29,10 +28,10 @@ abstracts = {
   ##
 
   # text to insert at the beginning of each non-message line
-  line_start = "%B-%n!%B-%n ";
+  line_start = "";
 
   # timestamp styling, nothing by default
-  timestamp = "%K$*%n";
+  timestamp = "";
 
   # any kind of text that needs hilighting, default is to bold
   hilight = "%_$*%_";
@@ -53,7 +52,7 @@ abstracts = {
   server = "%_$*%_";
 
   # some kind of comment is printed
-  comment = "($*)";
+  comment = ": $*";
 
   # reason for something is printed (part, quit, kick, ..)
   reason = "{comment $*}";
@@ -85,7 +84,7 @@ abstracts = {
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
   #msgnick = "%K<%n$0$1-%K>%n %|";
-  msgnick = "%K<%n%Y$0%n$1-%K>%n %|";
+  msgnick = "$0$1-%n %|";
 
 
   # message from you is printed. "ownnick" specifies the styling of the
@@ -110,11 +109,11 @@ abstracts = {
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0 $1-}";
-  pubnick = "%N$*%n";
+  pubnick = "$*";
 
   # public message in channel meant for me, $0 = nick mode, $1 = nick
-  pubmsgmenick = "{msgnick %_$0%N $1-%Y}%n";
-  menick = "%7%k$*%n";
+  pubmsgmenick = "%8<{msgnick $0 $1->}";
+  menick = "$*";
 
   # public highlighted message in channel
   # $0 = highlight color, $1 = nick mode, $2 = nick
@@ -141,10 +140,10 @@ abstracts = {
   ##
 
   # used internally by this theme
-  action_core = "%_ * $*%n";
+  action_core = "%I%Y* $*%n";
 
   # generic one that's used by most actions
-  action = "{action_core $*} ";
+  action = "{action_core $*}%I";
 
   # own action, both private/public
   ownaction = "{action $*}";
@@ -219,15 +218,15 @@ abstracts = {
 
   # default background for all statusbars. You can also give
   # the default foreground color for statusbar items.
-  sb_background = "%8";
-  window_border = "%4%w";
+  sb_background = "%0";
+  window_border = "%0%w";
 
   # default backround for "default" statusbar group
   #sb_default_bg = "%4";
   # background for prompt / input line
   sb_prompt_bg = "%n";
   # background for info statusbar
-  sb_info_bg = "%7";
+  sb_info_bg = "%0";
   # background for topicbar (same default)
   sb_topic_bg = "";
 
@@ -266,13 +265,54 @@ abstracts = {
 
 formats = {
   "fe-common/core" = {
-    own_msg = "{ownmsgnick $2 {ownnick $[0]0}}$1";
+    line_start_irssi = "{line_start}";
+    join = "%n{channick $0} %w(%n{nickhost %w$1}%w)%n arrives in %w$2";
+    part = "%n{channick $0} %w(%n{nickhost %w$1}%w)%n leaves %w$2{reason %b$3}";
+    quit = "%n{channick $0}%w leaves{reason %b$2}";
+    kick = "%n$2 kicks %n{channick $0} out of $4%w{reason %b$3}";
+    nick_changed = "%n{channick $0} is now known as %W{channick $1}";
+    your_nick_changed = "%n{channick $0} is now known as %W{channick $1}";
+    new_topic = "$0 places a new sign in $1: $2";
+    endofnames = "({hilight $2} ops, {hilight $3} hops, {hilight $4} voices, {hilight $5} peasants%n)";
+    # nick padding
+    pubmsg = "{pubmsgnick $2 {pubnick $0}}$1";
+    pubmsg_channel = "{pubmsgnick {pubnick $0}$2}$1";
+    own_msg = "{ownmsgnick $2 {ownnick $0}}$1";
     own_msg_channel = "{ownmsgnick $3 {ownnick $0}{msgchannel $1}}$2";
-    pubmsg_me = "{pubmsgmenick $2 {menick $0}}$1";
-    pubmsg_hilight_channel = "{pubmsghinick $0 $4 $1{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick $2 {pubnick \00307$[0]0}}$1";
-    pubmsg_channel = "{pubmsgnick $3 {pubnick $0}{msgchannel $1}}$2";
-    #line_start = "{line_start}";
-    #line_start_irssi = "{line_start}{hilight     Irssi} %W|%n ";
+    own_msg_private_query = "{ownprivmsgnick {ownprivnick $2}}$1";
+    pubmsg_me = "{pubmsgmenick $2 {pubnick $0}}$1";
+    pubmsg_me_channel = "{pubmsgmenick $3 {menick $0}{msgchannel $1}}$2";
+    pubmsg_hilight_channel = "{pubmsghinick $0 $1$4{msgchannel $2}}$3";
+    pubmsg_hilight = "{pubmsghinick $3 {menick $1}}$2";
+    msg_private_query = "{privmsgnick $0}$2";
+  };
+
+  "fe-common/irc" = {
+    chanmode_change = "$2 sets %w(%B{channick $1}%w)";
+    server_chanmode_change = "$2 sets %w{channick $1}";
+    whois = "%Y┌─┄┄    %n\012%Y│ %wuser %b$0 %w(%n$1%b@%n$2%w) %n\012%Y│ %wname %n$3%n";
+    whois_idle = "%Y│ %widle%b %|$1d $2h $3m $4s";
+    whois_idle_signon = "%Y│ %widle%b %|$1d $2h $3m $4s {comment signon: $5}";
+    whois_server = "%Y│ %wserv%b %|$1 {comment $2}";
+    whois_oper = "%Y│ %woper%b {hilight $1}";
+    whois_registered = "%Y│ %wrgis%n yes";
+    whois_help = "%Y│ %whelp%b available for help";
+    whois_modes = "%Y│ %wmode%b $1";
+    whois_realhost = "%Y│ %wreal%b $1-";
+    whois_usermode = "%Y│ %wumod%b $1";
+    whois_channels = "%Y│ %wchan%b %|$1";
+    whois_away = "%Y│ %waway%b %|$1";
+    whois_special = "%Y│ %winfo%b {comment %|$1}";
+    whois_extra = "%Y│ %wextr%b %|$1";
+    end_of_whois = "%Y└─┄┄ ";
+    whois_not_found = "%Y──┄┄ %wthere is no such nick %b$0";
+    topic      = "the sign in %Y$0%N reads: $1";
+    topic_info = "         written by %b$0%n on %b$1%n";
+    channel_synced = "%n sync %Y┄┄─┤ %nin {hilight $1} secs";
+    channel_created = "%n      %Y┄┄─┤ %ncreated $1";
+    own_action = "{ownaction $0}%I $1";
+    action_private = "{pvtaction $0}%I $1";
+    action_private_query = "{pvtaction_query $0}%I $2";
+    action_public = "{pubaction $0}%I $1";
   };
 };

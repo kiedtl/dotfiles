@@ -92,6 +92,7 @@ sub simple_hash {
 # process public (others) messages
 sub sig_public {
   my ($server, $msg, $nick, $address, $target) = @_;
+  my $user_nick = $server->{nick};
 
   my $enable_prefix = Irssi::settings_get_bool('nickcolor_enable_prefix');
   my $enable_truncate = Irssi::settings_get_bool('nickcolor_enable_truncate');
@@ -118,7 +119,13 @@ sub sig_public {
     $session_colors{$nick} = $color;
   }
 
-  $color = sprintf "\003%02d", $color;
+  if ($msg =~ m/$user_nick/ || $msg =~ /^$user_nick/) {
+    # if the user was mentioned, print color in reverse
+    $color = sprintf "\0031,%02d", $color;
+  } else {
+    # otherwise, normal color
+    $color = sprintf "\003%02d", $color
+  }
 
   # Optional: We check if it's the same nickname for current target
   if ($saved_nicks{$tagtarget} eq $nick && $enable_prefix)
@@ -249,7 +256,9 @@ Irssi::settings_add_int('misc', 'nickcolor_truncate_value' => 0);
 Irssi::command_bind('color', 'cmd_color');
 
 Irssi::signal_add('message public', 'sig_public');
+Irssi::signal_add('message private', 'sig_public');
 Irssi::signal_add('message own_public', 'sig_me');
+Irssi::signal_add('message own_private', 'sig_me');
 Irssi::signal_add('message irc action', 'sig_action_public');
 Irssi::signal_add('message irc own_action', 'sig_action_me');
 Irssi::signal_add('event nick', 'sig_nick');
