@@ -62,7 +62,7 @@ sub check_input {
     } elsif ($inputline =~ /^\/.*/) {
         Irssi::signal_emit('change prompt', $text[0], 'UP_ONLY');
     } else {
-        Irssi::signal_emit('change prompt', $text[2], 'UP_ONLY');
+        Irssi::signal_emit('change prompt', $text[2], 'UP_POST');
     }
 }
 
@@ -72,9 +72,9 @@ sub setup_changed {
         Irssi::settings_get_str('kprompt_normal_text'));
 }
 
-Irssi::settings_add_str('kprompt', 'kprompt_cmd_text', ' %b$ ');
-Irssi::settings_add_str('kprompt', 'kprompt_action_text', ' %b* ');
-Irssi::settings_add_str('kprompt', 'kprompt_normal_text', ' %_<$cumode$N> ');
+Irssi::settings_add_str('kprompt', 'kprompt_cmd_text', '$ ');
+Irssi::settings_add_str('kprompt', 'kprompt_action_text', '%_*%N ');
+Irssi::settings_add_str('kprompt', 'kprompt_normal_text', '');
 setup_changed();
 Irssi::signal_add_last('gui key pressed', 'check_input');
 Irssi::signal_add('setup changed', 'setup_changed');

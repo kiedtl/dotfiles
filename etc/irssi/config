@@ -68,17 +68,15 @@ chatnets = {
 
 channels = (
   { name = "#kisslinux"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#pandorabox"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lobsters"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "##crustaceans"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bots"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#chaos"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#casino"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#team"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { name = "#chaos"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#tea"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#coffee"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { name = "#lounge"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#spacehare"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { 
     name = "#lickthecheese";
@@ -86,10 +84,9 @@ channels = (
     autojoin = "Yes";
   },
   { name = "#xfnw"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#lounge"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#meta"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#tildetown"; chatnet = "tilde.town"; autojoin = "Yes"; },
-  { name = "#asciifarm"; chatnet = "tilde.town"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -323,8 +320,7 @@ statusbar = {
       visible = "always";
 
       items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
+        uberprompt = { priority = "-1"; };
         input = { priority = "10"; };
       };
     };
