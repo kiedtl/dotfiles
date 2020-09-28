@@ -35,39 +35,18 @@ servers = (
   },
   {
     address = "localhost";
-    chatnet = "tilde.town";
+    chatnet = "freenode";
     port = "7766";
     use_tls = "no";
-    tls_verify = "no;
-  }
-);
-
-chatnets = {
-  efnet = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "4";
-    max_whois = "1";
-  };
-  freenode = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "4";
-    max_whois = "1";
-  };
-  oftc = { type = "IRC"; max_kicks = "1"; max_msgs = "1"; max_whois = "1"; };
-  rizon = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "1";
-    max_whois = "1";
-  };
-  "tilde.chat" = { type = "IRC"; };
-};
-
-channels = (
-  { name = "#kisslinux"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "Yes"; },
+    tls_verify = "no;\012  }\012);\012\012chatnets = {\012  efnet = { \012    type = ";
+    IRC = "; };\012};\012\012channels = (\012  { name = ";
+    1 = ";\012  };\012  ";
+    4 = ";\012    max_whois = ";
+    chat = " = { type = ";
+    #kisslinux"; chatnet = "freenode"; autojoin = "Yes"; },
+    name = "#dwarffortress";
+    autojoin = "Yes";
+  },
   { name = "#pandorabox"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lobsters"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "##crustaceans"; chatnet = "freenode"; autojoin = "Yes"; },
@@ -78,15 +57,15 @@ channels = (
   { name = "#coffee"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#lounge"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#spacehare"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  {
+  { 
     name = "#lickthecheese";
     chatnet = "tilde.chat";
     autojoin = "Yes";
   },
-  { name = "#xfnw"; chatnet = "tilde.chat"; autojoin = "Yes"; }
-  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; }
-  { name = "#meta"; chatnet = "tilde.chat"; autojoin = "Yes"; }
-  { name = "#tildeteam"; chatnet = "tilde.town"; autojoin = "Yes"; }
+  { name = "#xfnw"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#meta"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#tildeteam"; chatnet = "tilde.town"; autojoin = "Yes"; },
   { name = "#asciifarm"; chatnet = "tilde.town"; autojoin = "Yes"; }
 );
 
@@ -350,3 +329,10 @@ settings = {
 keyboard = ( 
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; }
 );
+chatnets = {
+  efnet = { type = "IRC"; };
+  freenode = { type = "IRC"; };
+  oftc = { type = "IRC"; };
+  rizon = { type = "IRC"; };
+  "tilde.chat" = { type = "IRC"; };
+};

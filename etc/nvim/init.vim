@@ -26,6 +26,7 @@ Plug 'junegunn/goyo.vim'              " distraction-free writing
 Plug 'terryma/vim-multiple-cursors'   " multiple cursors
 Plug 'tpope/vim-commentary'           " gcc to toggle comments
 Plug 'reedes/vim-wordy'               " fix weasel words/passive voice
+Plug 'preservim/nerdtree'             " should be obvious
 
 call plug#end()
 
@@ -42,7 +43,7 @@ set smarttab
 set encoding=utf-8               " set UTF-8 encoding
 set backspace=indent,eol,start   " backspace through anything
 set noincsearch                  " don't autosearch
-set nowrap                       " don't wrap long lines, please!
+set wrap                         " wrap long lines, please!
 set mouse=                       " disable the pesky mouse
 set mousehide                    " hide mouse while typing
 set scrolloff=3                  " lines to keep above/below cursor
@@ -91,8 +92,8 @@ colorscheme plain
 
 highlight linenr       ctermfg=NONE
 highlight clear        cursorline
-highlight cursorlinenr ctermfg=3     ctermbg=235
-highlight cursorline   ctermfg=15    ctermbg=235
+highlight cursorlinenr ctermfg=15    ctermbg=NONE
+highlight cursorline   ctermfg=NONE  ctermbg=NONE
 highlight comment      ctermfg=15
 highlight pmenu        ctermbg=0     ctermfg=NONE
 highlight pmenusel     ctermbg=4     ctermfg=0
