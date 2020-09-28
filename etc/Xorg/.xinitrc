@@ -6,6 +6,23 @@
 # check the LICENSE for more info.
 #
 
+# don't turn off my screen
+xset -dpms && xset s off
+
+# disable the bell
+xset -b
+
+# enable Ctrl+Alt+<Bksp> to kill X11
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# configure locales
+LC_ALL=''
+export LANG=en_US.UTF-8
+export LC_MESSAGES=c
+export LC_TIME=en_US.UTF-8
+
+# enable core dumps
+ulimit -c unlimited
 
 # swap escape and caps lock
 xmodmap -e "clear lock"
@@ -23,4 +40,4 @@ the &
 polybar -r bar &
 
 xautolock -time 30 -locker slock &
-exec ssh-agent 2bwm
+exec ssh-agent i3
