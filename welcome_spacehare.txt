@@ -1,0 +1,19 @@
+welcome, spacehare! we're glad you're here
+
+it's Tue 18 Aug 2020 02:50:49 PM UTC and you are now a member of tilde.town.
+
+here is a poem:
+
+ Here he brightened up
+ ADAPTED FROM A PLAN OF 1865
+ To-night, when we met
+
+some next steps if you wanna, no pressure:
+- run the command alpine. this will let you set up local emailing. try emailing
+vilmibm@tilde.town
+- run the command feels. set up a little town blog and say hi to your neighbors.
+- run the command writo. draw a little something.
+- run the command poem. get a poem.
+
+see you around~
+

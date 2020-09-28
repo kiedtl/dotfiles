@@ -36,12 +36,12 @@ function! StatusLine() abort
 		return l:line
 	endif
 
-	let l:line.='%1* %{g:curmode[mode()]}% %5* %6* %7* %8* %9* %2*'
+	let l:line.='%1* %{g:curmode[mode()]}% %2* '
 	let l:line.=GitBranch()
 	let l:line.=' %{ReadOnly()}% %{Modified()}% %3* '
 	let l:line.=' %= %2*'
 	let l:line.=' Ln %l Col %v '
-	let l:line.='%9* %8* %7* %6* %5* %1* %{FileType()}%  '
+	let l:line.='%1* %{FileType()}%  '
 
 	return l:line
 endfunction
@@ -109,15 +109,9 @@ function! Modified() abort
 	endif
 endfunction
 
-highlight user1  ctermbg=7    ctermfg=0    cterm=NONE " for mode line
-highlight user2  ctermbg=235  ctermfg=NONE cterm=NONE
+highlight user1  ctermbg=15   ctermfg=0    cterm=NONE " for mode line
+highlight user2  ctermbg=7    ctermfg=0    cterm=NONE
 highlight user3  ctermbg=NONE ctermfg=7    cterm=NONE
 highlight user4  ctermbg=7    ctermfg=NONE cterm=NONE
-
-highlight user5  ctermbg=250  ctermfg=NONE cterm=NONE
-highlight user6  ctermbg=246  ctermfg=NONE cterm=NONE
-highlight user7  ctermbg=242  ctermfg=NONE cterm=NONE
-highlight user8  ctermbg=238  ctermfg=NONE cterm=NONE
-highlight user9  ctermbg=236  ctermfg=NONE cterm=NONE
 
 set statusline=%!StatusLine()
