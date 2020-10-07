@@ -68,17 +68,15 @@ chatnets = {
 
 channels = (
   { name = "#kisslinux"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#dwarffortress"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#pandorabox"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lobsters"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "##crustaceans"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bots"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#chaos"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#casino"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#team"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { name = "#chaos"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#tea"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#coffee"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { name = "#lounge"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#spacehare"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { 
     name = "#lickthecheese";
@@ -86,10 +84,9 @@ channels = (
     autojoin = "Yes";
   },
   { name = "#xfnw"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { name = "#ctrl-c"; chatnet = "tilde.chat"; autojoin = "Yes"; },
+  { name = "#lounge"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#meta"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  { name = "#tildetown"; chatnet = "tilde.town"; autojoin = "Yes"; },
-  { name = "#asciifarm"; chatnet = "tilde.town"; autojoin = "Yes"; }
+  { name = "#tildetown"; chatnet = "tilde.town"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -247,6 +244,8 @@ aliases = {
   97 = "WINDOW GOTO 97";
   98 = "WINDOW GOTO 98";
   99 = "WINDOW GOTO 99";
+  add = "color /say hi";
+  color = "/say $*: \003$*,00this is a test";
 };
 
 statusbar = {
@@ -357,4 +356,5 @@ settings = {
 keyboard = ( 
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; }
 );
+logs = { };
 ignores = ( );
