@@ -1,22 +1,14 @@
-bin
-doc
-go
-img
-opt
-src
-tmp
-var
-
-# stupid dotfiles
-.dbus
-.fehbg
-.gnupg
-.hunspell*
-.lesshst
-.sc_history
-.sfeed
-.ssh
-.w3m
-.wget-hsts
-.bash_history
-.Xauthority
+# random programs that don't belong in etc/
+glib*
+hub
+keybase/
+msmtp/
+mutt/
+netsurf/
+nvim/autoload/
+nvim/plugged/
+nvim/view/
+pulse/
+aerc/
+htop/
+neofetch/

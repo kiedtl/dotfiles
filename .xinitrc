@@ -1,1 +1,0 @@
-etc/Xorg/.xinitrc
