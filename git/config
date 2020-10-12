@@ -1,0 +1,14 @@
+[user]
+	email = kiedtl@tilde.team
+	name = Kiëd Llaentenn
+
+[core]
+	hooksPath = "~/etc/git/hooks"
+
+[sendemail]
+	smtpServer = smtp.tilde.team
+	smtpEncryption = tls
+	smtpUser = kiedtl
+	smtpServerport = 587
+[pull]
+	rebase = false
