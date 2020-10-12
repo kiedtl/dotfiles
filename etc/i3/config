@@ -66,7 +66,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Ctrl++h split h
+bindsym $mod+Ctrl+h split h
 
 # split in vertical orientation
 bindsym $mod+Ctrl+v split v
@@ -173,6 +173,9 @@ bindsym $mod+XF86AudioLowerVolume exec xbacklight -dec 3
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 3
 bindsym XF86MonBrightnessDown exec xbacklight -dec 3
+
+# herbe notifications
+bindsym $mod+d exec pkill -SIGUSR2 herbe
 
 for_window [class="^.*"] border pixel 2
 for_window [class="(?i)gsimplecal"] floating enable, move position, move down $height px
