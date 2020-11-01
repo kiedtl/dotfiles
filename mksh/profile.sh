@@ -14,10 +14,12 @@ have() {
 
 export PATH="$HOME/local/bin:$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/tilde/bin:$PATH"                  # tildeverse scripts
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
-export TERM="xterm-256color" # enable the darned 256 color support vim, ok?
+export TERM="xterm-256color"                    # vim: enable 256 colors already
 export XDG_CONFIG_HOME="${HOME}/etc"
 export ENV="$HOME/etc/mksh/profile.sh"
 export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
@@ -97,7 +99,8 @@ set -o vi
 
 case $SHELL in
     *mksh*)
-        set -o trackall
+        set -o noclobber
+        set -o ignoreeof             # no accidental exits in ssh sessions
         set -o bgnice
         set -o vi-tabcomplete
     ;;

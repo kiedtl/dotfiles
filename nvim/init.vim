@@ -31,7 +31,8 @@ Plug 'preservim/nerdtree'             " should be obvious
 call plug#end()
 
 set history=1000                 " the default of 20 is ridiculous
-set ignorecase                   " ignore case while searching
+set smartcase                    " case-sensitive if search contains
+                                 " an upper-case letter
 set autoindent                   " indent at level of prev line
 set laststatus=2                 " enable the statusbar
 set nocursorline                 " don't highlight current line
@@ -66,6 +67,7 @@ set listchars=tab:\│\ ,nbsp:␣,trail:·,extends:»,precedes:«
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
 nmap gb `[v`]           " reselect previously yanked text
+nmap gt :NERDTreeVCS<CR>
 
 " remove trailing whitespace from file
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
