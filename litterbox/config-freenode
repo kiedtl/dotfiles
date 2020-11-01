@@ -1,0 +1,4 @@
+host = irc.freenode.org
+port = 6697
+nick = spacehare|ltbx
+join = #kisslinux,#lobsters,##crustaceans
