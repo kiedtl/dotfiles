@@ -3,19 +3,13 @@
 # https://github.com/kiedtl/dotfiles
 #
 
-have() {
-    if command -v "$1" 2>/dev/null >&2
-    then
-        return 0
-    else
-        return 1
-    fi
-}
-
-export PATH="$HOME/local/bin:$HOME/bin:$PATH"
+export PATH="$HOME/local/bin:$PATH"
 export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/go/bin:$PATH"
 export PATH="/tilde/bin:$PATH"                  # tildeverse scripts
+export PATH="$HOME/bin:$HOME/bin/net:$PATH"
+export PATH="$HOME/bin/x11:$HOME/bin/lib:$PATH"
+
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
@@ -59,13 +53,13 @@ s() {
     systemctl --user "${1:-status}" "${2:-bot}"
 }
 
-if have doas; then
+if has doas; then
     alias d='doas'
 else
     alias d='sudo'
 fi
 
-if have exa; then
+if has exa; then
     alias l='exa -F'
     alias tree='exa --tree --git-ignore' # use exa's tree instead
     alias ls='exa -lF'                   # long live exa!
@@ -76,11 +70,11 @@ else
     alias ls='ls -lF'                    # do without colors :'(
 fi
 
-if have peaclock; then
+if has peaclock; then
     alias peaclock='LC_ALL=C peaclock'   # fix peaclock on musl
 fi
 
-if have bc; then
+if has bc; then
     alias bc="bc -ql"                    # basic calculator
 fi
 
@@ -113,7 +107,7 @@ esac
 # so why bother taking it out...
 xhost +local:root >/dev/null 2>&1
 
-if have paleta && have colors; then
+if has paleta && has colors; then
     paleta $(colors) 2>/dev/null >&2      # retrieve colorscheme
 fi
 
