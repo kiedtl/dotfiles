@@ -24,8 +24,8 @@ offset-x = 0
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-font-0     = ${fonts.bitocra}
-font-1     = ${fonts.bitocra-bold}
+font-0     = ${fonts.ttyp0}
+font-1     = ${fonts.ttyp0-bold}
 font-2     = ${fonts.hack}
 separator  =
 
