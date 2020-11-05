@@ -78,9 +78,11 @@ if has bc; then
     alias bc="bc -ql"                    # basic calculator
 fi
 
+alias gst='git status'               # darn  you, git
 alias p='pwd'                        # where does laziness become insanity?
 alias h='cd ~'                       # ...
 alias c='clear'                      # ...
+alias cl='c; l'
 alias t='touch'                      # ...
 alias grep='grep --colour=auto'      # color by default
 alias mv="mv -i"                     # prevent $(mv x.h x.c) ugh

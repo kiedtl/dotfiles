@@ -85,6 +85,11 @@ augroup plaintext
 		autocmd FileType text,markdown setlocal textwidth=75
 augroup END
 
+augroup spelling
+	autocmd!
+		autocmd FileType text,mail,markdown,gmi setlocal spell
+augroup END
+
 let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
