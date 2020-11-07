@@ -4,49 +4,67 @@
 "
 " https://github.com/kiedtl/dotfiles
 "
+
 scriptencoding utf-8
 
 let g:curmode={
-	\ 'n'  : 'NORMAL ',
-	\ 'no' : 'N·OPERATOR PENDING ',
-	\ 'v'  : 'VISUAL ',
-	\ 'V'  : 'V·LINE ',
-	\ '^V' : 'V·BLOCK ',
-	\ 's'  : 'SELECT ',
-	\ 'S'  : 'S·LINE ',
-	\ '^S' : 'S·BLOCK ',
-	\ 'i'  : 'INSERT ',
-	\ 'R'  : 'REPLACE ',
-	\ 'Rv' : 'V·REPLACE ',
-	\ 'c'  : 'COMMAND ',
-	\ 'cv' : 'VIM EX ',
-	\ 'ce' : 'EX ',
-	\ 'r'  : 'PROMPT ',
-	\ 'rm' : 'MORE ',
-	\ 'r?' : 'CONFIRM ',
-	\ '!'  : 'SHELL ',
-	\ 't'  : 'TERMINAL '}
+	\ 'n'  : 'N',
+	\ 'no' : 'N·OP',
+	\ 'v'  : 'V',
+	\ 'V'  : 'V·L',
+	\ '^V' : 'V·B',
+	\ 's'  : 'SEL',
+	\ 'S'  : 'S·L',
+	\ '^S' : 'S·B',
+	\ 'i'  : 'I',
+	\ 'R'  : 'R',
+	\ 'Rv' : 'V·R',
+	\ 'c'  : 'C',
+	\ 'cv' : 'VEX',
+	\ 'ce' : 'EX',
+	\ 'r'  : '$',
+	\ 'rm' : 'MOAR',
+	\ 'r?' : '?',
+	\ '!'  : 'SH',
+	\ 't'  : 'TRM'}
 
 function! StatusLine() abort
 	let l:line=''
 
-	" help or man pages
+	" u/Nerdypepper's theme
+	"let l:line.='%1* %{g:curmode[mode()]}% %2* '
+	"let l:line.=GitBranch()
+	"let l:line.=' %{ReadOnly()}% %{Modified()}% %3* '
+	"let l:line.=' %= %2*'
+	"let l:line.=' Ln %l Col %v '
+	"let l:line.='%1* %{FileType()}%  '
+
+	" Emacs-esque theme (I guess? I cannot remember the
+	" last time I was forced to use that monstrosity)
 	if &filetype ==# 'help' || &filetype ==# 'man'
-		let l:line.=' %#StatusLineNC# ['. &filetype .'] %f '
-		return l:line
+		" help or man pages
+		let l:line.='%1* %l%2*:%v'
+		let l:line.='%1* %t'
+		let l:line.='%='
+		let l:line.='%3*%P '
+		let l:line.='%1*<%{g:curmode[mode()]}% >  '
+		let l:line.='%1*(%{FileType()}% )'
+	else
+		let l:line.='%1* %l%2*:%v '
+		let l:line.='%2*%{FileEncoding()}% %{LineEndings()}% '
+		let l:line.='%3*%{EmacsModRO()}% %1* %t '
+		let l:line.='%='
+		let l:line.='%3*%P '
+		let l:line.='%1*<%{g:curmode[mode()]}% >  '
+		let l:line.='%3*:%{GitBranch()}%  '
+		let l:line.='%1*(%{FileType()}% )'
 	endif
 
-	let l:line.='%1* %{g:curmode[mode()]}% %2* '
-	let l:line.=GitBranch()
-	let l:line.=' %{ReadOnly()}% %{Modified()}% %3* '
-	let l:line.=' %= %2*'
-	let l:line.=' Ln %l Col %v '
-	let l:line.='%1* %{FileType()}%  '
-
+	let l:line.='                   '
 	return l:line
 endfunction
 
-function! LinePercentage()
+function! LinePercentageBar()
 	let l:percentage=line('.') * 100 / line('$')
 
 	let l:percentline=''
@@ -65,7 +83,7 @@ function! LinePercentage()
 	return l:percentline
 endfunction
 
-function! GitBranch()
+function! GitBranch() abort
 	let l:command=''
 	let l:command.="sh -c 'cd "
 	let l:command.=SessionDir()
@@ -75,10 +93,10 @@ endfunction
 
 function! FileType() abort
 	if len(&filetype) == 0
-		return 'TEXT'
+		return 'text'
 	endif
 
-	return toupper(&filetype)
+	return tolower(&filetype)
 endfunction
 
 function! SessionDir() abort
@@ -93,7 +111,7 @@ function! ReadOnly() abort
 	if !&modifiable && &readonly
 		return '[RO] '
 	elseif &modifiable && &readonly
-		return '[RO] '
+		return '[MRO] '
 	elseif !&modifiable && !&readonly
 		return ''
 	else
@@ -109,9 +127,51 @@ function! Modified() abort
 	endif
 endfunction
 
-highlight user1  ctermbg=15   ctermfg=0    cterm=NONE " for mode line
-highlight user2  ctermbg=7    ctermfg=0    cterm=NONE
-highlight user3  ctermbg=NONE ctermfg=7    cterm=NONE
-highlight user4  ctermbg=7    ctermfg=NONE cterm=NONE
+function! EmacsModRO() abort
+	if &readonly
+		if &modified
+			return '%*'
+		else
+			return '%%'
+		endif
+	else
+		if &modified
+			return '**'
+		else
+			return '--'
+		endif
+	endif
+endfunction
+
+function! LineEndings() abort
+	if &fileformat ==# 'unix'
+		return ':'
+	elseif &fileformat ==# 'dos'
+		return '(DOS)'
+	elseif &fileformat ==# 'mac'
+		return '(MAC)'
+	else
+		return '(???)'
+	endif
+endfunction
+
+function! FileEncoding() abort
+	if &fileencoding ==# 'ucs-bom'
+		return 'U'
+	elseif &fileencoding ==# 'utf-8' || &fileencoding ==# ''
+		return 'u'
+	elseif &fileencoding ==# 'default'
+		return 'd'
+	elseif &fileencoding ==# 'latin1'
+		return '1'
+	else
+		return '?'
+	endif
+endfunction
+
+highlight user1  ctermbg=253 ctermfg=15   cterm=NONE
+highlight user2  ctermbg=253 ctermfg=6    cterm=NONE
+highlight user3  ctermbg=253 ctermfg=8    cterm=bold
+highlight user4  ctermbg=253 ctermfg=NONE cterm=NONE
 
 set statusline=%!StatusLine()

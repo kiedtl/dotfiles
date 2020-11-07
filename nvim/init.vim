@@ -1,63 +1,65 @@
 " install vim-plug if it isn't installed yet
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/etc/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl -fLo ~/etc/nvim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" --------------
 
 " initialize junegunn/vim-plug
 call plug#begin('~/etc/nvim/plugged')
 
-" colorschemes
-Plug 'nerdypepper/vim-colors-plain', { 'branch': 'duotone' }
-
 " various language modes for vim
 Plug 'vim-scripts/paredit.vim', {'for' : 'lisp'}
 Plug 'rust-lang/rust.vim',      {'for' : 'rust'}
-Plug 'ollykel/v-vim',           {'for' : 'v'}
 Plug 'braindead-cc/bf-vim',     {'for' : 'brainfuck'}
 Plug 'ziglang/zig.vim',         {'for' : 'zig'}
 Plug 'ron-rs/ron.vim'
 
 " misc plugins
-Plug 'Yggdroot/indentLine'            " show indentlines for spaces
-Plug 'godlygeek/tabular'              " tabular
-Plug 'junegunn/goyo.vim'              " distraction-free writing
-Plug 'terryma/vim-multiple-cursors'   " multiple cursors
-Plug 'tpope/vim-commentary'           " gcc to toggle comments
-Plug 'reedes/vim-wordy'               " fix weasel words/passive voice
-Plug 'preservim/nerdtree'             " should be obvious
+Plug 'Yggdroot/indentLine'           " show indentlines for spaces
+Plug 'godlygeek/tabular'             " auto-align characters on multiple lines
+Plug 'junegunn/goyo.vim'             " disable line columns, status bar, and centers text
+Plug 'terryma/vim-multiple-cursors'  " multiple cursors
+Plug 'tpope/vim-commentary'          " gcc to toggle comments
+Plug 'reedes/vim-wordy'              " fix weasel words/passive voice/reduntant words
+Plug 'preservim/nerdtree'            " tree view of files
+Plug 'reedes/vim-wheel'              " scroll buffer with C-k/j while keeping cursor position
 
 call plug#end()
 
-set history=1000                 " the default of 20 is ridiculous
-set smartcase                    " case-sensitive if search contains
-                                 " an upper-case letter
-set autoindent                   " indent at level of prev line
+" --------------
+
+set history=100                  " the default of 20 is ridiculous
+set smartcase                    " case-sensitive if search contains an upper-case letter
+set autoindent                   " indent at level of previous line
 set laststatus=2                 " enable the statusbar
 set nocursorline                 " don't highlight current line
 set number                       " enable line numbers
-set relativenumber               " enable relative line numbers
-set list                         " enable listchars
-set tabstop=8                    " tabs
+set norelativenumber             " disable relative line numbers for now
+set list                         " enable listchars (see below)
+set tabstop=8                    " show tabs as 4 spaces instead of 8
 set smarttab
 set encoding=utf-8               " set UTF-8 encoding
 set backspace=indent,eol,start   " backspace through anything
 set noincsearch                  " don't autosearch
 set wrap                         " wrap long lines, please!
-set mouse=                       " disable the pesky mouse
+set mouse=                       " disable the pesky mouse support
 set mousehide                    " hide mouse while typing
-set scrolloff=3                  " lines to keep above/below cursor
+set scrolloff=3                  " lines to keep above/below cursor when scrolling
 set showmatch                    " show matching brackets/parens
-set foldmethod=indent            " fold lines of same indent
-set cursorline                   " highlight current line
+set cursorline                   " highlight the current line
+set fillchars=eob:\              " remove the annoying tildes at the end of a file
 
 " show tab as │, non-breaking space as ␣, trailing space as ·
 " if wrap is off and the text extends beyond the screen, show a »
 "     (the opposite with precedes)
 set listchars=tab:\│\ ,nbsp:␣,trail:·,extends:»,precedes:«
 
-" ;P
+" --------------
+
+" ugh
 :command! WQ wq
 :command! Wq wq
 :command! W  w
@@ -67,33 +69,40 @@ set listchars=tab:\│\ ,nbsp:␣,trail:·,extends:»,precedes:«
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
 nmap gb `[v`]           " reselect previously yanked text
-nmap gt :NERDTreeVCS<CR>
+nmap <Leader>t :NERDTreeVCS<CR>
 
 " remove trailing whitespace from file
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+nmap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 
-" configure tabs when editing Rust/Scheme/POSIX-sh code
+" --------------
+
+" set indentation settings
 augroup indents
 	autocmd!
 		autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
 		autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
-" for markdown
-augroup plaintext
+" configure textwidth 
+augroup textwidth
 	autocmd!
 		autocmd FileType text,markdown setlocal textwidth=75
 augroup END
 
+" enable spelling for my mail (with aerc), markdown/text, and gemini pages
 augroup spelling
 	autocmd!
 		autocmd FileType text,mail,markdown,gmi setlocal spell
 augroup END
 
+" --------------
+
 let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
+
+" TODO: fix plain colorscheme
 colorscheme default
 colorscheme plain
 
@@ -107,3 +116,4 @@ highlight pmenusel     ctermbg=4     ctermfg=0
 highlight pmenusbar    ctermbg=0
 highlight pmenuthumb   ctermbg=15
 highlight matchparen   ctermbg=0     ctermfg=NONE
+highlight nontext      ctermbg=NONE  ctermfg=8
