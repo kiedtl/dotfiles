@@ -104,6 +104,17 @@ max_pages = 30 # The maximum number of pages the cache will store
 #
 # Note that HTTP and HTTPS are treated as separate protocols here.
 
+[auth]
+# Authentication settings
+
+[auth.certs]
+# Client certificates
+# Set domain name equal to path to client cert
+"boringcactus.com" = "boringcactus.crt"
+
+[auth.keys]
+# Client certificate keys
+# Set domain name equal to path to key for the client cert above
 
 [theme]
 # This section is for changing the COLORS used in Amfora.
