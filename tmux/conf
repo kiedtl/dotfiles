@@ -1,4 +1,5 @@
 # status bar
+set -g status off
 set -g status-bg black
 set -g status-fg blue
 set -g status-interval 5
