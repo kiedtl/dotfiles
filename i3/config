@@ -38,6 +38,10 @@ font xft:ttyp0 13
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# scratchpad stuff
+bindsym $mod+Ctrl+space move scratchpad
+bindsym $mod+space scratchpad show
+
 # start a terminal
 bindsym $mod+Return exec $term
 
@@ -83,7 +87,7 @@ bindsym $mod+e layout toggle split # the default
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -135,13 +139,12 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit' -f Fira-Code-Retina"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit' -f Fira-Code-Retina"
+bindsym $mod+Shift+e exec i3-msg exit
 bindsym $mod+Shift+x exec slock
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
@@ -164,6 +167,27 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# mouse movement mode
+mode "mouse" {
+	bindsym h exec xdotool mousemove_relative -- -10   0
+	bindsym j exec xdotool mousemove_relative --   0  10
+	bindsym k exec xdotool mousemove_relative --   0 -10
+	bindsym l exec xdotool mousemove_relative --  10   0
+
+	bindsym Left  exec xdotool mousemove_relative -- -10   0
+	bindsym Down  exec xdotool mousemove_relative --   0  10
+	bindsym Up    exec xdotool mousemove_relative --   0 -10
+	bindsym Right exec xdotool mousemove_relative --  10   0
+
+	bindsym Return exec xdotool click 1
+	bindsym Shift+Return exec xdotool click 3
+
+	bindsym Escape mode "default"
+	bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m mode "mouse"
 
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
