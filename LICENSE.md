@@ -8,7 +8,7 @@ downloading or cloning a copy of these useless scripts and configuration
 files, to (mis)use, copy, modify, merge, publish, distribute, sublicense,
 sell, burn, blow up, ingest, wear, and/or use for medicinal purposes,
 without any restriction, limitation, or condition whatsoever, including the
-condition of attributation.
+condition of attribution.
 
 THIS CONTENT IS PROVIDED BY THE AUTHOR(S) "AS IS", AND ANY WARRANTY,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
