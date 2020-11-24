@@ -9,15 +9,17 @@ export PATH="$HOME/.cargo/bin:$HOME/go/bin:$PATH"
 export PATH="/tilde/bin:$PATH"                  # tildeverse scripts
 export PATH="$HOME/bin:$HOME/bin/net:$PATH"
 export PATH="$HOME/bin/x11:$HOME/bin/lib:$PATH"
+export PATH="$HOME/.luarocks/bin/:$PATH"
 
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export TERM="xterm-256color"                    # vim: enable 256 colors already
 export XDG_CONFIG_HOME="${HOME}/etc"
-export ENV="$HOME/etc/mksh/profile.sh"
 export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
+
+ENV="$HOME/etc/mksh/profile.sh"
 
 # stop cluttering up my $HOME
 export LESSHISTFILE=~/var/cache/less/history
@@ -38,8 +40,9 @@ export MAIL="${HOME}/var/mail/INBOX"
 # for Rust development
 export RUST_BACKTRACE=1
 
-# Common Lisp stuff
-export SBCL_HOME=$HOME/local/lib/sbcl/
+# Lua stuff
+export LUA_PATH='./?.lua;/home/kiedtl/.luarocks/share/lua/5.3/?.lua;/home/kiedtl/.luarocks/share/lua/5.3/?/init.lua;/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.lua;/home/kiedtl/.luarocks/share/lua/5.3/?.lua;/usr/local/lib/lua/5.3/?.lua;/usr/local/lib/lua/5.3/?/init.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;./?.lua;./?/init.lua'
+export LUA_CPATH='/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/?.so;/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/lib/x86_64-linux-gnu/lua/5.3/?.so;/usr/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/loadall.so;./?.so'
 
 # for KISS Linux
 # source kiss path if it exists
@@ -49,8 +52,12 @@ export SBCL_HOME=$HOME/local/lib/sbcl/
 # source stuff from ~/bin
 . ~/bin/shtat
 
-s() {
-    systemctl --user "${1:-status}" "${2:-bot}"
+s() { systemctl --user "${1:-status}" "${2:-bot}" ;}
+pc() { echo "$@" | pescli -q; }
+gh() {
+    h="$1" rr="$2"
+    shift 2
+    git clone "https://github.com/$h/$rr" "$@" --recurse;
 }
 
 if has doas; then
@@ -90,6 +97,7 @@ alias cp="cp -i"                     # confirm before overwriting files
 alias rm='rm -i'                     # confirm before deleting a file
 alias df='df -h'                     # show human-readable sizes
 alias free='free -m'                 # show sizes in MB
+alias f="factor"
 
 set -o vi
 

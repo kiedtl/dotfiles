@@ -29,17 +29,13 @@ xmodmap -e "clear lock"
 xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
-# workman layout
-xmodmap etc/xmodmap/xmodmap.workmap
-
 # merge Xresources
 xrdb -merge ~/etc/Xorg/.Xresources
 xrdb -merge ~/.cache/wal/colors.Xresources
 xrdb -merge ~/.cache/wal/2bwm.Xresources
 
 # set wallpaper/theme, bars
-[ -f ~/.fehbg ] && ~/.fehbg &
-the &
+the peaceful &
 polybar -r bar &
 
 xautolock -time 30 -locker slock &
