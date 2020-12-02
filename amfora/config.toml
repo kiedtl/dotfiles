@@ -37,7 +37,7 @@ ansi = true
 bullets = true
 
 # A number from 0 to 1, indicating what percentage of the terminal width the left margin should take up.
-left_margin = 0.15
+left_margin = 0.08
 
 # The max number of columns to wrap a page's text to. Preformatted blocks are not wrapped.
 max_width = 100

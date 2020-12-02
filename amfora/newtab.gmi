@@ -1,0 +1,13 @@
+# New Tab
+
+You've opened a new tab. Use the bar at the bottom to browse around. You can start typing in it by pressing the space key.
+
+Press the ? key at any time to bring up the help, and see other keybindings. Most are what you expect.
+
+Happy browsing!
+
+=> about:bookmarks Bookmarks
+=> tilde.team/~kiedtl tilde.team:~kiedtl
+
+=> gemini.circumlunar.space Project Gemini
+=> gus.guru GUS
