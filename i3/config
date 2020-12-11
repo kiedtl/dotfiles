@@ -175,10 +175,10 @@ mode "mouse" {
 	bindsym k exec xdotool mousemove_relative --   0 -50
 	bindsym l exec xdotool mousemove_relative --  50   0
 
-	bindsym Shift+h exec xdotool mousemove_relative -- -10   0
-	bindsym Shift+j exec xdotool mousemove_relative --   0  10
-	bindsym Shift+k exec xdotool mousemove_relative --   0 -10
-	bindsym Shift+l exec xdotool mousemove_relative --  10   0
+	bindsym Shift+h exec xdotool mousemove_relative -- -5  0
+	bindsym Shift+j exec xdotool mousemove_relative --  0  5
+	bindsym Shift+k exec xdotool mousemove_relative --  0 -5
+	bindsym Shift+l exec xdotool mousemove_relative --  5  0
 
 	bindsym Return exec xdotool click 1
 	bindsym Shift+Return exec xdotool click 3
