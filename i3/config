@@ -19,10 +19,10 @@ set $term term
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7
+set_from_resource $fg i3wm.color15
 set_from_resource $bg i3wm.color0
-set_from_resource $border_inactive i3wm.color8
-set_from_resource $border_active i3wm.color7
+set_from_resource $border_inactive i3wm.color15
+set_from_resource $border_active i3wm.color4
 
 # class                 border  			backgr. text 	indicator child_border
 client.focused          $border_active     	$bg     $fg  	$bg       $border_active
@@ -175,10 +175,10 @@ mode "mouse" {
 	bindsym k exec xdotool mousemove_relative --   0 -50
 	bindsym l exec xdotool mousemove_relative --  50   0
 
-	bindsym Shift+h exec xdotool mousemove_relative -- -10   0
-	bindsym Shift+j exec xdotool mousemove_relative --   0  10
-	bindsym Shift+k exec xdotool mousemove_relative --   0 -10
-	bindsym Shift+l exec xdotool mousemove_relative --  10   0
+	bindsym Shift+h exec xdotool mousemove_relative -- -5  0
+	bindsym Shift+j exec xdotool mousemove_relative --  0  5
+	bindsym Shift+k exec xdotool mousemove_relative --  0 -5
+	bindsym Shift+l exec xdotool mousemove_relative --  5  0
 
 	bindsym Return exec xdotool click 1
 	bindsym Shift+Return exec xdotool click 3

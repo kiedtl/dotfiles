@@ -39,4 +39,4 @@ the peaceful &
 polybar -r bar &
 
 xautolock -time 30 -locker slock &
-exec ssh-agent i3
+exec ssh-agent 2bwm
