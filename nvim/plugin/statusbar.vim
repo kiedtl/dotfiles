@@ -171,7 +171,7 @@ endfunction
 
 highlight user1  ctermbg=253 ctermfg=15   cterm=NONE
 highlight user2  ctermbg=253 ctermfg=6    cterm=NONE
-highlight user3  ctermbg=253 ctermfg=8    cterm=bold
+highlight user3  ctermbg=253 ctermfg=7    cterm=bold
 highlight user4  ctermbg=253 ctermfg=NONE cterm=NONE
 
 set statusline=%!StatusLine()
