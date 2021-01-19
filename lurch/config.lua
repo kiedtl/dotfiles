@@ -31,8 +31,7 @@ M.servers = {
         mode = nil,
 
         no_ident = false,
-        caps = { "server-time", "account-notify", "away-notify",
-            "echo-message" }
+        caps = { "server-time", "account-notify", "echo-message" }
     },
 
     ["freenode"] = {
@@ -60,13 +59,13 @@ M.server = "tilde.chat"
 
 -- default kick/quit/part message. (defaults to an empty string)
 M.quit_msg = function(channel)
-    return "*thud*"
+    return "Ctrl-Shift-q"
 end
 M.kick_msg = function(channel)
-    return "your presence in this community is no longer desirable"
+    return "Your presence in this community is no longer desirable."
 end
 M.part_msg = function(channel)
-    return "*confused shouting*"
+    return "bye bye"
 end
 
 -- Default replies for CTCP queries from users/server.
@@ -77,13 +76,7 @@ end
 --
 M.ctcp_source  = function(_event) return "https://github.com/lptstr/lurch" end
 M.ctcp_version = function(_event) return "lurch (https://github.com/lptstr/lurch)" end
-M.ctcp_ping    = function(_event)
-    if _event.nick == "spammer" then
-        return nil
-    else
-        return true
-    end
-end
+M.ctcp_ping    = function(_event) return true end
 
 -- if set to false, will simply filter out mirc colors.
 M.mirc = true
@@ -150,11 +143,6 @@ M.linefmt = function(time_pad, left_pad, time, left, right)
     --      column.
     return format("\x0f\x0314%s\x0f%s%s%s %s", time, time_pad,
         left_pad, left, right)
-
-    -- Uncommenting this will cause the left column to be aligned to the left
-    -- instead of to the right.
-    --return format("\x0f\x0314%s\x0f%s%s%s %s", time, time_pad,
-        --left, left_pad, right)
 end
 
 -- Values used for the left column (excluding channel messages).
