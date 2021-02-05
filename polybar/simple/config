@@ -24,9 +24,9 @@ offset-x = 0
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-font-0     = ${fonts.ttyp0}
-font-1     = ${fonts.ttyp0-bold}
-font-2     = ${fonts.hack}
+font-0     = ${fonts.gomme}
+font-1     = ${fonts.tamzen-bold}
+font-2     = ${fonts.gomme}
 separator  =
 
 modules-left   = date-label date network-label network
@@ -48,12 +48,15 @@ bg = ${xrdb:color0:#192222}
 ac = ${xrdb:color15:#884444}
 
 [fonts]
-ttyp0        = "fixed:size=13;2"
-ttyp0-bold   = "fixed:size=13:style=Bold;2"
+gomme        = "gomme:size=16;2"
+ttyp0        = "ttyp0:size=13;2"
+ttyp0-bold   = "ttyp0:size=13:style=Bold;2"
 bitocra      = "bitocra13;2"
 bitocra-bold = "bitocra13:style=Bold;2"
 hack         = "hack:size=11;2"
 hack-bold    = "hack:size=11:style=Bold;2"
+tamzen       = "tamzen:size=16;2"
+tamzen-bold  = "tamzen:size=16:style=Bold;2"
 
 ;;    ---
 ;;  modules
