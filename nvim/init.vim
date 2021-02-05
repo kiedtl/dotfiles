@@ -1,38 +1,39 @@
 " install vim-plug if it isn't installed yet
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/etc/nvim/autoload/plug.vim'))
 	silent !curl -fLo ~/etc/nvim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" --------------
 
-" initialize junegunn/vim-plug
+""" ----------- plugins ----------
 call plug#begin('~/etc/nvim/plugged')
 
 " various language modes for vim
-Plug 'vim-scripts/paredit.vim', {'for' : 'lisp'}
-Plug 'rust-lang/rust.vim',      {'for' : 'rust'}
-Plug 'braindead-cc/bf-vim',     {'for' : 'brainfuck'}
-Plug 'ziglang/zig.vim',         {'for' : 'zig'}
-Plug 'ron-rs/ron.vim'
+Plug 'vim-scripts/paredit.vim', {'for': 'lisp'}
+Plug 'rust-lang/rust.vim',      {'for': 'rust'}
+Plug 'braindead-cc/bf-vim',     {'for': 'bf'}
+Plug 'ziglang/zig.vim',         {'for': 'zig'}
+Plug 'ron-rs/ron.vim',          {'for': 'ron'}
+Plug 'bakpakin/fennel.vim',     {'for': 'fennel'}
 
 " misc plugins
-Plug 'Yggdroot/indentLine'           " show indentlines for spaces
-Plug 'godlygeek/tabular'             " auto-align characters on multiple lines
-Plug 'junegunn/goyo.vim'             " disable line columns, status bar, and centers text
-Plug 'terryma/vim-multiple-cursors'  " multiple cursors
-Plug 'tpope/vim-commentary'          " gcc to toggle comments
-Plug 'reedes/vim-wordy'              " fix weasel words/passive voice/reduntant words
-Plug 'preservim/nerdtree'            " tree view of files
-Plug 'reedes/vim-wheel'              " scroll buffer with C-k/j while keeping cursor position
+Plug 'Yggdroot/indentLine'                          " indentlines for spaces
+Plug 'godlygeek/tabular',   {'on': 'Tabular'}       " auto-align stuff
+Plug 'junegunn/goyo.vim',   {'on': 'Goyo'}          " disable distractions
+Plug 'terryma/vim-multiple-cursors'                 " multiple cursors
+Plug 'tpope/vim-commentary'                         " gcc to toggle comments
+Plug 'reedes/vim-wordy',    {'on': 'Wordy'}         " fix weasel/passive words
+Plug 'preservim/nerdtree',  {'on': 'NerdeTreeVCS'}  " tree view of files
+Plug 'reedes/vim-wheel'                             " scroll with C-k/j, keeping cursor pos
 
 call plug#end()
 
-" --------------
+
+""" --------- settings ----------
 
 set history=100                  " the default of 20 is ridiculous
-set smartcase                    " case-sensitive if search contains an upper-case letter
+set smartcase                    " case-sensitive if search has upper-case letters
 set autoindent                   " indent at level of previous line
 set laststatus=2                 " enable the statusbar
 set nocursorline                 " don't highlight current line
@@ -49,50 +50,75 @@ set mouse=                       " disable the pesky mouse support
 set mousehide                    " hide mouse while typing
 set scrolloff=3                  " lines to keep above/below cursor when scrolling
 set showmatch                    " show matching brackets/parens
-set cursorline                   " highlight the current line
 set fillchars=eob:\              " remove the annoying tildes at the end of a file
 
+""" listchars
 " show tab as │, non-breaking space as ␣, trailing space as ·
 " if wrap is off and the text extends beyond the screen, show a »
 "     (the opposite with precedes)
 set listchars=tab:\│\ ,nbsp:␣,trail:·,extends:»,precedes:«
 
-" --------------
 
-" ugh
-:command! WQ wq
-:command! Wq wq
-:command! W  w
-:command! Q  q
+""" ---------- functions ----------
+function! SynGroup()
+	let l:s = synID(line('.'), col('.'), 1)
+	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfunction
 
-" bindings
+function! FzyCommand(choice_command, vim_command)
+	try
+		let output = system(a:choice_command . " | fzy ")
+	catch /Vim:Interrupt/
+		" Swallow errors from ^C, allow redraw! below
+	endtry
+	redraw!
+	if v:shell_error == 0 && !empty(output)
+		exec a:vim_command . ' ' . output
+	endif
+endfunction
+
+
+""" ---------- bindings ----------
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
 nmap gb `[v`]           " reselect previously yanked text
-nmap <Leader>t :NERDTreeVCS<CR>
+nmap <Leader>C :source $MYVIMRC<CR>
+nmap <Leader>d :NERDTreeVCS<CR>
+nmap <leader>e :call FzyCommand("rg . -l", ":e")<cr>
+nmap <leader>v :call FzyCommand("rg . -l", ":vs")<cr>
+nmap <leader>s :call FzyCommand("rg . -l", ":sp")<cr>
 
 " remove trailing whitespace from file
-nmap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+nmap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+nmap <F3> :set hlsearch!<CR> " toggle search result highlighting
+
+" ugh
+command! WQ wq
+command! Wq wq
+command! W  w
+command! Q  q
+
 
 " --------------
 
 " set indentation settings
 augroup indents
 	autocmd!
-		autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
-		autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
+	autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType lua setlocal ts=4 sts=4 sw=4 expandtab
 augroup END
 
-" configure textwidth 
+" configure textwidth
 augroup textwidth
 	autocmd!
-		autocmd FileType text,markdown setlocal textwidth=75
+	autocmd FileType text,markdown setlocal textwidth=75
 augroup END
 
 " enable spelling for my mail (with aerc), markdown/text, and gemini pages
 augroup spelling
 	autocmd!
-		autocmd FileType text,mail,markdown,gmi setlocal spell
+	autocmd FileType text,mail,markdown,gmi setlocal spell
 augroup END
 
 " --------------
@@ -101,9 +127,6 @@ let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
-
-" TODO: fix plain colorscheme
-colorscheme default
 colorscheme plain
 
 highlight linenr       ctermfg=NONE

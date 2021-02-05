@@ -24,9 +24,9 @@ offset-x = 0
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-font-0     = ${fonts.ttyp0}
-font-1     = ${fonts.ttyp0-bold}
-font-2     = ${fonts.hack}
+font-0     = ${fonts.gomme}
+font-1     = ${fonts.tamzen-bold}
+font-2     = ${fonts.gomme}
 separator  =
 
 modules-left   = date-label date network-label network
@@ -34,7 +34,7 @@ modules-center = title
 modules-right  = memory-label memory filesystem-label filesystem
 
 border-bottom-size = 2
-border-color  = ${colors.fg}
+border-color  = ${colors.ac}
 padding-left  = 0
 padding-right = 0
 
@@ -43,17 +43,20 @@ padding-right = 0
 ;;        ----
 
 [colors]
-fg = ${xrdb:color7:#e1e2e2}
+fg = ${xrdb:color15:#e1e2e2}
 bg = ${xrdb:color0:#192222}
-ac = ${xrdb:color1:#884444}
+ac = ${xrdb:color15:#884444}
 
 [fonts]
-ttyp0        = "fixed:size=13;2"
-ttyp0-bold   = "fixed:size=13:style=Bold;2"
+gomme        = "gomme:size=16;2"
+ttyp0        = "ttyp0:size=13;2"
+ttyp0-bold   = "ttyp0:size=13:style=Bold;2"
 bitocra      = "bitocra13;2"
 bitocra-bold = "bitocra13:style=Bold;2"
 hack         = "hack:size=11;2"
 hack-bold    = "hack:size=11:style=Bold;2"
+tamzen       = "tamzen:size=16;2"
+tamzen-bold  = "tamzen:size=16:style=Bold;2"
 
 ;;    ---
 ;;  modules
@@ -95,7 +98,7 @@ fixed-values = true
 format-mounted = "<label-mounted>"
 format-unmounted = <label-unmounted>
 format-mounted-foreground = ${colors.bg}
-format-mounted-background = ${colors.fg}
+format-mounted-background = ${colors.ac}
 
 label-mounted = "  %free%  "
 label-unmounted = %mountpoint%: not mounted!
@@ -104,10 +107,10 @@ bar-used-indicator =
 bar-used-width = 10
 bar-used-fill = |
 bar-used-empty = |
-bar-used-foreground-0 = ${colors.fg}
-bar-used-foreground-1 = ${colors.fg}
-bar-used-foreground-2 = ${colors.fg}
-bar-used-foreground-3 = ${colors.fg}
+bar-used-foreground-0 = ${colors.ac}
+bar-used-foreground-1 = ${colors.ac}
+bar-used-foreground-2 = ${colors.ac}
+bar-used-foreground-3 = ${colors.ac}
 bar-used-empty-foreground = ${colors.ac}
 
 ramp-capacity-0 = ▁
@@ -132,7 +135,7 @@ date = "%m/%d"
 format = "<label>"
 format-padding = 2
 format-foreground = ${colors.bg}
-format-background = ${colors.fg}
+format-background = ${colors.ac}
 
 label = "%time% %date%"
 
@@ -151,9 +154,9 @@ unknown-as-up = false
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-disconnected-foreground = ${colors.bg}
-format-disconnected-background = ${colors.fg}
+format-disconnected-background = ${colors.ac}
 format-connected-foreground = ${colors.bg}
-format-connected-background = ${colors.fg}
+format-connected-background = ${colors.ac}
 
 label-connected = "  %ifname%  " 
 ;; %downspeed:8% %upspeed:8%"
@@ -176,7 +179,7 @@ interval = 2
 format = "<label>"
 format-prefix =
 format-padding = 2
-format-background = ${colors.fg}
+format-background = ${colors.ac}
 format-foreground = ${colors.bg}
 
 label = "%mb_used%"
@@ -185,10 +188,10 @@ bar-used-indicator =
 bar-used-width = 10
 bar-used-fill = |
 bar-used-empty = |
-bar-used-foreground-0 = ${colors.fg}
-bar-used-foreground-1 = ${colors.fg}
-bar-used-foreground-2 = ${colors.fg}
-bar-used-foreground-3 = ${colors.fg}
+bar-used-foreground-0 = ${colors.ac}
+bar-used-foreground-1 = ${colors.ac}
+bar-used-foreground-2 = ${colors.ac}
+bar-used-foreground-3 = ${colors.ac}
 bar-used-empty-foreground = ${colors.ac}
 
 ramp-used-0 = ▁

@@ -3,6 +3,7 @@
 # https://github.com/kiedtl/dotfiles
 #
 
+export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/local/bin:$PATH"
 export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$HOME/go/bin:$PATH"
@@ -25,6 +26,14 @@ ENV="$HOME/etc/mksh/profile.sh"
 export LESSHISTFILE=~/var/cache/less/history
 alias wget="wget --no-hsts"
 alias tmux="tmux -f $HOME/etc/tmux/conf"
+
+# lurch
+# https://github.com/lptstr/lurch
+export LURCH_DEBUG=16
+
+# mebsuta
+# https://github.com/lptstr/mebsuta
+export MEBS_DEBUG=16
 
 # weechat/irssi
 export IRSSI_HOME="$HOME/etc/irssi/"
@@ -52,9 +61,10 @@ export LUA_CPATH='/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3
 # source stuff from ~/bin
 . ~/bin/shtat
 
+lines() { sed "${1},+${2}!d" "$3"; }
 s() { systemctl --user "${1:-status}" "${2:-bot}" ;}
 pc() { echo "$@" | pescli -q; }
-gh() {
+gc() {
     h="$1" rr="$2"
     shift 2
     git clone "https://github.com/$h/$rr" "$@" --recurse;
@@ -131,9 +141,9 @@ prompt() {
     # wrap nonprintables for mksh
     printf '\1\r\1'
 
-    # print '%' just in case last command didn't print a newline
-    # then, print a bunch of spaces if a newline was output, then
-    # the spaces will stay on a line and we can output a carriage
+    # print '%' just in case last command didn't print a newline,
+    # then print a bunch of spaces if a newline was output;
+    # the spaces will not stay on a line and we can output a carriage
     # return to get back to the start of the line. otherwise,
     # the spaces will wrap to the next line, where we can safely
     # carriage return to the start of the line and print out prompt.
@@ -144,20 +154,20 @@ prompt() {
         " "
 
     # print a carriage return and change window title
-    printf '\r\1\033]0;%s\a\1' "$USER@$(hostname):$mypwd"
+    printf "\r\1\033]0;%s\a\1" "$USER@$(hostname):$mypwd"
 
     # print path
-    printf '\1\033[31m\1%s\1\033[0m\1' "$mypwd"
+    printf "\1\033[34m\1%s\1\033[0m\1" "$mypwd"
 
     if [ "$(whoami)" = "root" ]
     then
-        printf ' %s' "#"
+        printf '%s' "#"
     else
-        printf ' %s' "|"
+        printf '%s' "$"
     fi
 
     # print a space
     printf ' '
 }
 
-export PS1="\$(prompt)"
+PS1="\$(prompt)"

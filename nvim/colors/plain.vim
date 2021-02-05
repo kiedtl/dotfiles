@@ -18,32 +18,32 @@ endif
 
 let g:colors_name='plain'
 
-let s:black           = { "gui": "#222222", "cterm": "0"   }
-let s:medium_gray     = { "gui": "#767676", "cterm": "8" }
+let s:black           = { "gui": "#222222", "cterm": "0"  }
+let s:medium_gray     = { "gui": "#767676", "cterm": "8"  }
 let s:white           = { "gui": "#F1F1F1", "cterm": "7"  }
 let s:actual_white    = { "gui": "#FFFFFF", "cterm": "15" }
-let s:light_black     = { "gui": "#424242", "cterm": "8"   }
-let s:lighter_black   = { "gui": "#545454", "cterm": "8" }
+let s:light_black     = { "gui": "#424242", "cterm": "8"  }
+let s:lighter_black   = { "gui": "#545454", "cterm": "8"  }
 let s:subtle_black    = { "gui": "#303030", "cterm": "11" }
 let s:light_gray      = { "gui": "#999999", "cterm": "12" }
-let s:lighter_gray    = { "gui": "#CCCCCC", "cterm": "7" }
+let s:lighter_gray    = { "gui": "#CCCCCC", "cterm": "7"  }
 let s:lightest_gray   = { "gui": "#E5E5E5", "cterm": "13" }
-let s:pink            = { "gui": "#FB007A", "cterm": "5"   }
-let s:dark_red        = { "gui": "#C30771", "cterm": "1"   }
-let s:light_red       = { "gui": "#E32791", "cterm": "1"   }
-let s:orange          = { "gui": "#D75F5F", "cterm": "9" }
+let s:pink            = { "gui": "#FB007A", "cterm": "5"  }
+let s:dark_red        = { "gui": "#C30771", "cterm": "1"  }
+let s:light_red       = { "gui": "#E32791", "cterm": "1"  }
+let s:orange          = { "gui": "#D75F5F", "cterm": "9"  }
 let s:darker_blue     = { "gui": "#005F87", "cterm": "4"  }
-let s:dark_blue       = { "gui": "#008EC4", "cterm": "4"   }
+let s:dark_blue       = { "gui": "#008EC4", "cterm": "4"  }
 let s:blue            = { "gui": "#20BBFC", "cterm": "4"  }
-let s:light_blue      = { "gui": "#B6D6FD", "cterm": "4" }
-let s:dark_cyan       = { "gui": "#20A5BA", "cterm": "6"   }
+let s:light_blue      = { "gui": "#B6D6FD", "cterm": "4"  }
+let s:dark_cyan       = { "gui": "#20A5BA", "cterm": "6"  }
 let s:light_cyan      = { "gui": "#4FB8CC", "cterm": "6"  }
-let s:dark_green      = { "gui": "#10A778", "cterm": "6"   }
+let s:dark_green      = { "gui": "#10A778", "cterm": "6"  }
 let s:light_green     = { "gui": "#5FD7A7", "cterm": "6"  }
-let s:dark_purple     = { "gui": "#523C79", "cterm": "5"   }
+let s:dark_purple     = { "gui": "#523C79", "cterm": "5"  }
 let s:light_purple    = { "gui": "#6855DE", "cterm": "5"  }
 let s:light_yellow    = { "gui": "#F3E430", "cterm": "3"  }
-let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
+let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"  }
 
 if &background == "dark"
   let s:bg              = s:black
@@ -75,10 +75,8 @@ else
   let s:green           = s:dark_green
   let s:red             = s:dark_red
   let s:yellow          = s:dark_yellow
-  let s:visual          = s:light_blue
+  let s:visual          = s:bg_subtle
   let s:cursor_line     = s:medium_gray
-  let s:status_line     = s:medium_gray
-  let s:status_line_nc  = s:light_gray
   let s:constant        = s:dark_blue
   let s:comment         = s:light_gray
   let s:selection       = s:light_yellow
@@ -161,9 +159,9 @@ call s:h("LineNr",        {"fg": s:medium_gray})
 call s:h("CursorLineNr",  {"fg": s:green, "bg": s:bg_very_subtle})
 call s:h("Question",      {"fg": s:red})
 call s:h("VertSplit",     {"bg": s:bg, "fg": s:bg_very_subtle})
-call s:h("Title",         {"fg": s:dark_green})
-call s:h("Visual",        {"bg": s:visual})
-call s:h("VisualNOS",     {"bg": s:bg_subtle})
+call s:h("Title",         {"fg": s:white, "cterm": "bold", "gui": "bold"})
+call s:h("Visual",        {"bg": s:bg_subtle})
+call s:h("VisualNOS",     {"bg": s:bg_very_subtle})
 call s:h("WarningMsg",    {"fg": s:warning})
 call s:h("WildMenu",      {"fg": s:white, "bg": s:bg})
 call s:h("Folded",        {"fg": s:medium_gray})
@@ -212,7 +210,7 @@ call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"bg": s:cursor_line})
 call s:h("ColorColumn",   {"bg": s:bg_subtle})
 
-call s:h("MatchParen",    {"bg": s:bg_very_subtle, "fg": s:norm})
+call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
 call s:h("qfLineNr",      {"fg": s:medium_gray})
 
 call s:h("htmlH1",        {"bg": s:bg, "fg": s:norm})
@@ -274,21 +272,21 @@ hi link cFormat jsSpreadOperator
 hi link StorageClass Statement
 
 call s:h("xmlTag", {"bg": s:bg, "fg": s:constant})
-hi link xmlTagName xmlTag
-hi link xmlEndTag xmlTag
-hi link xmlAttrib xmlTag
+hi link xmlTagName   xmlTag
+hi link xmlEndTag    xmlTag
+hi link xmlAttrib    xmlTag
 
-hi link markdownH1 Statement
-hi link markdownH2 Statement
-hi link markdownH3 Statement
-hi link markdownH4 Statement
-hi link markdownH5 Statement
-hi link markdownH6 Statement
-hi link markdownListMarker Constant
-hi link markdownCode Constant
-hi link markdownCodeBlock Constant
-hi link markdownCodeDelimiter Constant
-hi link markdownHeadingDelimiter Constant
+hi link markdownH1                 Statement
+hi link markdownH2                 Statement
+hi link markdownH3                 Statement
+hi link markdownH4                 Statement
+hi link markdownH5                 Statement
+hi link markdownH6                 Statement
+hi link markdownListMarker         Constant
+hi link markdownCode               Constant
+hi link markdownCodeBlock          Constant
+hi link markdownCodeDelimiter      Constant
+hi link markdownHeadingDelimiter   Constant
 
 call s:h("cssBraces",     {"bg": s:bg, "fg": s:selection})
 hi link cssTextProp Noise

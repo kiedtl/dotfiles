@@ -55,7 +55,7 @@ channels = (
   { name = "#tea"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#coffee"; chatnet = "tilde.chat"; autojoin = "Yes"; },
   { name = "#spacehare"; chatnet = "tilde.chat"; autojoin = "Yes"; },
-  {
+  { 
     name = "#lickthecheese";
     chatnet = "tilde.chat";
     autojoin = "Yes";
@@ -340,4 +340,5 @@ chatnets = {
   oftc = { type = "IRC"; };
   rizon = { type = "IRC"; };
   "tilde.chat" = { type = "IRC"; };
+  "tilde.town" = { type = "IRC"; };
 };
