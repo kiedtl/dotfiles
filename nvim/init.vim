@@ -16,6 +16,7 @@ Plug 'rust-lang/rust.vim',      {'for' : 'rust'}
 Plug 'braindead-cc/bf-vim',     {'for' : 'brainfuck'}
 Plug 'ziglang/zig.vim',         {'for' : 'zig'}
 Plug 'ron-rs/ron.vim'
+Plug 'bakpakin/fennel.vim',     {'for' : 'fennel'}
 
 " misc plugins
 Plug 'Yggdroot/indentLine'           " show indentlines for spaces
@@ -73,6 +74,7 @@ nmap <Leader>t :NERDTreeVCS<CR>
 
 " remove trailing whitespace from file
 nmap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+nmap <silent> <F3> :set hlsearch!<CR> " toggle search result highlighting
 
 " --------------
 
@@ -81,6 +83,7 @@ augroup indents
 	autocmd!
 		autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
 		autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
+		autocmd FileType lua setlocal ts=4 sts=4 sw=4 expandtab
 augroup END
 
 " configure textwidth 

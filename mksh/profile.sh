@@ -27,6 +27,14 @@ export LESSHISTFILE=~/var/cache/less/history
 alias wget="wget --no-hsts"
 alias tmux="tmux -f $HOME/etc/tmux/conf"
 
+# lurch
+# https://github.com/lptstr/lurch
+export LURCH_DEBUG=16
+
+# mebsuta
+# https://github.com/lptstr/mebsuta
+export MEBS_DEBUG=16
+
 # weechat/irssi
 export IRSSI_HOME="$HOME/etc/irssi/"
 export WEECHAT_HOME="$HOME/etc/weechat/"
@@ -53,9 +61,10 @@ export LUA_CPATH='/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3
 # source stuff from ~/bin
 . ~/bin/shtat
 
+lines() { sed "${1},+${2}!d" "$3"; }
 s() { systemctl --user "${1:-status}" "${2:-bot}" ;}
 pc() { echo "$@" | pescli -q; }
-gh() {
+gc() {
     h="$1" rr="$2"
     shift 2
     git clone "https://github.com/$h/$rr" "$@" --recurse;
