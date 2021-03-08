@@ -76,17 +76,17 @@ function M.fancy_promptf(inp, cursor)
     -- In all these cases, redundant input is trimmed off (unless
     -- the cursor is on the redundant text, in which case the
     -- input is shown as-is).
-    local prompt
+    local prompt = ">> "
 
     -- highlighted nickname.
-    local hnick = tui.highlight(nick, irc.normalise_nick(nick))
+    local hnick = nick --tui.highlight(nick, irc.normalise_nick(nick))
 
     if inp:find("/me ") == 1 and cursor >= 4 then
-        prompt = format("%s %s ", config.leftfmt.action(), hnick)
+        prompt = format(">> %s %s ", config.leftfmt.action(), hnick)
         inp = inp:sub(5, #inp)
         cursor = cursor - 4
     elseif inp:find("/note ") == 1 and cursor >= 6 then
-        prompt = format("NOTE(%s) ", hnick)
+        prompt = format(">> NOTE(%s) ", hnick)
         inp = inp:sub(7, #inp)
         cursor = cursor - 6
     elseif inp:sub(1, 1) == "/" then
@@ -94,15 +94,13 @@ function M.fancy_promptf(inp, cursor)
         -- indicate that it will be treated as a message instead
         -- of a command.
         if inp:sub(2, 2) == "/" then
-            prompt = format("%s \x0314/\x0f", hnick)
+            prompt = format(">> \x0314/\x0f")
         else
             prompt = format("\x0314/\x0f")
         end
 
         inp = inp:sub(2, #inp)
         cursor = cursor - 1
-    else
-        prompt = format("<%s> ", hnick)
     end
 
     -- strip escape sequences so that we may accurately calculate
@@ -226,10 +224,11 @@ function M.fancy_statusline()
 
         local pnch
         if unread_ind ~= "" then
-            pnch = tui.highlight(format(" %d %s %s ", buf, ch, unread_ind),
-                ch, not bold)
+            local fmt = ""
+            if bold then fmt = mirc.UNDERLINE end
+            pnch = format(" %d %s%s%s %s ", buf, fmt, ch, fmt, unread_ind)
         elseif unread_ind == "" and buf == cbuf then
-            pnch = tui.highlight(format(" %d %s ", buf, ch), ch, true)
+            pnch = format(" %d %s ", buf, ch)
         end
 
         -- If there are no unread messages, don't display the buffer in the

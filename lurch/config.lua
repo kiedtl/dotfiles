@@ -21,7 +21,7 @@ M.servers = {
         host = "irc.tilde.chat",
         port = 6697,
 
-        nick = "kiedtl|lurch",
+        nick = "kiedtl",
         pass = util.capture("pash show kiedtl"),
         user = "kiedtl",
         name = "kiedtl",
@@ -39,7 +39,7 @@ M.servers = {
         host = "irc.freenode.net",
         port = 6697,
 
-        nick = "kiedtl|lurch",
+        nick = "kiedtl\\0",
         pass = util.capture("pash show kiedtl"),
         user = "kiedtl",
         name = "kiedtl",
@@ -59,13 +59,13 @@ M.server = "tilde.chat"
 
 -- default kick/quit/part message. (defaults to an empty string)
 M.quit_msg = function(channel)
-    return "Ctrl-Shift-q"
+    return ":qa!"
 end
 M.kick_msg = function(channel)
     return "Your presence in this community is no longer desirable."
 end
 M.part_msg = function(channel)
-    return "bye bye"
+    return ":x"
 end
 
 -- Default replies for CTCP queries from users/server.
@@ -98,7 +98,7 @@ M.mirc = true
 --
 M.time_col_width = 5
 M.right_col_width = nil
-M.left_col_width = 12
+M.left_col_width = 0 --12
 
 -- This function is used to provide the terminal colors that lurch
 -- will use to highlight nicknames and channels. By default, it gets
@@ -113,7 +113,7 @@ M.colors = function()
         colors[#colors + 1] = tonumber(line)
     end
 
-    return colors
+    return {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}
 end
 
 -- Time/date format. This is shown to the left of every message. See
@@ -135,7 +135,7 @@ M.timefmt = "%H:%M"
 --
 M.linefmt = function(time_pad, left_pad, time, left, right)
     time_pad = (" "):rep(time_pad)
-    left_pad = (" "):rep(left_pad)
+    left_pad = (""):rep(left_pad)
 
     -- \x0f\x0314%s\x0f: set the color to grey, print the time, and reset
     --      the color.
@@ -172,10 +172,10 @@ M.leftfmt = {
         --
         -- We can use "#sender" instead of utf8utils.dwidth, because
         -- nicknames may only contain ASCII characters.
-        if #sender > (M.left_col_width - 2) then
-            sndfmt = sndfmt:sub(1, M.left_col_width - 3)
-            sndfmt = sndfmt .. format("\x0f\x0314+\x0f")
-        end
+        --if #sender > (M.left_col_width - 2) then
+            --sndfmt = sndfmt:sub(1, M.left_col_width - 3)
+            --sndfmt = sndfmt .. format("\x0f\x0314+\x0f")
+        --end
 
         -- "Normalise" nicknames by remove trailing "|<client>",
         -- underscores, or the "matrix marker" (i.e. "[m]"). This
