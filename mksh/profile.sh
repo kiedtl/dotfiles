@@ -12,14 +12,27 @@ export PATH="$HOME/bin:$HOME/bin/net:$PATH"
 export PATH="$HOME/bin/x11:$HOME/bin/lib:$PATH"
 export PATH="$HOME/.luarocks/bin/:$PATH"
 
-export LANG="en_US.UTF-8"
-export EDITOR="nvim"
+if has nvim; then
+    export EDITOR="nvim"
+    export MANWIDTH=$(stty size | cut -d' ' -f2)
+
+    # Viewing manpages in neovim is a slightly more pleasant experience,
+    # nvim has built-in support for manpages, including "syntax" highlighting
+    # and following links (with 'K')
+    export MANPAGER="nvim -c 'set ft=man' -"
+else
+    export EDITOR="vi"
+fi
+
 export VISUAL="$EDITOR"
+export LANG="en_US.UTF-8"
 export TERM="xterm-256color"                    # vim: enable 256 colors already
 export XDG_CONFIG_HOME="${HOME}/etc"
-export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
-export HISTSIZE="65535"
+export LD_LIBRARY_PATH=~/local/lib:$LD_LIBRARY_PATH
 
+# mksh settings
+HISTFILE="$HOME/opt/.cache/mksh/history.txt"
+HISTSIZE="65535"
 ENV="$HOME/etc/mksh/profile.sh"
 
 # stop cluttering up my $HOME
