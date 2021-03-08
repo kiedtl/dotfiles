@@ -2,8 +2,9 @@
 # kiedtl's i3wm config
 #      ----------
 
+# Set borders, and float by default.
 for_window [class="^.*"] border pixel 1
-for_window [class="feh"] floating enable
+for_window [class="^.*"] floating enable
 
 set $mod Mod4
 set $term term
