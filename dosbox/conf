@@ -1,0 +1,9 @@
+[autoexec]
+@echo off
+mount A ~/dos/win95
+mount C ~/dos/c
+mount D ~/dos/d
+C:
+
+[joystick]
+joysticktype=2axis
