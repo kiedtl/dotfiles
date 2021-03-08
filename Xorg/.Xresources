@@ -13,7 +13,7 @@ xterm*scrollBar:      false
 xterm*rightScrollBar: true
 xterm*cursorColor:    #000000
 xterm*internalBorder: 16
-xterm*faceName:       tamzen
+xterm*faceName:       kikon
 xterm*faceSize:       16
 
 xterm*VT100.Translations: #override \

@@ -37,6 +37,7 @@ xrdb -merge ~/.cache/wal/2bwm.Xresources
 # set wallpaper/theme, bars
 the peaceful &
 polybar -r bar &
+feh --bg-fill ~/img/wallpapers/meshwork.png
 
 xautolock -time 30 -locker slock &
 exec ssh-agent i3
