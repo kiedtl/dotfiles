@@ -1,3 +1,5 @@
+set -g escape-time 256
+
 # status bar
 set -g status off
 set -g status-bg black
