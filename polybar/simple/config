@@ -24,16 +24,16 @@ offset-x = 0
 
 background = ${colors.bg}
 foreground = ${colors.fg}
-font-0     = ${fonts.gomme}
-font-1     = ${fonts.tamzen-bold}
-font-2     = ${fonts.gomme}
+font-0     = ${fonts.kikon}
+font-1     = ${fonts.chicago}
+font-2     = ${fonts.chicago}
 separator  =
 
-modules-left   = date-label date network-label network
-modules-center = title
-modules-right  = memory-label memory filesystem-label filesystem
+modules-left   = apple-logo menu-window menu-special
+modules-center =
+modules-right  = date memory network
 
-border-bottom-size = 2
+border-bottom-size = 1
 border-color  = ${colors.ac}
 padding-left  = 0
 padding-right = 0
@@ -48,6 +48,9 @@ bg = ${xrdb:color0:#192222}
 ac = ${xrdb:color15:#884444}
 
 [fonts]
+fixed        = "fixed:size=16:style=bold;2"
+fixed-bold   = "fixed:size=16:style=bold;2"
+chicago      = "Chicago:size=16:style=bold;2"
 gomme        = "gomme:size=16;2"
 ttyp0        = "ttyp0:size=13;2"
 ttyp0-bold   = "ttyp0:size=13:style=Bold;2"
@@ -57,10 +60,43 @@ hack         = "hack:size=11;2"
 hack-bold    = "hack:size=11:style=Bold;2"
 tamzen       = "tamzen:size=16;2"
 tamzen-bold  = "tamzen:size=16:style=Bold;2"
+siji         = "siji;2"
+kikon        = "kikon:size=20;2"
 
 ;;    ---
 ;;  modules
 ;;    ---
+
+[module/apple-logo]
+type = custom/text
+click-left = ndmen
+content = "    "
+
+[module/menu-window]
+type = custom/menu
+label-open = "Window  "
+label-close = " x "
+label-separator = " "
+menu-0-0 = New
+menu-0-0-exec = winm n
+menu-0-1 = Close
+menu-0-1-exec = winm c
+menu-0-2 = Kill
+menu-0-2-exec = winm k
+menu-0-3 = Move
+menu-0-3-exec = winm m
+menu-0-4 = "Resize "
+menu-0-4-exec = winm r
+
+[module/menu-special]
+type = custom/menu
+label-open = Special
+label-close = " x "
+label-separator = " "
+menu-0-0 = Restart
+menu-0-0-exec = restart
+menu-0-1 = Shutdown
+menu-0-1-exec = halt
 
 [module/title]
 type = internal/xwindow
@@ -97,11 +133,11 @@ fixed-values = true
 
 format-mounted = "<label-mounted>"
 format-unmounted = <label-unmounted>
-format-mounted-foreground = ${colors.bg}
-format-mounted-background = ${colors.ac}
+format-mounted-foreground = ${colors.fg}
+format-mounted-background = ${colors.bg}
 
 label-mounted = "  %free%  "
-label-unmounted = %mountpoint%: not mounted!
+label-unmounted = %mountpoint%: unmounted!
 
 bar-used-indicator =
 bar-used-width = 10
@@ -134,8 +170,8 @@ date = "%m/%d"
 
 format = "<label>"
 format-padding = 2
-format-foreground = ${colors.bg}
-format-background = ${colors.ac}
+format-foreground = ${colors.fg}
+format-background = ${colors.bg}
 
 label = "%time% %date%"
 
@@ -153,10 +189,10 @@ unknown-as-up = false
 
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-format-disconnected-foreground = ${colors.bg}
-format-disconnected-background = ${colors.ac}
-format-connected-foreground = ${colors.bg}
-format-connected-background = ${colors.ac}
+format-disconnected-foreground = ${colors.fg}
+format-disconnected-background = ${colors.bg}
+format-connected-foreground = ${colors.fg}
+format-connected-background = ${colors.bg}
 
 label-connected = "  %ifname%  " 
 ;; %downspeed:8% %upspeed:8%"
@@ -179,8 +215,8 @@ interval = 2
 format = "<label>"
 format-prefix =
 format-padding = 2
-format-background = ${colors.ac}
-format-foreground = ${colors.bg}
+format-background = ${colors.bg}
+format-foreground = ${colors.fg}
 
 label = "%mb_used%"
 
