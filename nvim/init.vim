@@ -7,6 +7,8 @@ endif
 
 
 """ ----------- plugins ----------
+" {{{
+
 call plug#begin('~/etc/nvim/plugged')
 
 " various language modes for vim
@@ -30,8 +32,13 @@ Plug 'reedes/vim-wheel'                             " scroll with C-k/j, keeping
 call plug#end()
 
 
+" }}}
 """ --------- settings ----------
+" {{{
 
+set nofoldenable                 " startoff with no folding
+set foldmethod=marker
+set colorcolumn=80               " show 80-character column limit
 set history=100                  " the default of 20 is ridiculous
 set smartcase                    " case-sensitive if search has upper-case letters
 set autoindent                   " indent at level of previous line
@@ -58,39 +65,38 @@ set fillchars=eob:\              " remove the annoying tildes at the end of a fi
 "     (the opposite with precedes)
 set listchars=tab:\│\ ,nbsp:␣,trail:·,extends:»,precedes:«
 
-
+" }}}}}}
 """ ---------- functions ----------
+" {{{
+
 function! SynGroup()
 	let l:s = synID(line('.'), col('.'), 1)
 	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfunction
 
-function! FzyCommand(choice_command, vim_command)
-	try
-		let output = system(a:choice_command . " | fzy ")
-	catch /Vim:Interrupt/
-		" Swallow errors from ^C, allow redraw! below
-	endtry
-	redraw!
-	if v:shell_error == 0 && !empty(output)
-		exec a:vim_command . ' ' . output
-	endif
-endfunction
 
-
+" }}}
 """ ---------- bindings ----------
-nmap <C-s> :w<CR>
-imap <C-s> <Esc>:w<CR>
-nmap gb `[v`]           " reselect previously yanked text
-nmap <Leader>C :source $MYVIMRC<CR>
-nmap <Leader>d :NERDTreeVCS<CR>
-nmap <leader>e :call FzyCommand("rg . -l", ":e")<cr>
-nmap <leader>v :call FzyCommand("rg . -l", ":vs")<cr>
-nmap <leader>s :call FzyCommand("rg . -l", ":sp")<cr>
+" {{{
+
+nmap <leader>ff :set foldenable!<cr> " toggle folding
+nmap gb `[v`]                        " reselect previously yanked text
+nmap Y y$                            " Make Y behave consistently
+nmap Q @@                            " Ex mode is bloat
+
+nnoremap <Leader>C :source $MYVIMRC<CR>
+nnoremap <Leader>d :NERDTreeVCS<CR>
+nnoremap <Leader><C-S-]> <C-w><C-]><C-w>T
 
 " remove trailing whitespace from file
 nmap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+
+" toggle search highlighting
 nmap <F3> :set hlsearch!<CR> " toggle search result highlighting
+
+" space bar toggles fold open/closed
+nnoremap <Space> @=(foldlevel('.')?'za':"\<Space>")<cr>
+vnoremap <Space> zf
 
 " ugh
 command! WQ wq
@@ -99,20 +105,21 @@ command! W  w
 command! Q  q
 
 
-" --------------
+" }}}
+""" language-specific settings
+" {{{
 
 " set indentation settings
 augroup indents
 	autocmd!
-	autocmd FileType rs,sh setlocal ts=4 sts=4 sw=4 expandtab
+	autocmd FileType lua,rs,sh   setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
-	autocmd FileType lua setlocal ts=4 sts=4 sw=4 expandtab
 augroup END
 
 " configure textwidth
 augroup textwidth
 	autocmd!
-	autocmd FileType text,markdown setlocal textwidth=75
+	autocmd FileType text,mail,markdown,gmi setlocal textwidth=75
 augroup END
 
 " enable spelling for my mail (with aerc), markdown/text, and gemini pages
@@ -121,22 +128,36 @@ augroup spelling
 	autocmd FileType text,mail,markdown,gmi setlocal spell
 augroup END
 
-" --------------
+
+" }}}
+""" plugin-specific settings
+" {{{
 
 let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
+" }}}
+""" colorscheme
+" {{{
+
+colorscheme default
 colorscheme plain
 
-highlight linenr       ctermfg=NONE
-highlight clear        cursorline
+highlight clear cursorline
 highlight cursorlinenr ctermfg=15    ctermbg=NONE
 highlight cursorline   ctermfg=NONE  ctermbg=NONE
+highlight colorcolumn  ctermfg=NONE  ctermbg=253
+highlight linenr       ctermfg=NONE
 highlight comment      ctermfg=15
-highlight pmenu        ctermbg=0     ctermfg=NONE
-highlight pmenusel     ctermbg=4     ctermfg=0
-highlight pmenusbar    ctermbg=0
-highlight pmenuthumb   ctermbg=15
-highlight matchparen   ctermbg=0     ctermfg=NONE
-highlight nontext      ctermbg=NONE  ctermfg=8
+highlight pmenu        ctermfg=NONE  ctermfg=0
+highlight pmenusel     ctermfg=0     ctermbg=4
+highlight pmenusbar    ctermbg=NONE  ctermbg=0
+highlight pmenuthumb   ctermbg=NONE  ctermbg=15
+highlight matchparen   ctermfg=NONE  ctermfg=0
+highlight nontext      ctermfg=8     ctermfg=NONE
+highlight folded       ctermfg=8     ctermbg=NONE
+
+" }}}
+
+source ~/etc/nvim/plugin/statusbar.vim
