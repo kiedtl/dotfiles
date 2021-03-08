@@ -78,13 +78,15 @@ fi
 
 if has exa; then
     alias l='exa -F'
-    alias tree='exa --tree --git-ignore' # use exa's tree instead
-    alias ls='exa -lF'                   # long live exa!
-    alias lsd='exa -alF'                 # ^^
+    alias tree='exa --tree --git-ignore'  # use exa's tree instead
+    alias ls='exa -lF'                    # long live exa!
+    alias lsd='exa -alF'                  # ^^
 else
-    alias lsd='ls -alF'                  # boo hoo hoo exa isn't there
-    alias l='/bin/ls -F'                 # oh woe is me, what would I
-    alias ls='ls -lF'                    # do without colors :'(
+    alias lsd='ls -halF'                  # fallback to ls
+    alias l='/bin/ls -F --color=always'   #
+    alias ls='ls -lF'                     #
+
+    eval $(dircolors)
 fi
 
 if has peaclock; then
@@ -113,18 +115,17 @@ set -o vi
 
 case $SHELL in
     *mksh*)
-        set -o noclobber
+        set -o noclobber             # uhg
         set -o ignoreeof             # no accidental exits in ssh sessions
         set -o bgnice
         set -o vi-tabcomplete
     ;;
 esac
 
-# I have no idea what this does ;)
+# I have no idea what this does
 #
-# I mean, it's been in here for ages anyway,
-# since my first distro (Manjaro) in fact,
-# so why bother taking it out...
+# I mean, it's been in here for ages anyway, since my first distro (Manjaro) in
+# fact, so why bother taking it out...
 xhost +local:root >/dev/null 2>&1
 
 if has paleta && has colors; then

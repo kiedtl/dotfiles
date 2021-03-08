@@ -82,7 +82,7 @@ function M.fancy_promptf(inp, cursor)
     local hnick = tui.highlight(nick, irc.normalise_nick(nick))
 
     if inp:find("/me ") == 1 and cursor >= 4 then
-        prompt = format("%s %s ", config.leftfmt.action, hnick)
+        prompt = format("%s %s ", config.leftfmt.action(), hnick)
         inp = inp:sub(5, #inp)
         cursor = cursor - 4
     elseif inp:find("/note ") == 1 and cursor >= 6 then
