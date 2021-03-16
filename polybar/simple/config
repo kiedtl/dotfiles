@@ -11,32 +11,38 @@
 ;;  the actual bar
 ;;       ---
 
+[settings]
+pseudo-transparency = true
+
 [bar/bar]
-override-redirect = false
+override-redirect = true
 fixed-center      = true
 
 monitor  =
 bottom   = false
-width    = 100%
-height   = 24
-offset-y = 0
-offset-x = 0
+width    = 100%:-20
+height   = 18
+offset-y = 5
+offset-x = 10
 
-background = ${colors.bg}
-foreground = ${colors.fg}
-font-0     = ${fonts.kikon}
-font-1     = ${fonts.chicago}
-font-2     = ${fonts.chicago}
-separator  =
-
-modules-left   = apple-logo menu-window menu-special
-modules-center =
-modules-right  = date memory network
-
-border-bottom-size = 1
-border-color  = ${colors.ac}
+background    = #99d5d7d5
+foreground    = ${colors.fg}
+font-0        = ${fonts.cursed}
+font-1        = ${fonts.chicago}
+font-2        = ${fonts.chicago}
+separator     = ""
 padding-left  = 0
 padding-right = 0
+
+
+modules-left   = date tier-0l title tier-1l
+modules-center = i3
+modules-right  = tier-0r memory filesystem tier-1r network
+
+radius = 8
+border-size = 0
+border-color  = ${colors.bg}
+tray-position = left
 
 ;;        ----
 ;;  colors and fonts
@@ -45,7 +51,10 @@ padding-right = 0
 [colors]
 fg = ${xrdb:color15:#e1e2e2}
 bg = ${xrdb:color0:#192222}
-ac = ${xrdb:color15:#884444}
+ac = ${xrdb:color8:#884444}
+
+tier0 = ${xrdb:color8:#cacbca}
+tier1 = ${xrdb:color3:#cacbca}
 
 [fonts]
 fixed        = "fixed:size=16:style=bold;2"
@@ -61,11 +70,68 @@ hack-bold    = "hack:size=11:style=Bold;2"
 tamzen       = "tamzen:size=16;2"
 tamzen-bold  = "tamzen:size=16:style=Bold;2"
 siji         = "siji;2"
-kikon        = "kikon:size=20;2"
+cursed       = "cursed:size=20;3"
+
+;;     ---
+;;  formatting
+;;     ---
+
+[module/tier-0l]
+type = custom/text
+content = ""
+content-foreground = ${colors.tier1}
+content-background = ${colors.tier0}
+
+[module/tier-1l]
+type = custom/text
+content = ""
+content-foreground = ${colors.tier0}
+
+[module/tier-0r]
+type = custom/text
+content = ""
+content-foreground = ${colors.tier0}
+
+[module/tier-1r]
+type = custom/text
+content = ""
+content-foreground = ${colors.tier1}
+content-background = ${colors.tier0}
+
+[module/tire-2r]
+type = custom/text
+content = "%{F-}"
 
 ;;    ---
 ;;  modules
 ;;    ---
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same monitor as the bar
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+strip-wsnumbers = false
+
+enable-click = true
+enable-scroll = true
+wrapping-scroll = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+
+label-focused = %icon%
+label-focused-foreground = ${colors.bg}
+label-focused-background = ${colors.fg}
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-padding = 1
 
 [module/apple-logo]
 type = custom/text
@@ -100,8 +166,9 @@ menu-0-1-exec = halt
 
 [module/title]
 type = internal/xwindow
-format = <label>
-format-padding = 2
+format =  <label>
+format-padding = 1
+format-background = ${colors.tier0}
 
 label = %title%
 label-maxlen = 35
@@ -131,12 +198,12 @@ mount-0 = /
 interval = 10 
 fixed-values = true
 
-format-mounted = "<label-mounted>"
-format-unmounted = <label-unmounted>
+format-mounted = "<ramp-capacity> <label-mounted>  "
+format-unmounted = "<label-unmounted>  "
 format-mounted-foreground = ${colors.fg}
-format-mounted-background = ${colors.bg}
+format-mounted-background = ${colors.tier0}
 
-label-mounted = "  %free%  "
+label-mounted = %free%
 label-unmounted = %mountpoint%: unmounted!
 
 bar-used-indicator =
@@ -149,13 +216,12 @@ bar-used-foreground-2 = ${colors.ac}
 bar-used-foreground-3 = ${colors.ac}
 bar-used-empty-foreground = ${colors.ac}
 
-ramp-capacity-0 = ▁
-ramp-capacity-1 = ▂
-ramp-capacity-2 = ▃
-ramp-capacity-3 = ▄
-ramp-capacity-4 = ▅
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
 
-ramp-capacity-foreground = ${colors.ac}
+ramp-capacity-foreground = ${colors.fg}
 
 [module/date-label]
 type = custom/text
@@ -165,15 +231,15 @@ content = "  date  "
 type = internal/date
 interval = 1.0
 
-time = "%H%M"
-date = "%m/%d"
+time = "  %H:%M"
+time-alt = "  %Y-%d-%m"
 
 format = "<label>"
-format-padding = 2
-format-foreground = ${colors.fg}
-format-background = ${colors.bg}
+format-padding = 1
+format-foreground = ${colors.bg}
+format-background = ${colors.tier1}
 
-label = "%time% %date%"
+label = "%time%"
 
 [module/network-label]
 type = custom/text
@@ -187,22 +253,25 @@ interval  = 5
 accumulate-stats = true
 unknown-as-up = false
 
-format-connected = <label-connected>
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected-foreground = ${colors.bg}
+format-connected-background = ${colors.tier1}
+
+format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 format-disconnected-foreground = ${colors.fg}
 format-disconnected-background = ${colors.bg}
-format-connected-foreground = ${colors.fg}
-format-connected-background = ${colors.bg}
 
-label-connected = "  %ifname%  " 
+label-connected = "%ifname% "
 ;; %downspeed:8% %upspeed:8%"
-label-disconnected = "nah!"
+label-disconnected = " nah! "
 
-ramp-signal-0 =
-ramp-signal-1 =
-ramp-signal-2 =
-ramp-signal-3 =
-ramp-signal-4 =
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
 
 [module/memory-label]
 type = custom/text
@@ -212,13 +281,12 @@ content = "  memory  "
 type = internal/memory
 interval = 2
 
-format = "<label>"
+format = "<ramp-used> <label>   "
 format-prefix =
-format-padding = 2
-format-background = ${colors.bg}
+format-background = ${colors.tier0}
 format-foreground = ${colors.fg}
 
-label = "%mb_used%"
+label = %mb_used%
 
 bar-used-indicator =
 bar-used-width = 10
@@ -230,10 +298,9 @@ bar-used-foreground-2 = ${colors.ac}
 bar-used-foreground-3 = ${colors.ac}
 bar-used-empty-foreground = ${colors.ac}
 
-ramp-used-0 = ▁
-ramp-used-1 = ▂
-ramp-used-2 = ▃
-ramp-used-3 = ▄
-ramp-used-4 = ▅
+ramp-used-0 = 
+ramp-used-1 = 
+ramp-used-2 = 
+ramp-used-3 = 
 
-ramp-used-foreground = ${colors.ac}
+ramp-used-foreground = ${colors.fg}
