@@ -13,12 +13,13 @@ xterm*scrollBar:      false
 xterm*rightScrollBar: true
 xterm*cursorColor:    #000000
 xterm*internalBorder: 16
-xterm*faceName:       kikon
+xterm*faceName:       cursed
 xterm*faceSize:       16
 
 xterm*VT100.Translations: #override \
 		Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
-		Ctrl Shift <Key>C:	copy-selection(CLIPBOARD)
+		Ctrl Shift <Key>C:	copy-selection(CLIPBOARD)   \n\
+		Ctrl Shift <Key>S:	secure()
 
 ! double-click to select whole URLs
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
