@@ -8,59 +8,59 @@
 scriptencoding utf-8
 
 let g:curmode={
-	\ 'n'  : 'N',
-	\ 'no' : 'N·OP',
-	\ 'v'  : 'V',
-	\ 'V'  : 'V·L',
-	\ '^V' : 'V·B',
-	\ 's'  : 'SEL',
-	\ 'S'  : 'S·L',
-	\ '^S' : 'S·B',
-	\ 'i'  : 'I',
-	\ 'R'  : 'R',
-	\ 'Rv' : 'V·R',
-	\ 'c'  : 'C',
-	\ 'cv' : 'VEX',
+	\ 'n'  : 'NORMAL',
+	\ 'no' : 'N·OPERATOR PENDING',
+	\ 'v'  : 'VISUAL',
+	\ 'V'  : 'V·LINE',
+	\ '^V' : 'V·BLOCK',
+	\ 's'  : 'SELECTION',
+	\ 'S'  : 'S·LINE',
+	\ '^S' : 'S·BLOCK',
+	\ 'i'  : 'INSERT',
+	\ 'R'  : 'REPLACE',
+	\ 'Rv' : 'V·REPLACE',
+	\ 'c'  : 'COMMAND',
+	\ 'cv' : 'VIM EX',
 	\ 'ce' : 'EX',
-	\ 'r'  : '$',
+	\ 'r'  : 'PROMPT',
 	\ 'rm' : 'MOAR',
-	\ 'r?' : '?',
-	\ '!'  : 'SH',
-	\ 't'  : 'TRM'}
+	\ 'r?' : 'CONFIRM',
+	\ '!'  : 'SHELL',
+	\ 't'  : 'TERMINAL'}
 
 function! StatusLine() abort
 	let l:line=''
 
 	" u/Nerdypepper's theme
-	"let l:line.='%1* %{g:curmode[mode()]}% %2* '
-	"let l:line.=GitBranch()
-	"let l:line.=' %{ReadOnly()}% %{Modified()}% %3* '
-	"let l:line.=' %= %2*'
-	"let l:line.=' Ln %l Col %v '
-	"let l:line.='%1* %{FileType()}%  '
+	let l:line.='%8*%1*%{g:curmode[mode()]}% %9* %2*'
+	let l:line.=GitBranch()
+	let l:line.='%{ReadOnly()}% %{Modified()}% %7*%4* '
+	let l:line.=' %= %2*'
+	let l:line.='%7*%2*Ln %l Col %v '
+	let l:line.='%9*%1*%{FileType()}% %8*'
 
 	" Emacs-esque theme (I guess? I cannot remember the
 	" last time I was forced to use that monstrosity)
-	if &filetype ==# 'help' || &filetype ==# 'man'
-		" help or man pages
-		let l:line.='%1* %l%2*:%v'
-		let l:line.='%1* %t'
-		let l:line.='%='
-		let l:line.='%3*%P '
-		let l:line.='%1*<%{g:curmode[mode()]}% >  '
-		let l:line.='%1*(%{FileType()}% )'
-	else
-		let l:line.='%1* %l%2*:%v '
-		let l:line.='%2*%{FileEncoding()}% %{LineEndings()}% '
-		let l:line.='%3*%{EmacsModRO()}% %1* %t '
-		let l:line.='%='
-		let l:line.='%3*%P '
-		let l:line.='%1*<%{g:curmode[mode()]}% >  '
-		let l:line.='%3*:%{GitBranch()}%  '
-		let l:line.='%1*(%{FileType()}% )'
-	endif
+	"if &filetype ==# 'help' || &filetype ==# 'man'
+	"	" help or man pages
+	"	let l:line.='%1* %l%2*:%v'
+	"	let l:line.='%1* %t'
+	"	let l:line.='%='
+	"	let l:line.='%3*%P '
+	"	let l:line.='%1*<%{g:curmode[mode()]}% >  '
+	"	let l:line.='%1*(%{FileType()}% )'
+	"else
+	"	let l:line.='%1* %l%2*:%v '
+	"	let l:line.='%2*%{FileEncoding()}% %{LineEndings()}% '
+	"	let l:line.='%3*%{EmacsModRO()}% %1* %t '
+	"	let l:line.='%='
+	"	let l:line.='%3*%P '
+	"	let l:line.='%1*<%{g:curmode[mode()]}% >  '
+	"	let l:line.='%3*:%{GitBranch()}%  '
+	"	let l:line.='%1*(%{FileType()}% )'
+	"endif
+	"let l:line.='                   '
 
-	let l:line.='                   '
 	return l:line
 endfunction
 
@@ -169,9 +169,12 @@ function! FileEncoding() abort
 	endif
 endfunction
 
-highlight user1  ctermbg=253 ctermfg=15   cterm=NONE
-highlight user2  ctermbg=253 ctermfg=6    cterm=NONE
-highlight user3  ctermbg=253 ctermfg=7    cterm=bold
-highlight user4  ctermbg=253 ctermfg=NONE cterm=NONE
+highlight user1  ctermbg=3    ctermfg=0    cterm=NONE
+highlight user2  ctermbg=8    ctermfg=15   cterm=NONE
+highlight user3  ctermbg=8    ctermfg=7    cterm=bold
+highlight user4  ctermbg=NONE ctermfg=NONE cterm=NONE
+highlight user7  ctermbg=NONE ctermfg=8    cterm=NONE
+highlight user8  ctermbg=NONE ctermfg=3    cterm=NONE
+highlight user9  ctermbg=8    ctermfg=3    cterm=NONE
 
 set statusline=%!StatusLine()
