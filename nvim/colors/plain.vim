@@ -24,7 +24,7 @@ let s:white           = { "gui": "#F1F1F1", "cterm": "7"  }
 let s:actual_white    = { "gui": "#FFFFFF", "cterm": "15" }
 let s:light_black     = { "gui": "#424242", "cterm": "8"  }
 let s:lighter_black   = { "gui": "#545454", "cterm": "8"  }
-let s:subtle_black    = { "gui": "#303030", "cterm": "11" }
+let s:subtle_black    = { "gui": "#303030", "cterm": "8"  }
 let s:light_gray      = { "gui": "#999999", "cterm": "12" }
 let s:lighter_gray    = { "gui": "#CCCCCC", "cterm": "7"  }
 let s:lightest_gray   = { "gui": "#E5E5E5", "cterm": "13" }
@@ -38,12 +38,12 @@ let s:blue            = { "gui": "#20BBFC", "cterm": "4"  }
 let s:light_blue      = { "gui": "#B6D6FD", "cterm": "4"  }
 let s:dark_cyan       = { "gui": "#20A5BA", "cterm": "6"  }
 let s:light_cyan      = { "gui": "#4FB8CC", "cterm": "6"  }
-let s:dark_green      = { "gui": "#10A778", "cterm": "6"  }
-let s:light_green     = { "gui": "#5FD7A7", "cterm": "6"  }
+let s:dark_green      = { "gui": "#10A778", "cterm": "3"  }
+let s:light_green     = { "gui": "#5FD7A7", "cterm": "3"  }
 let s:dark_purple     = { "gui": "#523C79", "cterm": "5"  }
 let s:light_purple    = { "gui": "#6855DE", "cterm": "5"  }
-let s:light_yellow    = { "gui": "#F3E430", "cterm": "3"  }
-let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"  }
+let s:light_yellow    = { "gui": "#F3E430", "cterm": "2"  }
+let s:dark_yellow     = { "gui": "#A89C14", "cterm": "2"  }
 
 if &background == "dark"
   let s:bg              = s:black
@@ -58,10 +58,10 @@ if &background == "dark"
   let s:yellow          = s:light_yellow
   let s:visual          = s:subtle_black
   let s:cursor_line     = s:subtle_black
-  let s:status_line     = s:medium_gray
-  let s:status_line_nc  = s:light_black
+  let s:status_line     = s:white
+  let s:status_line_nc  = s:white
   let s:constant        = s:light_green
-  let s:comment         = s:lighter_black
+  let s:comment         = s:white
   let s:selection       = s:light_purple
   let s:warning         = s:yellow
 else
@@ -76,7 +76,7 @@ else
   let s:red             = s:dark_red
   let s:yellow          = s:dark_yellow
   let s:visual          = s:bg_subtle
-  let s:cursor_line     = s:medium_gray
+  let s:cursor_line     = s:black
   let s:constant        = s:dark_blue
   let s:comment         = s:light_gray
   let s:selection       = s:light_yellow
@@ -97,7 +97,7 @@ endfunction
 
 call s:h("Normal",        {"bg": s:bg, "fg": s:norm,})
 call s:h("Noise",         {"bg": s:bg, "fg": s:norm_subtle})
-call s:h("Cursor",        {"bg": s:green, "fg": s:norm})
+call s:h("Cursor",        {"bg": s:black, "fg": s:norm})
 call s:h("Comment",       {"fg": s:comment, "cterm": "italic"})
 call s:h("Function",      {"fg": s:norm, "cterm": "bold"})
 
@@ -155,7 +155,7 @@ call s:h("IncSearch",     {"bg": s:selection, "fg": s:black})
 call s:h("Search",        {"bg": s:selection, "fg": s:black})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
-call s:h("LineNr",        {"fg": s:medium_gray})
+call s:h("LineNr",        {"fg": s:light_gray})
 call s:h("CursorLineNr",  {"fg": s:green, "bg": s:bg_very_subtle})
 call s:h("Question",      {"fg": s:red})
 call s:h("VertSplit",     {"bg": s:bg, "fg": s:bg_very_subtle})
@@ -203,12 +203,15 @@ call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("PmenuSel",      {"fg": s:green, "bg": s:bg_very_subtle, "gui": "bold"})
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
+
 call s:h("TabLine",       {"fg": s:norm_subtle, "bg": s:bg})
-call s:h("TabLineSel",    {"fg": s:norm, "bg": s:bg, "gui": "bold", "cterm": "bold"})
+call s:h("TabLineSel",    {"fg": s:bg, "bg": s:light_green, "gui": "bold", "cterm": "bold"})
 call s:h("TabLineFill",   {"fg": s:norm_subtle, "bg": s:bg})
+
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"bg": s:cursor_line})
-call s:h("ColorColumn",   {"bg": s:bg_subtle})
+call s:h("CursorLineNr",  {"fg": s:actual_white})
+call s:h("ColorColumn",   {"bg": s:bg_very_subtle})
 
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
 call s:h("qfLineNr",      {"fg": s:medium_gray})

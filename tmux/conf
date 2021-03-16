@@ -1,16 +1,18 @@
-set -g escape-time 256
+bind r source-file ~/etc/tmux/conf
+
+set -g escape-time 128
 
 # status bar
-set -g status off
+set -g status on
 set -g status-bg black
 set -g status-fg blue
-set -g status-interval 5
+set -g status-interval 2
 
 set -g status-justify right
-setw -g window-status-format "#[bg=white,fg=black] #I #[bg=white,fg=black] #{pane_current_command} "
-setw -g window-status-current-format "#[bg=brightblack,fg=black] #I #[bg=white,fg=black] #{pane_current_command} "
+setw -g window-status-format "#[bg=black,fg=brightblack]#[bg=brightblack,fg=brightwhite] #{pane_current_command} #[bg=black,fg=brightblack]"
+setw -g window-status-current-format "#[bg=black,fg=yellow]#[bg=yellow,fg=black] #{pane_current_command} #[bg=black,fg=yellow]"
 
-set -g status-justify left
+set -g status-justify centre
 set-option -g status-right ''
 set-option -g status-left ''
 
@@ -30,15 +32,20 @@ set-option -g base-index 1
 set-option -g pane-base-index 1
 
 # window title:
-set-option -g set-titles on
-set-option -g set-titles-string '#T #{pane_current_command}'
 set-window-option -g automatic-rename on
+set-option -g set-titles on
+set-option -g set-titles-string '#T'
 
 # vi keybindings
 set -g mode-keys vi
 
 # scrollback
 set -g history-limit 10000
+
+# misc window settings
+bind -n M-h  previous-window
+bind -n M-l next-window
+bind-key s choose-session
 
 # easy-to-remember split pane commands
 bind | split-window -h

@@ -43,7 +43,7 @@ set history=100                  " the default of 20 is ridiculous
 set smartcase                    " case-sensitive if search has upper-case letters
 set autoindent                   " indent at level of previous line
 set laststatus=2                 " enable the statusbar
-set nocursorline                 " don't highlight current line
+set nocursorline                 " highlight current line
 set number                       " enable line numbers
 set norelativenumber             " disable relative line numbers for now
 set list                         " enable listchars (see below)
@@ -143,20 +143,6 @@ let g:ft_man_open_mode     = 'tab'
 
 colorscheme default
 colorscheme plain
-
-highlight clear cursorline
-highlight cursorlinenr ctermfg=15    ctermbg=NONE
-highlight cursorline   ctermfg=NONE  ctermbg=NONE
-highlight colorcolumn  ctermfg=NONE  ctermbg=253
-highlight linenr       ctermfg=NONE
-highlight comment      ctermfg=15
-highlight pmenu        ctermfg=NONE  ctermfg=0
-highlight pmenusel     ctermfg=0     ctermbg=4
-highlight pmenusbar    ctermbg=NONE  ctermbg=0
-highlight pmenuthumb   ctermbg=NONE  ctermbg=15
-highlight matchparen   ctermfg=NONE  ctermfg=0
-highlight nontext      ctermfg=8     ctermfg=NONE
-highlight folded       ctermfg=8     ctermbg=NONE
 
 " }}}
 
