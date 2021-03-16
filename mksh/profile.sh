@@ -170,15 +170,17 @@ prompt() {
     # print a carriage return and change window title
     printf "\r\1\033]0;%s\a\1" "$USER@$(hostname):$mypwd"
 
-    # print path
-    printf "\1\033[34m\1%s\1\033[0m\1" "$mypwd"
+    # print hostname/path
+    printf '\1\033[33m\1%s\1\033[7m\1%s\1\033[27;100m\1%s'\
+        "" "$(hostname)" ""
+    printf '\1\033[97;100m\1 %s\1\033[90;40m\1%s\1\033[m\1' \
+        "$mypwd" ""
 
-    if [ "$(whoami)" = "root" ]
-    then
-        printf '%s' "#"
-    else
-        printf '%s' "$"
-    fi
+    #if [ "$(whoami)" = "root" ]; then
+    #    printf '%s' "#"
+    #else
+    #    printf '%s' "$"
+    #fi
 
     # print a space
     printf ' '
