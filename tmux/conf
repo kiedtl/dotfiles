@@ -43,8 +43,8 @@ set -g mode-keys vi
 set -g history-limit 10000
 
 # misc window settings
-bind -n M-h  previous-window
-bind -n M-l next-window
+unbind p
+bind p  previous-window
 bind-key s choose-session
 
 # easy-to-remember split pane commands
