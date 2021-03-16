@@ -154,8 +154,8 @@ prompt() {
         mypwd="$(basename ${mypwd%/*})/$(basename ${mypwd})"
     fi
 
-    # wrap nonprintables for mksh
-    printf '\1\r\1'
+    # wrap nonprintables (for mksh)
+    printf '\1\r'
 
     # print '%' just in case last command didn't print a newline,
     # then print a bunch of spaces if a newline was output;
@@ -166,11 +166,11 @@ prompt() {
     # this hack prevents out prompt from being messed up by some
     # idiotic programs that don't print their newlines.
     sz=$((COLUMNS-2))
-    printf "\1\033[7m%%\033[0m%-${sz}s\1" \
+    printf "\1\033[7m%%\033[0m%-${sz}s\r\1" \
         " "
 
     # print a carriage return and change window title
-    printf "\r\1\033]0;%s\a\1" "$USER@$(hostname):$mypwd"
+    printf "\1\033]0;%s\a\1" "$USER@$(hostname):$mypwd"
 
     # print hostname/path
     printf '\1\033[33m\1%s\1\033[7m\1%s\1\033[27;100m\1%s'\
