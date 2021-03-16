@@ -14,12 +14,14 @@ export PATH="$HOME/.luarocks/bin/:$PATH"
 
 if has nvim; then
     export EDITOR="nvim"
-    export MANWIDTH=$(stty size | cut -d' ' -f2)
 
     # Viewing manpages in neovim is a slightly more pleasant experience,
     # nvim has built-in support for manpages, including "syntax" highlighting
     # and following links (with 'K')
-    export MANPAGER="nvim -c 'set ft=man' -"
+    #
+    # Unfortunately, it's also really slow.
+    #export MANPAGER="nvim -c 'set ft=man' -"
+    #export MANWIDTH=$(stty size | cut -d' ' -f2)
 else
     export EDITOR="vi"
 fi
