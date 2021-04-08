@@ -85,6 +85,10 @@ gc() {
     git clone "https://github.com/$h/$rr" "$@" --recurse;
 }
 
+if has systemctl; then
+    alias sysu='systemctl --user'
+fi
+
 if has doas; then
     alias d='doas'
 else
