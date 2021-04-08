@@ -152,8 +152,7 @@ if has paleta && has colors; then
 fi
 
 prompt() {
-    mypwd=$(printf "$PWD" | \
-        sed "s|$HOME|~|g")
+    mypwd=$(printf "$PWD" | sed "s|$HOME|~|g")
     if [ $mypwd != "~" ]; then
         mypwd="$(basename ${mypwd%/*})/$(basename ${mypwd})"
     fi
@@ -167,26 +166,22 @@ prompt() {
     # return to get back to the start of the line. otherwise,
     # the spaces will wrap to the next line, where we can safely
     # carriage return to the start of the line and print out prompt.
-    # this hack prevents out prompt from being messed up by some
-    # idiotic programs that don't print their newlines.
+    # this hack prevents the prompt from being messed up by broken programs
+    # that don't print a newline.
     sz=$((COLUMNS-2))
-    printf "\1\033[7m%%\033[0m%-${sz}s\r\1" \
-        " "
+    #printf "\1\033[7m%%\033[m%${sz}s\r\1" " "
 
     # print a carriage return and change window title
     printf "\1\033]0;%s\a\1" "$USER@$(hostname):$mypwd"
 
     # print hostname/path
-    printf '\1\033[33m\1%s\1\033[7m\1%s\1\033[27;100m\1%s'\
-        "" "$(hostname)" ""
-    printf '\1\033[97;100m\1 %s\1\033[90;40m\1%s\1\033[m\1' \
-        "$mypwd" ""
+    #printf '(%s)%s' "$(hostname)" "$mypwd"
 
-    #if [ "$(whoami)" = "root" ]; then
-    #    printf '%s' "#"
-    #else
-    #    printf '%s' "$"
-    #fi
+    if [ "$(whoami)" = "root" ]; then
+        printf '%s' "#"
+    else
+        printf '%s' "]"
+    fi
 
     # print a space
     printf ' '

@@ -20,26 +20,26 @@ fixed-center      = true
 
 monitor  =
 bottom   = false
-width    = 100%:-20
-height   = 18
-offset-y = 5
-offset-x = 10
+width    = 100%
+height   = 24
+offset-y = 0
+offset-x = 0
 
-background    = #99d5d7d5
+background    = ${colors.bg}
 foreground    = ${colors.fg}
 font-0        = ${fonts.cursed}
 font-1        = ${fonts.chicago}
 font-2        = ${fonts.chicago}
-separator     = ""
+separator     = " "
 padding-left  = 0
 padding-right = 0
 
 
-modules-left   = date tier-0l title tier-1l
+modules-left   = date title
 modules-center = i3
-modules-right  = tier-0r memory filesystem tier-1r network
+modules-right  = memory filesystem network
 
-radius = 8
+radius = 0
 border-size = 0
 border-color  = ${colors.bg}
 tray-position = left
@@ -126,9 +126,9 @@ ws-icon-3 = 4;
 ws-icon-4 = 5;
 
 label-focused = %icon%
+label-focused-padding = 1
 label-focused-foreground = ${colors.bg}
 label-focused-background = ${colors.fg}
-label-focused-padding = 1
 
 label-unfocused = %icon%
 label-unfocused-padding = 1
@@ -168,7 +168,6 @@ menu-0-1-exec = halt
 type = internal/xwindow
 format =  <label>
 format-padding = 1
-format-background = ${colors.tier0}
 
 label = %title%
 label-maxlen = 35
@@ -200,8 +199,6 @@ fixed-values = true
 
 format-mounted = "<ramp-capacity> <label-mounted>  "
 format-unmounted = "<label-unmounted>  "
-format-mounted-foreground = ${colors.fg}
-format-mounted-background = ${colors.tier0}
 
 label-mounted = %free%
 label-unmounted = %mountpoint%: unmounted!
@@ -210,11 +207,11 @@ bar-used-indicator =
 bar-used-width = 10
 bar-used-fill = |
 bar-used-empty = |
-bar-used-foreground-0 = ${colors.ac}
-bar-used-foreground-1 = ${colors.ac}
-bar-used-foreground-2 = ${colors.ac}
-bar-used-foreground-3 = ${colors.ac}
-bar-used-empty-foreground = ${colors.ac}
+bar-used-foreground-0 = ${colors.fg}
+bar-used-foreground-1 = ${colors.fg}
+bar-used-foreground-2 = ${colors.fg}
+bar-used-foreground-3 = ${colors.fg}
+bar-used-empty-foreground = ${colors.fg}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -232,12 +229,10 @@ type = internal/date
 interval = 1.0
 
 time = "  %H:%M"
-time-alt = "  %Y-%d-%m"
+time-alt = "  %Y-%m-%d"
 
 format = "<label>"
 format-padding = 1
-format-foreground = ${colors.bg}
-format-background = ${colors.tier1}
 
 label = "%time%"
 
@@ -256,13 +251,8 @@ unknown-as-up = false
 format-connected-padding = 1
 format-disconnected-padding = 1
 
-format-connected-foreground = ${colors.bg}
-format-connected-background = ${colors.tier1}
-
 format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
-format-disconnected-foreground = ${colors.fg}
-format-disconnected-background = ${colors.bg}
 
 label-connected = "%ifname% "
 ;; %downspeed:8% %upspeed:8%"
@@ -283,8 +273,6 @@ interval = 2
 
 format = "<ramp-used> <label>   "
 format-prefix =
-format-background = ${colors.tier0}
-format-foreground = ${colors.fg}
 
 label = %mb_used%
 
