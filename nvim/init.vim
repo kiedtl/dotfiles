@@ -43,9 +43,9 @@ set history=100                  " the default of 20 is ridiculous
 set smartcase                    " case-sensitive if search has upper-case letters
 set autoindent                   " indent at level of previous line
 set laststatus=2                 " enable the statusbar
-set nocursorline                 " highlight current line
+set cursorline                   " highlight current line
 set number                       " enable line numbers
-set norelativenumber             " disable relative line numbers for now
+set relativenumber               " disable relative line numbers for now
 set list                         " enable listchars (see below)
 set tabstop=8                    " show tabs as 4 spaces instead of 8
 set smarttab
@@ -58,6 +58,7 @@ set mousehide                    " hide mouse while typing
 set scrolloff=3                  " lines to keep above/below cursor when scrolling
 set showmatch                    " show matching brackets/parens
 set fillchars=eob:\              " remove the annoying tildes at the end of a file
+set conceallevel=0
 
 """ listchars
 " show tab as │, non-breaking space as ␣, trailing space as ·
@@ -84,6 +85,7 @@ nmap gb `[v`]                        " reselect previously yanked text
 nmap Y y$                            " Make Y behave consistently
 nmap Q @@                            " Ex mode is bloat
 
+nnoremap <Leader>S :call SynGroup()<CR>
 nnoremap <Leader>C :source $MYVIMRC<CR>
 nnoremap <Leader>d :NERDTreeVCS<CR>
 nnoremap <Leader><C-S-]> <C-w><C-]><C-w>T
