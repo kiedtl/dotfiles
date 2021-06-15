@@ -1,7 +1,7 @@
 The Dotfiles License
 ====================
 
-- Copyright © 2019-2020 Kiëd Llaentenn, various /r/unixporn users
+- Copyright © 2019-2021 Kiëd Llaentenn, various /r/unixporn users
 
 Permission is granted, free of any charge or fee, to any individual
 downloading or cloning a copy of these useless scripts and configuration

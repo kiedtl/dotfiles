@@ -25,7 +25,7 @@ let s:actual_white    = { "gui": "#FFFFFF", "cterm": "15" }
 let s:light_black     = { "gui": "#424242", "cterm": "8"  }
 let s:lighter_black   = { "gui": "#545454", "cterm": "8"  }
 let s:subtle_black    = { "gui": "#303030", "cterm": "8"  }
-let s:light_gray      = { "gui": "#999999", "cterm": "12" }
+let s:light_gray      = { "gui": "#999999", "cterm": "7" }
 let s:lighter_gray    = { "gui": "#CCCCCC", "cterm": "7"  }
 let s:lightest_gray   = { "gui": "#E5E5E5", "cterm": "13" }
 let s:pink            = { "gui": "#FB007A", "cterm": "5"  }
@@ -38,8 +38,8 @@ let s:blue            = { "gui": "#20BBFC", "cterm": "4"  }
 let s:light_blue      = { "gui": "#B6D6FD", "cterm": "4"  }
 let s:dark_cyan       = { "gui": "#20A5BA", "cterm": "6"  }
 let s:light_cyan      = { "gui": "#4FB8CC", "cterm": "6"  }
-let s:dark_green      = { "gui": "#10A778", "cterm": "3"  }
-let s:light_green     = { "gui": "#5FD7A7", "cterm": "3"  }
+let s:dark_green      = { "gui": "#10A778", "cterm": "2"  }
+let s:light_green     = { "gui": "#5FD7A7", "cterm": "2"  }
 let s:dark_purple     = { "gui": "#523C79", "cterm": "5"  }
 let s:light_purple    = { "gui": "#6855DE", "cterm": "5"  }
 let s:light_yellow    = { "gui": "#F3E430", "cterm": "2"  }
@@ -57,7 +57,7 @@ if &background == "dark"
   let s:red             = s:light_red
   let s:yellow          = s:light_yellow
   let s:visual          = s:subtle_black
-  let s:cursor_line     = s:subtle_black
+  let s:cursor_line     = s:black
   let s:status_line     = s:white
   let s:status_line_nc  = s:white
   let s:constant        = s:light_green
@@ -156,7 +156,7 @@ call s:h("Search",        {"bg": s:selection, "fg": s:black})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:light_gray})
-call s:h("CursorLineNr",  {"fg": s:green, "bg": s:bg_very_subtle})
+call s:h("CursorLineNr",  {"fg": s:actual_white, "bg": s:bg})
 call s:h("Question",      {"fg": s:red})
 call s:h("VertSplit",     {"bg": s:bg, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:white, "cterm": "bold", "gui": "bold"})
