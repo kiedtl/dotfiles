@@ -7,7 +7,7 @@
 #
 
 # don't turn off my screen
-xset -dpms && xset s off
+#xset -dpms && xset s off
 
 # disable the bell
 xset -b
@@ -37,7 +37,6 @@ xrdb -merge ~/.cache/wal/2bwm.Xresources
 # set wallpaper/theme, bars
 the peaceful &
 polybar -r bar &
-feh --bg-fill ~/img/wallpapers/meshwork.png
 
 xautolock -time 30 -locker slock &
 exec ssh-agent i3
