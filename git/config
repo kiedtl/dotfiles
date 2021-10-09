@@ -12,3 +12,5 @@
 	smtpServerport = 587
 [pull]
 	rebase = false
+[init]
+	defaultBranch = trunk
