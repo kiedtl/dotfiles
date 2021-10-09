@@ -44,7 +44,7 @@ set -g history-limit 10000
 
 # misc window settings
 unbind p
-bind p  previous-window
+bind p previous-window
 bind-key s choose-session
 
 # easy-to-remember split pane commands

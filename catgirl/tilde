@@ -3,3 +3,4 @@ nick = kiedtl
 join = #bots,#team,#ctrl-c,#rw.rs,#coffee,#tea,#gopher,#gemini,#helpdesk,#anelki,#meta
 cert = tilde.pem
 sasl-external
+hash = 0,15

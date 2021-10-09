@@ -24,6 +24,7 @@ Plug 'janet-lang/janet.vim',    {'for': 'janet'}
 Plug 'Yggdroot/indentLine'                          " indentlines for spaces
 Plug 'godlygeek/tabular',   {'on': 'Tabular'}       " auto-align stuff
 Plug 'junegunn/goyo.vim',   {'on': 'Goyo'}          " disable distractions
+Plug 'junegunn/vim-easy-align',                     " easily align CSV/TSV data
 Plug 'terryma/vim-multiple-cursors'                 " multiple cursors
 Plug 'tpope/vim-commentary'                         " gcc to toggle comments
 Plug 'reedes/vim-wordy',    {'on': 'Wordy'}         " fix weasel/passive words
@@ -90,6 +91,11 @@ nnoremap <Leader>S :call SynGroup()<CR>
 nnoremap <Leader>C :source $MYVIMRC<CR>
 nnoremap <Leader>d :NERDTreeVCS<CR>
 nnoremap <Leader><C-S-]> <C-w><C-]><C-w>T
+
+" mappings for easy-align
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+vmap ga <Plug>(EasyAlign)
 
 " remove trailing whitespace from file
 nmap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>

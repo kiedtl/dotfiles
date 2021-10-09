@@ -3,5 +3,5 @@
 # (c) Kiëd Llaentenn <kiedtl@tilde.team>
 # See the COPYING file for copyright information.
 
-litterbox ~/etc/litterbox/config-freenode &
+litterbox ~/etc/litterbox/config-libera &
 litterbox ~/etc/litterbox/config-tilde_chat &

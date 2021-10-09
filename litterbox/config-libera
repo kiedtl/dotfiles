@@ -1,0 +1,5 @@
+host = irc.libera.chat
+port = 6697
+nick = kiedtl|litterbox
+join = #kisslinux,#lobsters,##crustaceans,#hare,#zig,#pandorabox,#pandorabox-mod,#pandorabox-es
+cert = libera

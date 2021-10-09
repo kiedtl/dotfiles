@@ -15,33 +15,6 @@ local M = {}
 function M.on_startup()
 end
 
--- This is called at the beginning of lurch, and its purpose
--- it to print some nice text and ascii art on the main buffer.
--- Of course, you could just stuff this into on_startup().
---
--- This function should assume that the current buffer already
--- is the main buffer, and should not switch buffers.
-function M.print_banner(version)
-    -- the text to be printed. Note that completely blank lines
-    -- won't get printed, so add a trailing space to empty lines.
-    local text = "\n\
-|     ._ _ |_    o ._  _    _ | o  _  ._ _|_\n\
-| |_| | (_ | |   | |  (_   (_ | | (/_ | | |_\n\
- \n\
-lurch %s (https://github.com/lptstr/lurch)\n\
-(c) Kiëd Llaentenn. Lurch is GPLv3 software.\n\
- \n\
--- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n\
- \n\
-"
-    text = format(text, version)
-
-    -- print each line, one by one.
-    for textline in text:gmatch("([^\n]+)\n?") do
-        prin_cmd(buf_cur(), "--", "%s", textline)
-    end
-end
-
 -- This is a sample prompt function. It's extremely barebones,
 -- and does nothing beyond printing what the user has entered
 -- and making the cursor visible. See fancy_promptf for a more
@@ -55,8 +28,8 @@ function M.simple_promptf(inp, cursor)
 
     -- draw the input buffer and move the cursor to the appropriate
     -- position.
-    termbox.writeline(tui.tty_height-1, inp)
     termbox.setcursor(cursor, tui.tty_height-1)
+    return inp
 end
 
 -- A more fully-featured prompt function. This prompt changes
@@ -117,8 +90,8 @@ function M.fancy_promptf(inp, cursor)
 
     -- Clear the line, remove any bold/color, draw the input buffer
     -- and move the cursor to the appropriate position.
-    termbox.writeline(tui.tty_height-1, format("\x0f%s%s", prompt, inp))
     termbox.setcursor(cursor + rawprompt_len, tui.tty_height-1)
+    return format("\x0f%s%s", prompt, inp)
 end
 
 -- The function that is called on every keypress. It should, at the
@@ -180,8 +153,7 @@ function M.simple_statusline()
     end
 
     local padding = M.tty_width - #(mirc.remove(chl))
-    chl = format("\x16%s%s\x0f", chl, (" "):rep(padding))
-    termbox.writeline(0, chl)
+    return format("\x16%s%s\x0f", chl, (" "):rep(padding))
 end
 
 -- A more fully-featured statusline, heavily based on catgirl's [0] statusbar.
@@ -242,7 +214,7 @@ function M.fancy_statusline()
         end
     end
 
-    termbox.writeline(0, "\x0f" .. chanlist)
+    return "\x0f" .. chanlist
 end
 
 -- The statusline function, the purpose of which is to print the list
@@ -250,7 +222,43 @@ end
 -- This is called whenever a new buffer is opened, when a buffer is closed,
 -- or when the screen is redrawn. By default, it is set the the fancy_statusline
 -- example above.
-M.statusline = M.fancy_statusline
+M.statusline = function()
+    local topic = ""
+    if _G.irc_ctx.channels[bufs[cbuf].name] then
+        topic = _G.irc_ctx.channels[bufs[cbuf].name].topic or ""
+    end
+    local padding = (" "):rep(tui.tty_width)
+    return format("%s235 %s%s%s", mirc._256COLORBG, topic, padding, mirc.RESET)
+end
+
+
+-- A statusline that shows up just above the inputbar.
+-- If you wish, you could change the top statusline to show the channel's topic and
+-- the bottom one to show, say, the channel name, mode, and user count, like Irssi.
+--
+-- Disable it by changing it to nil.
+M.bottom_statusline = function()
+    local bufnm = cbuf
+    local users = #bufs[cbuf].names
+    local chann = bufs[cbuf].name
+    local padding1 = (" "):rep(tui.tty_width/2)
+    local padding2 = (" "):rep(tui.tty_width/2)
+
+    local unread = {}
+    for i = 1, #bufs do
+        if bufs[i].pings > 0 then
+            unread[#unread + 1] = mirc.BOLD .. i .. mirc.BOLD
+        elseif bufs[i].unreadh > 0 then
+            unread[#unread + 1] = i
+        end
+    end
+    unread = util.join(",", unread) or "None"
+
+    return format("%s235 %s%s%s:%-10s%s%s235 %s%s%s%s%s",
+        mirc._256COLORBG, bufnm, mirc.COLOR, mirc.CYAN, chann, mirc.RESET,
+        mirc._256COLORBG, users, padding1, unread, padding2, mirc.RESET)
+end
+
 
 -- called whenever there is a new unread message/event in a buffer.
 --

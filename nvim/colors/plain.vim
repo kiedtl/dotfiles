@@ -57,7 +57,7 @@ if &background == "dark"
   let s:red             = s:light_red
   let s:yellow          = s:light_yellow
   let s:visual          = s:subtle_black
-  let s:cursor_line     = s:black
+  let s:cursor_line     = s:subtle_black
   let s:status_line     = s:white
   let s:status_line_nc  = s:white
   let s:constant        = s:light_green
@@ -209,8 +209,8 @@ call s:h("TabLineSel",    {"fg": s:bg, "bg": s:light_green, "gui": "bold", "cter
 call s:h("TabLineFill",   {"fg": s:norm_subtle, "bg": s:bg})
 
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
-call s:h("CursorLine",    {"bg": s:cursor_line})
-call s:h("CursorLineNr",  {"fg": s:actual_white})
+call s:h("CursorLine",    {"fg": s:actual_white, "bg": s:cursor_line})
+call s:h("CursorLineNr",  {"fg": s:actual_white, "bg": s:cursor_line})
 call s:h("ColorColumn",   {"bg": s:bg_very_subtle})
 
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})

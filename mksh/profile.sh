@@ -101,19 +101,20 @@ if has exa; then
     alias ls='exa -lF'                    # long live exa!
     alias lsd='exa -alF'                  # ^^
 else
-    alias lsd='ls -halF'                  # fallback to ls
+    alias lsd='ls -halF --color=always'   # fallback to ls
     alias l='/bin/ls -F --color=always'   #
-    alias ls='ls -lF'                     #
+    alias ls='ls -lF    --color=always'   #
+    alias tree='tree -C'                  # fallback to tree
 
     has dircolors && eval $(dircolors)
 fi
 
 if has peaclock; then
-    alias peaclock='LC_ALL=C peaclock'   # fix peaclock on musl
+    alias peaclock='LC_ALL=C peaclock'    # fix peaclock on musl
 fi
 
 if has bc; then
-    alias bc="bc -ql"                    # basic calculator
+    alias bc="bc -ql"                     # basic calculator
 fi
 
 alias gst='git status'               # darn  you, git
