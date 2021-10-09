@@ -1,5 +1,6 @@
 # vim: filetype=neomuttrc
 
+set trash = "=.Trash"
 set signature="~/bin/sig|"
 set date_format="%y-%m-%d %H:%M "
 set index_format="%4C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
