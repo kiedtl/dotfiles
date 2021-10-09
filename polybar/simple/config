@@ -15,7 +15,7 @@
 pseudo-transparency = true
 
 [bar/bar]
-override-redirect = true
+override-redirect = false
 fixed-center      = true
 
 monitor  =
