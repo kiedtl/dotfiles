@@ -33,9 +33,9 @@ export XDG_CONFIG_HOME="${HOME}/etc"
 export LD_LIBRARY_PATH=~/local/lib:$LD_LIBRARY_PATH
 
 # mksh settings
-HISTFILE="$HOME/opt/.cache/mksh/history.txt"
-HISTSIZE="65535"
-ENV="$HOME/etc/mksh/profile.sh"
+export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
+export HISTSIZE="65535"
+export ENV=~/.profile
 
 # stop cluttering up my $HOME
 export LESSHISTFILE=~/var/cache/less/history
@@ -106,7 +106,7 @@ else
     alias ls='ls -lF    --color=always'   #
     alias tree='tree -C'                  # fallback to tree
 
-    eval $(dircolors)
+    has dircolors && eval $(dircolors)
 fi
 
 if has peaclock; then
