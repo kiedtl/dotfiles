@@ -27,7 +27,7 @@ M.servers = {
         name = "kiedtl",
 
         join = { "#bots", "#team", "#ctrl-c", "#rw.rs",
-            "#coffee", "#tea", "#gemini", "#idlerpg" },
+            "#coffee", "#tea", "#gemini", "#gopher", "#helpdesk" },
         mode = nil,
 
         no_ident = false,
