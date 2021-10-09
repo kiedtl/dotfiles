@@ -1,4 +1,4 @@
 host = irc.tilde.chat
 port = 6697
 nick = kiedtl|ltbx
-join = #bots,#team,#chaos,#meta,#coffee,#tea,#math,#vim,#gemini,#nedyaj,#ctrl-c
+join = #bots,#team,#chaos,#meta,#coffee,#tea,#math,#vim,#gemini,#nedyaj,#ctrl-c,#politics
