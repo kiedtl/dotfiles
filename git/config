@@ -10,5 +10,8 @@
 	smtpEncryption = tls
 	smtpUser = kiedtl
 	smtpServerport = 587
+	annotate = yes
+	confirm = auto
+
 [pull]
 	rebase = false
