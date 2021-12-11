@@ -45,7 +45,7 @@ max_width = 100
 # 'downloads' is the path to a downloads folder.
 # An empty value means the code will find the default downloads folder for your system.
 # If the path does not exist it will be created.
-downloads = "~/tmp/"
+downloads = "/home/kiedtl/tmp/"
 
 # Max size for displayable content in bytes - after that size a download window pops up
 page_max_size = 2097152  # 2 MiB

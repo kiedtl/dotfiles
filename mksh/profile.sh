@@ -37,6 +37,13 @@ export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
 export HISTSIZE="65535"
 export ENV=~/.profile
 
+# If the argument to `cd` doesn't exist in the current directory, cd will try
+# it in ~ as well. This is useful if you sometimes type, for example, ‘cd
+# src/bin’ wanting to go to ~/src/bin but you aren't in ~.
+#
+# Stolen from: https://text.causal.agency/013-hot-tips.txt
+CDPATH=:~
+
 # stop cluttering up my $HOME
 export LESSHISTFILE=~/var/cache/less/history
 alias wget="wget --no-hsts"
