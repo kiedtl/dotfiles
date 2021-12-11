@@ -18,6 +18,7 @@ Plug 'braindead-cc/bf-vim',     {'for': 'bf'}
 Plug 'ziglang/zig.vim',         {'for': 'zig'}
 Plug 'ron-rs/ron.vim',          {'for': 'ron'}
 Plug 'bakpakin/fennel.vim',     {'for': 'fennel'}
+Plug 'janet-lang/janet.vim',    {'for': 'janet'}
 
 " misc plugins
 Plug 'Yggdroot/indentLine'                          " indentlines for spaces
