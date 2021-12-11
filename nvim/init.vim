@@ -47,20 +47,21 @@ set autoindent                   " indent at level of previous line
 set laststatus=2                 " enable the statusbar
 set cursorline                   " highlight current line
 set number                       " enable line numbers
-set relativenumber               " disable relative line numbers for now
+"set relativenumber               " disable relative line numbers for now
 set list                         " enable listchars (see below)
 set tabstop=8                    " show tabs as 4 spaces instead of 8
 set smarttab
 set encoding=utf-8               " set UTF-8 encoding
 set backspace=indent,eol,start   " backspace through anything
 set noincsearch                  " don't autosearch
+set inccommand=nosplit           " show preview of substitutions
 set wrap                         " wrap long lines, please!
 set mouse=                       " disable the pesky mouse support
 set mousehide                    " hide mouse while typing
 set scrolloff=3                  " lines to keep above/below cursor when scrolling
 set showmatch                    " show matching brackets/parens
 set fillchars=eob:\              " remove the annoying tildes at the end of a file
-set conceallevel=0
+set concealcursor=               " show concealed text as-is when editing line
 
 """ listchars
 " show tab as │, non-breaking space as ␣, trailing space as ·
@@ -128,7 +129,7 @@ augroup END
 " configure textwidth
 augroup textwidth
 	autocmd!
-	autocmd FileType text,mail,markdown,gmi setlocal textwidth=75
+	autocmd FileType text,mail,markdown,gmi setlocal textwidth=80
 augroup END
 
 " enable spelling for my mail (with aerc), markdown/text, and gemini pages
@@ -156,3 +157,4 @@ colorscheme plain
 " }}}
 
 source ~/etc/nvim/plugin/statusbar.vim
+source ~/etc/nvim/plugin/ligatures.vim

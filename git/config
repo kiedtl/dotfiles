@@ -15,5 +15,7 @@
 
 [pull]
 	rebase = false
+[commit]
+	verbose = true
 [init]
 	defaultBranch = trunk

@@ -81,11 +81,11 @@ bind index,pager \Cn sidebar-next-new
 bind index,pager B sidebar-toggle-visible
 
 # Default index colors:
-color index         brightblack default '.*'
-color index_author  brightblack default '.*'
-color index_number  brightblack default
-color index_subject brightblack default '.*'
-color index_date    brightblack default
+color index         default default '.*'
+color index_author  default default '.*'
+color index_number  default default
+color index_subject default default '.*'
+color index_date    default default
 
 # New mail is boldened:
 color index         brightwhite black "~N"
