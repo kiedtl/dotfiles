@@ -3,17 +3,17 @@
 #      ----------
 
 # Set borders, and float by default.
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 for_window [class="^.*"] floating enable
 
 set $mod Mod4
-set $term term
-font gomme 16
+set $term st
+font cursed 16
 
 # Set colors from Xresources
 set_from_resource $fg i3wm.color15
 set_from_resource $bg i3wm.color0
-set_from_resource $border_inactive i3wm.color0
+set_from_resource $border_inactive i3wm.color8
 set_from_resource $border_active i3wm.color15
 
 # class                 border  			backgr. text 	indicator child_border
@@ -77,12 +77,12 @@ bindsym $mod+e layout toggle split # the default
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
+bindsym $mod+t focus mode_toggle
 
 # $mod+a: focus the parent container
 # $mod+d: focus the child container
-bindsym $mod+a focus parent
-bindsym $mod+d  focus child
+#bindsym $mod+a focus parent
+#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -177,4 +177,4 @@ bindsym XF86MonBrightnessUp       exec xbacklight -inc 3
 bindsym XF86MonBrightnessDown     exec xbacklight -dec 3
 
 # herbe notifications
-#bindsym $mod+d exec pkill -SIGUSR2 herbe
+bindsym $mod+d exec pkill -SIGUSR1 herbe
