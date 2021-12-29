@@ -12,10 +12,10 @@ let g:curmode={
 	\ 'no' : 'N·OPERATOR PENDING',
 	\ 'v'  : 'VISUAL',
 	\ 'V'  : 'V·LINE',
-	\ '^V' : 'V·BLOCK',
+	\ '' : 'V·BLOCK',
 	\ 's'  : 'SELECTION',
 	\ 'S'  : 'S·LINE',
-	\ '^S' : 'S·BLOCK',
+	\ '' : 'S·BLOCK',
 	\ 'i'  : 'INSERT',
 	\ 'R'  : 'REPLACE',
 	\ 'Rv' : 'V·REPLACE',
@@ -50,11 +50,6 @@ function! StatusLine() abort
 
 	" Emacs-esque theme (I guess? I cannot remember the
 	" last time I was forced to use that monstrosity)
-
-	highlight user1  ctermbg=251 ctermfg=7    cterm=NONE
-	highlight user2  ctermbg=251 ctermfg=6    cterm=NONE
-	highlight user3  ctermbg=251 ctermfg=7    cterm=bold
-	highlight user4  ctermbg=251 ctermfg=NONE cterm=NONE
 
 	if &filetype ==# 'help' || &filetype ==# 'man'
 		" help or man pages
@@ -185,3 +180,10 @@ function! FileEncoding() abort
 endfunction
 
 set statusline=%!StatusLine()
+
+" Emacs theme
+highlight user1  ctermbg=251 ctermfg=7    cterm=NONE
+highlight user2  ctermbg=251 ctermfg=6    cterm=NONE
+highlight user3  ctermbg=251 ctermfg=7    cterm=bold
+highlight user4  ctermbg=251 ctermfg=NONE cterm=NONE
+

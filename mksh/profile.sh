@@ -33,9 +33,16 @@ export XDG_CONFIG_HOME="${HOME}/etc"
 export LD_LIBRARY_PATH=~/local/lib:$LD_LIBRARY_PATH
 
 # mksh settings
-HISTFILE="$HOME/opt/.cache/mksh/history.txt"
-HISTSIZE="65535"
-ENV="$HOME/etc/mksh/profile.sh"
+export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
+export HISTSIZE="65535"
+export ENV=~/.profile
+
+# If the argument to `cd` doesn't exist in the current directory, cd will try
+# it in ~ as well. This is useful if you sometimes type, for example, ‘cd
+# src/bin’ wanting to go to ~/src/bin but you aren't in ~.
+#
+# Stolen from: https://text.causal.agency/013-hot-tips.txt
+CDPATH=:~
 
 # stop cluttering up my $HOME
 export LESSHISTFILE=~/var/cache/less/history
@@ -101,19 +108,20 @@ if has exa; then
     alias ls='exa -lF'                    # long live exa!
     alias lsd='exa -alF'                  # ^^
 else
-    alias lsd='ls -halF'                  # fallback to ls
+    alias lsd='ls -halF --color=always'   # fallback to ls
     alias l='/bin/ls -F --color=always'   #
-    alias ls='ls -lF'                     #
+    alias ls='ls -lF    --color=always'   #
+    alias tree='tree -C'                  # fallback to tree
 
-    eval $(dircolors)
+    has dircolors && eval $(dircolors)
 fi
 
 if has peaclock; then
-    alias peaclock='LC_ALL=C peaclock'   # fix peaclock on musl
+    alias peaclock='LC_ALL=C peaclock'    # fix peaclock on musl
 fi
 
 if has bc; then
-    alias bc="bc -ql"                    # basic calculator
+    alias bc="bc -ql"                     # basic calculator
 fi
 
 alias gst='git status'               # darn  you, git

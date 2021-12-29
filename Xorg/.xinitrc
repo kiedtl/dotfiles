@@ -7,13 +7,21 @@
 #
 
 # don't turn off my screen
-xset -dpms && xset s off
+#xset -dpms && xset s off
 
 # disable the bell
 xset -b
 
-# enable Ctrl+Alt+<Bksp> to kill X11
-setxkbmap -option terminate:ctrl_alt_bksp
+# Keyboard modifications:
+# 	- Enable Ctrl+Alt+<Bksp> to kill X11
+# 	- Swap escape and caps lock
+# 	- Rebind meta/alt
+setxkbmap -layout us,il \
+	-option caps:swapescape \
+	-option compose:ralt \
+	-option grp:sclk_toggle \
+	-option altwin:meta_alt \
+	-option terminate:ctrl_alt_bksp
 
 # configure locales
 LC_ALL=''
@@ -24,11 +32,6 @@ export LC_TIME=en_US.UTF-8
 # enable core dumps
 ulimit -c unlimited
 
-# swap escape and caps lock
-xmodmap -e "clear lock"
-xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
-xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-
 # merge Xresources
 xrdb -merge ~/etc/Xorg/.Xresources
 xrdb -merge ~/.cache/wal/colors.Xresources
@@ -37,7 +40,6 @@ xrdb -merge ~/.cache/wal/2bwm.Xresources
 # set wallpaper/theme, bars
 the peaceful &
 polybar -r bar &
-feh --bg-fill ~/img/wallpapers/meshwork.png
 
 xautolock -time 30 -locker slock &
 exec ssh-agent i3

@@ -15,7 +15,8 @@
 pseudo-transparency = true
 
 [bar/bar]
-override-redirect = true
+override-redirect = false
+wm-restack        =
 fixed-center      = true
 
 monitor  =
@@ -35,23 +36,26 @@ padding-left  = 0
 padding-right = 0
 
 
-modules-left   = date title
+modules-left   = rcmen title date
 modules-center = i3
-modules-right  = memory filesystem network
+modules-right  = memory filesystem network kbd
 
 radius = 0
-border-size = 0
-border-color  = ${colors.bg}
-tray-position = left
+border-bottom-size = 3
+border-color  = ${colors.fg}
+
+tray-offset-x = 10
+tray-offset-y = 10
+tray-position = right
 
 ;;        ----
 ;;  colors and fonts
 ;;        ----
 
 [colors]
-fg = ${xrdb:color15:#e1e2e2}
-bg = ${xrdb:color0:#192222}
-ac = ${xrdb:color8:#884444}
+fg = ${xrdb:polybar.fg:#e1e2e2}
+bg = ${xrdb:polybar.bg:#192222}
+ac = ${xrdb:polybar.ac:#884444}
 
 tier0 = ${xrdb:color8:#cacbca}
 tier1 = ${xrdb:color3:#cacbca}
@@ -133,6 +137,11 @@ label-focused-background = ${colors.fg}
 label-unfocused = %icon%
 label-unfocused-padding = 1
 
+[module/rcmen]
+type = custom/text
+click-left = rcmen
+content = "  "
+
 [module/apple-logo]
 type = custom/text
 click-left = ndmen
@@ -166,8 +175,9 @@ menu-0-1-exec = halt
 
 [module/title]
 type = internal/xwindow
-format =  <label>
-format-padding = 1
+;format =  <label>
+format = <label>
+format-padding = 0
 
 label = %title%
 label-maxlen = 35
@@ -185,6 +195,11 @@ label-active = "%name%"
 label-occupied =
 label-urgent =
 label-empty =
+
+[module/kbd]
+type = internal/xkeyboard
+format = ⌨ <label-layout> <label-indicator>
+format-spacing = 1
 
 [module/filesystem-label]
 type = custom/text
@@ -254,7 +269,7 @@ format-disconnected-padding = 1
 format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 
-label-connected = "%ifname% "
+label-connected = "%essid% "
 ;; %downspeed:8% %upspeed:8%"
 label-disconnected = " nah! "
 
