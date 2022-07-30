@@ -12,9 +12,9 @@ font cursed 16
 
 # Set colors from Xresources
 set_from_resource $fg i3wm.color15
-set_from_resource $bg i3wm.color0
-set_from_resource $border_inactive i3wm.color8
-set_from_resource $border_active i3wm.color15
+set_from_resource $bg i3wm.color7
+set_from_resource $border_inactive i3wm.color15
+set_from_resource $border_active i3wm.color1
 
 # class                 border  			backgr. text 	indicator child_border
 client.focused          $border_active     	$bg     $fg  	$bg       $border_active
@@ -129,10 +129,14 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-	bindsym h resize grow width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize shrink width 10 px or 10 ppt
+	bindsym h resize grow width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize shrink width 5 px or 5 ppt
+	bindsym Shift+h resize grow width 10 px or 10 ppt
+        bindsym Shift+j resize grow height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 10 px or 10 ppt
+        bindsym Shift+l resize shrink width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
