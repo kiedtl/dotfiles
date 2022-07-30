@@ -45,6 +45,9 @@ let s:light_purple    = { "gui": "#6855DE", "cterm": "5"  }
 let s:light_yellow    = { "gui": "#F3E430", "cterm": "2"  }
 let s:dark_yellow     = { "gui": "#A89C14", "cterm": "2"  }
 
+let s:col_10          = { "gui": "",        "cterm": "10" }
+let s:col_14          = { "gui": "",        "cterm": "14" }
+
 if &background == "dark"
   let s:bg              = s:black
   let s:bg_subtle       = s:light_black
@@ -204,8 +207,8 @@ call s:h("PmenuSel",      {"fg": s:green, "bg": s:bg_very_subtle, "gui": "bold"}
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 
-call s:h("TabLine",       {"fg": s:norm_subtle, "bg": s:bg})
-call s:h("TabLineSel",    {"fg": s:bg, "bg": s:light_green, "gui": "bold", "cterm": "bold"})
+call s:h("TabLine",       {"fg": s:norm_subtle, "bg": s:bg_subtle})
+call s:h("TabLineSel",    {"fg": s:bg, "bg": s:norm_subtle, "gui": "bold", "cterm": "bold"})
 call s:h("TabLineFill",   {"fg": s:norm_subtle, "bg": s:bg})
 
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})

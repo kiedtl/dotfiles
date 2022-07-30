@@ -31,8 +31,19 @@ Plug 'reedes/vim-wordy',    {'on': 'Wordy'}         " fix weasel/passive words
 Plug 'preservim/nerdtree',  {'on': 'NerdeTreeVCS'}  " tree view of files
 Plug 'reedes/vim-wheel'                             " scroll with C-k/j, keeping cursor pos
 
-call plug#end()
+"Plug 'dstein64/nvim-scrollview', {'branch': 'main'} " scrollbars!
 
+Plug 'nanozuki/tabby.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+Plug 'ggandor/leap.nvim'
+
+call plug#end()
 
 " }}}
 """ --------- settings ----------
@@ -49,7 +60,7 @@ set cursorline                   " highlight current line
 set number                       " enable line numbers
 "set relativenumber               " disable relative line numbers for now
 set list                         " enable listchars (see below)
-set tabstop=8                    " show tabs as 4 spaces instead of 8
+set tabstop=8                    " show tabs as 8 spaces
 set smarttab
 set encoding=utf-8               " set UTF-8 encoding
 set backspace=indent,eol,start   " backspace through anything
@@ -90,8 +101,9 @@ nmap Q @@                            " Ex mode is bloat
 
 nnoremap <Leader>S :call SynGroup()<CR>
 nnoremap <Leader>C :source $MYVIMRC<CR>
-nnoremap <Leader>d :NERDTreeVCS<CR>
+nnoremap <Leader>d :NERDTreeToggleVCS<CR>
 nnoremap <Leader><C-S-]> <C-w><C-]><C-w>T
+nnoremap <Leader>fb :Telescope buffers<CR>
 
 " mappings for easy-align
 nmap ga <Plug>(EasyAlign)
@@ -138,6 +150,12 @@ augroup spelling
 	autocmd FileType text,mail,markdown,gmi setlocal spell
 augroup END
 
+" misc settings
+augroup misc
+	autocmd!
+	autocmd FileType text,mail,markdown setlocal colorcolumn=
+augroup end
+
 
 " }}}
 """ plugin-specific settings
@@ -147,7 +165,124 @@ let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
+" zig lsp
+
+:lua << EOF
+    local lspconfig = require('lspconfig')
+
+    local on_attach = function(_, bufnr)
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        require('completion').on_attach()
+    end
+
+    local servers = {'zls'}
+    for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup {
+            on_attach = on_attach,
+        }
+    end
+EOF
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Enable completions as you type
+let g:completion_enable_auto_popup = 1
+
+" tabby.nvim
+
+lua <<EOF
+local filename = require('tabby.module.filename')
+local colors = require('tabby.module.colors')
+local tab = require('tabby.tab')
+local util = require('tabby.util')
+
+local hl_head = 'TabLineSel' --{ fg = colors.black(), bg = colors.red(), style = 'italic' }
+local hl_tabline = 'TabLine'
+local hl_tabline_sel = 'TabLineSel' --{ fg = colors.black(), bg = colors.magenta(), style = 'bold' }
+local hl_tabline_fill = 'TabLineFill'
+
+local filename = require('tabby.filename')
+
+local cwd = function()
+  return ' ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ' '
+end
+
+local function tabname(tabid, active)
+  local icon = active and '' or ''
+  -- local number = vim.api.nvim_tabpage_get_number(tabid)
+  local name = util.get_tab_name(tabid)
+  return string.format(' %s %s ', icon, name)
+  -- return string.format(' %s %d ', icon, number)
+end
+
+local line = {
+    hl = hl_tabline_fill,
+    layout = 'active_wins_at_tail',
+    head = {
+        { '', hl = hl_tabline_fill },
+        { cwd, hl = hl_head },
+        { ' ', hl = hl_tabline_fill },
+    },
+    active_tab = {
+      label = function(tabid)
+          return {
+            tabname(tabid, true),
+            hl = hl_tabline_sel,
+          }
+        end,
+	left_sep = { '', hl = hl_tabline_fill },
+	right_sep = { ' ', hl = hl_tabline_fill },
+    },
+    inactive_tab = {
+        label = function(tabid)
+          return {
+            tabname(tabid),
+            hl = hl_tabline,
+          }
+        end,
+        left_sep = { '', hl = "user7" },
+        right_sep = { ' ', hl = "user7" },
+    },
+    top_win = {
+        label = function(...) return "" end,
+	--function(winid)
+          --return {
+            --'  ' .. filename.unique(winid) .. ' ',
+            --hl = hl_tabline,
+          --}
+        --end,
+	left_sep = { "" }, --{ '', hl = "user7" },
+	right_sep = { "" }, --{ ' ', hl = "user7" },
+    },
+    win = {
+        label = function(...) return "" end,
+	--function(winid)
+          --return {
+            --'  ' .. filename.unique(winid) .. ' ',
+            --hl = hl_tabline,
+          --}
+        --end,
+        left_sep = "", --{ '', hl = "user7" },
+        right_sep = "", --{ ' ', hl = "user7" },
+    },
+    tail = {
+        { '', hl = hl_tabline_fill },
+        { '  ', hl = hl_tabline_sel },
+        { ' ', hl = hl_tabline_fill },
+    },
+}
+
+require('tabby').setup({ tabline = line })
+EOF
+
+" NERDTree
+let NERDTreeHijackNetrw=1
 " }}}
+
+" Leap.nvim
+lua require('leap').add_default_mappings()
+
 """ colorscheme
 " {{{
 
