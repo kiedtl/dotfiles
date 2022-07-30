@@ -14,7 +14,37 @@
 [settings]
 pseudo-transparency = true
 
-[bar/bar]
+[bar/bottom]
+override-redirect = false
+wm-restack        =
+fixed-center      = true
+
+monitor  =
+bottom   = true
+width    = 100%
+height   = 20
+offset-y = 0
+offset-x = 0
+
+background    = ${colors.bg}
+foreground    = ${colors.fg}
+font-0        = ${fonts.cursed}
+font-1        = ${fonts.cursed}
+font-2        = ${fonts.cursed}
+separator     = " "
+padding-left  = 0
+padding-right = 0
+
+
+modules-left   = rcmen
+modules-center = memory-label memory filesystem-label filesystem network-label network
+modules-right  = kbd-label kbd
+
+radius = 0
+border-bottom-size = 0
+border-color  = ${colors.fg}
+
+[bar/top]
 override-redirect = false
 wm-restack        =
 fixed-center      = true
@@ -22,31 +52,25 @@ fixed-center      = true
 monitor  =
 bottom   = false
 width    = 100%
-height   = 24
+height   = 20
 offset-y = 0
 offset-x = 0
 
 background    = ${colors.bg}
 foreground    = ${colors.fg}
 font-0        = ${fonts.cursed}
-font-1        = ${fonts.chicago}
-font-2        = ${fonts.chicago}
 separator     = " "
 padding-left  = 0
 padding-right = 0
 
 
-modules-left   = rcmen title date
-modules-center = i3
-modules-right  = memory filesystem network kbd
+modules-left   = i3
+modules-center = title
+modules-right  = date
 
 radius = 0
-border-bottom-size = 3
+border-bottom-size = 0
 border-color  = ${colors.fg}
-
-tray-offset-x = 10
-tray-offset-y = 10
-tray-position = right
 
 ;;        ----
 ;;  colors and fonts
@@ -65,8 +89,8 @@ fixed        = "fixed:size=16:style=bold;2"
 fixed-bold   = "fixed:size=16:style=bold;2"
 chicago      = "Chicago:size=16:style=bold;2"
 gomme        = "gomme:size=16;2"
-ttyp0        = "ttyp0:size=13;2"
-ttyp0-bold   = "ttyp0:size=13:style=Bold;2"
+ttyp0        = "ttyp0:size=10;2"
+ttyp0-bold   = "ttyp0:size=10:style=Bold;2"
 bitocra      = "bitocra13;2"
 bitocra-bold = "bitocra13:style=Bold;2"
 hack         = "hack:size=11;2"
@@ -123,16 +147,22 @@ enable-click = true
 enable-scroll = true
 wrapping-scroll = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
+;ws-icon-0 = 1;
+;ws-icon-1 = 2;
+;ws-icon-2 = 3;
+;ws-icon-3 = 4;
+;ws-icon-4 = 5;
+
+ws-icon-0 = 1;I
+ws-icon-1 = 2;II
+ws-icon-2 = 3;III
+ws-icon-3 = 4;IV
+ws-icon-4 = 5;V
 
 label-focused = %icon%
 label-focused-padding = 1
 label-focused-foreground = ${colors.bg}
-label-focused-background = ${colors.fg}
+label-focused-background = ${colors.ac}
 
 label-unfocused = %icon%
 label-unfocused-padding = 1
@@ -140,7 +170,10 @@ label-unfocused-padding = 1
 [module/rcmen]
 type = custom/text
 click-left = rcmen
-content = "  "
+;content = "  "
+content = "  @  "
+content-background = ${colors.ac}
+content-foreground = ${colors.bg}
 
 [module/apple-logo]
 type = custom/text
@@ -196,14 +229,22 @@ label-occupied =
 label-urgent =
 label-empty =
 
+[module/kbd-label]
+type = custom/text
+;content = "⌨"
+content = "kbd:"
+content-foreground = ${colors.ac}
+
 [module/kbd]
 type = internal/xkeyboard
-format = ⌨ <label-layout> <label-indicator>
-format-spacing = 1
+format = <label-layout> <label-indicator>
+format-spacing = 0
 
 [module/filesystem-label]
 type = custom/text
-content = "  disk  "
+;content = ""
+content = "fs:"
+content-foreground = ${colors.ac}
 
 [module/filesystem]
 type = internal/fs
@@ -212,7 +253,8 @@ mount-0 = /
 interval = 10 
 fixed-values = true
 
-format-mounted = "<ramp-capacity> <label-mounted>  "
+;format-mounted = "<ramp-capacity> <label-mounted>  "
+format-mounted = "<label-mounted>  "
 format-unmounted = "<label-unmounted>  "
 
 label-mounted = %free%
@@ -243,17 +285,22 @@ content = "  date  "
 type = internal/date
 interval = 1.0
 
-time = "  %H:%M"
-time-alt = "  %Y-%m-%d"
+time = "  %H%M "
+time-alt = "  %Y-%m-%d "
 
 format = "<label>"
 format-padding = 1
+format-background = ${colors.ac}
+format-foreground = ${colors.bg}
 
 label = "%time%"
 
 [module/network-label]
 type = custom/text
-content = "  network  "
+;content = ""
+;content-foreground = ${colors.ac}
+content = "net:"
+content-foreground = ${colors.ac}
 
 [module/network]
 type = internal/network
@@ -263,15 +310,17 @@ interval  = 5
 accumulate-stats = true
 unknown-as-up = false
 
-format-connected-padding = 1
-format-disconnected-padding = 1
+format-padding = 0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 format-disconnected = <label-disconnected>
+;format-connected = <ramp-signal> <label-connected>
+;format-disconnected = <label-disconnected>
 
 label-connected = "%essid% "
 ;; %downspeed:8% %upspeed:8%"
-label-disconnected = " nah! "
+;label-disconnected = " nah! "
+label-disconnected = "nah! "
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -280,13 +329,17 @@ ramp-signal-3 = 
 
 [module/memory-label]
 type = custom/text
-content = "  memory  "
+;content = ""
+;content-foreground = ${colors.ac}
+content = "mem:"
+content-foreground = ${colors.ac}
 
 [module/memory]
 type = internal/memory
 interval = 2
 
-format = "<ramp-used> <label>   "
+;format = "<ramp-used> <label>  "
+format = "<label>  "
 format-prefix =
 
 label = %mb_used%
