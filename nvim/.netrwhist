@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/kiedtl/etc/nvim/plugged/nvim-scrollview/plugin'
+let g:netrw_dirhist_5='/home/kiedtl/etc/nvim/plugged/nvim-scrollview'
+let g:netrw_dirhist_4='/home/kiedtl/etc/nvim/plugged'
 let g:netrw_dirhist_3='/home/kiedtl/src/zf/src/std'
 let g:netrw_dirhist_2='/home/kiedtl/etc/nvim/ftdetect'
 let g:netrw_dirhist_1='/home/kiedtl/src/chmap/src'

@@ -195,4 +195,9 @@ prompt() {
     printf ' '
 }
 
-PS1="\$(prompt)"
+#PS1="\$(prompt)"
+PS1="] "
+
+# GWSL thing
+#export DISPLAY=$(ip route list default | awk '{print $3}'):0
+#export LIBGL_ALWAYS_INDIRECT=1
