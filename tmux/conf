@@ -9,8 +9,10 @@ set -g status-fg blue
 set -g status-interval 2
 
 set -g status-justify right
-setw -g window-status-format "#[bg=black,fg=brightblack]#[bg=brightblack,fg=brightwhite] #{pane_current_command} #[bg=black,fg=brightblack]"
-setw -g window-status-current-format "#[bg=black,fg=yellow]#[bg=yellow,fg=black] #{pane_current_command} #[bg=black,fg=yellow]"
+#setw -g window-status-format "#[bg=black,fg=brightblack]#[bg=brightblack,fg=brightwhite] #{pane_current_command} #[bg=black,fg=brightblack]"
+#setw -g window-status-current-format "#[bg=black,fg=green]#[bg=green,fg=black] #{pane_current_command} #[bg=black,fg=green]"
+setw -g window-status-format "#[bg=black,fg=brightblack]#[bg=brightblack,fg=brightwhite] #{pane_current_command} #[bg=black,fg=brightblack]"
+setw -g window-status-current-format "#[bg=black,fg=green]#[bg=green,fg=black] #{pane_current_command} #[bg=black,fg=green]"
 
 set -g status-justify centre
 set-option -g status-right ''
