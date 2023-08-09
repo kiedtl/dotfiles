@@ -36,9 +36,9 @@ padding-left  = 0
 padding-right = 0
 
 
-modules-left   = rcmen
+modules-left   = rcmen battery-label battery
 modules-center = memory-label memory filesystem-label filesystem network-label network
-modules-right  = kbd-label kbd
+modules-right  = volume-label volume brightness-label brightness kbd-label kbd
 
 radius = 0
 border-bottom-size = 0
@@ -79,7 +79,7 @@ border-color  = ${colors.fg}
 [colors]
 fg = ${xrdb:polybar.fg:#e1e2e2}
 bg = ${xrdb:polybar.bg:#192222}
-ac = ${xrdb:polybar.ac:#884444}
+ac = ${xrdb:color2:#884444}
 
 tier0 = ${xrdb:color8:#cacbca}
 tier1 = ${xrdb:color3:#cacbca}
@@ -99,6 +99,7 @@ tamzen       = "tamzen:size=16;2"
 tamzen-bold  = "tamzen:size=16:style=Bold;2"
 siji         = "siji;2"
 cursed       = "cursed:size=20;3"
+spleen       = "spleen:size=16;3"
 
 ;;     ---
 ;;  formatting
@@ -229,6 +230,208 @@ label-occupied =
 label-urgent =
 label-empty =
 
+[module/volume-label]
+type = custom/text
+content = "vol:"
+content-foreground = ${colors.ac}
+
+[module/volume]
+type = internal/pulseaudio
+
+; Available tags: <label-volume> (default) <ramp-volume> <bar-volume>
+format-volume = <bar-volume>
+format-volume-padding = 1
+
+; Available tags: <label-muted> (default) <ramp-volume> <bar-volume>
+format-muted = <label-muted>
+format-muted-padding = 1
+
+; Available tokens:  %percentage% (default)
+label-volume = %percentage%%
+
+; Available tokens: %percentage% (default)
+format-muted-prefix =
+label-muted = "Muted"
+label-muted-foreground = ${colors.fg}
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = #
+ramp-volume-1 = #
+ramp-volume-2 = #
+ramp-volume-3 = #
+ramp-volume-4 = #
+
+; Only applies if <bar-volume> is used
+bar-volume-width = 10
+bar-volume-gradient = false
+
+bar-volume-indicator = 
+bar-volume-indicator-foreground = ${colors.bi}
+bar-volume-indicator-font = 2
+
+bar-volume-fill = #
+bar-volume-foreground-0 = ${colors.ac}
+bar-volume-foreground-1 = ${colors.ac}
+bar-volume-foreground-2 = ${colors.ac}
+bar-volume-foreground-3 = ${colors.ac}
+bar-volume-foreground-4 = ${colors.ac}
+bar-volume-foreground-5 = ${colors.ag}
+bar-volume-foreground-6 = ${colors.ag}
+bar-volume-foreground-7 = ${colors.ag}
+bar-volume-foreground-8 = ${colors.ag}
+bar-volume-fill-font = 2
+
+bar-volume-empty = .
+bar-volume-empty-foreground = ${colors.fg}
+bar-volume-empty-font = 2
+
+; If defined, it will replace <ramp-volume> when headphones are plugged in to
+; `headphone_control_numid`. If undefined, <ramp-volume> will be used for both.
+; Only applies if <ramp-volume> is used
+ramp-headphones-0 = #
+ramp-headphones-1 = #
+
+[module/brightness-label]
+type = custom/text
+content = "bri:"
+content-foreground = ${colors.ac}
+
+[module/brightness]
+type = internal/xbacklight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Available tags: <label> (default) <ramp> <bar>
+format = <label>
+format-padding = 1
+
+; Available tokens: %percentage% (default)
+label = %percentage%%
+
+bar-width = 10
+bar-gradient = false
+
+bar-indicator = 
+bar-indicator-foreground = ${color.bi}
+bar-indicator-font = 2
+
+bar-fill = #
+bar-foreground-0 = ${color.bn}
+bar-foreground-1 = ${color.bn}
+bar-foreground-2 = ${color.bn}
+bar-foreground-3 = ${color.bm}
+bar-foreground-4 = ${color.bm}
+bar-foreground-5 = ${color.bd}
+bar-foreground-6 = ${color.bd}
+bar-foreground-7 = ${color.bd}
+bar-foreground-8 = ${color.bd}
+bar-fill-font = 2
+
+bar-empty = #
+bar-empty-foreground = ${color.be}
+bar-empty-font = 2
+
+[module/battery-label]
+type = custom/text
+;content = "⌨"
+content = "bat:"
+content-foreground = ${colors.ac}
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+; full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP0
+
+; If an inotify event haven't been reported in this many seconds,
+; manually poll for new values. Needed as a fallback for systems that don't
+; report events on sysfs/procfs. (0 = disabled)
+poll-interval = 2
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-charging = +<bar-capacity>
+;format-charging-prefix = "# "
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = :<bar-capacity>
+;format-discharging-prefix = "# "
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = "%percentage%% (%time%)"
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = "%percentage%% (%time%)"
+
+; Available tokens:
+;   %percentage% (default)
+label-full = 100% charged
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+bar-capacity-gradient = false
+
+bar-capacity-indicator = 
+bar-capacity-indicator-foreground = ${color.bi}
+bar-capacity-indicator-font = 2
+
+bar-capacity-fill = #
+bar-capacity-foreground-0 = ${colors.fc}
+bar-capacity-foreground-1 = ${colors.fc}
+bar-capacity-foreground-2 = ${colors.fc}
+bar-capacity-foreground-3 = ${colors.fc}
+bar-capacity-foreground-4 = ${colors.fc}
+bar-capacity-foreground-5 = ${colors.fc}
+bar-capacity-foreground-6 = ${colors.fc}
+bar-capacity-foreground-7 = ${colors.fc}
+bar-capacity-foreground-8 = ${colors.fc}
+bar-capacity-fill-font = 2
+
+bar-capacity-empty = .
+bar-capacity-empty-foreground = ${colors.fg}
+bar-capacity-empty-font = 2
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = #
+ramp-capacity-1 = #
+ramp-capacity-2 = #
+ramp-capacity-3 = #
+ramp-capacity-4 = #
+ramp-capacity-5 = #
+ramp-capacity-6 = #
+ramp-capacity-7 = #
+ramp-capacity-8 = #
+ramp-capacity-9 = #
+
 [module/kbd-label]
 type = custom/text
 ;content = "⌨"
@@ -238,7 +441,7 @@ content-foreground = ${colors.ac}
 [module/kbd]
 type = internal/xkeyboard
 format = <label-layout> <label-indicator>
-format-spacing = 0
+format-spacing = 1
 
 [module/filesystem-label]
 type = custom/text
