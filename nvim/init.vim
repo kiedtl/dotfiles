@@ -58,7 +58,7 @@ set autoindent                   " indent at level of previous line
 set laststatus=2                 " enable the statusbar
 set cursorline                   " highlight current line
 set number                       " enable line numbers
-"set relativenumber               " disable relative line numbers for now
+"set relativenumber               " relative line
 set list                         " enable listchars (see below)
 set tabstop=8                    " show tabs as 8 spaces
 set smarttab
@@ -293,3 +293,4 @@ colorscheme plain
 
 source ~/etc/nvim/plugin/statusbar.vim
 source ~/etc/nvim/plugin/ligatures.vim
+source ~/etc/nvim/plugin/z/z.vim

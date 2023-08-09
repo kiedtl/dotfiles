@@ -32,29 +32,29 @@ function! StatusLine() abort
 	let l:line=''
 
 	" u/Nerdypepper-esque theme theme
-	highlight user1  ctermbg=7    ctermfg=0    cterm=NONE
+	highlight user1  ctermbg=2    ctermfg=0    cterm=NONE
 	highlight user2  ctermbg=8    ctermfg=15   cterm=NONE
 	highlight user3  ctermbg=8    ctermfg=7    cterm=bold
 	highlight user4  ctermbg=NONE ctermfg=NONE cterm=NONE
 	highlight user7  ctermbg=NONE ctermfg=8    cterm=NONE
 	highlight user8  ctermbg=8    ctermfg=0    cterm=NONE
 	highlight user9  ctermbg=8    ctermfg=7    cterm=NONE
-	let l:line.='%9*%1* %{g:curmode[mode()]}%  %9*%2* '
-	let l:line.=' '
+	let l:line.='%9*%1* %{g:curmode[mode()]}%  %9*%2* '
+	let l:line.=' '
 	let l:line.=GitBranch()
-	let l:line.=' %7*%4* '
+	let l:line.=' %7*%4* '
 	let l:line.='%t %{ReadOnly()}% %{Modified()}%'
-	let l:line.=' %7*%4* '
+	let l:line.=' %7*%4* '
 	let l:line.=&fileformat
 	let l:line.=' %= '
 	"let l:line.=' '
 	"let l:line.=LinePercentageBar()
-	let l:line.='%7*%2* Ln %l Col %v '
-	let l:line.='%9*%1* '
-	let l:line.=GetIcon()
-	let l:line.=' '
+	let l:line.='%7*%2* Ln %l Col %v '
+	let l:line.='%9*%1* '
+	"let l:line.=GetIcon()
+	"let l:line.=' '
 	let l:line.=FileType()
-	let l:line.=' %9*'
+	let l:line.=' %9*'
 
 
 	" Emacs-esque theme (I guess? I cannot remember the
