@@ -16,8 +16,8 @@ xset -b
 # 	- Enable Ctrl+Alt+<Bksp> to kill X11
 # 	- Swap escape and caps lock
 # 	- Rebind meta/alt
+#  	-option caps:swapescape \
 setxkbmap -layout us,il \
-	-option caps:swapescape \
 	-option compose:ralt \
 	-option grp:sclk_toggle \
 	-option altwin:meta_alt \
@@ -39,7 +39,9 @@ xrdb -merge ~/.cache/wal/2bwm.Xresources
 
 # set wallpaper/theme, bars
 the peaceful &
-polybar -r bar &
 
-xautolock -time 30 -locker slock &
+xhost +localhost
+
+xautolock -time 30 -locker 'i3lock-fancy -pf Fira-Code-Regular' &
+pulseaudio &
 exec ssh-agent i3
