@@ -162,7 +162,7 @@ esac
 # fact, so why bother taking it out...
 xhost +local:root >/dev/null 2>&1
 
-if has paleta && has colors && [ "$IS_SSH" = "true" ]; then
+if has paleta && has colors && [ "$IS_SSH" = "false" ]; then
     colors | paleta 2>/dev/null >&2      # retrieve colorscheme
 fi
 
