@@ -10,7 +10,14 @@ export PATH="$HOME/.cargo/bin:$HOME/go/bin:$PATH"
 export PATH="/tilde/bin:$PATH"                  # tildeverse scripts
 export PATH="$HOME/bin:$HOME/bin/net:$PATH"
 export PATH="$HOME/bin/x11:$HOME/bin/lib:$PATH"
+export PATH="$HOME/bin/srv:$PATH"
 export PATH="$HOME/.luarocks/bin/:$PATH"
+export PATH="$HOME/zig/bin/:$PATH"
+
+IS_SSH=false
+[ -z "$SSH_TTY" ]        || IS_SSH=true
+[ -z "$SSH_CONNECTION" ] || IS_SSH=true
+[ -z "$SSH_CLIENT" ]     || IS_SSH=true
 
 if has nvim; then
     export EDITOR="nvim"
@@ -28,6 +35,7 @@ fi
 
 export VISUAL="$EDITOR"
 export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"                    # vim: enable 256 colors already
 export XDG_CONFIG_HOME="${HOME}/etc"
 export LD_LIBRARY_PATH=~/local/lib:$LD_LIBRARY_PATH
@@ -86,11 +94,6 @@ export LUA_CPATH='/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3
 lines() { sed "${1},+${2}!d" "$3"; }
 s() { systemctl --user "${1:-status}" "${2:-bot}" ;}
 pc() { echo "$@" | pescli -q; }
-gc() {
-    h="$1" rr="$2"
-    shift 2
-    git clone "https://github.com/$h/$rr" "$@" --recurse;
-}
 
 if has systemctl; then
     alias sysu='systemctl --user'
@@ -124,7 +127,11 @@ if has bc; then
     alias bc="bc -ql"                     # basic calculator
 fi
 
-alias gst='git status'               # darn  you, git
+alias gst='git status'               # darn you, git
+alias gpu='git push'                 # ...
+alias gco='git commit'               # ...
+alias gcom='git commit -m'           # ...
+gc() { h="$1" x="$2"; shift 2; git clone "https://github.com/$h/$x" "$@" --recurse; }
 alias p='pwd'                        # where does laziness become insanity?
 alias h='cd ~'                       # ...
 alias c='clear'                      # ...
@@ -155,8 +162,8 @@ esac
 # fact, so why bother taking it out...
 xhost +local:root >/dev/null 2>&1
 
-if has paleta && has colors; then
-    paleta $(colors) 2>/dev/null >&2      # retrieve colorscheme
+if has paleta && has colors && [ "$IS_SSH" = "true" ]; then
+    colors | paleta 2>/dev/null >&2      # retrieve colorscheme
 fi
 
 prompt() {
