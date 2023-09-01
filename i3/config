@@ -8,12 +8,17 @@ for_window [class="^.*"] floating enable
 
 set $mod Mod4
 set $term alacritty
-font cursed 16
+font pango:cursed 12px
+gaps inner 8
+gaps outer 3
+gaps top 36
+gaps bottom 36
+title_align center
 
 # Set colors from Xresources
-set_from_resource $fg i3wm.color15
-set_from_resource $bg i3wm.color7
-set_from_resource $border_inactive i3wm.color1
+set_from_resource $fg i3wm.color7
+set_from_resource $bg i3wm.color0
+set_from_resource $border_inactive i3wm.color8
 set_from_resource $border_active i3wm.color2
 
 # class                 border  			backgr. text 	indicator child_border
@@ -121,7 +126,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec i3-msg exit
-bindsym $mod+Shift+x exec slock
+bindsym $mod+Shift+x exec i3lock-fancy -f Fira-Code-Regular
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -129,14 +134,17 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-	bindsym h resize grow width 5 px or 5 ppt
+        bindsym h resize grow width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
         bindsym l resize shrink width 5 px or 5 ppt
-	bindsym Shift+h resize grow width 10 px or 10 ppt
+        bindsym Shift+h resize grow width 10 px or 10 ppt
         bindsym Shift+j resize grow height 10 px or 10 ppt
         bindsym Shift+k resize shrink height 10 px or 10 ppt
         bindsym Shift+l resize shrink width 10 px or 10 ppt
+
+        bindsym c floating enable, move position center
+        bindsym Shift+c floating enable, resize set height 90 ppt, move position center
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
