@@ -15,62 +15,66 @@
 pseudo-transparency = true
 
 [bar/bottom]
-override-redirect = false
-wm-restack        =
+override-redirect = true
+wm-restack        = i3
 fixed-center      = true
 
 monitor  =
 bottom   = true
-width    = 100%
+width    = 100%:-400
 height   = 20
-offset-y = 0
-offset-x = 0
+offset-y = 10
+offset-x = 200
 
 background    = ${colors.bg}
 foreground    = ${colors.fg}
 font-0        = ${fonts.cursed}
 font-1        = ${fonts.cursed}
-font-2        = ${fonts.cursed}
+font-2        = ${fonts.siji}
 separator     = " "
 padding-left  = 0
 padding-right = 0
 
+modules-left   = rcmen filesystem-label filesystem
+modules-center = mpd-label mpd
+modules-right  = battery-label battery battery-charging brightness-label brightness powermenu
 
-modules-left   = rcmen battery-label battery
-modules-center = memory-label memory filesystem-label filesystem network-label network
-modules-right  = volume-label volume brightness-label brightness kbd-label kbd
-
-radius = 0
-border-bottom-size = 0
-border-color  = ${colors.fg}
+radius = 5
+border-top-size = 2
+border-bottom-size = 2
+border-size = 2
+border-color  = ${colors.bg}
 
 [bar/top]
-override-redirect = false
-wm-restack        =
+override-redirect = true
+wm-restack        = i3
 fixed-center      = true
 
 monitor  =
 bottom   = false
-width    = 100%
+width    = 100%:-400
 height   = 20
-offset-y = 0
-offset-x = 0
+offset-y = 10
+offset-x = 200
 
 background    = ${colors.bg}
 foreground    = ${colors.fg}
 font-0        = ${fonts.cursed}
+font-1        = ${fonts.siji}
+font-2        = ${fonts.siji}
 separator     = " "
 padding-left  = 0
 padding-right = 0
 
+modules-left   = date arvelie memory-label memory
+modules-center = i3
+modules-right  = network-label network volume-label volume ndmen
 
-modules-left   = i3
-modules-center = title
-modules-right  = date
-
-radius = 0
-border-bottom-size = 0
-border-color  = ${colors.fg}
+radius = 5
+border-top-size = 2
+border-bottom-size = 2
+border-size = 2
+border-color  = ${colors.bg}
 
 ;;        ----
 ;;  colors and fonts
@@ -80,6 +84,8 @@ border-color  = ${colors.fg}
 fg = ${xrdb:polybar.fg:#e1e2e2}
 bg = ${xrdb:polybar.bg:#192222}
 ac = ${xrdb:color2:#884444}
+gr = ${xrdb:color8:#884444}
+bl = ${xrdb:color7:#884444}
 
 tier0 = ${xrdb:color8:#cacbca}
 tier1 = ${xrdb:color3:#cacbca}
@@ -100,6 +106,7 @@ tamzen-bold  = "tamzen:size=16:style=Bold;2"
 siji         = "siji;2"
 cursed       = "cursed:size=20;3"
 spleen       = "spleen:size=16;3"
+cherry       = "cherry:size=12;3"
 
 ;;     ---
 ;;  formatting
@@ -148,17 +155,17 @@ enable-click = true
 enable-scroll = true
 wrapping-scroll = true
 
-;ws-icon-0 = 1;
-;ws-icon-1 = 2;
-;ws-icon-2 = 3;
-;ws-icon-3 = 4;
-;ws-icon-4 = 5;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
 
-ws-icon-0 = 1;I
-ws-icon-1 = 2;II
-ws-icon-2 = 3;III
-ws-icon-3 = 4;IV
-ws-icon-4 = 5;V
+;ws-icon-0 = 1;I
+;ws-icon-1 = 2;II
+;ws-icon-2 = 3;III
+;ws-icon-3 = 4;IV
+;ws-icon-4 = 5;V
 
 label-focused = %icon%
 label-focused-padding = 1
@@ -168,11 +175,25 @@ label-focused-background = ${colors.ac}
 label-unfocused = %icon%
 label-unfocused-padding = 1
 
+[module/powermenu]
+type = custom/text
+click-left = powermenu
+content = "  "
+content-background = ${colors.ac}
+content-foreground = ${colors.bg}
+
+[module/ndmen]
+type = custom/text
+click-left = ndmen
+content = "  "
+content-background = ${colors.ac}
+content-foreground = ${colors.bg}
+
 [module/rcmen]
 type = custom/text
 click-left = rcmen
 ;content = "  "
-content = "  @  "
+content = "    "
 content-background = ${colors.ac}
 content-foreground = ${colors.bg}
 
@@ -231,70 +252,94 @@ label-urgent =
 label-empty =
 
 [module/volume-label]
-type = custom/text
-content = "vol:"
-content-foreground = ${colors.ac}
+; type = custom/text
+; ;content = "vol:"
+; content = ""
+; content-foreground = ${colors.ac}
+type = internal/pulseaudio
+
+format-volume = %{A1:pavucontrol:}<ramp-volume>%{A}
+format-volume-padding = 1
+format-volume-margin = 0
+format-volume-background = ${colors.ac}
+format-volume-foreground = ${colors.bg}
+
+format-muted = %{A1:pavucontrol:}<label-muted>%{A}
+format-muted-padding = 1
+format-muted-background = ${colors.ac}
+format-muted-foreground = ${colors.bg}
+label-muted = 
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+
+; If defined, it will replace <ramp-volume> when headphones are plugged in to
+; `headphone_control_numid`. If undefined, <ramp-volume> will be used for both.
+; Only applies if <ramp-volume> is used
+;ramp-headphones-0 = #
+;ramp-headphones-1 = #
 
 [module/volume]
 type = internal/pulseaudio
 
 ; Available tags: <label-volume> (default) <ramp-volume> <bar-volume>
-format-volume = <bar-volume>
-format-volume-padding = 1
+format-volume-margin = 0
+format-volume = "<bar-volume> "
+format-volume-padding = 0
 
 ; Available tags: <label-muted> (default) <ramp-volume> <bar-volume>
 format-muted = <label-muted>
-format-muted-padding = 1
+format-muted-padding = 0
 
 ; Available tokens:  %percentage% (default)
 label-volume = %percentage%%
 
-; Available tokens: %percentage% (default)
 format-muted-prefix =
-label-muted = "Muted"
-label-muted-foreground = ${colors.fg}
-
-; Only applies if <ramp-volume> is used
-ramp-volume-0 = #
-ramp-volume-1 = #
-ramp-volume-2 = #
-ramp-volume-3 = #
-ramp-volume-4 = #
+format-muted-foreground = ${colors.ac}
+;label-muted = "━━━━━━━━"
+label-muted = "········"
 
 ; Only applies if <bar-volume> is used
-bar-volume-width = 10
+bar-volume-width = 8
 bar-volume-gradient = false
 
-bar-volume-indicator = 
-bar-volume-indicator-foreground = ${colors.bi}
-bar-volume-indicator-font = 2
+;bar-volume-indicator = ■
+bar-volume-indicator =
+;bar-volume-indicator-foreground = ${colors.ac}
+;bar-volume-indicator-font = 2
 
-bar-volume-fill = #
+bar-volume-fill = ━
 bar-volume-foreground-0 = ${colors.ac}
-bar-volume-foreground-1 = ${colors.ac}
-bar-volume-foreground-2 = ${colors.ac}
-bar-volume-foreground-3 = ${colors.ac}
-bar-volume-foreground-4 = ${colors.ac}
-bar-volume-foreground-5 = ${colors.ag}
-bar-volume-foreground-6 = ${colors.ag}
-bar-volume-foreground-7 = ${colors.ag}
-bar-volume-foreground-8 = ${colors.ag}
-bar-volume-fill-font = 2
+bar-volume-fill-font = 1
 
-bar-volume-empty = .
-bar-volume-empty-foreground = ${colors.fg}
+bar-volume-empty = ━
+bar-volume-empty-foreground = ${colors.gr}
 bar-volume-empty-font = 2
-
-; If defined, it will replace <ramp-volume> when headphones are plugged in to
-; `headphone_control_numid`. If undefined, <ramp-volume> will be used for both.
-; Only applies if <ramp-volume> is used
-ramp-headphones-0 = #
-ramp-headphones-1 = #
 
 [module/brightness-label]
 type = custom/text
-content = "bri:"
-content-foreground = ${colors.ac}
+;content = "bri:"
+content = "  "
+;content-foreground = ${colors.ac}
+content-foreground = ${colors.bg}
+content-background = ${colors.ac}
+;type = internal/xbacklight
+;
+;format = <ramp>
+;format-padding = 1
+;format-foreground = ${colors.bg}
+;format-background = ${colors.ac}
+;label
+;
+;ramp-0 = 1
+;ramp-1 = 2
+;ramp-2 = 3
+;ramp-3 = 4
+;ramp-4 = 5
 
 [module/brightness]
 type = internal/xbacklight
@@ -304,133 +349,88 @@ type = internal/xbacklight
 card = intel_backlight
 
 ; Available tags: <label> (default) <ramp> <bar>
-format = <label>
-format-padding = 1
+format = "<bar> "
+format-padding = 0
 
 ; Available tokens: %percentage% (default)
 label = %percentage%%
 
-bar-width = 10
+bar-width = 8
 bar-gradient = false
 
-bar-indicator = 
-bar-indicator-foreground = ${color.bi}
-bar-indicator-font = 2
+;bar-indicator = ■
+bar-indicator =
+;bar-indicator-foreground = ${colors.ac}
+;bar-indicator-font = 2
 
-bar-fill = #
-bar-foreground-0 = ${color.bn}
-bar-foreground-1 = ${color.bn}
-bar-foreground-2 = ${color.bn}
-bar-foreground-3 = ${color.bm}
-bar-foreground-4 = ${color.bm}
-bar-foreground-5 = ${color.bd}
-bar-foreground-6 = ${color.bd}
-bar-foreground-7 = ${color.bd}
-bar-foreground-8 = ${color.bd}
+bar-fill = ━
+bar-foreground-0 = ${colors.ac}
+bar-foreground-1 = ${colors.ac}
+bar-foreground-2 = ${colors.ac}
+bar-foreground-3 = ${colors.ac}
+bar-foreground-4 = ${colors.ac}
+bar-foreground-5 = ${colors.ac}
+bar-foreground-6 = ${colors.ac}
+bar-foreground-7 = ${colors.ac}
+bar-foreground-8 = ${colors.ac}
 bar-fill-font = 2
 
-bar-empty = #
-bar-empty-foreground = ${color.be}
+bar-empty = ━
+bar-empty-foreground = ${colors.gr}
 bar-empty-font = 2
 
 [module/battery-label]
-type = custom/text
+;type = custom/text
 ;content = "⌨"
-content = "bat:"
-content-foreground = ${colors.ac}
+;content = "bat:"
+;content = ""
+;content-foreground = ${colors.ac}
 
-[module/battery]
 type = internal/battery
+format-charging-foreground = ${colors.bg}
+format-charging-background = ${colors.ac}
+format-discharging-foreground = ${colors.bg}
+format-discharging-background = ${colors.ac}
+format-full-foreground = ${colors.bg}
+format-full-background = ${colors.ac}
 
-; This is useful in case the battery never reports 100% charge
-; full-at = 99
-
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
 battery = BAT0
 adapter = ADP0
 
-; If an inotify event haven't been reported in this many seconds,
-; manually poll for new values. Needed as a fallback for systems that don't
-; report events on sysfs/procfs. (0 = disabled)
 poll-interval = 2
 
-; see "man date" for details on how to format the time string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
-time-format = %H:%M
+format-charging = "%{A1:wifimen:}<ramp-capacity>%{A} "
+format-charging-prefix = " "
+format-discharging = "%{A1:wifimen:}<ramp-capacity>%{A} "
+format-discharging-prefix = " "
+format-full = " <ramp-capacity> "
+format-full-prefix = " "
 
-; Available tags:
-;   <label-charging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-format-charging = +<bar-capacity>
-;format-charging-prefix = "# "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-font = 2
 
-; Available tags:
-;   <label-discharging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-discharging>
-format-discharging = :<bar-capacity>
-;format-discharging-prefix = "# "
+[module/battery]
+type = internal/battery
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+label-charging = "%percentage%%"
+label-discharging = "%percentage%%"
 
-; Available tags:
-;   <label-full> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;format-full = <ramp-capacity> <label-full>
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current charge rate in watts)
-label-charging = "%percentage%% (%time%)"
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current discharge rate in watts)
-label-discharging = "%percentage%% (%time%)"
-
-; Available tokens:
-;   %percentage% (default)
-label-full = 100% charged
-
-; Only applies if <bar-capacity> is used
-bar-capacity-width = 10
-bar-capacity-gradient = false
-
-bar-capacity-indicator = 
-bar-capacity-indicator-foreground = ${color.bi}
-bar-capacity-indicator-font = 2
-
-bar-capacity-fill = #
-bar-capacity-foreground-0 = ${colors.fc}
-bar-capacity-foreground-1 = ${colors.fc}
-bar-capacity-foreground-2 = ${colors.fc}
-bar-capacity-foreground-3 = ${colors.fc}
-bar-capacity-foreground-4 = ${colors.fc}
-bar-capacity-foreground-5 = ${colors.fc}
-bar-capacity-foreground-6 = ${colors.fc}
-bar-capacity-foreground-7 = ${colors.fc}
-bar-capacity-foreground-8 = ${colors.fc}
-bar-capacity-fill-font = 2
-
-bar-capacity-empty = .
-bar-capacity-empty-foreground = ${colors.fg}
-bar-capacity-empty-font = 2
-
-; Only applies if <ramp-capacity> is used
-ramp-capacity-0 = #
-ramp-capacity-1 = #
-ramp-capacity-2 = #
-ramp-capacity-3 = #
-ramp-capacity-4 = #
-ramp-capacity-5 = #
-ramp-capacity-6 = #
-ramp-capacity-7 = #
-ramp-capacity-8 = #
-ramp-capacity-9 = #
+[module/battery-charging]
+type = custom/script
+click-left = toggle-battery-conserve
+exec = bar-battery-charging
+exec-if = acpi -b | grep -qE '([Cc]harging)|(Full)'
+interval = 3
 
 [module/kbd-label]
 type = custom/text
@@ -444,10 +444,29 @@ format = <label-layout> <label-indicator>
 format-spacing = 1
 
 [module/filesystem-label]
-type = custom/text
+;type = custom/text
 ;content = ""
-content = "fs:"
-content-foreground = ${colors.ac}
+;content = "fs:"
+;content-foreground = ${colors.ac}
+type = internal/fs
+
+mount-0 = /
+interval = 10 
+fixed-values = true
+
+format-mounted-foreground = ${colors.bg}
+format-mounted-background = ${colors.ac}
+format-mounted = "<ramp-capacity> "
+format-mounted-prefix = " "
+format-unmounted = " "
+format-unmounted-foreground = ${colors.bg}
+format-unmounted-background = ${colors.ac}
+format-unmounted-prefix = " "
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
 
 [module/filesystem]
 type = internal/fs
@@ -456,12 +475,11 @@ mount-0 = /
 interval = 10 
 fixed-values = true
 
-;format-mounted = "<ramp-capacity> <label-mounted>  "
-format-mounted = "<label-mounted>  "
-format-unmounted = "<label-unmounted>  "
+format-mounted = "<label-mounted>"
+format-unmounted = "<label-unmounted>"
 
 label-mounted = %free%
-label-unmounted = %mountpoint%: unmounted!
+label-unmounted = %mountpoint% is on fire
 
 bar-used-indicator =
 bar-used-width = 10
@@ -472,13 +490,6 @@ bar-used-foreground-1 = ${colors.fg}
 bar-used-foreground-2 = ${colors.fg}
 bar-used-foreground-3 = ${colors.fg}
 bar-used-empty-foreground = ${colors.fg}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-
-ramp-capacity-foreground = ${colors.fg}
 
 [module/date-label]
 type = custom/text
@@ -498,12 +509,40 @@ format-foreground = ${colors.bg}
 
 label = "%time%"
 
+[module/arvelie]
+type = custom/script
+exec = arvelie
+interval = 100
+
 [module/network-label]
-type = custom/text
+;type = custom/text
+;click-left = wifimen
 ;content = ""
 ;content-foreground = ${colors.ac}
-content = "net:"
-content-foreground = ${colors.ac}
+;content = "net:"
+;content-foreground = ${colors.ac}
+type = internal/network
+interface = wlan0
+
+interval  = 5
+accumulate-stats = true
+unknown-as-up = false
+
+format-connected-padding = 1
+format-connected = "%{A1:wifimen:}<ramp-signal>%{A}"
+format-connected-background = ${colors.ac}
+format-connected-foreground = ${colors.bg}
+
+format-disconnected-padding = 1
+format-disconnected = %{A1:wifimen:}<label-disconnected>%{A}
+format-disconnected-background = ${colors.ac}
+format-disconnected-foreground = ${colors.bg}
+label-disconnected = 
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
 
 [module/network]
 type = internal/network
@@ -514,35 +553,35 @@ accumulate-stats = true
 unknown-as-up = false
 
 format-padding = 0
-
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-;format-connected = <ramp-signal> <label-connected>
-;format-disconnected = <label-disconnected>
 
-label-connected = "%essid% "
-;; %downspeed:8% %upspeed:8%"
-;label-disconnected = " nah! "
-label-disconnected = "nah! "
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
+label-connected = "%{A1:wifimen:}%essid%%{A}"
+label-disconnected = "%{A1:wifimen:}nah!%{A}"
 
 [module/memory-label]
-type = custom/text
-;content = ""
+;type = custom/text
+;content = "mem:"
 ;content-foreground = ${colors.ac}
-content = "mem:"
-content-foreground = ${colors.ac}
+type = internal/memory
+interval = 2
+
+format = "<ramp-used> "
+format-foreground = ${colors.bg}
+format-background = ${colors.ac}
+format-prefix = " "
+
+ramp-used-0 = 
+ramp-used-1 = 
+ramp-used-2 = 
+ramp-used-3 = 
 
 [module/memory]
 type = internal/memory
 interval = 2
 
-;format = "<ramp-used> <label>  "
-format = "<label>  "
+;format = "<ramp-used> <label>"
+format = "<label>"
 format-prefix =
 
 label = %mb_used%
@@ -563,3 +602,93 @@ ramp-used-2 = 
 ramp-used-3 = 
 
 ramp-used-foreground = ${colors.fg}
+
+[module/mpd-label]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 1
+
+format-online = "<icon-prev> <toggle> <icon-next>"
+format-online-padding = 1
+format-online-foreground = ${colors.bg}
+format-online-background = ${colors.ac}
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+icon-repeatone = 
+icon-single = 
+icon-consume = ×
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 1
+
+format-online = %{A:cantata:}<label-song> <bar-progress>%{A}
+format-online-prefix = 
+format-online-foreground = ${colors.ac}
+
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+
+format-stopped = " nah"
+format-stopped-prefix = 
+
+; Available tags:
+;   <label-offline>
+format-offline = <label-offline>
+format-offline-prefix = 
+format-offline-prefix-foreground = ${colors.ac}
+format-offline-foreground = ${colors.fg}
+
+; Available tokens: %artist%, %album-artist%, %album%, %date%, %title%,
+; 	%artist% - %album%
+label-song =  " %title% - %artist%"
+label-song-maxlen = 24
+label-song-ellipsis = true
+label-song-foreground = ${colors.fg}
+
+label-time = %elapsed% / %total%
+label-offline = " 10.0.0.123 is on fire"
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+icon-repeatone = 
+icon-single = 
+icon-consume = ×
+
+; Used to display the state of random/repeat/repeatone/single
+; Only applies if <icon-[random|repeat|repeatone|single]> is used
+toggle-on-background = ${colors.ac}
+toggle-on-foreground = ${colors.ac}
+toggle-off-background = ${colors.bg}
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 20
+bar-progress-indicator = ■
+bar-progress-indicator-foreground = ${colors.ac}
+bar-progress-fill = ━
+bar-progress-empty = ━
+bar-progress-fill-foreground = ${colors.ac}
+bar-progress-empty-foreground = ${colors.gr}
+
+;; experimental, doesn't seem to be in xbps' polybar...
+[module/tray]
+type = internal/tray
+format = <tray>
