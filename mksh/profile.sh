@@ -13,6 +13,7 @@ export PATH="$HOME/bin/x11:$HOME/bin/lib:$PATH"
 export PATH="$HOME/bin/srv:$PATH"
 export PATH="$HOME/.luarocks/bin/:$PATH"
 export PATH="$HOME/zig/bin/:$PATH"
+export PATH="$HOME/src/uxn/uxn/:$PATH"
 
 IS_SSH=false
 [ -z "$SSH_TTY" ]        || IS_SSH=true
@@ -127,6 +128,7 @@ if has bc; then
     alias bc="bc -ql"                     # basic calculator
 fi
 
+alias date1='date +%Y-%m-%d'
 alias gst='git status'               # darn you, git
 alias gpu='git push'                 # ...
 alias gco='git commit'               # ...
@@ -144,6 +146,8 @@ alias rm='rm -i'                     # confirm before deleting a file
 alias df='df -h'                     # show human-readable sizes
 alias free='free -m'                 # show sizes in MB
 alias f="factor"
+
+alias -d s=$HOME/doc/school/23f/
 
 set -o vi
 
