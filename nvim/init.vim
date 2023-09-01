@@ -19,6 +19,7 @@ Plug 'ziglang/zig.vim',         {'for': 'zig'}
 Plug 'ron-rs/ron.vim',          {'for': 'ron'}
 Plug 'bakpakin/fennel.vim',     {'for': 'fennel'}
 Plug 'janet-lang/janet.vim',    {'for': 'janet'}
+Plug 'kaarmu/typst.vim'
 
 " misc plugins
 Plug 'Yggdroot/indentLine'                          " indentlines for spaces
@@ -104,6 +105,7 @@ nnoremap <Leader>C :source $MYVIMRC<CR>
 nnoremap <Leader>d :NERDTreeToggleVCS<CR>
 nnoremap <Leader><C-S-]> <C-w><C-]><C-w>T
 nnoremap <Leader>fb :Telescope buffers<CR>
+nnoremap <Leader>g :Goyo \| :set nocursorline<CR>
 
 " mappings for easy-align
 nmap ga <Plug>(EasyAlign)
@@ -141,7 +143,7 @@ augroup END
 " configure textwidth
 augroup textwidth
 	autocmd!
-	autocmd FileType text,mail,markdown,gmi setlocal textwidth=80
+	autocmd FileType text,typ,markdown,gmi setlocal textwidth=80
 augroup END
 
 " enable spelling for my mail (with aerc), markdown/text, and gemini pages
@@ -220,9 +222,9 @@ local line = {
     hl = hl_tabline_fill,
     layout = 'active_wins_at_tail',
     head = {
-        { '', hl = hl_tabline_fill },
+        { '', hl = hl_tabline_fill },
         { cwd, hl = hl_head },
-        { ' ', hl = hl_tabline_fill },
+        { ' ', hl = hl_tabline_fill },
     },
     active_tab = {
       label = function(tabid)
@@ -231,8 +233,8 @@ local line = {
             hl = hl_tabline_sel,
           }
         end,
-	left_sep = { '', hl = hl_tabline_fill },
-	right_sep = { ' ', hl = hl_tabline_fill },
+	left_sep = { '', hl = hl_tabline_fill },
+	right_sep = { ' ', hl = hl_tabline_fill },
     },
     inactive_tab = {
         label = function(tabid)
@@ -241,8 +243,8 @@ local line = {
             hl = hl_tabline,
           }
         end,
-        left_sep = { '', hl = "user7" },
-        right_sep = { ' ', hl = "user7" },
+        left_sep = { '', hl = "user7" },
+        right_sep = { ' ', hl = "user7" },
     },
     top_win = {
         label = function(...) return "" end,
@@ -267,9 +269,9 @@ local line = {
         right_sep = "", --{ ' ', hl = "user7" },
     },
     tail = {
-        { '', hl = hl_tabline_fill },
-        { '  ', hl = hl_tabline_sel },
-        { ' ', hl = hl_tabline_fill },
+        { '', hl = hl_tabline_fill },
+        { ' ', hl = hl_tabline_sel },
+        { ' ', hl = hl_tabline_fill },
     },
 }
 
