@@ -42,6 +42,10 @@ the peaceful &
 
 xhost +localhost
 
+mpd --kill
+mpd &
+mpd-record &
+devmon &
 xautolock -time 30 -locker 'i3lock-fancy -pf Fira-Code-Regular' &
 pulseaudio &
 exec ssh-agent i3
