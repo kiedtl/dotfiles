@@ -44,7 +44,7 @@ xhost +localhost
 
 mpd --kill
 mpd &
-mpd-record &
+mppopmd -F &
 devmon &
 xautolock -time 30 -locker 'i3lock-fancy -pf Fira-Code-Regular' &
 pulseaudio &
