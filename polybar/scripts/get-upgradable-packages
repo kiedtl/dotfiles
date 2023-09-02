@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# (c) Kiëd Llaentenn <kiedtl@tilde.team>
+# See the COPYING file for copyright information.
+
+updates="error"
+
+if has xbps-install
+then
+    updates=$(xbps-install -Mun 2>/dev/null | wc -l)
+fi
+
+if [ -n "$updates" ] && [ "$updates" != "error" ]
+then
+    if [ $updates -gt 0 ]
+    then
+        printf '%d\n' "$updates"
+    else
+        printf 'none!\n'
+    fi
+else
+    printf 'error\n'
+fi

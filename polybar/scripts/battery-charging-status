@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# (c) Kiëd Llaentenn <kiedtl@tilde.team>
+# See the COPYING file for copyright information.
+
+LC_ALL=C
+
+case "$(acpi -b)" in
+    *Charging*) echo  ;;
+    *Not*charging*) echo  ;;
+    *Full*)
+        if sudo tlp-stat -b | grep -q 'conservation_mode = 1'
+        then
+            echo 
+        else
+            echo 
+        fi
+    ;;
+esac

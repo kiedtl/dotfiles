@@ -35,7 +35,7 @@ separator     = " "
 padding-left  = 0
 padding-right = 0
 
-modules-left   = rcmen filesystem-label filesystem
+modules-left   = rcmen memory-label memory filesystem-label filesystem
 modules-center = mpd-label mpd
 modules-right  = battery-label battery battery-charging brightness-label brightness powermenu
 
@@ -66,7 +66,7 @@ separator     = " "
 padding-left  = 0
 padding-right = 0
 
-modules-left   = date arvelie memory-label memory
+modules-left   = date arvelie updoots-label updoots
 modules-center = i3
 modules-right  = network-label network volume-label volume ndmen
 
@@ -428,7 +428,7 @@ label-discharging = "%percentage%%"
 [module/battery-charging]
 type = custom/script
 click-left = toggle-battery-conserve
-exec = bar-battery-charging
+exec = ~/etc/polybar/scripts/battery-charging-status
 exec-if = acpi -b | grep -qE '([Cc]harging)|(Full)'
 interval = 3
 
@@ -692,3 +692,14 @@ bar-progress-empty-foreground = ${colors.gr}
 [module/tray]
 type = internal/tray
 format = <tray>
+
+[module/updoots-label]
+type = custom/text
+content = "  "
+content-foreground = ${colors.bg}
+content-background = ${colors.ac}
+
+[module/updoots]
+type = custom/script
+exec = ~/etc/polybar/scripts/get-upgradable-packages
+interval = 100
