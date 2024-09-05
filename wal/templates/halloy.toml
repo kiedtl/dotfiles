@@ -1,0 +1,11 @@
+name = "wal"
+
+[palette]
+background = "{background}"
+text = "{foreground}"
+action = "{color4}"
+accent = "{color8}"
+alert = "{color3}"
+error = "{color1}"
+info = "{color4}"
+success = "{color2}"

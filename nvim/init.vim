@@ -22,6 +22,7 @@ Plug 'janet-lang/janet.vim',    {'for': 'janet'}
 Plug 'kaarmu/typst.vim'
 
 " misc plugins
+Plug 'j-hui/fidget.nvim'
 Plug 'Yggdroot/indentLine'                          " indentlines for spaces
 Plug 'godlygeek/tabular',   {'on': 'Tabular'}       " auto-align stuff
 Plug 'junegunn/goyo.vim',   {'on': 'Goyo'}          " disable distractions
@@ -29,13 +30,16 @@ Plug 'junegunn/vim-easy-align',                     " easily align CSV/TSV data
 Plug 'terryma/vim-multiple-cursors'                 " multiple cursors
 Plug 'tpope/vim-commentary'                         " gcc to toggle comments
 Plug 'reedes/vim-wordy',    {'on': 'Wordy'}         " fix weasel/passive words
-Plug 'preservim/nerdtree',  {'on': 'NerdeTreeVCS'}  " tree view of files
+Plug 'preservim/nerdtree'                           " tree view of files
 Plug 'reedes/vim-wheel'                             " scroll with C-k/j, keeping cursor pos
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " color boxes
+Plug 'tpope/vim-fugitive'                           " let's see how long before I remove it
+Plug 'jistr/vim-nerdtree-tabs'
 
 "Plug 'dstein64/nvim-scrollview', {'branch': 'main'} " scrollbars!
-
-Plug 'nanozuki/tabby.nvim'
+"Plug 'nanozuki/tabby.nvim'
 Plug 'neovim/nvim-lspconfig'
+
 Plug 'nvim-lua/completion-nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
@@ -45,6 +49,9 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'ggandor/leap.nvim'
 
 call plug#end()
+
+" gah
+source ~/etc/nvim/plugged/vim-nerdtree-tabs/nerdtree_plugin/vim-nerdtree-tabs.vim
 
 " }}}
 """ --------- settings ----------
@@ -68,12 +75,13 @@ set backspace=indent,eol,start   " backspace through anything
 set noincsearch                  " don't autosearch
 set inccommand=nosplit           " show preview of substitutions
 set wrap                         " wrap long lines, please!
-set mouse=                       " disable the pesky mouse support
+set mouse=a                      " disable the pesky mouse support
 set mousehide                    " hide mouse while typing
 set scrolloff=3                  " lines to keep above/below cursor when scrolling
 set showmatch                    " show matching brackets/parens
 set fillchars=eob:\              " remove the annoying tildes at the end of a file
 set concealcursor=               " show concealed text as-is when editing line
+set signcolumn=yes               " reserve space to avoid jitter
 
 """ listchars
 " show tab as │, non-breaking space as ␣, trailing space as ·
@@ -100,12 +108,21 @@ nmap gb `[v`]                        " reselect previously yanked text
 nmap Y y$                            " Make Y behave consistently
 nmap Q @@                            " Ex mode is bloat
 
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+
 nnoremap <Leader>S :call SynGroup()<CR>
 nnoremap <Leader>C :source $MYVIMRC<CR>
-nnoremap <Leader>d :NERDTreeToggleVCS<CR>
+nnoremap <Leader>t :NERDTreeTabsToggle<CR>
 nnoremap <Leader><C-S-]> <C-w><C-]><C-w>T
-nnoremap <Leader>fb :Telescope buffers<CR>
 nnoremap <Leader>g :Goyo \| :set nocursorline<CR>
+
+nnoremap <Leader>fb :Telescope buffers<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+nnoremap <Leader>b yypV:!mybib<CR>gq}
 
 " mappings for easy-align
 nmap ga <Plug>(EasyAlign)
@@ -121,6 +138,12 @@ nmap <F3> :set hlsearch!<CR> " toggle search result highlighting
 " space bar toggles fold open/closed
 nnoremap <Space> @=(foldlevel('.')?'za':"\<Space>")<cr>
 vnoremap <Space> zf
+
+nmap <C-S-c> "+y
+vmap <C-S-c> "+y
+nmap <C-S-v> "+p
+inoremap <C-S-v> <c-r>+
+cnoremap <C-S-v> <c-r>+
 
 " ugh
 command! WQ wq
@@ -143,7 +166,7 @@ augroup END
 " configure textwidth
 augroup textwidth
 	autocmd!
-	autocmd FileType text,typ,markdown,gmi setlocal textwidth=80
+	autocmd FileType text,typst,markdown,gmi setlocal textwidth=80
 augroup END
 
 " enable spelling for my mail (with aerc), markdown/text, and gemini pages
@@ -156,6 +179,7 @@ augroup END
 augroup misc
 	autocmd!
 	autocmd FileType text,mail,markdown setlocal colorcolumn=
+	"autocmd FileType markdown           setlocal conceallevel=0
 augroup end
 
 
@@ -167,23 +191,49 @@ let g:indentLine_setColors = 1
 let g:indentLine_char      = '┆'
 let g:ft_man_open_mode     = 'tab'
 
+" fidget
+lua <<EOF
+require("fidget").setup {
+    -- options
+}
+EOF
+
+
+" rust lsp
+:lua << EOF
+    local lspconfig = require'lspconfig'
+    lspconfig.rust_analyzer.setup({
+    	settings = {
+	    ['rust_analyzer'] = {
+	        diagnostics = { enable = true; }
+	    }
+	},
+        on_attach = function(client, bufnr)
+                --vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            end
+    })
+EOF
+
+
 " zig lsp
 
-:lua << EOF
-    local lspconfig = require('lspconfig')
+":lua << EOF
+"    local lspconfig = require('lspconfig')
+"
+"    local on_attach = function(_, bufnr)
+"        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+"        require('completion').on_attach()
+"    end
+"
+"    local servers = {'zls'}
+"    for _, lsp in ipairs(servers) do
+"        lspconfig[lsp].setup {
+"            on_attach = on_attach,
+"        }
+"    end
+"EOF
 
-    local on_attach = function(_, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-        require('completion').on_attach()
-    end
-
-    local servers = {'zls'}
-    for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
-            on_attach = on_attach,
-        }
-    end
-EOF
+"
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
@@ -191,108 +241,51 @@ set completeopt=menuone,noinsert,noselect
 " Enable completions as you type
 let g:completion_enable_auto_popup = 1
 
-" tabby.nvim
+" Lua plugins
 
-lua <<EOF
-local filename = require('tabby.module.filename')
-local colors = require('tabby.module.colors')
-local tab = require('tabby.tab')
-local util = require('tabby.util')
+let s:lua_packagepath =  expand("<sfile>:h:r")
+exe "lua package.path = package.path .. ';" . s:lua_packagepath . "/plugin/?.lua'"
 
-local hl_head = 'TabLineSel' --{ fg = colors.black(), bg = colors.red(), style = 'italic' }
-local hl_tabline = 'TabLine'
-local hl_tabline_sel = 'TabLineSel' --{ fg = colors.black(), bg = colors.magenta(), style = 'bold' }
-local hl_tabline_fill = 'TabLineFill'
-
-local filename = require('tabby.filename')
-
-local cwd = function()
-  return ' ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ' '
-end
-
-local function tabname(tabid, active)
-  local icon = active and '' or ''
-  -- local number = vim.api.nvim_tabpage_get_number(tabid)
-  local name = util.get_tab_name(tabid)
-  return string.format(' %s %s ', icon, name)
-  -- return string.format(' %s %d ', icon, number)
-end
-
-local line = {
-    hl = hl_tabline_fill,
-    layout = 'active_wins_at_tail',
-    head = {
-        { '', hl = hl_tabline_fill },
-        { cwd, hl = hl_head },
-        { ' ', hl = hl_tabline_fill },
-    },
-    active_tab = {
-      label = function(tabid)
-          return {
-            tabname(tabid, true),
-            hl = hl_tabline_sel,
-          }
-        end,
-	left_sep = { '', hl = hl_tabline_fill },
-	right_sep = { ' ', hl = hl_tabline_fill },
-    },
-    inactive_tab = {
-        label = function(tabid)
-          return {
-            tabname(tabid),
-            hl = hl_tabline,
-          }
-        end,
-        left_sep = { '', hl = "user7" },
-        right_sep = { ' ', hl = "user7" },
-    },
-    top_win = {
-        label = function(...) return "" end,
-	--function(winid)
-          --return {
-            --'  ' .. filename.unique(winid) .. ' ',
-            --hl = hl_tabline,
-          --}
-        --end,
-	left_sep = { "" }, --{ '', hl = "user7" },
-	right_sep = { "" }, --{ ' ', hl = "user7" },
-    },
-    win = {
-        label = function(...) return "" end,
-	--function(winid)
-          --return {
-            --'  ' .. filename.unique(winid) .. ' ',
-            --hl = hl_tabline,
-          --}
-        --end,
-        left_sep = "", --{ '', hl = "user7" },
-        right_sep = "", --{ ' ', hl = "user7" },
-    },
-    tail = {
-        { '', hl = hl_tabline_fill },
-        { ' ', hl = hl_tabline_sel },
-        { ' ', hl = hl_tabline_fill },
-    },
-}
-
-require('tabby').setup({ tabline = line })
-EOF
-
-" NERDTree
-let NERDTreeHijackNetrw=1
-" }}}
+exe "lua package.loaded.rename = nil"
+command! -nargs=0 Rename lua require("rename").rename()
+nnoremap <Leader>r :Rename<CR>
 
 " Leap.nvim
 lua require('leap').add_default_mappings()
 
-""" colorscheme
-" {{{
+" Hexinokase
+let g:Hexokinase_highlighters = ['virtual']
 
-colorscheme default
-colorscheme plain
+" NERDTree
+let NERDTreeHijackNetrw=1
+
+" Neovide
+if exists("g:neovide")
+	set guifont=Fira\ Code:h7
+	let g:neovide_padding_top = 16
+	let g:neovide_padding_bottom = 16
+	let g:neovide_padding_right = 16
+	let g:neovide_padding_left = 16
+	let g:neovide_hide_mouse_when_typing = v:true
+	let g:neovide_confirm_quit = v:true
+	let g:neovide_cursor_animation_length = 0.09
+endif
+
 
 " }}}
 
+""" colorscheme
+" {{{
+
+"colorscheme default
+colorscheme plain
+" Actually light, I mixed some stuff up in my theme file
+set background=dark
+
+" }}}
+
+source ~/.cache/wal/colors.vim
+source ~/etc/nvim/plugin/tabline.vim
 source ~/etc/nvim/plugin/statusbar.vim
 source ~/etc/nvim/plugin/ligatures.vim
 source ~/etc/nvim/plugin/z/z.vim

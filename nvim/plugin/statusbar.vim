@@ -6,6 +6,7 @@
 "
 
 scriptencoding utf-8
+source ~/.cache/wal/colors.vim
 
 let g:curmode={
 	\ 'n'  : 'NORMAL',
@@ -32,13 +33,22 @@ function! StatusLine() abort
 	let l:line=''
 
 	" u/Nerdypepper-esque theme theme
-	highlight user1  ctermbg=2    ctermfg=0    cterm=NONE
-	highlight user2  ctermbg=8    ctermfg=15   cterm=NONE
-	highlight user3  ctermbg=8    ctermfg=7    cterm=bold
-	highlight user4  ctermbg=NONE ctermfg=NONE cterm=NONE
-	highlight user7  ctermbg=NONE ctermfg=8    cterm=NONE
-	highlight user8  ctermbg=8    ctermfg=0    cterm=NONE
-	highlight user9  ctermbg=8    ctermfg=7    cterm=NONE
+	highlight user1 ctermbg=15   ctermfg=0    cterm=NONE
+	highlight user2 ctermbg=8    ctermfg=15   cterm=NONE
+	highlight user3 ctermbg=8    ctermfg=7    cterm=bold
+	highlight user4 ctermbg=NONE ctermfg=NONE cterm=NONE
+	highlight user7 ctermbg=NONE ctermfg=8    cterm=NONE
+	highlight user8 ctermbg=8    ctermfg=0    cterm=NONE
+	highlight user9 ctermbg=8    ctermfg=7    cterm=NONE
+
+	exe 'highlight user1 guibg=' . g:color2  . ' guifg=' . g:color0
+	exe 'highlight user2 guibg=' . g:color8  . ' guifg=' . g:color7
+	exe 'highlight user3 guibg=' . g:color8  . ' guifg=' . g:color7
+	exe 'highlight user4 guibg=NONE'         . ' guifg=NONE'
+	exe 'highlight user7 guibg=NONE'         . ' guifg=' . g:color8
+	exe 'highlight user8 guibg=' . g:color8  . ' guifg=' . g:color0
+	exe 'highlight user9 guibg=' . g:color8  . ' guifg=' . g:color7
+
 	let l:line.='%9*%1* %{g:curmode[mode()]}%  %9*%2* '
 	let l:line.=' '
 	let l:line.=GitBranch()
@@ -149,8 +159,8 @@ endfunction
 
 function! Modified() abort
 	if &modified
-		"return '[+] '
-		return ' '
+		return '+ '
+		"return ' '
 	else
 		return ''
 	endif

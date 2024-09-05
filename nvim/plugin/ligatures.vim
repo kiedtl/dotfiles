@@ -1,3 +1,8 @@
+" Disable for now
+if v:true
+	finish
+endif
+
 " we need the conceal feature (vim ≥ 7.3)
 if !has('conceal')
     finish

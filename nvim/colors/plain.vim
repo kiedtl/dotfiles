@@ -12,38 +12,41 @@
 
 hi clear
 
+source ~/.cache/wal/colors.vim
+
 if exists('syntax on')
     syntax reset
 endif
 
 let g:colors_name='plain'
 
-let s:black           = { "gui": "#222222", "cterm": "0"  }
-let s:medium_gray     = { "gui": "#767676", "cterm": "8"  }
-let s:white           = { "gui": "#F1F1F1", "cterm": "7"  }
-let s:actual_white    = { "gui": "#FFFFFF", "cterm": "15" }
-let s:light_black     = { "gui": "#424242", "cterm": "8"  }
-let s:lighter_black   = { "gui": "#545454", "cterm": "8"  }
-let s:subtle_black    = { "gui": "#303030", "cterm": "8"  }
-let s:light_gray      = { "gui": "#999999", "cterm": "7" }
-let s:lighter_gray    = { "gui": "#CCCCCC", "cterm": "7"  }
-let s:lightest_gray   = { "gui": "#E5E5E5", "cterm": "13" }
-let s:pink            = { "gui": "#FB007A", "cterm": "5"  }
-let s:dark_red        = { "gui": "#C30771", "cterm": "1"  }
-let s:light_red       = { "gui": "#E32791", "cterm": "1"  }
-let s:orange          = { "gui": "#D75F5F", "cterm": "9"  }
-let s:darker_blue     = { "gui": "#005F87", "cterm": "4"  }
-let s:dark_blue       = { "gui": "#008EC4", "cterm": "4"  }
-let s:blue            = { "gui": "#20BBFC", "cterm": "4"  }
-let s:light_blue      = { "gui": "#B6D6FD", "cterm": "4"  }
-let s:dark_cyan       = { "gui": "#20A5BA", "cterm": "6"  }
-let s:light_cyan      = { "gui": "#4FB8CC", "cterm": "6"  }
-let s:dark_green      = { "gui": "#10A778", "cterm": "2"  }
-let s:light_green     = { "gui": "#5FD7A7", "cterm": "2"  }
-let s:dark_purple     = { "gui": "#523C79", "cterm": "5"  }
-let s:light_purple    = { "gui": "#6855DE", "cterm": "5"  }
-let s:light_yellow    = { "gui": "#F3E430", "cterm": "2"  }
-let s:dark_yellow     = { "gui": "#A89C14", "cterm": "2"  }
+let s:black           = { "gui": g:color0,  "cterm": "0"  }
+let s:medium_gray     = { "gui": g:color8,  "cterm": "8"  }
+let s:white           = { "gui": g:color7,  "cterm": "7"  }
+let s:actual_white    = { "gui": g:color15, "cterm": "15" }
+let s:light_black     = { "gui": g:color8,  "cterm": "8"  }
+let s:lighter_black   = { "gui": g:color8,  "cterm": "8"  }
+let s:subtle_black    = { "gui": g:color8l, "cterm": "8"  }
+let s:subtlest_black  = { "gui": g:color8ll,"cterm": "8"  }
+let s:light_gray      = { "gui": g:color7,  "cterm": "7"  }
+let s:lighter_gray    = { "gui": g:color7l, "cterm": "7"  }
+let s:lightest_gray   = { "gui": g:color7ll,"cterm": "7"  }
+let s:pink            = { "gui": g:color5,  "cterm": "5"  }
+let s:dark_red        = { "gui": g:color1,  "cterm": "1"  }
+let s:light_red       = { "gui": g:color1,  "cterm": "1"  }
+let s:orange          = { "gui": g:color9,  "cterm": "9"  }
+let s:darker_blue     = { "gui": g:color4,  "cterm": "4"  }
+let s:dark_blue       = { "gui": g:color4,  "cterm": "4"  }
+let s:blue            = { "gui": g:color4,  "cterm": "4"  }
+let s:light_blue      = { "gui": g:color4,  "cterm": "4"  }
+let s:dark_cyan       = { "gui": g:color6,  "cterm": "6"  }
+let s:light_cyan      = { "gui": g:color6,  "cterm": "6"  }
+let s:dark_green      = { "gui": g:color2,  "cterm": "2"  }
+let s:light_green     = { "gui": g:color2,  "cterm": "2"  }
+let s:dark_purple     = { "gui": g:color5,  "cterm": "5"  }
+let s:light_purple    = { "gui": g:color5,  "cterm": "5"  }
+let s:light_yellow    = { "gui": g:color2,  "cterm": "2"  }
+let s:dark_yellow     = { "gui": g:color2,  "cterm": "2"  }
 
 let s:col_10          = { "gui": "",        "cterm": "10" }
 let s:col_14          = { "gui": "",        "cterm": "14" }
@@ -52,8 +55,10 @@ if &background == "dark"
   let s:bg              = s:black
   let s:bg_subtle       = s:light_black
   let s:bg_very_subtle  = s:subtle_black
-  let s:norm            = s:lighter_gray
-  let s:norm_subtle     = s:light_gray
+  let s:bg_vvery_subtle = s:subtlest_black
+  let s:norm            = s:light_gray
+  let s:norm_subtle     = s:lighter_gray
+  let s:norm_very_subtle= s:lightest_gray
   let s:purple          = s:light_purple
   let s:cyan            = s:light_cyan
   let s:green           = s:light_green
@@ -100,9 +105,9 @@ endfunction
 
 call s:h("Normal",        {"bg": s:bg, "fg": s:norm,})
 call s:h("Noise",         {"bg": s:bg, "fg": s:norm_subtle})
-call s:h("Cursor",        {"bg": s:black, "fg": s:norm})
-call s:h("Comment",       {"fg": s:comment, "cterm": "italic"})
-call s:h("Function",      {"fg": s:norm, "cterm": "bold"})
+call s:h("Cursor",        {"bg": s:norm, "fg": s:norm})
+call s:h("Comment",       {"fg": s:comment, "cterm": "italic", "gui": "italic"})
+call s:h("Function",      {"fg": s:norm, "cterm": "bold", "gui": "bold"})
 
 call s:h("Constant",      {"bg": s:bg, "fg": s:constant})
 hi! link Character        Constant
@@ -115,7 +120,7 @@ hi! link String           Constant
 hi! link Identifier       Normal
 
 "hi! link Statement        Normal
-call s:h("Statement",     {"bg": s:bg, "fg": s:norm, "cterm": "bold"})
+call s:h("Statement",     {"bg": s:bg, "fg": s:norm, "cterm": "bold", "gui": "bold"})
 hi! link Conditonal       Statement
 hi! link Repeat           Statement
 hi! link Label            Statement
@@ -136,8 +141,8 @@ hi! link StorageClass     Type
 hi! link Structure        Type
 hi! link Typedef          Type
 
-"call s:h("Special",       {"fg": s:pink})
-hi! link Special          StatusLine
+call s:h("Special",       {"fg": s:purple})
+"hi! link Special          StatusLine
 hi! link SpecialChar      Special
 hi! link Tag              Special
 hi! link Delimiter        Special
@@ -153,18 +158,16 @@ call s:h("Todo",          {"fg": s:actual_white, "bg": s:black, "gui": "bold", "
 call s:h("SpecialKey",    {"fg": s:subtle_black})
 call s:h("NonText",       {"fg": s:bg_very_subtle})
 call s:h("Directory",     {"fg": s:dark_green})
-call s:h("ErrorMsg",      {"fg": s:pink})
+call s:h("ErrorMsg",      {"fg": s:red})
 call s:h("IncSearch",     {"bg": s:selection, "fg": s:black})
 call s:h("Search",        {"bg": s:selection, "fg": s:black})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
-call s:h("LineNr",        {"fg": s:light_gray})
-call s:h("CursorLineNr",  {"fg": s:actual_white, "bg": s:bg})
 call s:h("Question",      {"fg": s:red})
 call s:h("VertSplit",     {"bg": s:bg, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:white, "cterm": "bold", "gui": "bold"})
 call s:h("Visual",        {"bg": s:bg_subtle})
-call s:h("VisualNOS",     {"bg": s:bg_very_subtle})
+call s:h("VisualNOS",     {"bg": s:bg_subtle})
 call s:h("WarningMsg",    {"fg": s:warning})
 call s:h("WildMenu",      {"fg": s:white, "bg": s:bg})
 call s:h("Folded",        {"fg": s:medium_gray})
@@ -175,15 +178,24 @@ call s:h("DiffChange",    {"fg": s:dark_yellow})
 call s:h("DiffText",      {"fg": s:dark_green})
 call s:h("SignColumn",    {"fg": s:medium_gray})
 
+call s:h("NormalFloat",      {"bg": s:bg_subtle})
+call s:h("FloatBorder",      {"bg": s:black})
+call s:h("DiagnosticError",  {"fg": s:red})
+call s:h("DiagnosticWarn",   {"fg": s:warning})
+call s:h("DiagnosticInfo",   {"fg": s:medium_gray, "gui": "italic"})
+call s:h("DiagnosticHint",   {"fg": s:white, "gui": "italic"})
+call s:h("DiagnosticOk",     {"fg": s:green})
+call s:h("@variable",        {"fg": s:white})
+
 if has("gui_running")
   call s:h("SpellBad",    {"gui": "underline", "sp": s:red})
   call s:h("SpellCap",    {"gui": "underline", "sp": s:light_green})
-  call s:h("SpellRare",   {"gui": "underline", "sp": s:pink})
+  call s:h("SpellRare",   {"gui": "underline", "sp": s:red})
   call s:h("SpellLocal",  {"gui": "underline", "sp": s:dark_green})
 else
   call s:h("SpellBad",    {"cterm": "underline", "fg": s:red})
   call s:h("SpellCap",    {"cterm": "underline", "fg": s:light_green})
-  call s:h("SpellRare",   {"cterm": "underline", "fg": s:pink})
+  call s:h("SpellRare",   {"cterm": "underline", "fg": s:red})
   call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark_green})
 endif
 
@@ -207,14 +219,15 @@ call s:h("PmenuSel",      {"fg": s:green, "bg": s:bg_very_subtle, "gui": "bold"}
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 
-call s:h("TabLine",       {"fg": s:norm_subtle, "bg": s:bg_subtle})
-call s:h("TabLineSel",    {"fg": s:bg, "bg": s:norm_subtle, "gui": "bold", "cterm": "bold"})
-call s:h("TabLineFill",   {"fg": s:norm_subtle, "bg": s:bg})
+call s:h("TabLine",       {"fg": s:norm_subtle, "bg": s:bg_subtle, "gui": "italic", "cterm": "italic"})
+call s:h("TabLineSel",    {"fg": s:norm, "bg": s:bg, "gui": "bold", "cterm": "bold"})
+call s:h("TabLineFill",   {"fg": s:norm, "bg": s:bg})
 
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"fg": s:actual_white, "bg": s:cursor_line})
-call s:h("CursorLineNr",  {"fg": s:actual_white, "bg": s:cursor_line})
-call s:h("ColorColumn",   {"bg": s:bg_very_subtle})
+call s:h("ColorColumn",   {"bg": s:bg_vvery_subtle})
+call s:h("LineNr",        {"fg": s:norm_subtle})
+call s:h("CursorLineNr",  {"fg": s:norm, "bg": s:cursor_line, "gui": "bold"})
 
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
 call s:h("qfLineNr",      {"fg": s:medium_gray})
