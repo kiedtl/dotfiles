@@ -19,7 +19,7 @@ override-redirect = true
 wm-restack        = i3
 fixed-center      = true
 
-monitor  =
+monitor  = ${env:MONITOR:}
 bottom   = true
 width    = 100%:-400
 height   = 20
@@ -36,7 +36,7 @@ padding-left  = 0
 padding-right = 0
 
 modules-left   = rcmen memory-label memory filesystem-label filesystem
-modules-center = mpd-label mpd
+modules-center = mpd-label mpd mpd-volume mpd-timeleft
 modules-right  = battery-label battery battery-charging brightness-label brightness powermenu
 
 radius = 5
@@ -50,7 +50,7 @@ override-redirect = true
 wm-restack        = i3
 fixed-center      = true
 
-monitor  =
+monitor  = ${env:MONITOR:}
 bottom   = false
 width    = 100%:-400
 height   = 20
@@ -83,7 +83,7 @@ border-color  = ${colors.bg}
 [colors]
 fg = ${xrdb:polybar.fg:#e1e2e2}
 bg = ${xrdb:polybar.bg:#192222}
-ac = ${xrdb:color2:#884444}
+ac = ${xrdb:polybar.ac:#884444}
 gr = ${xrdb:color8:#884444}
 bl = ${xrdb:color7:#884444}
 
@@ -640,7 +640,7 @@ format-online-foreground = ${colors.ac}
 format-playing = ${self.format-online}
 format-paused = ${self.format-online}
 
-format-stopped = " nah"
+format-stopped = "%{A:cantata:} nah%{A}"
 format-stopped-prefix = 
 
 ; Available tags:
@@ -688,6 +688,20 @@ bar-progress-empty = ━
 bar-progress-fill-foreground = ${colors.ac}
 bar-progress-empty-foreground = ${colors.gr}
 
+[module/mpd-volume]
+type = custom/script
+exec = mpc status | awk '/volume/ { print $2 }'
+exec-if = [ ! -z "$(mpc current)" ]
+scroll-up = mpc volume +5
+scroll-down = mpc volume -5
+interval = 1
+
+[module/mpd-timeleft]
+type = custom/script
+exec = timeleft
+exec-if = [ ! -z "$(mpc current)" ]
+interval = 60
+
 ;; experimental, doesn't seem to be in xbps' polybar...
 [module/tray]
 type = internal/tray
@@ -702,4 +716,4 @@ content-background = ${colors.ac}
 [module/updoots]
 type = custom/script
 exec = ~/etc/polybar/scripts/get-upgradable-packages
-interval = 100
+interval = 200

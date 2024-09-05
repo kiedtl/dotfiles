@@ -42,10 +42,12 @@ the peaceful &
 
 xhost +localhost
 
-mpd --kill
-mpd &
+has mpd && mpd --kill
+has mpd && mpd &
+has owl && sudo owl -i $(interface)
 mppopmd -F &
 devmon &
 xautolock -time 30 -locker 'i3lock-fancy -pf Fira-Code-Regular' &
 pulseaudio &
+init-touchscreen &
 exec ssh-agent i3

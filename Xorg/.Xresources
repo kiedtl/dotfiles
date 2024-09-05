@@ -8,7 +8,7 @@
 !    ---
 !   herbe
 !    ---
-herbe.font_pattern: cursed:size=16
+herbe.font_pattern: cursed:size=36
 herbe.line_spacing: 5
 herbe.padding:      16
 herbe.width:        450

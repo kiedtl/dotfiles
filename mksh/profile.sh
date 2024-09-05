@@ -12,7 +12,7 @@ export PATH="$HOME/bin:$HOME/bin/net:$PATH"
 export PATH="$HOME/bin/x11:$HOME/bin/lib:$PATH"
 export PATH="$HOME/bin/srv:$PATH"
 export PATH="$HOME/.luarocks/bin/:$PATH"
-export PATH="$HOME/zig/bin/:$PATH"
+export PATH="$HOME/zig/bin/:$HOME/zig12/:$PATH"
 export PATH="$HOME/src/uxn/uxn/:$PATH"
 
 IS_SSH=false
@@ -70,6 +70,9 @@ export MEBS_DEBUG=16
 export IRSSI_HOME="$HOME/etc/irssi/"
 export WEECHAT_HOME="$HOME/etc/weechat/"
 alias irssi="irssi --home $IRSSI_HOME"
+
+# touchscreen firefox
+export MOZ_USE_XINPUT2=1
 
 # pastel config
 export PASTEL_COLOR_MODE=24bit
@@ -131,8 +134,10 @@ fi
 alias date1='date +%Y-%m-%d'
 alias gst='git status'               # darn you, git
 alias gpu='git push'                 # ...
+alias gunstage='git restore --staged' # ...
 alias gco='git commit'               # ...
 alias gcom='git commit -m'           # ...
+alias gundo='git reset --soft HEAD^' # ...
 gc() { h="$1" x="$2"; shift 2; git clone "https://github.com/$h/$x" "$@" --recurse; }
 alias p='pwd'                        # where does laziness become insanity?
 alias h='cd ~'                       # ...
@@ -212,3 +217,4 @@ PS1="] "
 # GWSL thing
 #export DISPLAY=$(ip route list default | awk '{print $3}'):0
 #export LIBGL_ALWAYS_INDIRECT=1
+. "$HOME/.cargo/env"

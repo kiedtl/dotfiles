@@ -3,8 +3,11 @@
 #      ----------
 
 # Set borders, and float by default.
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 4
 for_window [class="^.*"] floating enable
+
+# Focus urgent windows.
+for_window [urgent=latest] focus
 
 set $mod Mod4
 set $term alacritty
@@ -20,12 +23,13 @@ set_from_resource $fg i3wm.color7
 set_from_resource $bg i3wm.color0
 set_from_resource $border_inactive i3wm.color8
 set_from_resource $border_active i3wm.color2
+set_from_resource $border_urgent i3wm.color1
 
-# class                 border  			backgr. text 	indicator child_border
-client.focused          $border_active     	$bg     $fg  	$bg       $border_active
-client.focused_inactive $border_inactive   	$bg     $fg  	$bg       $border_inactive
-client.unfocused        $border_inactive	$bg     $fg  	$bg       $border_inactive
-client.urgent           $border_inactive   	$bg     $fg  	$bg       $border_inactive
+# class                 border  	 		backgr. text 	indicator child_border
+client.focused          $border_active   	$bg     $fg  	$bg       $border_active
+client.focused_inactive $border_inactive 	$bg     $fg  	$bg       $border_inactive
+client.unfocused        $border_inactive 	$bg     $fg  	$bg       $border_inactive
+client.urgent           $border_urgent   	$bg     $fg  	$bg       $border_urgent
 client.placeholder      $border_inactive 	$bg     $fg  	$bg       $border_inactive
 
 client.background       $bg
@@ -72,6 +76,7 @@ bindsym $mod+Ctrl+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+x fullscreen toggle
+bindsym $mod+Shift+x move workspace to output next
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -86,8 +91,8 @@ bindsym $mod+t focus mode_toggle
 
 # $mod+a: focus the parent container
 # $mod+d: focus the child container
-#bindsym $mod+a focus parent
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus parent
+bindsym $mod+Shift+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -112,6 +117,17 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
+# swap workspaces
+bindsym $mod+Control+1 exec wksswp $ws1
+bindsym $mod+Control+2 exec wksswp $ws2
+bindsym $mod+Control+3 exec wksswp $ws3
+bindsym $mod+Control+4 exec wksswp $ws4
+bindsym $mod+Control+5 exec wksswp $ws5
+bindsym $mod+Control+6 exec wksswp $ws6
+bindsym $mod+Control+7 exec wksswp $ws7
+bindsym $mod+Control+8 exec wksswp $ws8
+bindsym $mod+Control+9 exec wksswp $ws9
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -126,7 +142,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec i3-msg exit
-bindsym $mod+Shift+x exec i3lock-fancy -f Fira-Code-Regular
+bindsym $mod+Shift+o exec i3lock-fancy -f Fira-Code-Regular
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
