@@ -1,0 +1,86 @@
+live_config_reload = true
+#tabspaces = 8
+working_directory = "None"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 7.0
+
+[font.bold]
+family = "firacode"
+style = "Bold"
+
+[font.bold_italic]
+family = "firacode"
+style = "Bold Italic"
+
+[font.italic]
+family = "firacode"
+
+[font.normal]
+family = "firacode"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
+
+[mouse]
+hide_when_typing = false
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+#[visual_bell]
+#animation = "EaseOutExpo"
+#color = "0xffffff"
+#duration = 3
+
+[window]
+opacity = 1.0
+title = "terminal"
+
+[window.padding]
+x = 16
+y = 16
