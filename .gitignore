@@ -1,6 +1,8 @@
 # random programs that don't belong in etc/
 glib*
 hub
+zoom*
+chromium/
 keybase/
 msmtp/
 mutt/
@@ -19,3 +21,7 @@ kopia/
 kopia-ui/
 gh/
 libreoffice/
+Symphonie/
+
+# has secrets :(
+senpai/
