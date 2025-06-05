@@ -12,7 +12,7 @@ export PATH="$HOME/bin:$HOME/bin/net:$PATH"
 export PATH="$HOME/bin/x11:$HOME/bin/lib:$PATH"
 export PATH="$HOME/bin/srv:$PATH"
 export PATH="$HOME/.luarocks/bin/:$PATH"
-export PATH="$HOME/zig/bin/:$HOME/zig12/:$PATH"
+export PATH="$HOME/zig/bin/:$HOME/zig13/:$HOME/zig14/:$PATH"
 export PATH="$HOME/src/uxn/uxn/:$PATH"
 
 IS_SSH=false
@@ -82,6 +82,7 @@ export MAIL="${HOME}/var/mail/INBOX"
 
 # for Rust development
 export RUST_BACKTRACE=1
+export SYMPHONIE_BUILD_DYNAMIC=1
 
 # Lua stuff
 export LUA_PATH='./?.lua;/home/kiedtl/.luarocks/share/lua/5.3/?.lua;/home/kiedtl/.luarocks/share/lua/5.3/?/init.lua;/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.lua;/home/kiedtl/.luarocks/share/lua/5.3/?.lua;/usr/local/lib/lua/5.3/?.lua;/usr/local/lib/lua/5.3/?/init.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;./?.lua;./?/init.lua'

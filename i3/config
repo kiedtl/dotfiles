@@ -22,7 +22,7 @@ title_align center
 set_from_resource $fg i3wm.color7
 set_from_resource $bg i3wm.color0
 set_from_resource $border_inactive i3wm.color8
-set_from_resource $border_active i3wm.color2
+set_from_resource $border_active i3wm.color3
 set_from_resource $border_urgent i3wm.color1
 
 # class                 border  	 		backgr. text 	indicator child_border

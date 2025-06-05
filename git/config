@@ -14,7 +14,7 @@
 	confirm = auto
 
 [pull]
-	rebase = false
+	rebase = true
 [commit]
 	verbose = true
 [init]
@@ -24,3 +24,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[lfs]
+	cachecredentials = true
+[push]
+	autoSetupRemote = true

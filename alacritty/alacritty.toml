@@ -1,6 +1,3 @@
-live_config_reload = true
-#tabspaces = 8
-working_directory = "None"
 
 [cursor]
 style = "Block"
@@ -84,3 +81,8 @@ title = "terminal"
 [window.padding]
 x = 16
 y = 16
+
+[general]
+live_config_reload = true
+#tabspaces = 8
+working_directory = "None"

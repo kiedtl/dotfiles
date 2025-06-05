@@ -1,0 +1,13 @@
+len(x, y, z) = sqrt(x^2 + y^2 + z^2)
+lenv(v) = sqrt(v[[1]]^2 + v[[2]]^2 + v[[3]]^2)
+
+cross(x, y, z, X, Y, Z) = (yZ - zY, zX - xZ, xY - yX)
+vec(x, y, z, X, Y, Z) = (X - x, Y - y, Z - z)
+
+choose(a, b) = a!/(b!*(a-b)!)
+permuts(n, r) = n! / (n - r)!
+
+binompdf(n, k, p) = choose(n, k) * p^k * (1 - p)^(n - k)
+neggeom(y, r, p) = choose(y - 1, r - 1)*p^r*(1-p)^(y-r)
+
+exppdf(m, y) = 1/m*e^(-y/m)

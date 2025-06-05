@@ -122,7 +122,8 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-nnoremap <Leader>b yypV:!mybib<CR>gq}
+nnoremap <leader>b V:!mybib<CR>gq}
+nnoremap <Leader>B yypV:!mybib typst<CR>kdd
 
 " mappings for easy-align
 nmap ga <Plug>(EasyAlign)
@@ -159,6 +160,7 @@ command! Q  q
 " set indentation settings
 augroup indents
 	autocmd!
+	autocmd FileType java        setlocal ts=4       sw=4
 	autocmd FileType lua,rs,sh   setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType scm,lisp,fe setlocal ts=2 sts=2 sw=2 expandtab
 augroup END

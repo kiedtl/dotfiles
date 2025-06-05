@@ -36,7 +36,8 @@ padding-left  = 0
 padding-right = 0
 
 modules-left   = rcmen memory-label memory filesystem-label filesystem
-modules-center = mpd-label mpd mpd-volume mpd-timeleft
+#modules-center = mpd-label mpd mpd-volume mpd-timeleft
+modules-center = title
 modules-right  = battery-label battery battery-charging brightness-label brightness powermenu
 
 radius = 5
@@ -83,7 +84,8 @@ border-color  = ${colors.bg}
 [colors]
 fg = ${xrdb:polybar.fg:#e1e2e2}
 bg = ${xrdb:polybar.bg:#192222}
-ac = ${xrdb:polybar.ac:#884444}
+ac = ${xrdb:color3:#884444}
+#ac = ${xrdb:polybar.ac:#884444}
 gr = ${xrdb:color8:#884444}
 bl = ${xrdb:color7:#884444}
 
@@ -522,7 +524,7 @@ interval = 100
 ;content = "net:"
 ;content-foreground = ${colors.ac}
 type = internal/network
-interface = wlan0
+interface = wlp0s20f3
 
 interval  = 5
 accumulate-stats = true
@@ -546,7 +548,7 @@ ramp-signal-3 = 
 
 [module/network]
 type = internal/network
-interface = wlan0
+interface = wlp0s20f3
 
 interval  = 5
 accumulate-stats = true

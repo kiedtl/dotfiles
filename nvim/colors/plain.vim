@@ -185,6 +185,7 @@ call s:h("DiagnosticWarn",   {"fg": s:warning})
 call s:h("DiagnosticInfo",   {"fg": s:medium_gray, "gui": "italic"})
 call s:h("DiagnosticHint",   {"fg": s:white, "gui": "italic"})
 call s:h("DiagnosticOk",     {"fg": s:green})
+call s:h("QuickFixLine",     {"fg": s:red})
 call s:h("@variable",        {"fg": s:white})
 
 if has("gui_running")
@@ -231,6 +232,7 @@ call s:h("CursorLineNr",  {"fg": s:norm, "bg": s:cursor_line, "gui": "bold"})
 
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
 call s:h("qfLineNr",      {"fg": s:medium_gray})
+call s:h("qfFileName",    {"fg": s:medium_gray})
 
 call s:h("htmlH1",        {"bg": s:bg, "fg": s:norm})
 call s:h("htmlH2",        {"bg": s:bg, "fg": s:norm})
@@ -310,3 +312,6 @@ hi link markdownHeadingDelimiter   Constant
 call s:h("cssBraces",     {"bg": s:bg, "fg": s:selection})
 hi link cssTextProp Noise
 hi link cssTagName Normal
+
+call s:h("finwe_StackOp", {"fg": s:white, "cterm": "italic", "gui": "italic"})
+hi link finwe_Macro jsSpreadOperator

@@ -41,7 +41,7 @@ function! StatusLine() abort
 	highlight user8 ctermbg=8    ctermfg=0    cterm=NONE
 	highlight user9 ctermbg=8    ctermfg=7    cterm=NONE
 
-	exe 'highlight user1 guibg=' . g:color2  . ' guifg=' . g:color0
+	exe 'highlight user1 guibg=' . g:color3  . ' guifg=' . g:color0
 	exe 'highlight user2 guibg=' . g:color8  . ' guifg=' . g:color7
 	exe 'highlight user3 guibg=' . g:color8  . ' guifg=' . g:color7
 	exe 'highlight user4 guibg=NONE'         . ' guifg=NONE'
