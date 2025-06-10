@@ -30,6 +30,8 @@ if has nvim; then
     # Unfortunately, it's also really slow.
     #export MANPAGER="nvim -c 'set ft=man' -"
     #export MANWIDTH=$(stty size | cut -d' ' -f2)
+elif has vim; then
+	export EDITOR="vim"
 else
     export EDITOR="vi"
 fi
@@ -40,6 +42,13 @@ export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"                    # vim: enable 256 colors already
 export XDG_CONFIG_HOME="${HOME}/etc"
 export LD_LIBRARY_PATH=~/local/lib:$LD_LIBRARY_PATH
+export XDG_RUNTIME_DIR=/tmp/user-$(id -u)-run
+
+# Create XDG_RUNTIME_DIR directory.
+[ -d $XDG_RUNTIME_DIR ] || {
+	mkdir -p   "$XDG_RUNTIME_DIR"
+	chmod 0700 "$XDG_RUNTIME_DIR"
+}
 
 # mksh settings
 export HISTFILE="$HOME/opt/.cache/mksh/history.txt"
@@ -90,8 +99,8 @@ export LUA_CPATH='/home/kiedtl/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3
 
 # for KISS Linux
 # source kiss path if it exists
-[ -f /etc/profile.d/kiss_path.sh ] && \
-    . /etc/profile.d/kiss_path.sh
+has kiss &&
+	export KISS_PATH=/repo/core:/repo/extra:/repo/wayland:/community/community
 
 # source stuff from ~/bin
 . ~/bin/shtat
@@ -170,7 +179,7 @@ esac
 #
 # I mean, it's been in here for ages anyway, since my first distro (Manjaro) in
 # fact, so why bother taking it out...
-xhost +local:root >/dev/null 2>&1
+has xhost && xhost +local:root >/dev/null 2>&1
 
 if has paleta && has colors && [ "$IS_SSH" = "false" ]; then
     colors | paleta 2>/dev/null >&2      # retrieve colorscheme
@@ -218,4 +227,4 @@ PS1="] "
 # GWSL thing
 #export DISPLAY=$(ip route list default | awk '{print $3}'):0
 #export LIBGL_ALWAYS_INDIRECT=1
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
