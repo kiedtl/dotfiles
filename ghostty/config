@@ -49,7 +49,7 @@
 # 
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
-font-family = "Victor Mono"
+font-family = "Fira Code"
 
 font-family-bold = default
 font-family-italic = default
@@ -94,7 +94,7 @@ font-feature =
 # On Linux with GTK, font size is scaled according to both display-wide and
 # text-specific scaling factors, which are often managed by your desktop
 # environment (e.g. the GNOME display scale and large text settings).
-font-size = 13
+font-size = 11
 
 # What color space to use when performing alpha blending.
 # 

@@ -1,0 +1,111 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "left",
+    "exclusive": true,
+    "width": 40,
+    "spacing": 6,
+    "modules-left": [
+        "niri/workspaces",
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "pulseaudio",
+        "pulseaudio/slider",
+        "network",
+        "memory",
+        "disk",
+        "backlight",
+        "battery",
+        "clock",
+        "tray",
+    ],
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+        "justify": "center",
+        // "timezone": "America/New_York",
+        "format": "{:%H\n%M}",
+        "tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "memory": {
+        "justify": "center",
+        "format": "<span font-family='cursed_icons'>{icon}</span>\n{used:0.1f}",
+        "format-icons": ["", "", "", ""]
+    },
+    "disk": {
+        "justify": "center",
+        "format": "<span font-family='cursed_icons'></span>\n{specific_free:0.1f}",
+        "unit": "GB",
+        //"format-icons": ["", "", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "justify": "center",
+        "format": "<span font-family='cursed_icons'>\ue013</span>\n{percent}%"
+    },
+    "battery": {
+        "justify": "center",
+        "states": {
+            "good": 60,
+            "warning": 20,
+            "critical": 7
+        },
+        "format": "<span font-family='cursed_icons'>{icon}</span>\n{capacity}%",
+        "format-full": "<span font-family='cursed_icons'>{icon}</span>\n{capacity}%",
+        "format-charging": "<span font-family='cursed_icons'>{icon}</span>*\n{capacity}%",
+        "format-plugged": "\n{capacity}%",
+        "tooltip-format": "{time} left",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["\ue029", "\ue02a", "\ue02b", "\ue02c"],
+    },
+    "network": {
+        "justify": "center",
+        "format-wifi": "<span font-family='cursed_icons'>{icon}</span>\n{signalStrength}%",
+        "format-ethernet": "<span font-family='cursed_icons'>{icon}</span>\neth",
+        "format-linked": "<span font-family='cursed_icons'>{icon}</span>\nnoip",
+        "format-disconnected": "<span font-family='cursed_icons'>{icon}</span>\nnah!",
+        "format-icons": ["", "", "", ""],
+        "tooltip-format": "{essid}\n{ifname}\n{gwaddr}",
+        "on-click": "wifimen"
+    },
+    "pulseaudio": {
+        "justify": "center",
+	"scroll-step": 3,
+        "format": "<span font-family='cursed_icons'>{icon}</span>\n←{volume}%\n{format_source}",
+        "format-bluetooth": "{volume}% <span font-family='cursed_icons'>{icon}</span> {format_source}",
+        "format-bluetooth-muted": "<span font-family='cursed_icons'>{icon}</span> {format_source}",
+        "format-muted": "<span font-family='cursed_icons'>{icon}</span>\n←M!\n{format_source}",
+        "format-source": "→{volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "H",
+            "headset": "H",
+            "phone": "P",
+            "portable": "P",
+            "default": ["\ue055", "\ue056", "\ue057", "\ue058"],
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "pulseaudio/slider": {
+        "orientation": "vertical",
+        "scroll-step": 3
+    },
+}

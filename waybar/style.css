@@ -1,0 +1,244 @@
+@import '/home/kiedtl/.cache/wal/waybar.css';
+
+@define-color mbg mix(@color1, @background, 0.7);
+@define-color mfg mix(@color1, @foreground, 0.5);
+
+* {
+    font-family: cursed_icons, cursed, Fira Code, monospace;
+    font-size: 11pt;
+}
+
+box.vertical {
+    padding: 2px;
+}
+
+window#waybar {
+    border-right: 2px solid @color1;
+    background-color: @background;
+    color: @mfg;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @foreground;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: @color1;
+    color: @background;
+}
+
+#workspaces button.urgent {
+    background-color: @color2;
+    color: @background;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#pulseaudio-slider,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    background-color: @mbg;
+    padding: 5px 5px;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: @foreground;
+    color: @background;
+}
+
+#battery {
+    color: @background;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: @color2;
+    color: @background;
+}
+
+@keyframes blink {
+    to {
+        background-color: @background;
+        color: @foreground;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @color3;
+    color: @background;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    color: #000000;
+}
+
+#memory {
+}
+
+#disk {
+}
+
+#backlight {
+}
+
+#network {
+}
+
+#network.disconnected {
+}
+
+#pulseaudio {
+}
+
+#pulseaudio-slider {
+    background-color: @background;
+    min-height: 80px;
+}
+
+#pulseaudio-slider slider {
+    background-color: @color1;
+    border: none;
+    border-radius: 3px;
+    min-width: 3px;
+}
+
+#pulseaudio-slider trough {
+    border: none;
+    background-color: @color8;
+    min-width: 3px;
+    color: @color3;
+}
+
+#pulseaudio-slider highlight {
+    background-color: @color1;
+    border: none;
+    min-width: 3px;
+    color: @color3;
+}
+
+#tray {
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: @foreground;
+    color: @background;
+}
+
+#idle_inhibitor.activated {
+    background-color: @color1;
+}
+
+#mpd {
+}
+
+#mpd.disconnected {
+}
+
+#mpd.stopped {
+}
+
+#mpd.paused {
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
