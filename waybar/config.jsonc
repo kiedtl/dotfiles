@@ -87,7 +87,7 @@
     },
     "pulseaudio": {
         "justify": "center",
-	"scroll-step": 3,
+        "scroll-step": 3,
         "format": "<span font-family='cursed_icons'>{icon}</span>\n←{volume}%\n{format_source}",
         "format-bluetooth": "{volume}% <span font-family='cursed_icons'>{icon}</span> {format_source}",
         "format-bluetooth-muted": "<span font-family='cursed_icons'>{icon}</span> {format_source}",
@@ -95,6 +95,7 @@
         "format-source": "→{volume}%",
         "format-source-muted": "",
         "format-icons": {
+            "hdmi": "=",
             "headphone": "H",
             "headset": "H",
             "phone": "P",

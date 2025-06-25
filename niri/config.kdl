@@ -55,29 +55,22 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
+output "eDP-5" {
+    mode "1920x1080@60"
+    backdrop-color "#3f3d3f" // @color15
+}
+
 output "eDP-1" {
     mode "1920x1080@60"
     scale 1
-
     transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=1280 y=0
+    backdrop-color "#3f3d3f" // @color15
 }
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
-    // Set gaps around windows in logical pixels.
     gaps 16
 
     // When to center a column when changing focus, options are:
@@ -122,15 +115,15 @@ layout {
 
     focus-ring {
         width 3
-        active-color "#e6eae3"
-        inactive-color "#0f0d12"
+        active-color "#e3eae3" // @color0
+        inactive-color "#001521" // @color7
     }
 
     border {
         width 3
-        active-color "#954c2d"
-        inactive-color "#0f0d12"
-        urgent-color "#9e652c"
+        active-color "#0f5512" // @color2
+        inactive-color "#001521" // @color7
+        urgent-color "#7a5a25" // @color3
     }
 
     struts {
@@ -161,38 +154,26 @@ prefer-no-csd
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
-
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     slowdown 0.5
 }
 
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+    match app-id=r#"imv"#
+    open-floating true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 // Example: block out two password managers from screen capture.
