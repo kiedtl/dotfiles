@@ -69,7 +69,7 @@
         "format": "<span font-family='cursed_icons'>{icon}</span>\n{capacity}%",
         "format-full": "<span font-family='cursed_icons'>{icon}</span>\n{capacity}%",
         "format-charging": "<span font-family='cursed_icons'>{icon}</span>*\n{capacity}%",
-        "format-plugged": "\n{capacity}%",
+        "format-plugged": "\ue02d\n{capacity}%",
         "tooltip-format": "{time} left",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",

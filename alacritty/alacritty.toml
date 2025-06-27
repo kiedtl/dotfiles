@@ -7,21 +7,21 @@ unfocused_hollow = true
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 10.0
 
 [font.bold]
-family = "terminus"
+family = "fira code"
 style = "Bold"
 
 [font.bold_italic]
-family = "terminus"
+family = "fira code"
 style = "Bold Italic"
 
 [font.italic]
-family = "terminus"
+family = "fira code"
 
 [font.normal]
-family = "cursed"
+family = "fira code"
 style = "Regular"
 
 [[keyboard.bindings]]
