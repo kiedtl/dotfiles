@@ -4,14 +4,15 @@
     "position": "left",
     "exclusive": true,
     "width": 40,
-    "spacing": 6,
+    "spacing": 4,
     "modules-left": [
         "niri/workspaces",
     ],
     "modules-center": [
+        "idle_inhibitor",
+        "mpd",
     ],
     "modules-right": [
-        "idle_inhibitor",
         "pulseaudio",
         "pulseaudio/slider",
         "network",
@@ -28,6 +29,32 @@
             "activated": "",
             "deactivated": ""
         }
+    },
+    "mpd": {
+        "justify": "center",
+        "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}\n{elapsedTime:%M%S}\n{totalTime:%M%S}",
+        "format-disconnected": "??",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}nah!",
+        "interval": 10,
+//        "consume-icons": {
+//            "on": " " // Icon shows only when "consume" is on
+//        },
+        "random-icons": {
+            "off": "",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": ""
+        },
+        "single-icons": {
+            "on": "1"
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "{title}\n{album}\n{artist}",
+        "tooltip-format-disconnected": "(disconnected)"
     },
     "tray": {
         // "icon-size": 21,
@@ -89,8 +116,8 @@
         "justify": "center",
         "scroll-step": 3,
         "format": "<span font-family='cursed_icons'>{icon}</span>\n←{volume}%\n{format_source}",
-        "format-bluetooth": "{volume}% <span font-family='cursed_icons'>{icon}</span> {format_source}",
-        "format-bluetooth-muted": "<span font-family='cursed_icons'>{icon}</span> {format_source}",
+        "format-bluetooth": "<span font-family='cursed_icons'>{icon}</span>\n*{volume}%\n{format_source}",
+        "format-bluetooth-muted": "<span font-family='cursed_icons'>{icon}</span>\n*M!\n{format_source}",
         "format-muted": "<span font-family='cursed_icons'>{icon}</span>\n←M!\n{format_source}",
         "format-source": "→{volume}%",
         "format-source-muted": "",

@@ -141,7 +141,11 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "xwayland-satellite :7"
+spawn-at-startup "xwayland-satellite" ":7"
+
+environment {
+    DISPLAY ":7"
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -164,6 +168,11 @@ animations {
 
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match title="^Symphonie"
     open-floating true
 }
 
